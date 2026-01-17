@@ -1,0 +1,19 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Atelier de código"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Inicio
+      - href: about.qmd
+        text: Sobre
+      - href: contacto.qmd
+        text: Contacto
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css

@@ -1,0 +1,5 @@
+---
+title: "Inicio"
+---
+
+Un lugar para aprender a programar de forma artesanal.
