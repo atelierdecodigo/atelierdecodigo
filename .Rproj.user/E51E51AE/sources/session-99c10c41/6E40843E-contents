@@ -17,5 +17,5 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: litera
     css: styles.css
