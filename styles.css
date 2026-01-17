@@ -1,1 +1,12 @@
+h1, h2, h3 {
+  margin-top: 2rem;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.page-columns {
+  max-width: 900px;
+}
 /* css styles */

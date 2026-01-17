@@ -1,5 +1,15 @@
 ---
-title: "Inicio"
+title: Atelier de código
 ---
 
-Un lugar para aprender a programar de forma artesanal.
+## Qué es Atelier de código
+
+Un espacio dedicado al aprendizaje de la ciencia de datos, 
+con foco en investigación, docencia y prácticas reproducibles.
+
+## Qué vas a encontrar acá
+
+- Materiales sobre R y análisis de datos
+- Proyectos abiertos y documentación
+- Tutorías y acompañamiento
+- Análisis de datos

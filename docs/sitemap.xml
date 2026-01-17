@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://atelierdecodigo.com/about.html</loc>
+    <lastmod>2026-01-17T15:01:06.494Z</lastmod>
+  </url>
+  <url>
+    <loc>https://atelierdecodigo.com/posts/r-lenguaje-programacion.html</loc>
+    <lastmod>2026-01-17T17:45:43.228Z</lastmod>
+  </url>
+  <url>
     <loc>https://atelierdecodigo.com/contact.html</loc>
-    <lastmod>2026-01-17T15:53:47.086Z</lastmod>
+    <lastmod>2026-01-17T15:01:06.494Z</lastmod>
   </url>
   <url>
     <loc>https://atelierdecodigo.com/index.html</loc>
-    <lastmod>2026-01-17T15:53:47.411Z</lastmod>
-  </url>
-  <url>
-    <loc>https://atelierdecodigo.com/about.html</loc>
-    <lastmod>2026-01-17T15:53:47.713Z</lastmod>
+    <lastmod>2026-01-17T17:21:41.014Z</lastmod>
   </url>
 </urlset>
