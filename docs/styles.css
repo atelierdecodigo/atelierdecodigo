@@ -10,3 +10,7 @@ p {
   max-width: 900px;
 }
 /* css styles */
+
+.quarto-listing-container {
+  max-width: 100%;
+}
