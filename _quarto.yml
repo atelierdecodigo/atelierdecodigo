@@ -15,7 +15,7 @@ website:
       - href: contact.qmd
         text: Contacto
       - href: posts/index.qmd
-        text: Publicaciones
+        text: Blog
 
 format:
   html:
