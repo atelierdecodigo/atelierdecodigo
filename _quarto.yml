@@ -16,6 +16,7 @@ website:
         text: Contacto
       - href: posts/index.qmd
         text: Blog
+  google-analytics: G-TDY574S9W1
 
 format:
   html:

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-01-17">
+<meta name="description" content="¿Qué es un IDE y por qué importa al empezar a programar en R? Este texto introduce la idea de entorno de desarrollo integrado, recorre los IDEs más comunes y se detiene en RStudio como espacio de trabajo pensado para el análisis académico. Una invitación a entender el entorno como mediador entre código, datos y prácticas de investigación.">
 
-<title>Blog – Atelier de código</title>
+<title>Los entornos de desarrollo integrado (o IDE, para los amigos) – Atelier de código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -70,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TDY574S9W1"></script>
 
 <script type="text/javascript">
@@ -109,35 +80,6 @@ gtag('js', new Date());
 gtag('config', 'G-TDY574S9W1', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -172,7 +114,7 @@ window.Quarto = {
 <span class="menu-text">Contacto</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../posts/index.html" aria-current="page"> 
+    <a class="nav-link" href="../posts/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -192,14 +134,25 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
+<h1 class="title">Los entornos de desarrollo integrado (o IDE, para los amigos)</h1>
 </div>
 
+<div>
+  <div class="description">
+    ¿Qué es un IDE y por qué importa al empezar a programar en R? Este texto introduce la idea de entorno de desarrollo integrado, recorre los IDEs más comunes y se detiene en RStudio como espacio de trabajo pensado para el análisis académico. Una invitación a entender el entorno como mediador entre código, datos y prácticas de investigación.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta column-page">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 17, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -209,59 +162,22 @@ window.Quarto = {
 </header>
 
 
+<p>Cuando alguien comienza a programar, una de las primeras confusiones habituales tiene que ver con el entorno de trabajo. ¿Dónde “vive” el código? ¿Se escribe en un archivo de texto común? ¿Se ejecuta desde una consola (y qué es una consola)? ¿Es lo mismo R que RStudio? Estas preguntas no son menores, porque remiten a una distinción clave: la diferencia entre un lenguaje de programación y el entorno en el que ese lenguaje se usa. En ese punto aparece la noción de <strong>IDE</strong>, sigla de <em>Integrated Development Environment</em>, o entorno de desarrollo integrado.</p>
+<p>Un IDE es un programa que reúne en un mismo espacio varias herramientas necesarias para programar. En términos generales, combina al menos cuatro componentes: un editor de código, una consola donde se ejecutan instrucciones, herramientas para explorar archivos y objetos, y ayudas para la escritura y lectura del código. El IDE no reemplaza al lenguaje de programación, sino que lo acompaña. R sigue siendo R, con su sintaxis y sus reglas, independientemente del IDE que se utilice. Sin embargo, la experiencia de trabajo cambia de manera sustantiva según el entorno elegido.</p>
+<p>Existen IDEs ampliamente utilizados en distintos lenguajes. Visual Studio Code es uno de los más populares en la actualidad y se usa para trabajar con múltiples lenguajes, desde R y Python hasta JavaScript. Eclipse tiene una larga tradición en el desarrollo en Java. Spyder es frecuente en el ecosistema Python, especialmente en contextos científicos. En el caso de R, el IDE más extendido es <strong>RStudio</strong>, que fue diseñado específicamente para trabajar con este lenguaje y con las prácticas habituales del análisis de datos. En los últimos años también apareció Positron, un IDE desarrollado por <a href="https://posit.co/">Posit</a> que retoma muchas de las ideas de RStudio y las articula con una lógica más generalista, orientada al trabajo con múltiples lenguajes. Sin embargo, en esta serie nos detendremos en <a href="https://posit.co/products/open-source/rstudio/?sid=1">RStudio</a> porque sigue siendo el entorno más extendido en el uso académico de R y porque su diseño está profundamente alineado con prácticas habituales de análisis, enseñanza y escritura reproducible en este lenguaje.</p>
+<p>RStudio se organiza en una interfaz que, a primera vista, puede resultar abrumadora: paneles, pestañas, botones, ventanas. Sin embargo, esa disposición responde a una lógica de trabajo que vale la pena comprender. En un panel suele encontrarse el editor de scripts, donde se escribe el código. En otro, la consola, que permite ejecutar líneas o bloques de código y ver inmediatamente sus resultados. Otros paneles muestran los objetos disponibles en la sesión, los archivos del proyecto, los gráficos generados o la documentación de las funciones. Esta organización no es decorativa. Propone una forma de pensar el trabajo con datos como una actividad distribuida entre escritura, ejecución, exploración y lectura. En <a href="https://macarenaquiroga.com/post/auxilio-tengo-datos-cuantitativos-y-ahora-qu-hago/">este post</a> hay una descripción sobre cómo se ve cada una de estas partes.</p>
+<p>El editor de scripts ocupa un lugar central. Allí el código se presenta como un texto que puede leerse, revisarse y modificarse. RStudio ofrece ayudas como el resaltado de sintaxis, la indentación automática y el autocompletado. Estas funciones no solo reducen errores técnicos, sino que facilitan la lectura del código. Colores, sangrías y sugerencias hacen visibles estructuras que, de otro modo, quedarían ocultas en una masa uniforme de caracteres. El IDE, en este sentido, actúa como un mediador que vuelve más legible el lenguaje.</p>
+<p>Podemos pensar el editor de scripts como un procesador de textos, del estilo de Word o GoogleDocs. El editor marcará con una cruz roja cuando haya algo que altere la sintaxis de R (al igual que los procesadores de texto subrayan palabras con errores ortográficos). Atender a los errores es una forma muy eficaz de entender cómo funciona la sintaxis de un lenguaje de programación.</p>
+<p>La consola, por su parte, permite una relación directa e inmediata con R. Ejecutar una línea y observar el resultado favorece un trabajo exploratorio, donde el análisis se construye paso a paso. Esta dinámica es especialmente valiosa cuando se está aprendiendo, porque habilita la prueba, el error y la reformulación constante. El IDE no obliga a seguir un recorrido lineal, sino que acompaña procesos de ida y vuelta entre hipótesis, código y resultados.</p>
+<p>Otro aspecto relevante de RStudio es su integración con proyectos. Trabajar en un proyecto implica organizar archivos, datos, scripts y resultados dentro de una estructura coherente. Esta práctica, que al comienzo puede parecer excesiva, se vuelve fundamental cuando los análisis crecen en complejidad o cuando se retoman después de un tiempo. El IDE facilita esta organización y, al hacerlo, promueve una forma más reflexiva y documentada de trabajar. El código deja de ser algo efímero que se ejecuta una vez y se pierde, para convertirse en un registro del proceso analítico.</p>
+<p>RStudio también incorpora un acceso directo a la documentación. Al escribir una función, es posible consultar rápidamente qué hace, qué argumentos espera y qué devuelve. Esta cercanía con la ayuda refuerza la idea de que programar implica leer tanto como escribir. Las funciones no se usan a ciegas, sino que se interpretan, se comparan y se eligen en función de lo que se quiere hacer con los datos.</p>
+<p>Es importante subrayar que aprender a usar un IDE no es un requisito previo para “saber programar”, pero sí forma parte de la alfabetización técnica que acompaña al aprendizaje del lenguaje. El IDE configura hábitos, modos de lectura y formas de organizar el trabajo. En ese sentido, no es neutral. RStudio, en particular, está diseñado para prácticas de análisis propias del trabajo académico: exploración de datos, escritura reproducible, combinación de código y texto, producción de gráficos y reportes.</p>
+<p>Pensar el IDE como un simple soporte técnico puede llevar a subestimarlo. En realidad, funciona como un espacio de trabajo que materializa una cierta concepción de la programación. Para quienes se inician en R desde las ciencias sociales y humanas, entender qué es un IDE y cómo organiza la experiencia de programar ayuda a desarmar la idea de que el código es algo opaco o inaccesible. El entorno también se lee, se interpreta y se aprende a usar de manera situada.</p>
+<p>En los próximos textos de esta serie, volveremos sobre RStudio con mayor detalle, observando cómo ciertas decisiones de interfaz dialogan con prácticas concretas de análisis. Comprender el entorno es un paso clave para empezar a pensar el código como un lenguaje con el que se trabaja, y no solo como una herramienta que se ejecuta.</p>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1768618800000" data-listing-file-modified-sort="1768675164437" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1051">
-<div class="thumbnail"><a href="../posts/entorno-desarrollo-integrado-ide.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/entorno-desarrollo-integrado-ide.html" class="no-external">Los entornos de desarrollo integrado (o IDE, para los amigos)</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/entorno-desarrollo-integrado-ide.html" class="no-external">
-<p>¿Qué es un IDE y por qué importa al empezar a programar en R? Este texto introduce la idea de entorno de desarrollo integrado, recorre los IDEs más comunes y se detiene en RStudio como espacio de trabajo pensado para el análisis académico. Una invitación a entender el entorno como mediador entre código, datos y prácticas de investigación.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/entorno-desarrollo-integrado-ide.html" class="no-external">
-<div class="listing-date">
-Jan 17, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1768618800000" data-listing-file-modified-sort="1768674754562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="791">
-<div class="thumbnail"><a href="../posts/r-lenguaje-programacion.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/r-lenguaje-programacion.html" class="no-external">R: un lenguaje que nació para pensar con datos</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/r-lenguaje-programacion.html" class="no-external">
-<p>¿Qué tiene que ver programar con leer, interpretar y producir conocimiento en ciencias sociales y humanas? Este texto propone una entrada a R desde su historia y sus usos académicos, mostrando cómo su diseño, su lógica basada en funciones y su ecosistema de paquetes dialogan con prácticas analíticas familiares. Más que una introducción técnica, es una invitación a leer el código como lenguaje y a pensar la programación como una práctica situada de investigación.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/r-lenguaje-programacion.html" class="no-external">
-<div class="listing-date">
-Jan 17, 2026
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
