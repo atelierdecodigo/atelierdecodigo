@@ -3,7 +3,7 @@
     "path": "~/Documents/R/atelierdecodigo/contact.qmd",
     "project_path": "contact.qmd",
     "type": "quarto_markdown",
-    "hash": "2187967818",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1768660055576.0,
@@ -22,11 +22,11 @@
         "rmdVisualModeLocation": "2:0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1768660106,
+    "lastKnownWriteTime": 1768662066,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1768660106066,
+    "last_content_update": 1768662066,
     "read_only": false,
     "read_only_alternatives": []
 }
