@@ -78,7 +78,7 @@ ul.task-list{list-style: none;}
     <a class="nav-link" href="./about.html">Sobre</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./contact.html" aria-current="page">Contacto</a>
+    <a class="nav-link" href="./contact.qmd">Contacto</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>

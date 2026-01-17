@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Atelier de código - Contacto</title>
+<title>Atelier de código - Objetivo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,10 +75,10 @@ ul.task-list{list-style: none;}
     <a class="nav-link" href="./index.html">Inicio</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">Sobre</a>
+    <a class="nav-link active" href="./about.html" aria-current="page">Sobre</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./contact.html" aria-current="page">Contacto</a>
+    <a class="nav-link" href="./contact.qmd">Contacto</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -96,7 +96,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Contacto</h1>
+<h1 class="title">Objetivo</h1>
 </div>
 
 
@@ -112,7 +112,7 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>Podés escribirnos a atelierdecodigo@gmail.com</p>
+<p>Desde Atelier de código queremos acompañarte en tu camino en el análisis de datos. Para quienes quieran poner manos a la obra, dictamos cursos de R para principiantes (y no tan principiantes también), sobre fundamentos de la programación, limpieza y organización de datos, análisis estadísticos y visualización. Para quienes ya tienen una base pero necesitan pensar con alguien más, ofrecemos tutorías donde te asesoramos sobre tu análisis. Y para quienes no tengan tiempo (¡o ganas!) de aprender a programar, analizamos sus datos y proveemos un reporte a medida.</p>
 
 
 
