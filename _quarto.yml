@@ -1,9 +1,11 @@
 project:
   type: website
   output-dir: docs
+  
 
 website:
   title: "Atelier de código"
+  site-url: https://atelierdecodigo.com
   navbar:
     left:
       - href: index.qmd

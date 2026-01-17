@@ -3,7 +3,7 @@
     "path": "~/Documents/R/atelierdecodigo/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "0",
+    "hash": "1905368208",
     "contents": "",
     "dirty": false,
     "created": 1768663249908.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "12,21",
-        "scrollLine": "0"
+        "cursorPosition": "4,0",
+        "scrollLine": "4"
     },
     "folds": "",
-    "lastKnownWriteTime": 1768663181,
+    "lastKnownWriteTime": 1768665103,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1768663181,
+    "last_content_update": 1768665103904,
     "read_only": false,
     "read_only_alternatives": []
 }
