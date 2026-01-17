@@ -2,8 +2,6 @@
 title: Atelier de código
 ---
 
-## Qué es Atelier de código
-
 Un espacio dedicado al aprendizaje de la ciencia de datos, 
 con foco en investigación, docencia y prácticas reproducibles.
 
