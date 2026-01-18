@@ -2,6 +2,7 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/r-humanidades-aprender.html",
       "/posts/entorno-desarrollo-integrado-ide.html",
       "/posts/r-lenguaje-programacion.html"
     ]

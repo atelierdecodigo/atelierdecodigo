@@ -6,6 +6,7 @@ project:
 website:
   title: "Atelier de código"
   site-url: https://atelierdecodigo.com
+  description: "Un espacio para aprender a programar de forma artesanal."
   navbar:
     left:
       - href: index.qmd
