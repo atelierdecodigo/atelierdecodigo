@@ -18,6 +18,7 @@ website:
       - href: posts/index.qmd
         text: Blog
   google-analytics: G-TDY574S9W1
+  margin-header: subscribe.html
 
 format:
   html:
