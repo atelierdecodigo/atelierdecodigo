@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-01-22">
+<meta name="description" content="¿Cómo empezar con R desde cero? Este post explica paso a paso cómo instalar R y RStudio, cómo instalar y cargar el Tidyverse y qué verificar para asegurarse de que todo esté funcionando correctamente.">
 
-<title>Objetivo – Atelier de código</title>
+<title>Empezar con R: instalación y primeros pasos – Atelier de código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,7 +81,7 @@ gtag('config', 'G-TDY574S9W1', { 'anonymize_ip': true});
 </script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,7 +91,7 @@ gtag('config', 'G-TDY574S9W1', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Atelier de código</span>
     </a>
   </div>
@@ -100,19 +102,19 @@ gtag('config', 'G-TDY574S9W1', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">Acerca de</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./contact.html"> 
+    <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contacto</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts/index.html"> 
+    <a class="nav-link" href="../posts/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -123,7 +125,7 @@ gtag('config', 'G-TDY574S9W1', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
@@ -1008,21 +1010,31 @@ gtag('config', 'G-TDY574S9W1', { 'anonymize_ip': true});
             fetch("https://assets.mailerlite.com/jsonp/2046950/forms/176965019617986012/takel")
         </script>
 </div></div>
-        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Objetivo</h1>
+<h1 class="title">Empezar con R: instalación y primeros pasos</h1>
+</div>
+
+<div>
+  <div class="description">
+    ¿Cómo empezar con R desde cero? Este post explica paso a paso cómo instalar R y RStudio, cómo instalar y cargar el Tidyverse y qué verificar para asegurarse de que todo esté funcionando correctamente.
+  </div>
 </div>
 
 
-
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 22, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -1032,7 +1044,22 @@ gtag('config', 'G-TDY574S9W1', { 'anonymize_ip': true});
 </header>
 
 
-<p>Desde Atelier de código queremos acompañarte en tu camino en el análisis de datos. Para quienes quieran poner manos a la obra, dictamos cursos de R para principiantes (y no tan principiantes también), sobre fundamentos de la programación, limpieza y organización de datos, análisis estadísticos y visualización. Para quienes ya tienen una base pero necesitan pensar con alguien más, ofrecemos tutorías donde te asesoramos sobre tu análisis. Y para quienes no tengan tiempo (¡o ganas!) de aprender a programar, analizamos sus datos y proveemos un reporte a medida.</p>
+<p>Empezar con R suele generar dudas muy concretas. Qué hay que instalar, en qué orden, para qué sirve cada cosa. Antes de escribir una sola línea de código, conviene aclarar este punto, porque R funciona a partir de varias piezas que se combinan entre sí. La buena noticia es que el proceso de instalación es sencillo y solo hay que hacerlo una vez.</p>
+<p>El primer paso es instalar R. R es el lenguaje de programación propiamente dicho. Para hacerlo, hay que ir al sitio oficial del proyecto <a href="https://cran.r-project.org">CRAN</a>, y elegir el instalador correspondiente al sistema operativo. En la página principal aparecen tres opciones claras: Windows, macOS y Linux. Al hacer clic, se accede a las instrucciones específicas para cada caso. En general, alcanza con descargar el instalador y seguir los pasos por defecto.</p>
+<p>Una vez que R está instalado, se puede abrir y usar. En Windows y macOS, R incluye una interfaz básica que permite escribir código y ver resultados. Sin embargo, la mayoría de las personas trabaja con R a través de un entorno más cómodo. Ahí entra en juego RStudio.</p>
+<p>Como mencionamos <a href="http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html">en un post anterior</a>, RStudio es un programa independiente que se instala por separado. No reemplaza a R, sino que lo usa. Para instalarlo, hay que ir al sitio de <a href="https://posit.co/download/rstudio-desktop">RStudio</a> y descargar la versión gratuita. Al abrir RStudio por primera vez, este detecta automáticamente la instalación de R y queda listo para usar. A partir de ese momento, RStudio se convierte en el espacio principal de trabajo.</p>
+<p>Con R y RStudio instalados, ya es posible escribir y ejecutar código. El siguiente paso habitual es instalar paquetes, que amplían las capacidades de R. Uno de los más usados es el Tidyverse, un conjunto de paquetes pensados para trabajar con datos de manera ordenada y legible.</p>
+<p>Instalar un paquete en R se hace escribiendo una instrucción en la consola. En el caso del Tidyverse, el comando es:</p>
+<p><code>install.packages("tidyverse")</code></p>
+<p>Este paso requiere conexión a internet y puede demorar unos minutos, porque el Tidyverse incluye varios paquetes. La instalación se hace una sola vez. Una vez instalado, para usarlo en una sesión de trabajo hay que cargarlo con:</p>
+<p><code>library(tidyverse)</code></p>
+<p>Esta diferencia entre instalar y cargar suele confundir al principio. Instalar descarga el paquete en la computadora. Cargar lo pone a disposición en la sesión actual de R. Cada vez que se inicia una sesión nueva y se quiere usar el Tidyverse, hay que volver a ejecutar <code>library(tidyverse)</code>.</p>
+<p>Después de cargarlo, R muestra algunos mensajes en la consola indicando qué paquetes se activaron. A partir de ese momento, funciones como <code>ggplot</code>, <code>mutate</code> o <code>filter</code> quedan disponibles. No hace falta entenderlas todas de inmediato. Lo importante es saber que forman parte de un mismo ecosistema y que comparten una lógica común.</p>
+<p>Un punto práctico para quienes empiezan es verificar que todo esté funcionando. Por ejemplo, escribir una línea simple como:</p>
+<p><code>ggplot(mtcars, aes(x = mpg, y = wt)) + geom_point()</code></p>
+<p>Si aparece un gráfico, la instalación fue exitosa. No importa si todavía no se entiende el código. Eso se irá trabajando más adelante.</p>
+<p>Instalar R, RStudio y el Tidyverse marca el inicio del trabajo. A partir de ahí, aprender R implica familiarizarse con el entorno, con la escritura de scripts y con la lectura del código. Tener estas herramientas bien instaladas y funcionando evita muchos problemas innecesarios y permite concentrarse en lo más importante: entender qué hace el código y cómo usarlo para analizar datos.</p>
+<p>En los próximos posts de esta serie vamos a ir desarmando estas piezas con más detalle, para que el paso inicial se transforme en una base sólida de trabajo.</p>
 
 
 

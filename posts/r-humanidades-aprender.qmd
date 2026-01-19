@@ -8,13 +8,13 @@ description: "¿Por qué aprender a programar desde las ciencias sociales y huma
 
 Aprender a programar suele presentarse como una habilidad técnica, asociada a la eficiencia, la automatización o el mercado laboral. Desde las ciencias sociales y humanas, esa forma de enunciar el problema resulta, como mínimo, insuficiente. Nuestro trabajo cotidiano está atravesado por preguntas sobre el lenguaje, la interpretación, la construcción de categorías y la producción situada de conocimiento. En ese marco, la programación puede pensarse menos como una destreza instrumental y más como una práctica de escritura y de análisis que dialoga con preocupaciones ya conocidas.
 
-Programar implica escribir instrucciones en un lenguaje formal, pero también leerlas, interpretarlas y revisarlas. Un script en R no es solo una secuencia de comandos que “funciona” o “no funciona”: es un texto que condensa decisiones analíticas, supuestos teóricos y recortes metodológicos. Del mismo modo que analizamos un texto académico preguntándonos qué conceptos usa, qué deja afuera o cómo organiza su argumento, el código también puede leerse críticamente. Aprender a programar en R, entonces, abre la posibilidad de pensar con datos de una manera explícita y revisable.
+Programar implica escribir instrucciones en un lenguaje formal, pero también leerlas, interpretarlas y revisarlas. Un script en R no es solo una secuencia de comandos que "funciona" o "no funciona": es un texto que condensa decisiones analíticas, supuestos teóricos y recortes metodológicos. Del mismo modo que analizamos un texto académico preguntándonos qué conceptos usa, qué deja afuera o cómo organiza su argumento, el código también puede leerse críticamente. Aprender a programar en R, entonces, abre la posibilidad de pensar con datos de una manera explícita y revisable.
 
 R es especialmente interesante para este cruce porque nació y se desarrolló en el ámbito académico. Su uso extendido en estadística, lingüística, sociología, psicología y ciencias de la educación no es casual. La lógica del lenguaje favorece un trabajo exploratorio y reflexivo con los datos, donde cada paso del análisis puede quedar registrado. Además, su ecosistema de paquetes refleja debates y tradiciones disciplinares concretas, que se materializan en funciones, argumentos y estructuras de datos.
 
 Para empezar a ver esto de manera más concreta, vale la pena mirar ejemplos simples de código. Supongamos que tenemos un conjunto de datos con una variable numérica y queremos obtener un resumen general. En R, una de las funciones más utilizadas para esto es `summary()`:
 
-```r
+``` r
 summary(datos$edad)
 ```
 
@@ -22,7 +22,7 @@ Aunque esta línea es breve, dice muchas cosas. `summary` es una función que to
 
 Otro ejemplo frecuente tiene que ver con la transformación de datos. Supongamos que queremos crear una nueva variable a partir de una ya existente:
 
-```r
+``` r
 datos$edad_meses <- datos$edad * 12
 ```
 
@@ -30,7 +30,7 @@ Aquí aparece con claridad la dimensión escritural de la programación. La flec
 
 También es habitual usar R para agrupar y comparar información. Por ejemplo, calcular promedios por grupo:
 
-```r
+``` r
 aggregate(puntaje ~ grupo, data = datos, mean)
 ```
 

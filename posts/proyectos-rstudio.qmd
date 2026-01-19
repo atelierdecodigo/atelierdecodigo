@@ -1,0 +1,48 @@
+---
+title: "Trabajar con proyectos en RStudio: ordenar el trabajo desde el inicio"
+date: 2026-01-21
+page-layout: full
+toc: false
+draft: true
+description: "¿Qué significa trabajar con proyectos en RStudio y por qué conviene hacerlo desde el inicio? Este post explica para qué sirven los proyectos y muestra paso a paso cómo crear y usar uno en la práctica."
+---
+
+Cuando se empieza a usar R, es común trabajar con archivos sueltos: un script por acá, un archivo de datos por allá, resultados guardados en el escritorio o en carpetas poco claras. Ese modo de trabajo suele funcionar al principio, pero se vuelve frágil cuando el análisis crece, cuando pasa el tiempo o cuando otra persona necesita entender qué se hizo. En ese punto aparece una herramienta clave de RStudio: los proyectos.
+
+Un proyecto en RStudio es una forma de organizar el trabajo en torno a una carpeta principal. Todo lo que pertenece a un análisis vive dentro de ese espacio: scripts, datos, gráficos, tablas y documentos. Al abrir un proyecto, RStudio sabe dónde está parado y trabaja siempre desde ese lugar. Esto evita uno de los problemas más frecuentes al empezar: los errores de rutas y archivos que "no se encuentran".
+
+Desde un punto de vista conceptual, trabajar con proyectos ayuda a hacer explícita la estructura del trabajo. El análisis deja de ser una sucesión de comandos dispersos y pasa a tener un marco claro. Cada archivo cumple una función y su ubicación tiene sentido. Además, el proyecto guarda información sobre el [entorno de trabajo](http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html), lo que hace más fácil retomar el análisis después de un tiempo sin tener que reconstruir todo desde cero.
+
+Los proyectos también favorecen la reproducibilidad. Si todo está dentro de una misma carpeta, es más sencillo mover el trabajo a otra computadora o compartirlo. No hace falta reescribir rutas absolutas ni ajustar configuraciones cada vez. RStudio se encarga de abrir el proyecto y dejar todo listo para continuar.
+
+### Cómo crear un proyecto en RStudio paso a paso
+
+1.  Abrí RStudio.
+
+2.  En el menú superior, hacé clic en **File** y luego en **New Project....**
+
+3.  RStudio va a ofrecer tres opciones. Para empezar, la más simple es **New Directory**.
+
+4.  Elegí **New Project**.
+
+5.  Indicá el nombre del proyecto y la ubicación donde querés que se cree la carpeta.
+
+6.  Hacé clic en **Create Project**.
+
+RStudio va a crear una carpeta con ese nombre y abrir automáticamente el proyecto. A partir de ese momento, cada vez que abras ese archivo de proyecto, identificado por la extensión `.Rproj`, RStudio va a trabajar desde esa carpeta. Lo vas a ver en la esquina superior derecha, al lado de un cubo celeste con una "R":
+
+![](images/CleanShot 2026-01-18 at 20.09.35@2x.png)
+
+### Qué cambia al trabajar dentro de un proyecto
+
+Una vez que el proyecto está creado, conviene adoptar algunas prácticas simples. Guardar los scripts dentro de la carpeta del proyecto, por ejemplo en una subcarpeta llamada `scripts`. Colocar los datos en otra carpeta, como `data`. Guardar gráficos o tablas en carpetas específicas. Esta organización no es obligatoria, pero ayuda a que el trabajo sea más legible.
+
+Otro cambio importante es el uso de rutas relativas. Dentro de un proyecto, cuando se hace referencia a un archivo, se lo nombra en relación con la carpeta del proyecto. Por ejemplo, `data/encuesta.csv`. Esto funciona siempre que el proyecto esté abierto y evita errores cuando el análisis se mueve de lugar.
+
+RStudio también muestra el nombre del proyecto activo en la esquina superior derecha. Ese detalle visual sirve como recordatorio constante de en qué contexto se está trabajando. Abrir un script sin abrir el proyecto puede generar confusión, por lo que conviene acostumbrarse a iniciar el trabajo siempre desde el archivo `.Rproj`.
+
+### Proyectos como hábito de trabajo
+
+Trabajar con proyectos no requiere conocimientos avanzados ni cambia la forma de escribir código. Cambia, sobre todo, la forma de organizarlo. Incorporar este hábito desde el inicio ahorra tiempo, reduce errores y hace que el análisis sea más fácil de entender, incluso para quien lo hizo.
+
+En el próximo post de esta serie vamos a dar un paso más y explicar cómo conectar un proyecto de RStudio con un sistema de control de versiones. Eso permite llevar un registro de cambios, volver a estados anteriores del trabajo y colaborar de manera más ordenada.

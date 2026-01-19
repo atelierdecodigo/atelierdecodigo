@@ -1,0 +1,31 @@
+---
+title: "R base, paquetes y Tidyverse: de qué hablamos cuando usamos R"
+date: 2026-01-20
+page-layout: full
+toc: false
+description: "¿Qué es R base y qué cambia cuando usamos paquetes? Este post explica la estructura modular de R, introduce el rol de los paquetes y dedica una sección al Tidyverse como conjunto de herramientas con una filosofía propia de trabajo con datos."
+---
+
+Cuando empezamos a trabajar con R, una de las primeras expresiones que aparecen es "R base". Poco después surgen otras: paquetes, librerías, Tidyverse. Estas palabras circulan con naturalidad en tutoriales, clases y foros, aunque no siempre se explicita qué significan ni cómo se relacionan entre sí. Para quienes se inician desde las ciencias sociales y humanas, entender esta arquitectura es clave para poder leer código con mayor autonomía y para tomar decisiones informadas sobre cómo trabajar con datos.
+
+R base refiere al conjunto de funcionalidades que vienen incluidas cuando se instala R. Incluye el lenguaje propiamente dicho, un conjunto amplio de funciones fundamentales y algunos paquetes que se cargan automáticamente. Operaciones aritméticas, creación de objetos, manejo básico de vectores y data frames, funciones como `mean()`, `sum()`, `plot()` o `summary()`, forman parte de este núcleo. R base define la gramática mínima del lenguaje y establece las reglas que permiten que todo lo demás funcione.
+
+Trabajar solo con R base es posible, y de hecho durante muchos años fue la forma estándar de usar R. Sin embargo, ese núcleo está pensado para ser extendido. R fue diseñado desde el inicio como un lenguaje modular, capaz de incorporar nuevas funcionalidades sin modificar su estructura central. Esa extensibilidad se materializa a través de los paquetes.
+
+Un paquete es un conjunto organizado de funciones, datos y documentación que se puede descargar e incorporar a una sesión de R. Cada paquete responde a una necesidad específica: análisis estadístico particular, visualización, manejo de textos, trabajo con encuestas, modelos avanzados o formatos de datos concretos. Técnicamente, instalar un paquete implica descargarlo en la computadora; usarlo implica cargarlo en la sesión activa. Conceptualmente, usar un paquete implica adoptar una forma particular de resolver problemas analíticos.
+
+Desde una perspectiva reflexiva, los paquetes pueden pensarse como cristalizaciones de prácticas de investigación. Quien desarrolla un paquete toma decisiones sobre qué operaciones facilitar, cómo nombrarlas, qué estructuras de datos privilegiar y qué supuestos dar por sentados. Cuando usamos una función de un paquete, no solo estamos reutilizando código, sino también incorporando una cierta manera de pensar el análisis.
+
+En este punto suele aparecer otra fuente de confusión: el término "librería". En R, librería se usa para referirse al lugar donde están instalados los paquetes en el sistema, y también, por extensión, al acto de cargarlos mediante la función `library()`. En la práctica cotidiana, hablar de paquetes y librerías suele ser intercambiable, aunque desde un punto de vista técnico no sean exactamente lo mismo. Lo importante es entender que R base se amplía mediante paquetes que se cargan según las necesidades del análisis.
+
+Dentro de este universo de paquetes, hay uno que ocupa un lugar particular: el Tidyverse. El Tidyverse no es un paquete único, sino un conjunto de paquetes diseñados para trabajar de manera coherente entre sí. Incluye herramientas muy utilizadas para la manipulación de datos, la visualización y la importación de archivos, como `dplyr`, `ggplot2`, `tidyr`, `readr` y `stringr`, entre otros. Todos comparten una filosofía común y una sintaxis relativamente consistente.
+
+La propuesta central del Tidyverse es organizar el trabajo con datos a partir de principios claros. Uno de los más conocidos es el concepto de datos "ordenados" (*tidy data*), donde cada variable ocupa una columna, cada observación una fila y cada tipo de unidad analítica una tabla. Este principio, que puede parecer puramente técnico, tiene implicancias analíticas importantes, porque fuerza a explicitar qué se considera una variable, qué cuenta como observación y cómo se estructuran los datos.
+
+Otro rasgo distintivo del Tidyverse es su énfasis en la legibilidad del código. Las funciones suelen tener nombres verbales, los argumentos privilegian la claridad y el uso del operador `%>%` propone una lectura secuencial de las operaciones. Para quienes vienen de tradiciones donde la interpretación de textos y la explicitación de procedimientos son centrales, esta orientación resulta especialmente atractiva. El código se presenta como una secuencia de transformaciones que puede leerse casi como una narración del análisis.
+
+Esto no significa que el Tidyverse reemplace a R base. De hecho, se apoya constantemente en él. Muchas funciones del Tidyverse envuelven o reorganizan funcionalidades existentes en R base, ofreciendo una interfaz distinta. Elegir trabajar con R base, con paquetes específicos o con el Tidyverse no es una cuestión de corrección, sino de enfoque. Cada opción implica adoptar ciertas convenciones y renunciar a otras.
+
+Desde las ciencias sociales y humanas, entender estas diferencias permite salir de una lógica puramente instrumental. Usar R no consiste solo en saber qué comando ejecutar, sino en comprender qué marco conceptual se activa al hacerlo. R base, los paquetes y el Tidyverse forman capas de un mismo lenguaje, que se combinan de maneras diversas según el problema de investigación, el tipo de datos y las preguntas que se quieren formular.
+
+En los próximos textos de esta serie volveremos sobre estas herramientas con ejemplos concretos. La idea no será aprender listas de funciones, sino desarrollar criterios para leer código, reconocer estilos y elegir conscientemente cómo trabajar con R en contextos de investigación situados.

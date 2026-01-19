@@ -24,3 +24,5 @@ format:
   html:
     theme: litera
     css: styles.css
+    
+metadata-files: [scheduled-docs_files/draft-list.yml]

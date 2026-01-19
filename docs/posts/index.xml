@@ -10,7 +10,63 @@
 <atom:link href="https://atelierdecodigo.com/posts/index.xml" rel="self" type="application/rss+xml"/>
 <description>Un espacio para aprender a programar de forma artesanal.</description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Sun, 18 Jan 2026 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 22 Jan 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Empezar con R: instalación y primeros pasos</title>
+  <link>https://atelierdecodigo.com/posts/instalar-r-rstudio.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Empezar con R suele generar dudas muy concretas. Qué hay que instalar, en qué orden, para qué sirve cada cosa. Antes de escribir una sola línea de código, conviene aclarar este punto, porque R funciona a partir de varias piezas que se combinan entre sí. La buena noticia es que el proceso de instalación es sencillo y solo hay que hacerlo una vez.</p>
+<p>El primer paso es instalar R. R es el lenguaje de programación propiamente dicho. Para hacerlo, hay que ir al sitio oficial del proyecto <a href="https://cran.r-project.org">CRAN</a>, y elegir el instalador correspondiente al sistema operativo. En la página principal aparecen tres opciones claras: Windows, macOS y Linux. Al hacer clic, se accede a las instrucciones específicas para cada caso. En general, alcanza con descargar el instalador y seguir los pasos por defecto.</p>
+<p>Una vez que R está instalado, se puede abrir y usar. En Windows y macOS, R incluye una interfaz básica que permite escribir código y ver resultados. Sin embargo, la mayoría de las personas trabaja con R a través de un entorno más cómodo. Ahí entra en juego RStudio.</p>
+<p>Como mencionamos <a href="http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html">en un post anterior</a>, RStudio es un programa independiente que se instala por separado. No reemplaza a R, sino que lo usa. Para instalarlo, hay que ir al sitio de <a href="https://posit.co/download/rstudio-desktop">RStudio</a> y descargar la versión gratuita. Al abrir RStudio por primera vez, este detecta automáticamente la instalación de R y queda listo para usar. A partir de ese momento, RStudio se convierte en el espacio principal de trabajo.</p>
+<p>Con R y RStudio instalados, ya es posible escribir y ejecutar código. El siguiente paso habitual es instalar paquetes, que amplían las capacidades de R. Uno de los más usados es el Tidyverse, un conjunto de paquetes pensados para trabajar con datos de manera ordenada y legible.</p>
+<p>Instalar un paquete en R se hace escribiendo una instrucción en la consola. En el caso del Tidyverse, el comando es:</p>
+<p><code>install.packages("tidyverse")</code></p>
+<p>Este paso requiere conexión a internet y puede demorar unos minutos, porque el Tidyverse incluye varios paquetes. La instalación se hace una sola vez. Una vez instalado, para usarlo en una sesión de trabajo hay que cargarlo con:</p>
+<p><code>library(tidyverse)</code></p>
+<p>Esta diferencia entre instalar y cargar suele confundir al principio. Instalar descarga el paquete en la computadora. Cargar lo pone a disposición en la sesión actual de R. Cada vez que se inicia una sesión nueva y se quiere usar el Tidyverse, hay que volver a ejecutar <code>library(tidyverse)</code>.</p>
+<p>Después de cargarlo, R muestra algunos mensajes en la consola indicando qué paquetes se activaron. A partir de ese momento, funciones como <code>ggplot</code>, <code>mutate</code> o <code>filter</code> quedan disponibles. No hace falta entenderlas todas de inmediato. Lo importante es saber que forman parte de un mismo ecosistema y que comparten una lógica común.</p>
+<p>Un punto práctico para quienes empiezan es verificar que todo esté funcionando. Por ejemplo, escribir una línea simple como:</p>
+<p><code>ggplot(mtcars, aes(x = mpg, y = wt)) + geom_point()</code></p>
+<p>Si aparece un gráfico, la instalación fue exitosa. No importa si todavía no se entiende el código. Eso se irá trabajando más adelante.</p>
+<p>Instalar R, RStudio y el Tidyverse marca el inicio del trabajo. A partir de ahí, aprender R implica familiarizarse con el entorno, con la escritura de scripts y con la lectura del código. Tener estas herramientas bien instaladas y funcionando evita muchos problemas innecesarios y permite concentrarse en lo más importante: entender qué hace el código y cómo usarlo para analizar datos.</p>
+<p>En los próximos posts de esta serie vamos a ir desarmando estas piezas con más detalle, para que el paso inicial se transforme en una base sólida de trabajo.</p>
+
+
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/posts/instalar-r-rstudio.html</guid>
+  <pubDate>Thu, 22 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Consola y script: dos formas de escribir código en R</title>
+  <link>https://atelierdecodigo.com/posts/consola-script-escribir-codigo.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Cuando se abre R o RStudio por primera vez, la consola suele ser el punto de partida. Es la ventana donde aparece el símbolo <code>&gt;</code> y donde se pueden escribir instrucciones directamente. Se escribe una línea de código, se presiona Enter y R responde. Esa respuesta puede ser un número, una tabla, un mensaje o un gráfico. La consola sirve, básicamente, para decirle a R qué hacer y ver el resultado en el momento.</p>
+<p><img src="https://atelierdecodigo.com/posts/images/CleanShot 2026-01-18 at 19.40.28@2x.png" class="img-fluid" alt="Imagen de una consola vacía."></p>
+<p>La consola es útil para acciones rápidas. Por ejemplo, calcular un promedio, ver el contenido de un objeto o probar si una función hace lo que esperamos. También es común usarla para pequeños ensayos mientras se aprende. El problema es que lo que se escribe en la consola no queda guardado de forma ordenada. Si se cierra R o se reinicia la sesión, ese recorrido se pierde. Incluso con la sesión abierta, revisar qué se hizo hace un rato puede resultar confuso.</p>
+<p>El script cumple otra función. Un script es un archivo donde se escribe código para guardarlo. En RStudio suele tener extensión <code>.R</code> y se abre en el panel del editor (pueden ir a <code>File</code>, <code>New File</code>, <code>R Script</code> o hacer click en el ícono con una cruz verde). Allí se pueden escribir muchas líneas de código, agregar comentarios y organizar el análisis paso a paso. Escribir en un script no ejecuta el código automáticamente. Cada línea o bloque se corre solo cuando se lo indica, ya sea con el botón que dice “Run”, o con control+Enter.</p>
+<p><img src="https://atelierdecodigo.com/posts/images/CleanShot 2026-01-18 at 19.45.25@2x.png" class="img-fluid" alt="Imagen de un script vacío."></p>
+<p>Esta diferencia es importante. El script permite separar dos momentos: escribir y ejecutar. Primero se escribe el código con calma. Después se decide qué ejecutar y cuándo. Esto hace que el trabajo sea más ordenado y más fácil de retomar. Si se vuelve a abrir el archivo días o semanas después, el código sigue ahí, en el orden en que fue pensado.</p>
+<p>Un uso muy habitual es combinar ambos espacios. La consola se usa para probar algo rápido. Si ese código resulta útil, se copia o se escribe directamente en el script. De ese modo, el script va quedando como el registro principal del trabajo, mientras que la consola funciona como un espacio de prueba.</p>
+<p>RStudio facilita esta forma de trabajar. Desde el script se puede ejecutar el código y el resultado aparece en la consola, pero el código quedará guardado en el archivo del script. Esta dinámica es especialmente útil cuando el análisis tiene varios pasos o cuando se quiere compartir el trabajo con otras personas.</p>
+<p>En términos prácticos, una buena regla inicial es la siguiente: la consola sirve para probar y explorar; el script sirve para guardar y organizar. No hace falta elegir uno u otro de manera excluyente. Lo importante es entender qué aporta cada espacio y usarlo de forma consciente.</p>
+<p>Aprender a escribir en scripts desde el principio ahorra tiempo más adelante. Permite corregir errores con facilidad, repetir análisis sin empezar de cero y entender mejor qué se hizo en cada etapa. Para quienes recién empiezan, esta diferencia suele marcar un antes y un después en la forma de trabajar con R.</p>
+
+
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/posts/consola-script-escribir-codigo.html</guid>
+  <pubDate>Wed, 21 Jan 2026 03:00:00 GMT</pubDate>
+</item>
 <item>
   <title>R para humanidades: ¿Por qué aprender a programar?</title>
   <link>https://atelierdecodigo.com/posts/r-humanidades-aprender.html</link>

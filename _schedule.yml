@@ -1,0 +1,8 @@
+scheduled-docs:
+  draft-after: "system-time"
+  timezone: "-03:00"
+  docs:
+    - href: "posts/r-base-tidyverse.qmd"
+      date: "2026-01-20"
+    - href: "posts/consola-script-escribir-codigo.qmd"
+      date: "2024-01-21"
