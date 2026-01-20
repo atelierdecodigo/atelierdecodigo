@@ -20,7 +20,7 @@ Como mencionamos [en un post anterior](http://atelierdecodigo.com/posts/entorno-
 
 Al abrir RStudio por primera vez, este detecta automáticamente la instalación de R y queda listo para usar. A partir de ese momento, RStudio se convierte en el espacio principal de trabajo.
 
-Con R y RStudio instalados, ya es posible escribir y ejecutar código. El siguiente paso habitual es instalar paquetes, que son agregados que amplían las capacidades de R. Uno de los más usados es el Tidyverse, un conjunto de paquetes pensados para trabajar con datos de manera ordenada y legible.
+Con R y RStudio instalados, ya es posible escribir y ejecutar código. El siguiente paso habitual es instalar paquetes, que son agregados que amplían las capacidades de R. Uno de los más usados es el Tidyverse, un conjunto de paquetes pensados para trabajar con datos de manera ordenada y legible (podés leer más sobre qué son los paquetes [acá](http://atelierdecodigo.com/posts/r-base-tidyverse.html)).
 
 Instalar un paquete en R se hace escribiendo una instrucción en la consola. En el caso del Tidyverse, el comando es:
 
