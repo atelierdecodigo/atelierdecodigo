@@ -10,9 +10,15 @@ Empezar con R suele generar dudas muy concretas. Qué hay que instalar, en qué 
 
 El primer paso es instalar R. R es el lenguaje de programación propiamente dicho. Para hacerlo, hay que ir al sitio oficial del proyecto [CRAN](https://cran.r-project.org), y elegir el archivo instalador que corresponda a nuestro sistema operativo (Windows, macOS o Linux). Al hacer clic, accedemos a las instrucciones específicas para cada caso.
 
-Técnicamente podríamos usar R directamente desde ese software que acabamos de instalar, en Windows y en macOS. Sin embargo, no es [un entorno](http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html) muy amigable, por lo que la mayoría de las personas usa otros entornos como RStudio, VSCode o Positron. Si recién estamos empezando, es preferible usar RStudio, porque la mayoría de los tutoriales van a mostrar imágenes de ese entorno.
+![Instalar R desde CRAN](images/CleanShot 2026-01-20 at 17.27.03.png)
 
-Como mencionamos [en un post anterior](http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html), RStudio es un programa independiente que se instala por separado. Es una interfaz gráfica (técnicamente, un entorno de desarrollo integrado) que facilita la interacción entre el usuario y el lenguaje de programación R. Para instalarlo, hay que ir al sitio de [RStudio](https://posit.co/download/rstudio-desktop) y descargar la versión gratuita. Al abrir RStudio por primera vez, este detecta automáticamente la instalación de R y queda listo para usar. A partir de ese momento, RStudio se convierte en el espacio principal de trabajo.
+Técnicamente podríamos usar R directamente desde ese software que acabamos de instalar, en Windows y en macOS. Sin embargo, no es una interfaz gráfica muy amigable, por lo que la mayoría de las personas usa otros [entornos](http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html) como RStudio, VSCode o Positron. Si recién estamos empezando, es preferible usar RStudio, porque la mayoría de los tutoriales van a mostrar imágenes de ese entorno.
+
+Como mencionamos [en un post anterior](http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html), RStudio es un programa independiente que se instala por separado. Es una interfaz gráfica (técnicamente, un entorno de desarrollo integrado) que facilita la interacción entre el usuario y el lenguaje de programación R. Para instalarlo, hay que ir al sitio de [RStudio](https://posit.co/download/rstudio-desktop) y descargar la versión gratuita. Como se ve en la imagen, también podemos instalar R desde aquí, pero si ya lo instalamos desde CRAN no es necesario volver a instalarlo.
+
+![Instalar RStudio.](images/CleanShot 2026-01-20 at 17.29.28.png)
+
+Al abrir RStudio por primera vez, este detecta automáticamente la instalación de R y queda listo para usar. A partir de ese momento, RStudio se convierte en el espacio principal de trabajo.
 
 Con R y RStudio instalados, ya es posible escribir y ejecutar código. El siguiente paso habitual es instalar paquetes, que son agregados que amplían las capacidades de R. Uno de los más usados es el Tidyverse, un conjunto de paquetes pensados para trabajar con datos de manera ordenada y legible.
 
