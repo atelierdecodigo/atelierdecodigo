@@ -6,23 +6,16 @@ project:
 website:
   title: "Atelier de código"
   site-url: https://atelierdecodigo.com
-  description: "Un espacio para aprender a programar de forma artesanal."
   navbar:
     left:
       - href: index.qmd
         text: Inicio
       - href: about.qmd
-        text: Acerca de
+        text: Sobre
       - href: contact.qmd
         text: Contacto
-      - href: posts/index.qmd
-        text: Blog
-  google-analytics: G-TDY574S9W1
-  margin-header: subscribe.html
 
 format:
   html:
     theme: litera
     css: styles.css
-    
-metadata-files: [scheduled-docs_files/draft-list.yml]

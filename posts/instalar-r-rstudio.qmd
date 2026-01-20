@@ -8,19 +8,19 @@ description: "¿Cómo empezar con R desde cero? Este post explica paso a paso c�
 
 Empezar con R suele generar dudas muy concretas. Qué hay que instalar, en qué orden, para qué sirve cada cosa. Antes de escribir una sola línea de código, conviene aclarar este punto, porque R funciona a partir de varias piezas que se combinan entre sí. La buena noticia es que el proceso de instalación es sencillo y solo hay que hacerlo una vez.
 
-El primer paso es instalar R. R es el lenguaje de programación propiamente dicho. Para hacerlo, hay que ir al sitio oficial del proyecto [CRAN](https://cran.r-project.org), y elegir el instalador correspondiente al sistema operativo. En la página principal aparecen tres opciones claras: Windows, macOS y Linux. Al hacer clic, se accede a las instrucciones específicas para cada caso. En general, alcanza con descargar el instalador y seguir los pasos por defecto.
+El primer paso es instalar R. R es el lenguaje de programación propiamente dicho. Para hacerlo, hay que ir al sitio oficial del proyecto [CRAN](https://cran.r-project.org), y elegir el archivo instalador que corresponda a nuestro sistema operativo (Windows, macOS o Linux). Al hacer clic, accedemos a las instrucciones específicas para cada caso.
 
-Una vez que R está instalado, se puede abrir y usar. En Windows y macOS, R incluye una interfaz básica que permite escribir código y ver resultados. Sin embargo, la mayoría de las personas trabaja con R a través de un entorno más cómodo. Ahí entra en juego RStudio.
+Técnicamente podríamos usar R directamente desde ese software que acabamos de instalar, en Windows y en macOS. Sin embargo, no es [un entorno](http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html) muy amigable, por lo que la mayoría de las personas usa otros entornos como RStudio, VSCode o Positron. Si recién estamos empezando, es preferible usar RStudio, porque la mayoría de los tutoriales van a mostrar imágenes de ese entorno.
 
-Como mencionamos [en un post anterior](http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html), RStudio es un programa independiente que se instala por separado. No reemplaza a R, sino que lo usa. Para instalarlo, hay que ir al sitio de [RStudio](https://posit.co/download/rstudio-desktop) y descargar la versión gratuita. Al abrir RStudio por primera vez, este detecta automáticamente la instalación de R y queda listo para usar. A partir de ese momento, RStudio se convierte en el espacio principal de trabajo.
+Como mencionamos [en un post anterior](http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html), RStudio es un programa independiente que se instala por separado. Es una interfaz gráfica (técnicamente, un entorno de desarrollo integrado) que facilita la interacción entre el usuario y el lenguaje de programación R. Para instalarlo, hay que ir al sitio de [RStudio](https://posit.co/download/rstudio-desktop) y descargar la versión gratuita. Al abrir RStudio por primera vez, este detecta automáticamente la instalación de R y queda listo para usar. A partir de ese momento, RStudio se convierte en el espacio principal de trabajo.
 
-Con R y RStudio instalados, ya es posible escribir y ejecutar código. El siguiente paso habitual es instalar paquetes, que amplían las capacidades de R. Uno de los más usados es el Tidyverse, un conjunto de paquetes pensados para trabajar con datos de manera ordenada y legible.
+Con R y RStudio instalados, ya es posible escribir y ejecutar código. El siguiente paso habitual es instalar paquetes, que son agregados que amplían las capacidades de R. Uno de los más usados es el Tidyverse, un conjunto de paquetes pensados para trabajar con datos de manera ordenada y legible.
 
 Instalar un paquete en R se hace escribiendo una instrucción en la consola. En el caso del Tidyverse, el comando es:
 
 `install.packages("tidyverse")`
 
-Este paso requiere conexión a internet y puede demorar unos minutos, porque el Tidyverse incluye varios paquetes. La instalación se hace una sola vez. Una vez instalado, para usarlo en una sesión de trabajo hay que cargarlo con:
+Una vez que escribimos el código, debemos ejecutarlo (control+Enter o el ícono de "Run"). Este paso requiere conexión a internet y puede demorar unos minutos, porque el Tidyverse incluye varios paquetes. Van a aparecer muchos mensajes de colores en la consola: eso es normal (a menos que aparezca algo que diga "Warning" o "Error"). La instalación se hace una sola vez. Una vez instalado, para usarlo en una sesión de trabajo hay que cargarlo con:
 
 `library(tidyverse)`
 
@@ -34,6 +34,6 @@ Un punto práctico para quienes empiezan es verificar que todo esté funcionando
 
 Si aparece un gráfico, la instalación fue exitosa. No importa si todavía no se entiende el código. Eso se irá trabajando más adelante.
 
-Instalar R, RStudio y el Tidyverse marca el inicio del trabajo. A partir de ahí, aprender R implica familiarizarse con el entorno, con la escritura de scripts y con la lectura del código. Tener estas herramientas bien instaladas y funcionando evita muchos problemas innecesarios y permite concentrarse en lo más importante: entender qué hace el código y cómo usarlo para analizar datos.
+Instalar R, RStudio y el Tidyverse marca el inicio del trabajo. A partir de ahí, aprender R implica familiarizarse con [el entorno](http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html), con la escritura de [scripts](http://atelierdecodigo.com/posts/consola-script-escribir-codigo.html) y con la lectura del código. Tener estas herramientas bien instaladas y funcionando evita muchos problemas innecesarios y permite concentrarse en lo más importante: entender qué hace el código y cómo usarlo para analizar datos.
 
 En los próximos posts de esta serie vamos a ir desarmando estas piezas con más detalle, para que el paso inicial se transforme en una base sólida de trabajo.
