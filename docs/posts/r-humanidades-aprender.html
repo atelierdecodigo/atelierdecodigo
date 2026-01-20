@@ -22,41 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -133,7 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../about.html"> 
-<span class="menu-text">Sobre</span></a>
+<span class="menu-text">Acerca de</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../contact.html"> 
@@ -188,20 +153,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Aprender a programar suele presentarse como una habilidad técnica, asociada a la eficiencia, la automatización o el mercado laboral. Desde las ciencias sociales y humanas, esa forma de enunciar el problema resulta, como mínimo, insuficiente. Nuestro trabajo cotidiano está atravesado por preguntas sobre el lenguaje, la interpretación, la construcción de categorías y la producción situada de conocimiento. En ese marco, la programación puede pensarse menos como una destreza instrumental y más como una práctica de escritura y de análisis que dialoga con preocupaciones ya conocidas.</p>
-<p>Programar implica escribir instrucciones en un lenguaje formal, pero también leerlas, interpretarlas y revisarlas. Un script en R no es solo una secuencia de comandos que “funciona” o “no funciona”: es un texto que condensa decisiones analíticas, supuestos teóricos y recortes metodológicos. Del mismo modo que analizamos un texto académico preguntándonos qué conceptos usa, qué deja afuera o cómo organiza su argumento, el código también puede leerse críticamente. Aprender a programar en R, entonces, abre la posibilidad de pensar con datos de una manera explícita y revisable.</p>
-<p>R es especialmente interesante para este cruce porque nació y se desarrolló en el ámbito académico. Su uso extendido en estadística, lingüística, sociología, psicología y ciencias de la educación no es casual. La lógica del lenguaje favorece un trabajo exploratorio y reflexivo con los datos, donde cada paso del análisis puede quedar registrado. Además, su ecosistema de paquetes refleja debates y tradiciones disciplinares concretas, que se materializan en funciones, argumentos y estructuras de datos.</p>
-<p>Para empezar a ver esto de manera más concreta, vale la pena mirar ejemplos simples de código. Supongamos que tenemos un conjunto de datos con una variable numérica y queremos obtener un resumen general. En R, una de las funciones más utilizadas para esto es <code>summary()</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(datos<span class="sc">$</span>edad)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Aunque esta línea es breve, dice muchas cosas. <code>summary</code> es una función que toma un objeto como argumento. En este caso, el objeto es una variable llamada <code>edad</code>, que forma parte de un objeto mayor llamado <code>datos</code>. El uso del símbolo <code>$</code> indica una relación de pertenencia: estamos accediendo a una variable dentro de un conjunto de datos. El resultado no es un número único, sino un conjunto de estadísticas descriptivas. Esa elección ya implica una concepción del análisis: resumir no es reducir a un solo valor, sino ofrecer varias medidas que permiten interpretar la distribución.</p>
-<p>Otro ejemplo frecuente tiene que ver con la transformación de datos. Supongamos que queremos crear una nueva variable a partir de una ya existente:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>datos<span class="sc">$</span>edad_meses <span class="ot">&lt;-</span> datos<span class="sc">$</span>edad <span class="sc">*</span> <span class="dv">12</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Aquí aparece con claridad la dimensión escritural de la programación. La flecha <code>&lt;-</code> puede leerse como una asignación: a la izquierda se define un nombre nuevo, a la derecha se especifica cómo se construye. Esta línea no solo ejecuta un cálculo, sino que deja un rastro explícito de cómo se obtuvo esa variable. Si otra persona lee el script, puede reconstruir la decisión analítica sin necesidad de explicaciones externas.</p>
-<p>También es habitual usar R para agrupar y comparar información. Por ejemplo, calcular promedios por grupo:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(puntaje <span class="sc">~</span> grupo, <span class="at">data =</span> datos, mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>En esta línea se condensan varias ideas. La fórmula <code>puntaje ~ grupo</code> expresa una relación entre variables, similar a las que se usan en modelos estadísticos. El argumento <code>data = datos</code> explicita de dónde salen esas variables, y <code>mean</code> indica la operación que se quiere aplicar. Leer este código implica entender cómo R articula lenguaje matemático, estructuras de datos y decisiones analíticas en una sintaxis relativamente compacta.</p>
-<p>Estos ejemplos no buscan enseñar a programar paso a paso, sino mostrar que el código puede leerse como una forma de argumentación. Cada función seleccionada, cada argumento incluido u omitido, cada nombre asignado a un objeto contribuye a construir sentido. Programar en R no elimina la interpretación; la hace más visible y, en muchos casos, más discutible.</p>
-<p>Desde esta perspectiva, aprender a programar no significa abandonar prácticas propias de las ciencias sociales y humanas. Al contrario, implica extenderlas a un nuevo tipo de texto. El código se convierte en un espacio donde se articulan teoría, método y datos. Herramientas como RStudio, y prácticas como el uso de scripts reproducibles o documentos en <a href="https://macarenaquiroga.com/post/guia-hiper-basica-a-rmarkdown/">R Markdown</a>, refuerzan esta idea al integrar código, texto y resultados en un mismo soporte.</p>
+<p>Aprender a programar suele presentarse como una habilidad técnica, asociada un mercado laboral centrado en lo tecnológico. Para quienes venimos de las ciencias sociales y humanas, ese mundo nos puede resultar ajeno. Nuestro trabajo cotidiano tiene otra materialidad (¿textos?) y está atravesado por preguntas sobre el lenguaje, la interpretación, la construcción de categorías y la producción situada de conocimiento. Sin embargo, cada vez más surgen herramientas tecnológicas que permiten imbricar ambos mundos y cada vez más hay personas del mundo de la lingüística, la sociología o las ciencias políticas trabajando con código y ciencias de datos.</p>
+<p>Nos solemos detener a pensar qué nos aporta la programación a quienes trabajamos en estas áreas, pero, ¿qué podemos aportar nosotros y nosotras a ese mundo? ¿Qué nuevas miradas podemos brindar sobre la tecnología? Hay una que nos parece central, que hemos mencionado varias veces porque está en el fondo de nuestra experiencia: programar es escribir. Más allá de las obvias asociaciones entre un “lenguaje natural” y un “lenguaje de programación”, creemos que hay fundamentalmente una dimensión textual que comparten tanto los <em>textos</em> como los <em>scripts</em>. En ese marco, proponemos ver a la programación no tanto como una destreza instrumental, sino más bien como una práctica de escritura y de análisis que dialoga con preocupaciones ya conocidas.</p>
+<p>Programar implica escribir instrucciones en un lenguaje formal, pero también leerlas, interpretarlas y revisarlas. Un <a href="https://atelierdecodigo.com/posts/consola-script-escribir-codigo.html">script</a> en R no es solo una secuencia de comandos que “funciona” o “no funciona”: es un texto que condensa decisiones analíticas, supuestos teóricos y recortes metodológicos. ¿Por dónde empezamos? ¿Cuánto nos detenemos en un análisis descriptivo o cuánto en un análisis inferencial? ¿Escribimos en soledad o esperamos que alguien más nos lea? ¿Comentamos nuestro texto?</p>
+<p>Del mismo modo que analizamos un texto académico preguntándonos qué conceptos usa, qué deja afuera o cómo organiza su argumento, el código también puede leerse críticamente. Aprender a programar en R, entonces, abre la posibilidad de pensar con datos de una manera explícita y revisable.</p>
+<p>R es especialmente interesante para este cruce porque <a href="https://atelierdecodigo.com/posts/r-lenguaje-programacion.html">nació y se desarrolló en el ámbito académico</a>. Su uso extendido en estadística, lingüística, sociología, psicología y ciencias de la educación no es casual. La lógica del lenguaje favorece un trabajo exploratorio y reflexivo con los datos, donde cada paso del análisis puede quedar registrado. Además, su ecosistema de paquetes refleja debates y tradiciones disciplinares concretas, que se materializan en funciones, argumentos y estructuras de datos. Paradójicamente, muchas personas ven el debate R vs Python como un debate de academia vs industria (mayoritariamente por quienes vienen de la industria y tienen sesgos negativos hacia el trabajo académico).</p>
+<p>Algo de esto se ve en los materiales de aprendizaje de los cursos: la amplia mayoría se enfocan en instrucciones sobre cómo realizar una determinada tarea, pero pocas veces hay explicaciones sobre el funcionamiento intrínseco del lenguaje. De hecho, pocas veces se resalta el aspecto <em>lingüístico</em> de un lenguaje de programación, a pesar de heredar atributos como la <a href="https://es.wikipedia.org/wiki/Sintaxis_(lenguajes_de_programaci%C3%B3n)">sintaxis</a> o la <a href="https://es.wikipedia.org/wiki/Sem%C3%A1ntica_de_lenguajes_de_programaci%C3%B3n">semántica</a>. Quienes venimos de la lingüística y tenemos incorporada la mirada sobre los aspectos formales o combinatorios de las estructuras tenemos una ventaja que no suele mencionarse. Más bien, lo contrario: quienes vienen de las ciencias sociales y humanas suelen sentir que su forma de pensar es distinta a la necesaria para adentrarse al mundo de la tecnología (sobre eso charlamos en el <a href="https://www.youtube.com/watch?v=t4f76etAF0Q">#LatinR2024)</a>.</p>
+<p>Desde nuestra perspectiva, aprender a programar no significa abandonar prácticas propias de otras áreas. Al contrario, implica extenderlas a un nuevo tipo de texto. El código se convierte en un espacio donde se articulan teoría, método y datos. Herramientas como RStudio, y prácticas como el uso de scripts reproducibles o documentos en <a href="https://macarenaquiroga.com/post/guia-hiper-basica-a-rmarkdown/">R Markdown</a>, refuerzan esta idea al integrar código, texto y resultados en un mismo soporte.</p>
 <p>En el cierre de esta reflexión, vale insistir en una idea central: la programación es una práctica situada. Se aprende en contextos específicos, para responder a preguntas concretas, con tradiciones disciplinares determinadas. Aprender R desde las humanidades y las ciencias sociales no implica adoptar sin más un lenguaje ajeno, sino apropiarse de él, leerlo críticamente y usarlo para pensar problemas propios. Programar, en este sentido, es otra forma de escribir, analizar y producir conocimiento.</p>
 
 

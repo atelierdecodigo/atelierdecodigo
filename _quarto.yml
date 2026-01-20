@@ -11,7 +11,7 @@ website:
       - href: index.qmd
         text: Inicio
       - href: about.qmd
-        text: Sobre
+        text: Acerca de
       - href: contact.qmd
         text: Contacto
       - href: posts/index.qmd
