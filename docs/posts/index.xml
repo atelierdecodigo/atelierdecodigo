@@ -10,7 +10,94 @@
 <atom:link href="https://atelierdecodigo.com/posts/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Mon, 26 Jan 2026 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 28 Jan 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>¿Qué es la ciencia de datos y por qué tanto interés?</title>
+  <link>https://atelierdecodigo.com/posts/que-es-ciencia-de-datos.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>En los últimos años, la expresión <em>ciencia de datos</em> se volvió omnipresente. Aparece en ofertas laborales, programas académicos, proyectos de investigación y debates públicos. A veces se la presenta como una disciplina nueva y homogénea; otras, como un conjunto difuso de técnicas. Para entender de qué se trata, conviene situarla históricamente, revisar sus vínculos con la estadística y el big data, y pensar por qué resulta especialmente atractiva para quienes vienen de tradiciones analíticas vinculadas a lo social.</p>
+<section id="un-origen-ligado-a-problemas-concretos" class="level3">
+<h3 class="anchored" data-anchor-id="un-origen-ligado-a-problemas-concretos">Un origen ligado a problemas concretos</h3>
+<p>La ciencia de datos no surge de un solo campo ni en un momento preciso. Se consolida a partir de la convergencia de prácticas que ya existían: el análisis estadístico, la programación, la gestión de bases de datos y el trabajo con grandes volúmenes de información. A mediados del siglo XX, la estadística aplicada ya cumplía un rol central en la investigación científica y en la toma de decisiones. Más adelante, con la expansión de la computación y el almacenamiento digital, comenzó a ser posible trabajar con conjuntos de datos cada vez más grandes y complejos.</p>
+<p>El término <em>data science</em> empieza a circular con más fuerza hacia fines de los años noventa y principios de los dos mil, cuando se vuelve evidente que los problemas ya no pasan solo por calcular indicadores, sino por organizar, limpiar, transformar e interpretar datos heterogéneos. La ciencia de datos se configura así como una respuesta práctica a una pregunta recurrente: cómo producir conocimiento a partir de datos en contextos donde el volumen, la variedad y la velocidad de la información desafían los enfoques tradicionales.</p>
+<section id="ciencia-de-datos-y-estadística" class="level4">
+<h4 class="anchored" data-anchor-id="ciencia-de-datos-y-estadística">Ciencia de datos y estadística</h4>
+<p>La relación entre ciencia de datos y estadística es estrecha, aunque no siempre evidente. Muchas de las herramientas centrales de la ciencia de datos, como la estimación, la inferencia o la modelización, provienen directamente de la estadística. Sin embargo, la ciencia de datos amplía el foco. Además de analizar datos ya preparados, se ocupa de todo el proceso: desde la obtención de la información hasta la comunicación de resultados.</p>
+<p>En este sentido, programar ocupa un lugar clave. No solo como medio para ejecutar cálculos, sino como forma de describir procedimientos de manera explícita y reproducible. El código permite documentar decisiones, repetir análisis y ajustar pasos intermedios. La estadística aporta los marcos conceptuales para interpretar los resultados, mientras que la programación articula esos marcos con datos concretos y flujos de trabajo complejos.</p>
+</section>
+<section id="el-vínculo-con-el-big-data" class="level4">
+<h4 class="anchored" data-anchor-id="el-vínculo-con-el-big-data">El vínculo con el big data</h4>
+<p>El big data suele aparecer asociado a la ciencia de datos, aunque no son sinónimos. El big data se refiere, en términos generales, a conjuntos de datos de gran tamaño o alta complejidad, que requieren infraestructuras específicas para su almacenamiento y procesamiento. La ciencia de datos puede trabajar con big data, pero también con bases pequeñas, encuestas, registros administrativos o corpus textuales.</p>
+<p>Lo que comparten es una preocupación común: cómo transformar datos en información significativa. En muchos casos, el desafío no está en la cantidad de datos, sino en su calidad, su estructura y su contexto de producción. Desde esta perspectiva, la ciencia de datos no se define solo por el volumen, sino por una forma de abordar el análisis que integra técnica, interpretación y toma de decisiones.</p>
+</section>
+<section id="por-qué-despierta-interés-en-las-ciencias-sociales" class="level4">
+<h4 class="anchored" data-anchor-id="por-qué-despierta-interés-en-las-ciencias-sociales">Por qué despierta interés en las ciencias sociales</h4>
+<p>El creciente interés de personas formadas en disciplinas sociales por la ciencia de datos tiene varias razones. En primer lugar, muchas investigaciones contemporáneas trabajan con datos digitales: encuestas en línea, bases administrativas, redes sociales, archivos textuales o registros de interacción. Estos materiales requieren herramientas que permitan explorarlos y analizarlos de manera sistemática.</p>
+<p>En segundo lugar, la ciencia de datos propone un modo de trabajo que dialoga bien con preocupaciones clásicas del análisis social. La necesidad de explicitar supuestos, documentar procedimientos y reflexionar sobre las categorías utilizadas encuentra un aliado en el uso de código y flujos reproducibles. El análisis deja rastros que pueden ser leídos, discutidos y revisados.</p>
+<p>Además, la ciencia de datos pone en primer plano preguntas sobre el poder de los datos, los sesgos, la representatividad y los usos sociales de la información. Estas preguntas no son ajenas a las tradiciones críticas de las ciencias sociales. Al contrario, ofrecen un espacio donde herramientas técnicas y reflexión conceptual se encuentran.</p>
+</section>
+<section id="una-práctica-situada" class="level4">
+<h4 class="anchored" data-anchor-id="una-práctica-situada">Una práctica situada</h4>
+<p>Más que una disciplina cerrada, la ciencia de datos puede entenderse como una práctica situada. Sus herramientas se adaptan a problemas específicos y a contextos concretos de investigación, trabajo o intervención. Aprender ciencia de datos implica aprender a formular preguntas, a evaluar fuentes, a tomar decisiones metodológicas y a comunicar resultados de forma responsable.</p>
+<p>Desde esta mirada, programar, analizar y visualizar datos no son fines en sí mismos. Son medios para construir conocimiento en diálogo con marcos teóricos, preguntas sustantivas y condiciones materiales de producción. La ciencia de datos se vuelve así un espacio fértil para quienes buscan articular técnica y reflexión, sin perder de vista que los datos siempre están anclados en prácticas sociales.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/posts/que-es-ciencia-de-datos.html</guid>
+  <pubDate>Wed, 28 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>6 libros imprescindibles para aprender Ciencia de Datos</title>
+  <link>https://atelierdecodigo.com/posts/libros-aprender-ciencia-datos.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Profundizar en ciencia de datos va más allá de aprender sintaxis o ejecutar comandos. Leer libros que articulan conceptos, técnicas y reflexiones ayuda a entender el campo en conjunto. Afortunadamente, existen textos accesibles de forma gratuita en la web que cubren desde fundamentos hasta aplicaciones concretas. A continuación presento cinco libros recomendados, de acceso libre. Algunos están en inglés, otros en español.</p>
+<section id="r-for-data-science-hadley-wickham-garrett-grolemund-y-mine-çetinkaya-rundel" class="level4">
+<h4 class="anchored" data-anchor-id="r-for-data-science-hadley-wickham-garrett-grolemund-y-mine-çetinkaya-rundel"><a href="https://r4ds.hadley.nz/">1. <em>R for Data Science</em> (Hadley Wickham, Garrett Grolemund y Mine Çetinkaya-Rundel)</a></h4>
+<p>Este libro es el fundamento absoluto sobre la programación en R en el mundo de la ciencia de datos. Abarca temas como la limpieza y la visualización de datos, entre otros temas. Está pensado para quien recién empieza, pero con un nivel de detalle que permite seguir aprendiendo de forma continua. Tiene su versión en español <a href="https://davidrsch.github.io/r4ds-es/">aquí</a>.</p>
+</section>
+<section id="telling-stories-with-data-rohan-alexander" class="level4">
+<h4 class="anchored" data-anchor-id="telling-stories-with-data-rohan-alexander"><a href="https://rohanalexander.github.io/telling_stories-published/">2. <em>Telling Stories with Data</em> (Rohan Alexander)</a></h4>
+<p>Enfocado en la comunicación estadística y la narrativa de los análisis, este libro cubre desde la recopilación y limpieza de datos hasta la presentación de resultados. Incluye ejemplos de código y actividades que refuerzan la comprensión de cada técnica. Su enfoque en cómo traducir datos en conclusiones claras lo hace especialmente útil para quienes trabajan con análisis interpretativos.</p>
+</section>
+<section id="libro-vivo-de-ciencia-de-datos-pablo-casas" class="level4">
+<h4 class="anchored" data-anchor-id="libro-vivo-de-ciencia-de-datos-pablo-casas"><a href="https://librovivodecienciadedatos.ai/">3. <em>Libro Vivo de Ciencia de Datos</em> (Pablo Casas)</a></h4>
+<p>Este libro en español presenta una introducción intuitiva a la ciencia de datos y al machine learning, con un enfoque didáctico. Propone una visión práctica de cómo pensar y trabajar con datos desde niveles iniciales.</p>
+</section>
+<section id="deep-r-programming-marek-gagolewski" class="level4">
+<h4 class="anchored" data-anchor-id="deep-r-programming-marek-gagolewski"><a href="https://deepr.gagolewski.com/index.html">4. <em>Deep R Programming</em> (Marek Gagolewski)</a></h4>
+<p>Aunque más técnico, este recurso gratuito ofrece una introducción profunda al lenguaje R desde la perspectiva de la ciencia de datos. El libro cubre transformaciones de datos, cálculo numérico, programación funcional y estructuras avanzadas, con ejemplos y ejercicios prácticos.</p>
+</section>
+<section id="openintro-statistics-david-diez-christopher-barr-y-mine-çetinkaya-rundel" class="level4">
+<h4 class="anchored" data-anchor-id="openintro-statistics-david-diez-christopher-barr-y-mine-çetinkaya-rundel"><a href="https://www.biostat.jhsph.edu/~iruczins/teaching/books/2019.openintro.statistics.pdf">5. <em>OpenIntro Statistics</em> (David Diez, Christopher Barr y Mine Çetinkaya-Rundel)</a></h4>
+<p>Aunque este texto es un libro de estadística, es una lectura esencial para ciencia de datos. La estadística es un pilar del análisis de datos, y este libro acompaña al lector desde los conceptos básicos hasta técnicas aplicadas.</p>
+</section>
+<section id="learning-statistics-with-r-danielle-navarro" class="level3">
+<h3 class="anchored" data-anchor-id="learning-statistics-with-r-danielle-navarro"><a href="https://learningstatisticswithr.com/">6. Learning Statistics with R (Danielle Navarro)</a></h3>
+<p>Este libro en inglés recopila los materiales de un curso de introducción a la estadística que la autora dio en la Universidad de Adelaide, con ejemplos en R. Condensa no solamente la teoría sino también la práctica para llevar adelante un análisis de datos real e informado. Además, Danielle es una persona muy activa en la comunidad de R y sus aportes son realmente fundamentales.</p>
+</section>
+<section id="cómo-usar-estos-libros-en-tu-aprendizaje" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-usar-estos-libros-en-tu-aprendizaje">Cómo usar estos libros en tu aprendizaje</h3>
+<p>Estos textos sirven distintos propósitos: algunos introducen conceptos generales, otros profundizan en herramientas específicas y otros integran programación y análisis. Una estrategia de lectura efectiva puede combinar un libro más conceptual con materiales prácticos que incluyan ejercicios de código y casos reales.</p>
+<p>Si estás comenzando, puede ser útil empezar por capítulos introductorios (por ejemplo, fundamentos de ciencia de datos y comunicación de resultados) antes de avanzar hacia textos más técnicos o centrados en lenguajes específicos como R.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/posts/libros-aprender-ciencia-datos.html</guid>
+  <pubDate>Tue, 27 Jan 2026 03:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Gramática de gráficos</title>
   <link>https://atelierdecodigo.com/posts/gramatica-graficos-ggplot.html</link>

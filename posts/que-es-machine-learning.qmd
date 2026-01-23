@@ -1,0 +1,42 @@
+---
+title: "¿Qué es el Machine Learning?"
+date: 2026-01-29
+page-layout: full
+toc: false
+draft: true
+description: "¿Qué es el machine learning y cómo funciona? Este post ofrece una introducción general al aprendizaje automático, explica sus ideas básicas y presenta los principales tipos de enfoques para quienes se acercan al tema por primera vez."
+---
+
+El término *machine learning* aparece con frecuencia en noticias, cursos y conversaciones sobre tecnología y [ciencia de datos](https://atelierdecodigo.com/posts/que-es-ciencia-de-datos.html). A menudo se lo asocia con sistemas complejos, automatización o inteligencia artificial, lo que puede generar la impresión de que se trata de algo distante o exclusivamente técnico. Sin embargo, el machine learning puede entenderse a partir de una idea relativamente simple: usar datos para construir modelos que aprendan patrones y permitan hacer predicciones o clasificaciones.
+
+Como punto de partida, conviene pensar en el aprendizaje como un proceso guiado por ejemplos. En lugar de escribir reglas explícitas para cada situación posible, se le da al sistema un conjunto de datos y se le pide que identifique regularidades. A partir de esas regularidades, el modelo puede generalizar y operar sobre casos nuevos.
+
+#### De dónde surge el machine learning
+
+El machine learning tiene raíces en varios campos. Por un lado, en la estadística, que desde hace décadas desarrolla modelos para describir relaciones entre variables y hacer inferencias. Por otro, en la informática, que aporta los métodos para implementar estos modelos de manera eficiente y escalable. También intervienen ideas de la inteligencia artificial, en particular el interés por construir sistemas capaces de adaptarse a la información disponible.
+
+El crecimiento del machine learning está estrechamente vinculado a la disponibilidad de grandes volúmenes de datos digitales y a una mayor capacidad de cómputo. A medida que se acumulan registros de interacciones, textos, imágenes o transacciones, se vuelve posible entrenar modelos cada vez más complejos sobre información real y actualizada.
+
+#### Aprender a partir de datos
+
+En términos generales, un modelo de machine learning se construye a partir de tres elementos. Primero, un conjunto de datos que funciona como material de aprendizaje. Segundo, un algoritmo que define cómo buscar patrones en esos datos. Tercero, un objetivo que indica qué tipo de resultado se espera, por ejemplo predecir un valor, clasificar casos o detectar agrupamientos.
+
+Un ejemplo sencillo puede ayudar a fijar ideas. Supongamos que tenemos datos sobre personas y queremos predecir si están empleadas a partir de variables como edad, nivel educativo o región. El modelo analiza ejemplos previos donde el resultado es conocido y ajusta sus parámetros para aproximarse a ese resultado. Cuando recibe un caso nuevo, produce una predicción basada en lo aprendido.
+
+#### Tipos básicos de machine learning
+
+Una distinción habitual es entre aprendizaje supervisado y no supervisado. En el aprendizaje supervisado, los datos incluyen una variable objetivo conocida. El modelo aprende a partir de ejemplos etiquetados. En el aprendizaje no supervisado, no hay una etiqueta previa. El objetivo es explorar la estructura de los datos, encontrar grupos o patrones recurrentes.
+
+También existen enfoques intermedios y otros más específicos, como el aprendizaje por refuerzo, donde un sistema aprende a partir de la retroalimentación de sus acciones. Para una primera aproximación, alcanza con reconocer que el tipo de problema define qué técnicas resultan más adecuadas.
+
+#### Qué hace y qué no hace un modelo
+
+Un modelo de machine learning produce resultados a partir de los datos con los que fue entrenado. Esto implica que sus conclusiones dependen de cómo se construyeron esos datos, qué variables se incluyeron y qué supuestos se hicieron durante el proceso. El modelo no tiene comprensión del mundo en un sentido amplio. Opera sobre regularidades estadísticas.
+
+Por este motivo, el machine learning no reemplaza la interpretación. Ayuda a identificar patrones y a automatizar ciertos análisis, pero sigue siendo necesario evaluar si esos patrones tienen sentido, si generalizan a otros contextos y qué implicancias tienen. Las decisiones sobre qué datos usar y cómo interpretar los resultados siguen siendo centrales.
+
+#### Una herramienta situada
+
+Como otras técnicas de análisis, el machine learning se usa en contextos concretos. Puede servir para clasificar textos, detectar fraudes, analizar imágenes, estudiar trayectorias laborales o explorar dinámicas sociales. Su valor depende de cómo se lo integre en un marco de preguntas y de prácticas de trabajo claras.
+
+Aprender machine learning no implica solo familiarizarse con algoritmos. Implica entender qué tipo de problemas se pueden formular, cómo evaluar resultados y cómo comunicar hallazgos de manera responsable. En ese sentido, funciona mejor cuando se lo aborda como parte de un proceso de análisis más amplio, donde los datos, el código y la interpretación están estrechamente vinculados.

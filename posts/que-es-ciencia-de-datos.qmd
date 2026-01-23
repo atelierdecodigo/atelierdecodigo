@@ -1,0 +1,41 @@
+---
+title: "¿Qué es la ciencia de datos y por qué tanto interés?"
+date: 2026-01-28
+page-layout: full
+toc: false
+description: "¿Qué es la ciencia de datos y de dónde viene? Este post recorre su origen, su vínculo con la estadística y el big data, y analiza por qué cada vez más personas se acercan a este campo desde tradiciones analíticas diversas."
+---
+
+En los últimos años, la expresión *ciencia de datos* se volvió omnipresente. Aparece en ofertas laborales, programas académicos, proyectos de investigación y debates públicos. A veces se la presenta como una disciplina nueva y homogénea; otras, como un conjunto difuso de técnicas. Para entender de qué se trata, conviene situarla históricamente, revisar sus vínculos con la estadística y el big data, y pensar por qué resulta especialmente atractiva para quienes vienen de tradiciones analíticas vinculadas a lo social.
+
+### Un origen ligado a problemas concretos
+
+La ciencia de datos no surge de un solo campo ni en un momento preciso. Se consolida a partir de la convergencia de prácticas que ya existían: el análisis estadístico, la programación, la gestión de bases de datos y el trabajo con grandes volúmenes de información. A mediados del siglo XX, la estadística aplicada ya cumplía un rol central en la investigación científica y en la toma de decisiones. Más adelante, con la expansión de la computación y el almacenamiento digital, comenzó a ser posible trabajar con conjuntos de datos cada vez más grandes y complejos.
+
+El término *data science* empieza a circular con más fuerza hacia fines de los años noventa y principios de los dos mil, cuando se vuelve evidente que los problemas ya no pasan solo por calcular indicadores, sino por organizar, limpiar, transformar e interpretar datos heterogéneos. La ciencia de datos se configura así como una respuesta práctica a una pregunta recurrente: cómo producir conocimiento a partir de datos en contextos donde el volumen, la variedad y la velocidad de la información desafían los enfoques tradicionales.
+
+#### Ciencia de datos y estadística
+
+La relación entre ciencia de datos y estadística es estrecha, aunque no siempre evidente. Muchas de las herramientas centrales de la ciencia de datos, como la estimación, la inferencia o la modelización, provienen directamente de la estadística. Sin embargo, la ciencia de datos amplía el foco. Además de analizar datos ya preparados, se ocupa de todo el proceso: desde la obtención de la información hasta la comunicación de resultados.
+
+En este sentido, programar ocupa un lugar clave. No solo como medio para ejecutar cálculos, sino como forma de describir procedimientos de manera explícita y reproducible. El código permite documentar decisiones, repetir análisis y ajustar pasos intermedios. La estadística aporta los marcos conceptuales para interpretar los resultados, mientras que la programación articula esos marcos con datos concretos y flujos de trabajo complejos.
+
+#### El vínculo con el big data
+
+El big data suele aparecer asociado a la ciencia de datos, aunque no son sinónimos. El big data se refiere, en términos generales, a conjuntos de datos de gran tamaño o alta complejidad, que requieren infraestructuras específicas para su almacenamiento y procesamiento. La ciencia de datos puede trabajar con big data, pero también con bases pequeñas, encuestas, registros administrativos o corpus textuales.
+
+Lo que comparten es una preocupación común: cómo transformar datos en información significativa. En muchos casos, el desafío no está en la cantidad de datos, sino en su calidad, su estructura y su contexto de producción. Desde esta perspectiva, la ciencia de datos no se define solo por el volumen, sino por una forma de abordar el análisis que integra técnica, interpretación y toma de decisiones.
+
+#### Por qué despierta interés en las ciencias sociales
+
+El creciente interés de personas formadas en disciplinas sociales por la ciencia de datos tiene varias razones. En primer lugar, muchas investigaciones contemporáneas trabajan con datos digitales: encuestas en línea, bases administrativas, redes sociales, archivos textuales o registros de interacción. Estos materiales requieren herramientas que permitan explorarlos y analizarlos de manera sistemática.
+
+En segundo lugar, la ciencia de datos propone un modo de trabajo que dialoga bien con preocupaciones clásicas del análisis social. La necesidad de explicitar supuestos, documentar procedimientos y reflexionar sobre las categorías utilizadas encuentra un aliado en el uso de código y flujos reproducibles. El análisis deja rastros que pueden ser leídos, discutidos y revisados.
+
+Además, la ciencia de datos pone en primer plano preguntas sobre el poder de los datos, los sesgos, la representatividad y los usos sociales de la información. Estas preguntas no son ajenas a las tradiciones críticas de las ciencias sociales. Al contrario, ofrecen un espacio donde herramientas técnicas y reflexión conceptual se encuentran.
+
+#### Una práctica situada
+
+Más que una disciplina cerrada, la ciencia de datos puede entenderse como una práctica situada. Sus herramientas se adaptan a problemas específicos y a contextos concretos de investigación, trabajo o intervención. Aprender ciencia de datos implica aprender a formular preguntas, a evaluar fuentes, a tomar decisiones metodológicas y a comunicar resultados de forma responsable.
+
+Desde esta mirada, programar, analizar y visualizar datos no son fines en sí mismos. Son medios para construir conocimiento en diálogo con marcos teóricos, preguntas sustantivas y condiciones materiales de producción. La ciencia de datos se vuelve así un espacio fértil para quienes buscan articular técnica y reflexión, sin perder de vista que los datos siempre están anclados en prácticas sociales.
