@@ -24,25 +24,21 @@ Distintas personas pueden trabajar con un mismo repositorio y "subir" sus cambio
 
 Rstudio ya trae incorporada una funcionalidad que permite integrar nuestros proyectos con un repositorio de Github. Para combinar RStudio con control de versiones, el punto de partida sigue siendo un [proyecto](https://atelierdecodigo.com/posts/proyectos-rstudio.html). La diferencia es que ese proyecto estará asociado desde el inicio a un repositorio.
 
-1.  **Crear un repositorio en GitHub**
-    Ingresá a tu cuenta de GitHub y creá un repositorio nuevo, haciendo click en el botón verde que está arriba a la derecha, *New*.
+1.  **Crear un repositorio en GitHub** Ingresá a tu cuenta de GitHub y creá un repositorio nuevo, haciendo click en el botón verde que está arriba a la derecha, *New*.
 
-    ![](images/CleanShot 2026-01-21 at 22.47.36@2x.png)
+    ![](images/CleanShot%202026-01-21%20at%2022.47.36@2x.png)
 
     Elegí un nombre sencillo y marcá la opción de inicializarlo con un archivo `README.md`. Copiá la URL del repositorio, que la vamos a usar en el siguiente paso.
 
-2.  **Crear el proyecto desde RStudio**
-    En RStudio, andá a *File \> New Project*. Elegí la opción *Version Control* y luego *Git*. Pegá la URL del repositorio de GitHub y seleccioná la carpeta local donde querés que se descargue el proyecto. Al aceptar, RStudio crea una carpeta que ya incluye el vínculo con el repositorio.
+2.  **Crear el proyecto desde RStudio** En RStudio, andá a *File \> New Project*. Elegí la opción *Version Control* y luego *Git*. Pegá la URL del repositorio de GitHub y seleccioná la carpeta local donde querés que se descargue el proyecto. Al aceptar, RStudio crea una carpeta que ya incluye el vínculo con el repositorio.
 
-3.  **Reconocer el entorno de trabajo**
-    Una vez creado el proyecto, vas a notar un panel nuevo en RStudio llamado *Git*. Desde ahí se pueden ver los archivos modificados, guardar cambios y enviarlos al repositorio remoto. A partir de este momento, todo el trabajo debería hacerse dentro de esta carpeta del proyecto.
+3.  **Reconocer el entorno de trabajo** Una vez creado el proyecto, vas a notar un panel nuevo en RStudio llamado *Git*. Desde ahí se pueden ver los archivos modificados, guardar cambios y enviarlos al repositorio remoto. A partir de este momento, todo el trabajo debería hacerse dentro de esta carpeta del proyecto.
 
-4.  **Guardar y registrar cambios**
-    Acá tenés dos formas distintas para subir los cambios: una es a través de la interfaz gráfica integrada en RStudio y la otra es a través de la terminal también integrada a Rstudio. Para la primera versión, tenés que identificar la solapa que dice "Git", al lado de "Environmente" y de "History". Cuando editás un script o agregás un archivo, RStudio marca esos cambios en el panel *Git*. Para subirlos al repositorio, seleccionás los archivos en la columna *Staged*, hacés click en el botón *Commit* (aquí escribís un mensaje breve que describa qué hiciste) y confirmás el cambio. Ese registro queda guardado como parte de la historia del proyecto. Finalmente, hacés click en *Push* y se suben los archivos. La próxima vez que empieces a trabajar, tenés que hacer "Pull" para asegurarte de bajar en tu repositorio local todos los cambios que otras personas (o vos en otro dispositivo) hayan hecho.
+4.  **Guardar y registrar cambios** Acá tenés dos formas distintas para subir los cambios: una es a través de la interfaz gráfica integrada en RStudio y la otra es a través de la terminal también integrada a Rstudio. Para la primera versión, tenés que identificar la solapa que dice "Git", al lado de "Environmente" y de "History". Cuando editás un script o agregás un archivo, RStudio marca esos cambios en el panel *Git*. Para subirlos al repositorio, seleccionás los archivos en la columna *Staged*, hacés click en el botón *Commit* (aquí escribís un mensaje breve que describa qué hiciste) y confirmás el cambio. Ese registro queda guardado como parte de la historia del proyecto. Finalmente, hacés click en *Push* y se suben los archivos. La próxima vez que empieces a trabajar, tenés que hacer "Pull" para asegurarte de bajar en tu repositorio local todos los cambios que otras personas (o vos en otro dispositivo) hayan hecho.
 
     La segunda forma es a través de la terminal, que está al lado de la solapa "Console". La lógica es la misma: seleccionás los archivos, le agregás un mensaje descriptivo que indique lo que hiciste (el *commit*) y luego los subís. La diferencia es que lo hacés con comandos:
 
-    ```{bash}
+    ```{r, eval=FALSE}
     git add .
     git commit -m "mensaje descriptivo"
     git push

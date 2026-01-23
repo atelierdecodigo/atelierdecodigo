@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-01-24">
+<meta name="description" content="Trabajar con archivos sueltos y versiones duplicadas genera confusión, sobre todo en trabajos colaborativos. Este post introduce el uso de proyectos en RStudio combinados con control de versiones en GitHub y propone un flujo de trabajo más ordenado y reproducible.">
 
-<title>Blog – Atelier de código</title>
+<title>Proyectos en RStudio y control de versiones: trabajar sin perderse en archivos – Atelier de código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +67,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -70,68 +105,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
-<link rel="alternate" type="application/rss+xml" title="Atelier de código" href="index.xml" data-external="1"></head>
+</head>
 
 <body class="nav-fixed quarto-light">
 
@@ -163,7 +140,7 @@ window.Quarto = {
 <span class="menu-text">Contacto</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../posts/index.html" aria-current="page"> 
+    <a class="nav-link" href="../posts/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -183,14 +160,25 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
+<h1 class="title">Proyectos en RStudio y control de versiones: trabajar sin perderse en archivos</h1>
 </div>
 
+<div>
+  <div class="description">
+    Trabajar con archivos sueltos y versiones duplicadas genera confusión, sobre todo en trabajos colaborativos. Este post introduce el uso de proyectos en RStudio combinados con control de versiones en GitHub y propone un flujo de trabajo más ordenado y reproducible.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta column-page">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 24, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -200,235 +188,51 @@ window.Quarto = {
 </header>
 
 
+<p>Quienes empiezan a trabajar con datos suelen hacerlo a partir de archivos sueltos. Un script que se llama <code>analisis_final.R</code>, luego otro <code>analisis_final_v2.R</code>, después <code>analisis_final_ahora_si.R</code>. Cuando el trabajo avanza, aparecen copias en distintos dispositivos, versiones enviadas por mail y carpetas duplicadas. Si además participan varias personas, la situación se vuelve rápidamente confusa: no queda claro cuál es el archivo más actualizado, qué cambios hizo cada quien o qué versión se usó para obtener un resultado.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/memeversionfinal.jpg" class="img-fluid figure-img" alt="Una imagen de una carpeta donde hay archivos de word llamados &quot;Documento final&quot;, &quot;Documento final 2&quot;, &quot;Documento finalmente definitivo&quot; y así."></p>
+<figcaption>Dale, ¿quién no estuvo en esta situación?</figcaption>
+</figure>
+</div>
+<p>Una respuesta habitual a este problema es mover todo a la nube. Servicios como Google Drive o Dropbox permiten que los archivos estén disponibles desde distintos lugares y dispositivos. Esto resuelve parte del inconveniente, porque reduce la circulación de copias desconectadas entre sí. Sin embargo, sigue quedando una pregunta importante abierta: cómo registrar los cambios a lo largo del tiempo, volver atrás si algo sale mal o entender qué se modificó entre una versión y otra de un mismo archivo.</p>
+<p>Ahí es donde entra el control de versiones, y en particular plataformas como <a href="https://github.com/">GitHub</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. El control de versiones permite guardar la historia de un proyecto, registrar cada cambio de manera ordenada y trabajar de forma coordinada sin pisarse el trabajo. GitHub agrega a esto una infraestructura en la nube que facilita compartir proyectos, colaborar y mantener una referencia clara de qué versión es la vigente. En lugar de intercambiar archivos terminados, se trabaja sobre un mismo proyecto, con un registro explícito de su evolución.</p>
+<p>En pocas palabras, el funcionamiento de git es el siguiente: tenemos un repositorio (podemos pensarlo como una carpeta alojada en la nube) de la cual nos descargamos una copia en nuestra computadora. Realizamos cambios a ese repositorio, pero mientras no hagamos nada más, la versión que está en la nube (en Github) va a seguir como antes. Una vez que terminamos de trabajar o llegamos a un resultado satisfactorio, “subimos” esos cambios a ese repositorio y el que estaba en la nube se actualiza (y tanto el repositorio en la nube como el que tenemos en nuestra computadora van a ser idénticos).</p>
+<p>Distintas personas pueden trabajar con un mismo repositorio y “subir” sus cambios, siempre y cuando esos cambios no entren en conflicto. Cuando esto ocurre (y va a ocurrir, camaradas, inevitablemente), git nos permite saber dónde se da ese conflicto, cuáles fueron las versiones que entraron en conflicto (“hasta la versión 4 estaba todo bien, en la 5 de Pepito ya se pudrió todo”) y nos da la posibilidad de retrotraer los cambios hasta una versión previa (o aceptar a la fuerza los cambios). Lo bueno es que git guarda registro de todo, lo cual nos puede sacar de un apuro más de una vez.</p>
+<section id="crear-un-proyecto-de-rstudio-conectado-a-github" class="level3">
+<h3 class="anchored" data-anchor-id="crear-un-proyecto-de-rstudio-conectado-a-github">Crear un proyecto de RStudio conectado a GitHub</h3>
+<p>Rstudio ya trae incorporada una funcionalidad que permite integrar nuestros proyectos con un repositorio de Github. Para combinar RStudio con control de versiones, el punto de partida sigue siendo un <a href="https://atelierdecodigo.com/posts/proyectos-rstudio.html">proyecto</a>. La diferencia es que ese proyecto estará asociado desde el inicio a un repositorio.</p>
+<ol type="1">
+<li><p><strong>Crear un repositorio en GitHub</strong> Ingresá a tu cuenta de GitHub y creá un repositorio nuevo, haciendo click en el botón verde que está arriba a la derecha, <em>New</em>.</p>
+<p><img src="images/CleanShot 2026-01-21 at 22.47.36@2x.png" class="img-fluid"></p>
+<p>Elegí un nombre sencillo y marcá la opción de inicializarlo con un archivo <code>README.md</code>. Copiá la URL del repositorio, que la vamos a usar en el siguiente paso.</p></li>
+<li><p><strong>Crear el proyecto desde RStudio</strong> En RStudio, andá a <em>File &gt; New Project</em>. Elegí la opción <em>Version Control</em> y luego <em>Git</em>. Pegá la URL del repositorio de GitHub y seleccioná la carpeta local donde querés que se descargue el proyecto. Al aceptar, RStudio crea una carpeta que ya incluye el vínculo con el repositorio.</p></li>
+<li><p><strong>Reconocer el entorno de trabajo</strong> Una vez creado el proyecto, vas a notar un panel nuevo en RStudio llamado <em>Git</em>. Desde ahí se pueden ver los archivos modificados, guardar cambios y enviarlos al repositorio remoto. A partir de este momento, todo el trabajo debería hacerse dentro de esta carpeta del proyecto.</p></li>
+<li><p><strong>Guardar y registrar cambios</strong> Acá tenés dos formas distintas para subir los cambios: una es a través de la interfaz gráfica integrada en RStudio y la otra es a través de la terminal también integrada a Rstudio. Para la primera versión, tenés que identificar la solapa que dice “Git”, al lado de “Environmente” y de “History”. Cuando editás un script o agregás un archivo, RStudio marca esos cambios en el panel <em>Git</em>. Para subirlos al repositorio, seleccionás los archivos en la columna <em>Staged</em>, hacés click en el botón <em>Commit</em> (aquí escribís un mensaje breve que describa qué hiciste) y confirmás el cambio. Ese registro queda guardado como parte de la historia del proyecto. Finalmente, hacés click en <em>Push</em> y se suben los archivos. La próxima vez que empieces a trabajar, tenés que hacer “Pull” para asegurarte de bajar en tu repositorio local todos los cambios que otras personas (o vos en otro dispositivo) hayan hecho.</p>
+<p>La segunda forma es a través de la terminal, que está al lado de la solapa “Console”. La lógica es la misma: seleccionás los archivos, le agregás un mensaje descriptivo que indique lo que hiciste (el <em>commit</em>) y luego los subís. La diferencia es que lo hacés con comandos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>git add .</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"mensaje descriptivo"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>git push</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># la próxima vez que retomes el trabajo</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>git pull</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Cada vez que escribís un comando, hacés <em>enter</em> para ejecutarlo. En mi experiencia, es más rápido y sencillo que usar la interfaz gráfica de RStudio, pero es cuestión de gustos.</p></li>
+</ol>
+<p>Este flujo permite trabajar de manera más ordenada y transparente. Cada decisión queda registrada, los errores pueden revertirse y el proyecto se convierte en un espacio compartido con memoria.</p>
+<p>Trabajar con proyectos y control de versiones no es solo una cuestión técnica. Es una forma de organizar el trabajo intelectual, de hacerlo más legible y de reducir la fricción cuando se colabora con otras personas. Debemos advertirte que, como dijo <a href="https://es.wikipedia.org/wiki/T%C3%ADo_Ben">el tío Ben</a>, un gran poder viene con una gran responsabilidad, y es normal encontrarse con errores a la hora de usar git (sobre todo si usamos varios dispositivos y nos olvidamos de actualizar los cambios). Existen muchísimos comandos para miles de situaciones y aprietes en los que te podés encontrar, por lo cual te sugiero tener a mano guías como <a href="https://rogerdudler.github.io/git-guide/index.es.html">esta</a> o incluso este curso de <a href="https://www.freecodecamp.org/espanol/news/guia-para-principiantes-de-git-y-github/">FreeCodeCamp</a>.</p>
 
 
+</section>
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1769396400000" data-listing-file-modified-sort="1769132062381" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="676">
-<div class="thumbnail"><a href="../posts/gramatica-graficos-ggplot.html" class="no-external">
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/gramatica-graficos-ggplot.html" class="no-external">Gramática de gráficos</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/gramatica-graficos-ggplot.html" class="no-external">
-<p>¿Qué tienen en común los gráficos estadísticos? Este post introduce la idea de la gramática de los gráficos y muestra cómo ggplot2 permite pensar la visualización como un lenguaje compuesto por decisiones analíticas explícitas.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/gramatica-graficos-ggplot.html" class="no-external">
-<div class="listing-date">
-Jan 26, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1769223600000" data-listing-file-modified-sort="1769133684729" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1181">
-<div class="thumbnail"><a href="../posts/proyectos-control-versiones-github.html" class="no-external">
-
-<p class="card-img-top"><img src="images/memeversionfinal.jpg" alt="Una imagen de una carpeta donde hay archivos de word llamados "Documento final", "Documento final 2", "Documento finalmente definitivo" y así."  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/proyectos-control-versiones-github.html" class="no-external">Proyectos en RStudio y control de versiones: trabajar sin perderse en archivos</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/proyectos-control-versiones-github.html" class="no-external">
-<p>Trabajar con archivos sueltos y versiones duplicadas genera confusión, sobre todo en trabajos colaborativos. Este post introduce el uso de proyectos en RStudio combinados con control de versiones en GitHub y propone un flujo de trabajo más ordenado y reproducible.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/proyectos-control-versiones-github.html" class="no-external">
-<div class="listing-date">
-Jan 24, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1769050800000" data-listing-file-modified-sort="1769044942617" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="684">
-<div class="thumbnail"><a href="../posts/reproducibilidad.html" class="no-external">
-
-<p class="card-img-top"><img src="images/spidermanmeme.jpg" alt="Meme donde se ve a dos Spiderman señalándose entre sí."  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/reproducibilidad.html" class="no-external">Reproducibilidad: por qué importa y qué tiene que ver con programar bien</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/reproducibilidad.html" class="no-external">
-<p>¿Qué significa que un análisis sea reproducible y por qué importa? Este post explica la idea de reproducibilidad en ciencia y muestra cómo las buenas prácticas de programación ayudan a sostener análisis claros, verificables y fáciles de retomar.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/reproducibilidad.html" class="no-external">
-<div class="listing-date">
-Jan 22, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1769050800000" data-listing-file-modified-sort="1768958309548" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="742">
-<div class="thumbnail"><a href="../posts/proyectos-rstudio.html" class="no-external">
-
-<p class="card-img-top"><img src="images/CleanShot 2026-01-18 at 20.09.35@2x.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/proyectos-rstudio.html" class="no-external">Trabajar con proyectos en RStudio: ordenar el trabajo desde el inicio</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/proyectos-rstudio.html" class="no-external">
-<p>¿Qué significa trabajar con proyectos en RStudio y por qué conviene hacerlo desde el inicio? Este post explica para qué sirven los proyectos y muestra paso a paso cómo crear y usar uno en la práctica.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/proyectos-rstudio.html" class="no-external">
-<div class="listing-date">
-Jan 22, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1769050800000" data-listing-file-modified-sort="1768941611183" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="680">
-<div class="thumbnail"><a href="../posts/instalar-r-rstudio.html" class="no-external">
-
-<p class="card-img-top"><img src="images/CleanShot 2026-01-20 at 17.27.03.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/instalar-r-rstudio.html" class="no-external">Empezar con R: instalación y primeros pasos</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/instalar-r-rstudio.html" class="no-external">
-<p>¿Cómo empezar con R desde cero? Este post explica paso a paso cómo instalar R y RStudio, cómo instalar y cargar el Tidyverse y qué verificar para asegurarse de que todo esté funcionando correctamente.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/instalar-r-rstudio.html" class="no-external">
-<div class="listing-date">
-Jan 22, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1768964400000" data-listing-file-modified-sort="1768776435309" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="522">
-<div class="thumbnail"><a href="../posts/consola-script-escribir-codigo.html" class="no-external">
-
-<p class="card-img-top"><img src="images/CleanShot 2026-01-18 at 19.40.28@2x.png" alt="Imagen de una consola vacía."  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/consola-script-escribir-codigo.html" class="no-external">Consola y script: dos formas de escribir código en R</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/consola-script-escribir-codigo.html" class="no-external">
-<p>Consola y script cumplen funciones distintas en R. Este post explica de forma clara para qué sirve cada uno, cuándo conviene usarlos y cómo se complementan en el trabajo cotidiano.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/consola-script-escribir-codigo.html" class="no-external">
-<div class="listing-date">
-Jan 21, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1768878000000" data-listing-file-modified-sort="1768940590753" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1261">
-<div class="thumbnail"><a href="../posts/r-base-tidyverse.html" class="no-external">
-
-<p class="card-img-top"><img src="images/CleanShot 2026-01-20 at 17.09.46.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/r-base-tidyverse.html" class="no-external">R base, paquetes y Tidyverse: de qué hablamos cuando usamos R</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/r-base-tidyverse.html" class="no-external">
-<p>¿Qué es R base y qué cambia cuando usamos paquetes? Este post explica la estructura modular de R, introduce el rol de los paquetes y dedica una sección al Tidyverse como conjunto de herramientas con una filosofía propia de trabajo con datos.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/r-base-tidyverse.html" class="no-external">
-<div class="listing-date">
-Jan 20, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1768705200000" data-listing-file-modified-sort="1768936236227" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="693">
-<div class="thumbnail"><a href="../posts/r-humanidades-aprender.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/r-humanidades-aprender.html" class="no-external">R para humanidades: ¿Por qué aprender a programar?</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/r-humanidades-aprender.html" class="no-external">
-<p>¿Por qué aprender a programar desde las ciencias sociales y humanas? Este post propone pensar R como un lenguaje de análisis y escritura, muestra ejemplos simples de código comentado y presenta la programación como una práctica situada de producción de conocimiento.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/r-humanidades-aprender.html" class="no-external">
-<div class="listing-date">
-Jan 18, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1768618800000" data-listing-file-modified-sort="1768872482625" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1213">
-<div class="thumbnail"><a href="../posts/entorno-desarrollo-integrado-ide.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/entorno-desarrollo-integrado-ide.html" class="no-external">Los entornos de desarrollo integrado (o IDE, para los amigos)</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/entorno-desarrollo-integrado-ide.html" class="no-external">
-<p>¿Qué es un IDE y por qué importa al empezar a programar en R? Este texto introduce la idea de entorno de desarrollo integrado, recorre los IDEs más comunes y se detiene en RStudio como espacio de trabajo pensado para el análisis académico. Una invitación a entender el entorno como mediador entre código, datos y prácticas de investigación.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/entorno-desarrollo-integrado-ide.html" class="no-external">
-<div class="listing-date">
-Jan 17, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1768618800000" data-listing-file-modified-sort="1768872950131" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="803">
-<div class="thumbnail"><a href="../posts/r-lenguaje-programacion.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/r-lenguaje-programacion.html" class="no-external">R: un lenguaje que nació para pensar con datos</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/r-lenguaje-programacion.html" class="no-external">
-<p>¿Qué tiene que ver programar con leer, interpretar y producir conocimiento en ciencias sociales y humanas? Este texto propone una entrada a R desde su historia y sus usos académicos, mostrando cómo su diseño, su lógica basada en funciones y su ecosistema de paquetes dialogan con prácticas analíticas familiares. Más que una introducción técnica, es una invitación a leer el código como lenguaje y a pensar la programación como una práctica situada de investigación.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/r-lenguaje-programacion.html" class="no-external">
-<div class="listing-date">
-Jan 17, 2026
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+<ol>
+<li id="fn1"><p>Si bien acá vamos a hablar de Github, en rigor de verdad una cosa es <em>Git</em> y otra cosa es <em>Github</em>. <strong>git</strong> es el sistema de control de versiones que se instala localmente y se encarga de registrar los cambios en los archivos, algo así como la tecnología que permite el seguimiento de los cambios. <strong>GitHub</strong>, <strong>GitLab</strong> y plataformas similares son servicios que alojan repositorios git en la nube y agregan herramientas para compartir, colaborar y gestionar proyectos.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

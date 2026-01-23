@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-01-26">
+<meta name="description" content="¿Qué tienen en común los gráficos estadísticos? Este post introduce la idea de la gramática de los gráficos y muestra cómo ggplot2 permite pensar la visualización como un lenguaje compuesto por decisiones analíticas explícitas.">
 
-<title>Blog – Atelier de código</title>
+<title>Gramática de gráficos – Atelier de código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -70,68 +70,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
-<link rel="alternate" type="application/rss+xml" title="Atelier de código" href="index.xml" data-external="1"></head>
+</head>
 
 <body class="nav-fixed quarto-light">
 
@@ -163,7 +105,7 @@ window.Quarto = {
 <span class="menu-text">Contacto</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../posts/index.html" aria-current="page"> 
+    <a class="nav-link" href="../posts/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -183,14 +125,25 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
+<h1 class="title">Gramática de gráficos</h1>
 </div>
 
+<div>
+  <div class="description">
+    ¿Qué tienen en común los gráficos estadísticos? Este post introduce la idea de la gramática de los gráficos y muestra cómo ggplot2 permite pensar la visualización como un lenguaje compuesto por decisiones analíticas explícitas.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta column-page">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 26, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -200,235 +153,40 @@ window.Quarto = {
 </header>
 
 
+<section id="la-gramática-de-los-gráficos-pensar-la-visualización-como-un-lenguaje" class="level3">
+<h3 class="anchored" data-anchor-id="la-gramática-de-los-gráficos-pensar-la-visualización-como-un-lenguaje">La gramática de los gráficos: pensar la visualización como un lenguaje</h3>
+<p>Los gráficos ocupan un lugar central en el análisis de datos. Se los usa para explorar patrones, comunicar resultados y sostener argumentos. Sin embargo, muchas veces se los piensa como un producto final, algo que se “elige” entre un conjunto de opciones disponibles. La idea de una <strong>gramática de los gráficos</strong> propone un desplazamiento: los gráficos se pueden entender como construcciones compuestas por partes o <em>capas</em>, organizadas según reglas relativamente estables, de forma comparable a cómo funcionan los lenguajes.</p>
+<p>En lugar de preguntar “qué tipo de gráfico hago”, la pregunta pasa a ser <a href="https://macarenaquiroga.com/post/como-elegir-un-tipo-de-grafico-en-funcion-de-las-preguntas-de-investigacion/">“qué quiero transmitir”</a>. Eso nos va a permitir pensar qué relaciones queremos representar y qué elementos necesitamos combinar para hacerlo visible. La visualización deja de ser decorativa y se integra al razonamiento analítico.</p>
+<section id="qué-se-entiende-por-gramática-de-los-gráficos" class="level4">
+<h4 class="anchored" data-anchor-id="qué-se-entiende-por-gramática-de-los-gráficos">Qué se entiende por gramática de los gráficos</h4>
+<p>El concepto de gramática de los gráficos fue desarrollado por Leland Wilkinson en su libro <a href="https://link.springer.com/chapter/10.1007/978-3-642-21551-3_13"><em>The Grammar of Graphics</em></a> y parte de una idea sencilla: cualquier gráfico estadístico puede descomponerse en componentes básicos. Entre ellos se encuentran los datos, las variables que se mapean a propiedades visuales, las formas geométricas que representan esos datos y las escalas que traducen valores a posiciones, colores o tamaños.</p>
+<p>Desde este enfoque, un gráfico no es un objeto indivisible, sino el resultado de una serie de decisiones explícitas. Qué variable va en el eje horizontal, cuál en el vertical, si los valores se representan con puntos, barras o líneas, cómo se agrupan las observaciones. Cada una de estas elecciones forma parte de la estructura del gráfico y afecta su interpretación.</p>
+</section>
+<section id="la-gramática-de-los-gráficos-en-ggplot2" class="level4">
+<h4 class="anchored" data-anchor-id="la-gramática-de-los-gráficos-en-ggplot2">La gramática de los gráficos en ggplot2</h4>
+<p>Hadley Wickham retoma este concepto en su artículo <a href="https://www.tandfonline.com/doi/abs/10.1198/jcgs.2009.07098"><em>A Layered Grammar of Graphics</em></a>y presenta su paquete <code>ggplot2</code> que implementa esta idea de manera directa. Para construir un gráfico, se parte de un conjunto de datos y se van agregando capas, cada una con una función específica. El código refleja esta lógica composicional y permite leer el gráfico como una secuencia de decisiones.</p>
+<p>Un ejemplo mínimo puede ilustrar esta estructura:</p>
+<pre><code>ggplot(data = datos, aes(x = edad, y = ingreso)) +
+  geom_point()</code></pre>
+<p>En este fragmento aparecen varios componentes clave. <code>ggplot()</code> define el conjunto de datos y el mapeo básico, es decir, qué variables se asocian a qué dimensiones visuales. <code>geom_point()</code> agrega una geometría concreta, en este caso puntos. Si quisiéramos cambiar la forma de representación, podríamos reemplazar o sumar geometrías sin rehacer todo el gráfico.</p>
+<p>Esta forma de trabajar favorece la experimentación controlada. Es posible modificar una sola parte del gráfico y observar cómo cambia el resultado. También facilita comparar visualizaciones que comparten una estructura común, lo que resulta especialmente útil en análisis exploratorios.</p>
+</section>
+<section id="visualizar-como-parte-del-análisis" class="level4">
+<h4 class="anchored" data-anchor-id="visualizar-como-parte-del-análisis">Visualizar como parte del análisis</h4>
+<p>Pensar la visualización como un lenguaje implica reconocer que los gráficos no son neutrales. Cada gráfico enfatiza ciertas relaciones y deja otras en segundo plano. La gramática de los gráficos obliga a explicitar estas elecciones, tanto en el código como en el razonamiento que lo acompaña.</p>
+<p>En contextos de análisis social, esta explicitación es relevante. Visualizar distribuciones, comparar grupos o seguir evoluciones temporales supone definir categorías, escalas y unidades de análisis. La gramática de los gráficos ofrece un marco para hacer visibles estas decisiones y para discutirlas.</p>
+<p>Además, al trabajar con código, el gráfico se vuelve reproducible y revisable. Otras personas pueden leer cómo fue construido, modificarlo o adaptarlo a nuevas preguntas. La visualización deja de ser un cierre del análisis y pasa a formar parte del proceso.</p>
+</section>
+<section id="una-herramienta-para-aprender-a-leer-gráficos" class="level4">
+<h4 class="anchored" data-anchor-id="una-herramienta-para-aprender-a-leer-gráficos">Una herramienta para aprender a leer gráficos</h4>
+<p>La gramática de los gráficos no solo sirve para producir visualizaciones, sino también para leerlas críticamente. Identificar qué variables están siendo comparadas, qué escalas se usan y qué geometrías intervienen permite evaluar mejor un gráfico ajeno y entender qué muestra y qué oculta.</p>
+<p>Desde esta perspectiva, aprender <code>ggplot2</code> no es solo aprender una sintaxis. Es incorporar una manera de pensar la visualización como práctica analítica situada, con reglas, posibilidades y límites. En los próximos posts de la serie vamos a trabajar con ejemplos concretos para ver cómo esta gramática se pone en juego en gráficos habituales del análisis de datos.</p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1769396400000" data-listing-file-modified-sort="1769132062381" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="676">
-<div class="thumbnail"><a href="../posts/gramatica-graficos-ggplot.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/gramatica-graficos-ggplot.html" class="no-external">Gramática de gráficos</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/gramatica-graficos-ggplot.html" class="no-external">
-<p>¿Qué tienen en común los gráficos estadísticos? Este post introduce la idea de la gramática de los gráficos y muestra cómo ggplot2 permite pensar la visualización como un lenguaje compuesto por decisiones analíticas explícitas.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/gramatica-graficos-ggplot.html" class="no-external">
-<div class="listing-date">
-Jan 26, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1769223600000" data-listing-file-modified-sort="1769133684729" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1181">
-<div class="thumbnail"><a href="../posts/proyectos-control-versiones-github.html" class="no-external">
-
-<p class="card-img-top"><img src="images/memeversionfinal.jpg" alt="Una imagen de una carpeta donde hay archivos de word llamados "Documento final", "Documento final 2", "Documento finalmente definitivo" y así."  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/proyectos-control-versiones-github.html" class="no-external">Proyectos en RStudio y control de versiones: trabajar sin perderse en archivos</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/proyectos-control-versiones-github.html" class="no-external">
-<p>Trabajar con archivos sueltos y versiones duplicadas genera confusión, sobre todo en trabajos colaborativos. Este post introduce el uso de proyectos en RStudio combinados con control de versiones en GitHub y propone un flujo de trabajo más ordenado y reproducible.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/proyectos-control-versiones-github.html" class="no-external">
-<div class="listing-date">
-Jan 24, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1769050800000" data-listing-file-modified-sort="1769044942617" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="684">
-<div class="thumbnail"><a href="../posts/reproducibilidad.html" class="no-external">
-
-<p class="card-img-top"><img src="images/spidermanmeme.jpg" alt="Meme donde se ve a dos Spiderman señalándose entre sí."  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/reproducibilidad.html" class="no-external">Reproducibilidad: por qué importa y qué tiene que ver con programar bien</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/reproducibilidad.html" class="no-external">
-<p>¿Qué significa que un análisis sea reproducible y por qué importa? Este post explica la idea de reproducibilidad en ciencia y muestra cómo las buenas prácticas de programación ayudan a sostener análisis claros, verificables y fáciles de retomar.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/reproducibilidad.html" class="no-external">
-<div class="listing-date">
-Jan 22, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1769050800000" data-listing-file-modified-sort="1768958309548" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="742">
-<div class="thumbnail"><a href="../posts/proyectos-rstudio.html" class="no-external">
-
-<p class="card-img-top"><img src="images/CleanShot 2026-01-18 at 20.09.35@2x.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/proyectos-rstudio.html" class="no-external">Trabajar con proyectos en RStudio: ordenar el trabajo desde el inicio</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/proyectos-rstudio.html" class="no-external">
-<p>¿Qué significa trabajar con proyectos en RStudio y por qué conviene hacerlo desde el inicio? Este post explica para qué sirven los proyectos y muestra paso a paso cómo crear y usar uno en la práctica.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/proyectos-rstudio.html" class="no-external">
-<div class="listing-date">
-Jan 22, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1769050800000" data-listing-file-modified-sort="1768941611183" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="680">
-<div class="thumbnail"><a href="../posts/instalar-r-rstudio.html" class="no-external">
-
-<p class="card-img-top"><img src="images/CleanShot 2026-01-20 at 17.27.03.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/instalar-r-rstudio.html" class="no-external">Empezar con R: instalación y primeros pasos</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/instalar-r-rstudio.html" class="no-external">
-<p>¿Cómo empezar con R desde cero? Este post explica paso a paso cómo instalar R y RStudio, cómo instalar y cargar el Tidyverse y qué verificar para asegurarse de que todo esté funcionando correctamente.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/instalar-r-rstudio.html" class="no-external">
-<div class="listing-date">
-Jan 22, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1768964400000" data-listing-file-modified-sort="1768776435309" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="522">
-<div class="thumbnail"><a href="../posts/consola-script-escribir-codigo.html" class="no-external">
-
-<p class="card-img-top"><img src="images/CleanShot 2026-01-18 at 19.40.28@2x.png" alt="Imagen de una consola vacía."  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/consola-script-escribir-codigo.html" class="no-external">Consola y script: dos formas de escribir código en R</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/consola-script-escribir-codigo.html" class="no-external">
-<p>Consola y script cumplen funciones distintas en R. Este post explica de forma clara para qué sirve cada uno, cuándo conviene usarlos y cómo se complementan en el trabajo cotidiano.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/consola-script-escribir-codigo.html" class="no-external">
-<div class="listing-date">
-Jan 21, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1768878000000" data-listing-file-modified-sort="1768940590753" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1261">
-<div class="thumbnail"><a href="../posts/r-base-tidyverse.html" class="no-external">
-
-<p class="card-img-top"><img src="images/CleanShot 2026-01-20 at 17.09.46.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/r-base-tidyverse.html" class="no-external">R base, paquetes y Tidyverse: de qué hablamos cuando usamos R</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/r-base-tidyverse.html" class="no-external">
-<p>¿Qué es R base y qué cambia cuando usamos paquetes? Este post explica la estructura modular de R, introduce el rol de los paquetes y dedica una sección al Tidyverse como conjunto de herramientas con una filosofía propia de trabajo con datos.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/r-base-tidyverse.html" class="no-external">
-<div class="listing-date">
-Jan 20, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1768705200000" data-listing-file-modified-sort="1768936236227" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="693">
-<div class="thumbnail"><a href="../posts/r-humanidades-aprender.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/r-humanidades-aprender.html" class="no-external">R para humanidades: ¿Por qué aprender a programar?</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/r-humanidades-aprender.html" class="no-external">
-<p>¿Por qué aprender a programar desde las ciencias sociales y humanas? Este post propone pensar R como un lenguaje de análisis y escritura, muestra ejemplos simples de código comentado y presenta la programación como una práctica situada de producción de conocimiento.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/r-humanidades-aprender.html" class="no-external">
-<div class="listing-date">
-Jan 18, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1768618800000" data-listing-file-modified-sort="1768872482625" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1213">
-<div class="thumbnail"><a href="../posts/entorno-desarrollo-integrado-ide.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/entorno-desarrollo-integrado-ide.html" class="no-external">Los entornos de desarrollo integrado (o IDE, para los amigos)</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/entorno-desarrollo-integrado-ide.html" class="no-external">
-<p>¿Qué es un IDE y por qué importa al empezar a programar en R? Este texto introduce la idea de entorno de desarrollo integrado, recorre los IDEs más comunes y se detiene en RStudio como espacio de trabajo pensado para el análisis académico. Una invitación a entender el entorno como mediador entre código, datos y prácticas de investigación.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/entorno-desarrollo-integrado-ide.html" class="no-external">
-<div class="listing-date">
-Jan 17, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1768618800000" data-listing-file-modified-sort="1768872950131" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="803">
-<div class="thumbnail"><a href="../posts/r-lenguaje-programacion.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../posts/r-lenguaje-programacion.html" class="no-external">R: un lenguaje que nació para pensar con datos</a>
-</h3>
-<div class="delink listing-description"><a href="../posts/r-lenguaje-programacion.html" class="no-external">
-<p>¿Qué tiene que ver programar con leer, interpretar y producir conocimiento en ciencias sociales y humanas? Este texto propone una entrada a R desde su historia y sus usos académicos, mostrando cómo su diseño, su lógica basada en funciones y su ecosistema de paquetes dialogan con prácticas analíticas familiares. Más que una introducción técnica, es una invitación a leer el código como lenguaje y a pensar la programación como una práctica situada de investigación.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../posts/r-lenguaje-programacion.html" class="no-external">
-<div class="listing-date">
-Jan 17, 2026
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
