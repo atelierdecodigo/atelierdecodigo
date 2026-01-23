@@ -22,3 +22,4 @@ format:
   html:
     theme: litera
     css: styles.css
+    include-after-body: _includes/google-ads.html

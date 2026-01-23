@@ -68,3 +68,28 @@ body.quarto-post .quarto-title-block p {
   margin-bottom: 2rem;
   color: #555;
 }
+
+/* Google Ads: oculto por defecto */
+.google-ads {
+  display: none;
+}
+
+/* POSTS: columna derecha simulada */
+.page-post .google-ads {
+  display: block;
+  position: sticky;
+  top: 6rem;
+
+  max-width: 250px;
+
+  /* posicionamiento lateral */
+  float: right;
+  margin-right: -300px;
+}
+
+/* HOME y LISTING: abajo de todo */
+.page-full .google-ads,
+.page-listing .google-ads {
+  display: block;
+  margin-top: 4rem;
+}
