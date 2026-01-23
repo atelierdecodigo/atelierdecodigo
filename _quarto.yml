@@ -6,6 +6,7 @@ project:
 website:
   title: "Atelier de código"
   site-url: https://atelierdecodigo.com
+  margin-header: subscribe.html
   navbar:
     left:
       - href: index.qmd
