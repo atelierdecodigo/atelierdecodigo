@@ -35,7 +35,7 @@ Un modelo de machine learning produce resultados a partir de los datos con los q
 
 Por este motivo, el machine learning no reemplaza la interpretación. Ayuda a identificar patrones y a automatizar ciertos análisis, pero sigue siendo necesario evaluar si esos patrones tienen sentido, si generalizan a otros contextos y qué implicancias tienen. Las decisiones sobre qué datos usar y cómo interpretar los resultados siguen siendo centrales.
 
-#### Una herramienta situada
+#### Una herramienta en contexto
 
 Como otras técnicas de análisis, el machine learning se usa en contextos concretos. Puede servir para clasificar textos, detectar fraudes, analizar imágenes, estudiar trayectorias laborales o explorar dinámicas sociales. Su valor depende de cómo se lo integre en un marco de preguntas y de prácticas de trabajo claras.
 

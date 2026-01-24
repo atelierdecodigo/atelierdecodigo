@@ -2,4 +2,4 @@
 title: "Contacto"
 ---
 
-Podés escribirnos a atelierdecodigo@gmail.com
+Podés escribirnos a hola@atelierdecodigo.com
