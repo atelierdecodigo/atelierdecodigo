@@ -3,7 +3,6 @@ title: "¿Qué es la programación orientada a objetos y por qué R se considera
 date: 2026-01-29
 toc: false
 page-layout: full
-draft: true
 description: "¿Qué significa que un lenguaje sea orientado a objetos? Este post introduce la idea de programación orientada a objetos y explica cómo R implementa esta lógica a través de clases, objetos y métodos en el trabajo cotidiano con datos."
 ---
 
