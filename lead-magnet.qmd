@@ -1,0 +1,212 @@
+---
+title: "Una guía práctica para empezar a analizar y graficar datos cuantitativos en R"
+author: Atelier de Código
+date: 2026-01-24
+description: "Guía paso a paso para empezar a analizar y graficar datos cuantitativos en R. Carga de datos reales, exploración, transformación con tidyverse y visualización con ggplot2, explicadas de forma clara y aplicada."
+---
+
+Empezar a trabajar con datos cuantitativos suele generar una mezcla de entusiasmo y desconcierto. Hay números, tablas extensas, variables con nombres poco claros y una pregunta inicial que siempre vuelve: por dónde empezar. Acá te propongo un recorrido completo, pensado como una guía básica, que va desde la carga y exploración de datos hasta la producción de gráficos claros y reutilizables. El objetivo es mostrar un flujo de trabajo coherente, donde cada paso tenga sentido en relación con el anterior.
+
+La idea no es agotar todas las posibilidades de R, sino ofrecer un mapa inicial para orientarse. A lo largo del texto vamos a trabajar con datos reales, funciones ampliamente utilizadas y decisiones analíticas habituales en investigaciones sociales y aplicadas.
+
+------------------------------------------------------------------------
+
+### 1. Trabajar con datos reales desde el inicio
+
+Una de las primeras decisiones importantes es con qué datos practicar. Usar datos reales tiene una ventaja clara: obliga a enfrentarse a problemas concretos, como valores faltantes, codificaciones poco transparentes o distribuciones desiguales.
+
+Algunos datasets accesibles y muy utilizados para empezar son:
+
+-   [**Encuesta Permanente de Hogares (EPH)**](https://github.com/ropensci/eph) de Argentina, accesible desde el paquete `eph` de rOpenSci.
+
+-   [**gapminder**](https://cran.r-project.org/web/packages/gapminder/index.html), que reúne indicadores demográficos y económicos comparables entre países y años.
+
+-   [**European Social Survey (ESS)**](https://github.com/ropensci/essurvey), una encuesta comparativa sobre actitudes y condiciones sociales.
+
+En este recorrido voy a usar ejemplos inspirados en este tipo de datos, con variables como edad, nivel educativo, ingresos o indicadores de bienestar.
+
+------------------------------------------------------------------------
+
+### 2. Cargar datos y preparar el entorno de trabajo
+
+El primer paso consiste en cargar los paquetes necesarios. En R, la mayor parte del trabajo exploratorio y gráfico se apoya en el ecosistema **tidyverse** (podés leer más sobre Tidyverse [acá](https://atelierdecodigo.com/posts/r-base-tidyverse.html)). Si ya tenés instalado el Tidyverse, podés saltearte la primera línea (el símbolo `#` sirve para "comentar" una línea entera y evitar que se ejecute; si necesitás ejecutarla, lo borrás y listo). Lo que sí hay que hacer siempre es cargar el paquete con la función `library()`.
+
+```{r}
+#install.packages("tidyverse")
+library(tidyverse)
+```
+
+
+Este conjunto de paquetes incluye herramientas para importar datos, transformarlos y visualizarlos. Vamos a trabajar con el paquete gapminder, por lo cual vamos a instalar el paquete, luego cargarlo, y construir un objeto a partir del dataset que incluye.
+
+```{r}     
+#install.packages("")
+#datos <- read_csv("datos_encuesta.csv")
+```
+
+El resultado es un data frame que queda disponible en el entorno de trabajo. Antes de hacer cualquier cálculo, conviene entender qué tenemos delante.
+
+------------------------------------------------------------------------
+
+### 3. Explorar la estructura de los datos
+
+Explorar datos no significa todavía analizarlos en profundidad. Implica responder preguntas básicas: cuántas filas hay, qué variables contiene el dataset, qué tipo de valores aparecen.
+
+Algunas funciones clave en esta etapa son:
+
+```{r}         
+#glimpse(datos)
+```
+
+`glimpse()` permite ver rápidamente los nombres de las variables, su tipo y algunos ejemplos de valores. En datos de encuestas, esta función ayuda a detectar codificaciones problemáticas o variables que conviene recodificar más adelante.
+
+También es habitual mirar resúmenes generales:
+
+```{r}         
+#summary(datos)
+```
+
+Este paso inicial evita muchos errores posteriores y ayuda a formular mejores preguntas analíticas.
+
+------------------------------------------------------------------------
+
+### 4. Seleccionar y filtrar: empezar a tomar decisiones
+
+Analizar datos siempre implica elegir. Raramente se trabaja con todas las variables y todos los casos al mismo tiempo.
+
+Para seleccionar columnas relevantes:
+
+```{r}         
+#datos_reducidos <- select(datos, edad, sexo, educacion, ingreso)
+```
+
+Para filtrar observaciones según algún criterio:
+
+```{r}         
+#datos_adultos <- filter(datos_reducidos, edad >= 18)
+```
+
+Estas operaciones ya introducen una perspectiva analítica. Definen qué parte de la realidad queda dentro del análisis y cuál queda fuera.
+
+------------------------------------------------------------------------
+
+### 5. Resumir información con sentido analítico
+
+Una vez definidos los datos de interés, suele ser necesario resumirlos. Promedios, medianas, proporciones y conteos son operaciones centrales en el análisis cuantitativo.
+
+Por ejemplo, calcular el ingreso promedio por nivel educativo:
+
+```{r, eval=FALSE}         
+resumen <- datos_adultos %>%
+  group_by(educacion) %>%
+  summarise(
+    ingreso_promedio = mean(ingreso, na.rm = TRUE),
+    n = n()
+  )
+```
+
+Aquí aparecen varias ideas importantes:
+
+-   `group_by()` define la unidad de análisis.
+-   `summarise()` produce nuevas variables resumen.
+-   `na.rm = TRUE` indica cómo tratar los valores faltantes.
+
+El uso del operador `%>%` permite leer el código como una secuencia de transformaciones, lo que facilita su comprensión y revisión.
+
+------------------------------------------------------------------------
+
+### 6. Reorganizar datos para analizarlos mejor
+
+En muchos datasets, especialmente de encuestas, los datos no están en el formato más conveniente para el análisis o la visualización. Para eso se utilizan funciones de `tidyr`.
+
+Un caso típico es pasar de un formato ancho a uno largo:
+
+```{r, eval=FALSE}         
+datos_largos <- datos_adultos %>%
+  pivot_longer(
+    cols = starts_with("item_"),
+    names_to = "pregunta",
+    values_to = "respuesta"
+  )
+```
+
+Este tipo de transformación resulta clave cuando se analizan baterías de preguntas o se quiere comparar patrones entre ítems.
+
+------------------------------------------------------------------------
+
+### 7. Pensar los gráficos como parte del análisis
+
+Graficar no es un paso decorativo. Los gráficos permiten detectar patrones, outliers y relaciones que no siempre aparecen en tablas.
+
+En R, la visualización se apoya en **ggplot2**, que implementa la llamada gramática de gráficos. La idea central es construir gráficos por capas, definiendo datos, variables estéticas y geometrías.
+
+Un ejemplo simple:
+
+```{r, eval=FALSE}         
+ggplot(datos_adultos, aes(x = educacion, y = ingreso)) +
+  geom_boxplot()
+```
+
+Este gráfico permite comparar la distribución de ingresos según nivel educativo. Incluso con un código breve, ya aparecen decisiones analíticas importantes: qué variable va en cada eje y qué tipo de gráfico se utiliza.
+
+------------------------------------------------------------------------
+
+### 8. Ajustar y refinar visualizaciones
+
+Una vez creado un gráfico básico, suele ser necesario ajustarlo para mejorar su legibilidad.
+
+Por ejemplo, cambiar etiquetas y títulos:
+
+```{r, eval=FALSE}         
+ggplot(datos_adultos, aes(x = educacion, y = ingreso)) +
+  geom_boxplot() +
+  labs(
+    title = "Distribución de ingresos por nivel educativo",
+    x = "Nivel educativo",
+    y = "Ingreso mensual"
+  )
+```
+
+También es posible facetar gráficos para comparar grupos:
+
+```{r, eval=FALSE}         
+ggplot(datos_adultos, aes(x = educacion, y = ingreso)) +
+  geom_boxplot() +
+  facet_wrap(~ sexo)
+```
+
+Estas decisiones no son neutras. Orientan la interpretación y ponen el foco en ciertos contrastes.
+
+------------------------------------------------------------------------
+
+### 9. De los gráficos exploratorios a los gráficos comunicables
+
+No todos los gráficos cumplen la misma función. Algunos sirven para explorar, otros para comunicar resultados a un público más amplio.
+
+Un buen criterio es mantener el código organizado y reproducible, de modo que un gráfico pueda ajustarse fácilmente si cambian los datos o las preguntas de investigación.
+
+Trabajar con scripts bien estructurados y proyectos en RStudio ayuda a sostener este proceso en el tiempo.
+
+------------------------------------------------------------------------
+
+### 10. Un flujo de trabajo integrado
+
+Si miramos el recorrido completo, aparece un patrón:
+
+1.   Cargar datos reales.
+2.  Explorar su estructura.
+6.  Seleccionar y filtrar.
+8.  Resumir información.
+10. Reorganizar cuando es necesario.
+12. Visualizar para analizar y comunicar.
+
+
+Este flujo no es lineal ni rígido. Muchas veces se vuelve hacia atrás, se ajustan decisiones o se reformulan preguntas. R y tidyverse facilitan este ida y vuelta, dejando registro de cada paso.
+
+------------------------------------------------------------------------
+
+### Cierre
+
+Empezar a analizar datos cuantitativos en R implica aprender a pensar en términos de procesos y transformaciones. Cada función aplicada a los datos expresa una decisión analítica y cada gráfico propone una forma de mirar la información. Lejos de ser una caja negra, el código permite documentar, revisar y discutir esas decisiones.
+
+Este post buscó ofrecer una guía inicial, suficientemente amplia para orientarse y lo bastante concreta como para ponerse a trabajar. A partir de aquí, el camino se abre hacia análisis más complejos, modelos estadísticos y visualizaciones más elaboradas.

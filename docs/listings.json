@@ -2,6 +2,7 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/gramatica-graficos-ggplot.html",
       "/posts/proyectos-control-versiones-github.html",
       "/posts/reproducibilidad.html",
       "/posts/proyectos-rstudio.html",

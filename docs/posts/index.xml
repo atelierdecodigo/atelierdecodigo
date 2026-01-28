@@ -10,7 +10,52 @@
 <atom:link href="https://atelierdecodigo.com/posts/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Sat, 24 Jan 2026 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 26 Jan 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Gramática de gráficos</title>
+  <link>https://atelierdecodigo.com/posts/gramatica-graficos-ggplot.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="la-gramática-de-los-gráficos-pensar-la-visualización-como-un-lenguaje" class="level3">
+<h3 class="anchored" data-anchor-id="la-gramática-de-los-gráficos-pensar-la-visualización-como-un-lenguaje">La gramática de los gráficos: pensar la visualización como un lenguaje</h3>
+<p>Los gráficos ocupan un lugar central en el análisis de datos. Se los usa para explorar patrones, comunicar resultados y sostener argumentos. Sin embargo, muchas veces se los piensa como un producto final, algo que se “elige” entre un conjunto de opciones disponibles. La idea de una <strong>gramática de los gráficos</strong> propone un desplazamiento: los gráficos se pueden entender como construcciones compuestas por partes o <em>capas</em>, organizadas según reglas relativamente estables, de forma comparable a cómo funcionan los lenguajes.</p>
+<p>En lugar de preguntar “qué tipo de gráfico hago”, la pregunta pasa a ser <a href="https://macarenaquiroga.com/post/como-elegir-un-tipo-de-grafico-en-funcion-de-las-preguntas-de-investigacion/">“qué quiero transmitir”</a>. Eso nos va a permitir pensar qué relaciones queremos representar y qué elementos necesitamos combinar para hacerlo visible. La visualización deja de ser decorativa y se integra al razonamiento analítico.</p>
+<section id="qué-se-entiende-por-gramática-de-los-gráficos" class="level4">
+<h4 class="anchored" data-anchor-id="qué-se-entiende-por-gramática-de-los-gráficos">Qué se entiende por gramática de los gráficos</h4>
+<p>El concepto de gramática de los gráficos fue desarrollado por Leland Wilkinson en su libro <a href="https://link.springer.com/chapter/10.1007/978-3-642-21551-3_13"><em>The Grammar of Graphics</em></a> y parte de una idea sencilla: cualquier gráfico estadístico puede descomponerse en componentes básicos. Entre ellos se encuentran los datos, las variables que se mapean a propiedades visuales, las formas geométricas que representan esos datos y las escalas que traducen valores a posiciones, colores o tamaños.</p>
+<p>Desde este enfoque, un gráfico no es un objeto indivisible, sino el resultado de una serie de decisiones explícitas. Qué variable va en el eje horizontal, cuál en el vertical, si los valores se representan con puntos, barras o líneas, cómo se agrupan las observaciones. Cada una de estas elecciones forma parte de la estructura del gráfico y afecta su interpretación.</p>
+</section>
+<section id="la-gramática-de-los-gráficos-en-ggplot2" class="level4">
+<h4 class="anchored" data-anchor-id="la-gramática-de-los-gráficos-en-ggplot2">La gramática de los gráficos en ggplot2</h4>
+<p>Hadley Wickham retoma este concepto en su artículo <a href="https://www.tandfonline.com/doi/abs/10.1198/jcgs.2009.07098"><em>A Layered Grammar of Graphics</em></a>y presenta su paquete <code>ggplot2</code> que implementa esta idea de manera directa. Para construir un gráfico, se parte de un conjunto de datos y se van agregando capas, cada una con una función específica. El código refleja esta lógica composicional y permite leer el gráfico como una secuencia de decisiones.</p>
+<p>Un ejemplo mínimo puede ilustrar esta estructura:</p>
+<pre><code>ggplot(data = datos, aes(x = edad, y = ingreso)) +
+  geom_point()</code></pre>
+<p>En este fragmento aparecen varios componentes clave. <code>ggplot()</code> define el conjunto de datos y el mapeo básico, es decir, qué variables se asocian a qué dimensiones visuales. <code>geom_point()</code> agrega una geometría concreta, en este caso puntos. Si quisiéramos cambiar la forma de representación, podríamos reemplazar o sumar geometrías sin rehacer todo el gráfico.</p>
+<p>Esta forma de trabajar favorece la experimentación controlada. Es posible modificar una sola parte del gráfico y observar cómo cambia el resultado. También facilita comparar visualizaciones que comparten una estructura común, lo que resulta especialmente útil en análisis exploratorios.</p>
+</section>
+<section id="visualizar-como-parte-del-análisis" class="level4">
+<h4 class="anchored" data-anchor-id="visualizar-como-parte-del-análisis">Visualizar como parte del análisis</h4>
+<p>Pensar la visualización como un lenguaje implica reconocer que los gráficos no son neutrales. Cada gráfico enfatiza ciertas relaciones y deja otras en segundo plano. La gramática de los gráficos obliga a explicitar estas elecciones, tanto en el código como en el razonamiento que lo acompaña.</p>
+<p>En contextos de análisis social, esta explicitación es relevante. Visualizar distribuciones, comparar grupos o seguir evoluciones temporales supone definir categorías, escalas y unidades de análisis. La gramática de los gráficos ofrece un marco para hacer visibles estas decisiones y para discutirlas.</p>
+<p>Además, al trabajar con código, el gráfico se vuelve reproducible y revisable. Otras personas pueden leer cómo fue construido, modificarlo o adaptarlo a nuevas preguntas. La visualización deja de ser un cierre del análisis y pasa a formar parte del proceso.</p>
+</section>
+<section id="una-herramienta-para-aprender-a-leer-gráficos" class="level4">
+<h4 class="anchored" data-anchor-id="una-herramienta-para-aprender-a-leer-gráficos">Una herramienta para aprender a leer gráficos</h4>
+<p>La gramática de los gráficos no solo sirve para producir visualizaciones, sino también para leerlas críticamente. Identificar qué variables están siendo comparadas, qué escalas se usan y qué geometrías intervienen permite evaluar mejor un gráfico ajeno y entender qué muestra y qué oculta.</p>
+<p>Desde esta perspectiva, aprender <code>ggplot2</code> no es solo aprender una sintaxis. Es incorporar una manera de pensar la visualización como práctica analítica situada, con reglas, posibilidades y límites. En los próximos posts de la serie vamos a trabajar con ejemplos concretos para ver cómo esta gramática se pone en juego en gráficos habituales del análisis de datos.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/posts/gramatica-graficos-ggplot.html</guid>
+  <pubDate>Mon, 26 Jan 2026 03:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Proyectos en RStudio y control de versiones: trabajar sin perderse en archivos</title>
   <link>https://atelierdecodigo.com/posts/proyectos-control-versiones-github.html</link>

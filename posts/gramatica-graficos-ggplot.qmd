@@ -4,7 +4,6 @@ editor: visual
 date: 2026-01-26
 page-layout: full
 toc: false
-draft: true
 description: "¿Qué tienen en común los gráficos estadísticos? Este post introduce la idea de la gramática de los gráficos y muestra cómo ggplot2 permite pensar la visualización como un lenguaje compuesto por decisiones analíticas explícitas."
 ---
 

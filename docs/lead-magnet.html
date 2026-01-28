@@ -6,10 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-01-26">
-<meta name="description" content="¿Qué tienen en común los gráficos estadísticos? Este post introduce la idea de la gramática de los gráficos y muestra cómo ggplot2 permite pensar la visualización como un lenguaje compuesto por decisiones analíticas explícitas.">
+<meta name="author" content="Atelier de Código">
+<meta name="dcterms.date" content="2026-01-24">
+<meta name="description" content="Guía paso a paso para empezar a analizar y graficar datos cuantitativos en R. Carga de datos reales, exploración, transformación con tidyverse y visualización con ggplot2, explicadas de forma clara y aplicada.">
 
-<title>Gramática de gráficos – Atelier de código</title>
+<title>Una guía práctica para empezar a analizar y graficar datos cuantitativos en R – Atelier de código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,27 +23,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
 <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5204545081685155" crossorigin="anonymous"></script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -83,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Atelier de código</span>
     </a>
   </div>
@@ -94,19 +130,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">Acerca de</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../contact.html"> 
+    <a class="nav-link" href="./contact.html"> 
 <span class="menu-text">Contacto</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../posts/index.html"> 
+    <a class="nav-link" href="./posts/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -117,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
@@ -1002,29 +1038,36 @@ ul.task-list li input[type="checkbox"] {
             fetch("https://assets.mailerlite.com/jsonp/2046950/forms/176965019617986012/takel")
         </script>
 </div></div>
+        
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Gramática de gráficos</h1>
+<h1 class="title">Una guía práctica para empezar a analizar y graficar datos cuantitativos en R</h1>
 </div>
 
 <div>
   <div class="description">
-    ¿Qué tienen en común los gráficos estadísticos? Este post introduce la idea de la gramática de los gráficos y muestra cómo ggplot2 permite pensar la visualización como un lenguaje compuesto por decisiones analíticas explícitas.
+    Guía paso a paso para empezar a analizar y graficar datos cuantitativos en R. Carga de datos reales, exploración, transformación con tidyverse y visualización con ggplot2, explicadas de forma clara y aplicada.
   </div>
 </div>
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Atelier de Código </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 26, 2026</p>
+      <p class="date">January 24, 2026</p>
     </div>
   </div>
   
@@ -1036,37 +1079,183 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="la-gramática-de-los-gráficos-pensar-la-visualización-como-un-lenguaje" class="level3">
-<h3 class="anchored" data-anchor-id="la-gramática-de-los-gráficos-pensar-la-visualización-como-un-lenguaje">La gramática de los gráficos: pensar la visualización como un lenguaje</h3>
-<p>Los gráficos ocupan un lugar central en el análisis de datos. Se los usa para explorar patrones, comunicar resultados y sostener argumentos. Sin embargo, muchas veces se los piensa como un producto final, algo que se “elige” entre un conjunto de opciones disponibles. La idea de una <strong>gramática de los gráficos</strong> propone un desplazamiento: los gráficos se pueden entender como construcciones compuestas por partes o <em>capas</em>, organizadas según reglas relativamente estables, de forma comparable a cómo funcionan los lenguajes.</p>
-<p>En lugar de preguntar “qué tipo de gráfico hago”, la pregunta pasa a ser <a href="https://macarenaquiroga.com/post/como-elegir-un-tipo-de-grafico-en-funcion-de-las-preguntas-de-investigacion/">“qué quiero transmitir”</a>. Eso nos va a permitir pensar qué relaciones queremos representar y qué elementos necesitamos combinar para hacerlo visible. La visualización deja de ser decorativa y se integra al razonamiento analítico.</p>
-<section id="qué-se-entiende-por-gramática-de-los-gráficos" class="level4">
-<h4 class="anchored" data-anchor-id="qué-se-entiende-por-gramática-de-los-gráficos">Qué se entiende por gramática de los gráficos</h4>
-<p>El concepto de gramática de los gráficos fue desarrollado por Leland Wilkinson en su libro <a href="https://link.springer.com/chapter/10.1007/978-3-642-21551-3_13"><em>The Grammar of Graphics</em></a> y parte de una idea sencilla: cualquier gráfico estadístico puede descomponerse en componentes básicos. Entre ellos se encuentran los datos, las variables que se mapean a propiedades visuales, las formas geométricas que representan esos datos y las escalas que traducen valores a posiciones, colores o tamaños.</p>
-<p>Desde este enfoque, un gráfico no es un objeto indivisible, sino el resultado de una serie de decisiones explícitas. Qué variable va en el eje horizontal, cuál en el vertical, si los valores se representan con puntos, barras o líneas, cómo se agrupan las observaciones. Cada una de estas elecciones forma parte de la estructura del gráfico y afecta su interpretación.</p>
+<p>Empezar a trabajar con datos cuantitativos suele generar una mezcla de entusiasmo y desconcierto. Hay números, tablas extensas, variables con nombres poco claros y una pregunta inicial que siempre vuelve: por dónde empezar. Acá te propongo un recorrido completo, pensado como una guía básica, que va desde la carga y exploración de datos hasta la producción de gráficos claros y reutilizables. El objetivo es mostrar un flujo de trabajo coherente, donde cada paso tenga sentido en relación con el anterior.</p>
+<p>La idea no es agotar todas las posibilidades de R, sino ofrecer un mapa inicial para orientarse. A lo largo del texto vamos a trabajar con datos reales, funciones ampliamente utilizadas y decisiones analíticas habituales en investigaciones sociales y aplicadas.</p>
+<hr>
+<section id="trabajar-con-datos-reales-desde-el-inicio" class="level3">
+<h3 class="anchored" data-anchor-id="trabajar-con-datos-reales-desde-el-inicio">1. Trabajar con datos reales desde el inicio</h3>
+<p>Una de las primeras decisiones importantes es con qué datos practicar. Usar datos reales tiene una ventaja clara: obliga a enfrentarse a problemas concretos, como valores faltantes, codificaciones poco transparentes o distribuciones desiguales.</p>
+<p>Algunos datasets accesibles y muy utilizados para empezar son:</p>
+<ul>
+<li><p><a href="https://github.com/ropensci/eph"><strong>Encuesta Permanente de Hogares (EPH)</strong></a> de Argentina, accesible desde el paquete <code>eph</code> de rOpenSci.</p></li>
+<li><p><a href="https://cran.r-project.org/web/packages/gapminder/index.html"><strong>gapminder</strong></a>, que reúne indicadores demográficos y económicos comparables entre países y años.</p></li>
+<li><p><a href="https://github.com/ropensci/essurvey"><strong>European Social Survey (ESS)</strong></a>, una encuesta comparativa sobre actitudes y condiciones sociales.</p></li>
+</ul>
+<p>En este recorrido voy a usar ejemplos inspirados en este tipo de datos, con variables como edad, nivel educativo, ingresos o indicadores de bienestar.</p>
+<hr>
 </section>
-<section id="la-gramática-de-los-gráficos-en-ggplot2" class="level4">
-<h4 class="anchored" data-anchor-id="la-gramática-de-los-gráficos-en-ggplot2">La gramática de los gráficos en ggplot2</h4>
-<p>Hadley Wickham retoma este concepto en su artículo <a href="https://www.tandfonline.com/doi/abs/10.1198/jcgs.2009.07098"><em>A Layered Grammar of Graphics</em></a>y presenta su paquete <code>ggplot2</code> que implementa esta idea de manera directa. Para construir un gráfico, se parte de un conjunto de datos y se van agregando capas, cada una con una función específica. El código refleja esta lógica composicional y permite leer el gráfico como una secuencia de decisiones.</p>
-<p>Un ejemplo mínimo puede ilustrar esta estructura:</p>
-<pre><code>ggplot(data = datos, aes(x = edad, y = ingreso)) +
-  geom_point()</code></pre>
-<p>En este fragmento aparecen varios componentes clave. <code>ggplot()</code> define el conjunto de datos y el mapeo básico, es decir, qué variables se asocian a qué dimensiones visuales. <code>geom_point()</code> agrega una geometría concreta, en este caso puntos. Si quisiéramos cambiar la forma de representación, podríamos reemplazar o sumar geometrías sin rehacer todo el gráfico.</p>
-<p>Esta forma de trabajar favorece la experimentación controlada. Es posible modificar una sola parte del gráfico y observar cómo cambia el resultado. También facilita comparar visualizaciones que comparten una estructura común, lo que resulta especialmente útil en análisis exploratorios.</p>
+<section id="cargar-datos-y-preparar-el-entorno-de-trabajo" class="level3">
+<h3 class="anchored" data-anchor-id="cargar-datos-y-preparar-el-entorno-de-trabajo">2. Cargar datos y preparar el entorno de trabajo</h3>
+<p>El primer paso consiste en cargar los paquetes necesarios. En R, la mayor parte del trabajo exploratorio y gráfico se apoya en el ecosistema <strong>tidyverse</strong> (podés leer más sobre Tidyverse <a href="https://atelierdecodigo.com/posts/r-base-tidyverse.html">acá</a>). Si ya tenés instalado el Tidyverse, podés saltearte la primera línea (el símbolo <code>#</code> sirve para “comentar” una línea entera y evitar que se ejecute; si necesitás ejecutarla, lo borrás y listo). Lo que sí hay que hacer siempre es cargar el paquete con la función <code>library()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("tidyverse")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tibble' was built under R version 4.4.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.4.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'stringr' was built under R version 4.4.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.6.0
+✔ ggplot2   3.5.1     ✔ tibble    3.3.0
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.2.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<p>Este conjunto de paquetes incluye herramientas para importar datos, transformarlos y visualizarlos. Vamos a trabajar con el paquete gapminder, por lo cual vamos a instalar el paquete, luego cargarlo, y construir un objeto a partir del dataset que incluye.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("")</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#datos &lt;- read_csv("datos_encuesta.csv")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>El resultado es un data frame que queda disponible en el entorno de trabajo. Antes de hacer cualquier cálculo, conviene entender qué tenemos delante.</p>
+<hr>
 </section>
-<section id="visualizar-como-parte-del-análisis" class="level4">
-<h4 class="anchored" data-anchor-id="visualizar-como-parte-del-análisis">Visualizar como parte del análisis</h4>
-<p>Pensar la visualización como un lenguaje implica reconocer que los gráficos no son neutrales. Cada gráfico enfatiza ciertas relaciones y deja otras en segundo plano. La gramática de los gráficos obliga a explicitar estas elecciones, tanto en el código como en el razonamiento que lo acompaña.</p>
-<p>En contextos de análisis social, esta explicitación es relevante. Visualizar distribuciones, comparar grupos o seguir evoluciones temporales supone definir categorías, escalas y unidades de análisis. La gramática de los gráficos ofrece un marco para hacer visibles estas decisiones y para discutirlas.</p>
-<p>Además, al trabajar con código, el gráfico se vuelve reproducible y revisable. Otras personas pueden leer cómo fue construido, modificarlo o adaptarlo a nuevas preguntas. La visualización deja de ser un cierre del análisis y pasa a formar parte del proceso.</p>
+<section id="explorar-la-estructura-de-los-datos" class="level3">
+<h3 class="anchored" data-anchor-id="explorar-la-estructura-de-los-datos">3. Explorar la estructura de los datos</h3>
+<p>Explorar datos no significa todavía analizarlos en profundidad. Implica responder preguntas básicas: cuántas filas hay, qué variables contiene el dataset, qué tipo de valores aparecen.</p>
+<p>Algunas funciones clave en esta etapa son:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#glimpse(datos)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>glimpse()</code> permite ver rápidamente los nombres de las variables, su tipo y algunos ejemplos de valores. En datos de encuestas, esta función ayuda a detectar codificaciones problemáticas o variables que conviene recodificar más adelante.</p>
+<p>También es habitual mirar resúmenes generales:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(datos)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Este paso inicial evita muchos errores posteriores y ayuda a formular mejores preguntas analíticas.</p>
+<hr>
 </section>
-<section id="una-herramienta-para-aprender-a-leer-gráficos" class="level4">
-<h4 class="anchored" data-anchor-id="una-herramienta-para-aprender-a-leer-gráficos">Una herramienta para aprender a leer gráficos</h4>
-<p>La gramática de los gráficos no solo sirve para producir visualizaciones, sino también para leerlas críticamente. Identificar qué variables están siendo comparadas, qué escalas se usan y qué geometrías intervienen permite evaluar mejor un gráfico ajeno y entender qué muestra y qué oculta.</p>
-<p>Desde esta perspectiva, aprender <code>ggplot2</code> no es solo aprender una sintaxis. Es incorporar una manera de pensar la visualización como práctica analítica situada, con reglas, posibilidades y límites. En los próximos posts de la serie vamos a trabajar con ejemplos concretos para ver cómo esta gramática se pone en juego en gráficos habituales del análisis de datos.</p>
+<section id="seleccionar-y-filtrar-empezar-a-tomar-decisiones" class="level3">
+<h3 class="anchored" data-anchor-id="seleccionar-y-filtrar-empezar-a-tomar-decisiones">4. Seleccionar y filtrar: empezar a tomar decisiones</h3>
+<p>Analizar datos siempre implica elegir. Raramente se trabaja con todas las variables y todos los casos al mismo tiempo.</p>
+<p>Para seleccionar columnas relevantes:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#datos_reducidos &lt;- select(datos, edad, sexo, educacion, ingreso)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Para filtrar observaciones según algún criterio:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#datos_adultos &lt;- filter(datos_reducidos, edad &gt;= 18)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Estas operaciones ya introducen una perspectiva analítica. Definen qué parte de la realidad queda dentro del análisis y cuál queda fuera.</p>
+<hr>
+</section>
+<section id="resumir-información-con-sentido-analítico" class="level3">
+<h3 class="anchored" data-anchor-id="resumir-información-con-sentido-analítico">5. Resumir información con sentido analítico</h3>
+<p>Una vez definidos los datos de interés, suele ser necesario resumirlos. Promedios, medianas, proporciones y conteos son operaciones centrales en el análisis cuantitativo.</p>
+<p>Por ejemplo, calcular el ingreso promedio por nivel educativo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>resumen <span class="ot">&lt;-</span> datos_adultos <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(educacion) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">ingreso_promedio =</span> <span class="fu">mean</span>(ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Aquí aparecen varias ideas importantes:</p>
+<ul>
+<li><code>group_by()</code> define la unidad de análisis.</li>
+<li><code>summarise()</code> produce nuevas variables resumen.</li>
+<li><code>na.rm = TRUE</code> indica cómo tratar los valores faltantes.</li>
+</ul>
+<p>El uso del operador <code>%&gt;%</code> permite leer el código como una secuencia de transformaciones, lo que facilita su comprensión y revisión.</p>
+<hr>
+</section>
+<section id="reorganizar-datos-para-analizarlos-mejor" class="level3">
+<h3 class="anchored" data-anchor-id="reorganizar-datos-para-analizarlos-mejor">6. Reorganizar datos para analizarlos mejor</h3>
+<p>En muchos datasets, especialmente de encuestas, los datos no están en el formato más conveniente para el análisis o la visualización. Para eso se utilizan funciones de <code>tidyr</code>.</p>
+<p>Un caso típico es pasar de un formato ancho a uno largo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>datos_largos <span class="ot">&lt;-</span> datos_adultos <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"item_"</span>),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"pregunta"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"respuesta"</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Este tipo de transformación resulta clave cuando se analizan baterías de preguntas o se quiere comparar patrones entre ítems.</p>
+<hr>
+</section>
+<section id="pensar-los-gráficos-como-parte-del-análisis" class="level3">
+<h3 class="anchored" data-anchor-id="pensar-los-gráficos-como-parte-del-análisis">7. Pensar los gráficos como parte del análisis</h3>
+<p>Graficar no es un paso decorativo. Los gráficos permiten detectar patrones, outliers y relaciones que no siempre aparecen en tablas.</p>
+<p>En R, la visualización se apoya en <strong>ggplot2</strong>, que implementa la llamada gramática de gráficos. La idea central es construir gráficos por capas, definiendo datos, variables estéticas y geometrías.</p>
+<p>Un ejemplo simple:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_adultos, <span class="fu">aes</span>(<span class="at">x =</span> educacion, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Este gráfico permite comparar la distribución de ingresos según nivel educativo. Incluso con un código breve, ya aparecen decisiones analíticas importantes: qué variable va en cada eje y qué tipo de gráfico se utiliza.</p>
+<hr>
+</section>
+<section id="ajustar-y-refinar-visualizaciones" class="level3">
+<h3 class="anchored" data-anchor-id="ajustar-y-refinar-visualizaciones">8. Ajustar y refinar visualizaciones</h3>
+<p>Una vez creado un gráfico básico, suele ser necesario ajustarlo para mejorar su legibilidad.</p>
+<p>Por ejemplo, cambiar etiquetas y títulos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_adultos, <span class="fu">aes</span>(<span class="at">x =</span> educacion, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribución de ingresos por nivel educativo"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Nivel educativo"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Ingreso mensual"</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>También es posible facetar gráficos para comparar grupos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_adultos, <span class="fu">aes</span>(<span class="at">x =</span> educacion, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> sexo)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Estas decisiones no son neutras. Orientan la interpretación y ponen el foco en ciertos contrastes.</p>
+<hr>
+</section>
+<section id="de-los-gráficos-exploratorios-a-los-gráficos-comunicables" class="level3">
+<h3 class="anchored" data-anchor-id="de-los-gráficos-exploratorios-a-los-gráficos-comunicables">9. De los gráficos exploratorios a los gráficos comunicables</h3>
+<p>No todos los gráficos cumplen la misma función. Algunos sirven para explorar, otros para comunicar resultados a un público más amplio.</p>
+<p>Un buen criterio es mantener el código organizado y reproducible, de modo que un gráfico pueda ajustarse fácilmente si cambian los datos o las preguntas de investigación.</p>
+<p>Trabajar con scripts bien estructurados y proyectos en RStudio ayuda a sostener este proceso en el tiempo.</p>
+<hr>
+</section>
+<section id="un-flujo-de-trabajo-integrado" class="level3">
+<h3 class="anchored" data-anchor-id="un-flujo-de-trabajo-integrado">10. Un flujo de trabajo integrado</h3>
+<p>Si miramos el recorrido completo, aparece un patrón:</p>
+<ol type="1">
+<li>Cargar datos reales.</li>
+<li>Explorar su estructura.</li>
+<li>Seleccionar y filtrar.</li>
+<li>Resumir información.</li>
+<li>Reorganizar cuando es necesario.</li>
+<li>Visualizar para analizar y comunicar.</li>
+</ol>
+<p>Este flujo no es lineal ni rígido. Muchas veces se vuelve hacia atrás, se ajustan decisiones o se reformulan preguntas. R y tidyverse facilitan este ida y vuelta, dejando registro de cada paso.</p>
+<hr>
+</section>
+<section id="cierre" class="level3">
+<h3 class="anchored" data-anchor-id="cierre">Cierre</h3>
+<p>Empezar a analizar datos cuantitativos en R implica aprender a pensar en términos de procesos y transformaciones. Cada función aplicada a los datos expresa una decisión analítica y cada gráfico propone una forma de mirar la información. Lejos de ser una caja negra, el código permite documentar, revisar y discutir esas decisiones.</p>
+<p>Este post buscó ofrecer una guía inicial, suficientemente amplia para orientarse y lo bastante concreta como para ponerse a trabajar. A partir de aquí, el camino se abre hacia análisis más complejos, modelos estadísticos y visualizaciones más elaboradas.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
