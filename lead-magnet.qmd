@@ -75,7 +75,7 @@ glimpse(datos)
 
 `glimpse()` permite ver rápidamente, en la consola, los nombres de las variables, su tipo y algunos ejemplos de valores. Aparecerá algo así:
 
-![](images/CleanShot 2026-01-29 at 22.26.29@2x.png)
+![](images/CleanShot%202026-01-29%20at%2022.26.29@2x.png)
 
 En cada fila de este resultado vemos primero el nombre de las columnas, es decir, de las variables ("country", "continent", "year", etc), a continuación el tipo
 
