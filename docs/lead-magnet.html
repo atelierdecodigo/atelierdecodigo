@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Atelier de Código">
 <meta name="dcterms.date" content="2026-01-24">
 <meta name="description" content="Guía paso a paso para empezar a analizar y graficar datos cuantitativos en R. Carga de datos reales, exploración, transformación con tidyverse y visualización con ggplot2, explicadas de forma clara y aplicada.">
 
@@ -1057,12 +1056,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Atelier de Código </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -1096,38 +1089,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="cargar-datos-y-preparar-el-entorno-de-trabajo" class="level3">
 <h3 class="anchored" data-anchor-id="cargar-datos-y-preparar-el-entorno-de-trabajo">2. Cargar datos y preparar el entorno de trabajo</h3>
-<p>El primer paso consiste en cargar los paquetes necesarios. En R, la mayor parte del trabajo exploratorio y gráfico se apoya en el ecosistema <strong>tidyverse</strong> (podés leer más sobre Tidyverse <a href="https://atelierdecodigo.com/posts/r-base-tidyverse.html">acá</a>). Si ya tenés instalado el Tidyverse, podés saltearte la primera línea (el símbolo <code>#</code> sirve para “comentar” una línea entera y evitar que se ejecute; si necesitás ejecutarla, lo borrás y listo). Lo que sí hay que hacer siempre es cargar el paquete con la función <code>library()</code>.</p>
+<p>Lo primero que tenés que hacer es instalar R y RStudio, y eso lo podés ver <a href="https://atelierdecodigo.com/posts/instalar-r-rstudio.html">en este post</a>. R es el lenguaje de programación (el motor que ejecuta los comandos) y RStudio es la interfaz gráfica (técnicamente <a href="https://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html">el entorno de desarrollo integrado</a>) que permite ejecutar el código en R de forma más cómoda. Una vez que tengas todo instalado, abrí RStudio y familiarizate con los cuatro paneles: el editor de scripts arriba a la izquierda, la consola abajo a la izquierda, el entorno (<em>environment</em>) arriba a la derecha y el panel de archivos (<em>files, plots…</em>) abajo a la derecha. Si bien podés <a href="https://atelierdecodigo.com/posts/consola-script-escribir-codigo.html">escribir y ejecutar todo tu código en la consola, te sugerimos que lo hagas en el editor de scripts</a>, ya que así podrás guardarlo y volver a ejecutarlo en otro momento.</p>
+<p>El código que tenés que escribir y ejecutar en esta guía lo vas a encontrar en recuadros grises. Si bien podés copiar y pegar cada línea de código en tu script, nuestra sugerencia es que <a href="https://atelierdecodigo.com/posts/escribir-codigo-a-mano.html">escribas <em>a mano</em></a> los comandos, porque eso ayuda a incorporar la práctica de la programación. Los escribís en el editor de scripts (el panel que está arriba a la izquierda en RStudio) y los ejecutás haciendo control+enter (en Windows o Linux), command+enter (en macOS), o directamente apretando el botón que dice “Run”. Si no solés usar atajos de teclado (las combinaciones de teclas)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, te sugerimos que te acostumbres a hacerlo. Escribir código es una práctica intelectual, pero también es una práctica física: a medida que tu cuerpo se acostumbre a interactuar con la computadora para esta función, más fácil y natural te va a resultar todo.</p>
+<p>El primer paso consiste en cargar los paquetes necesarios. En R, la mayor parte del trabajo exploratorio y gráfico se apoya en el ecosistema <strong>tidyverse</strong> (podés leer más sobre Tidyverse <a href="https://atelierdecodigo.com/posts/r-base-tidyverse.html">acá</a>). Si ya tenés instalado el Tidyverse, podés saltearte la primera línea (el símbolo <code>#</code> sirve para “comentar” una línea entera y evitar que se ejecute; si necesitás ejecutarla, lo borrás y listo). Lo que sí hay que hacer siempre es cargar el paquete con la función <code>library()</code>. La instalación de <code>tidyverse</code> puede llevar unos minutos; además, va a mostrar una descripción de lo que hace en la consola, así que no te preocupes si aparece mucho texto en la consola (a menos que algo diga error, en ese caso hay que investigar qué está pasando).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("tidyverse")</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tibble' was built under R version 4.4.1</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.4.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'stringr' was built under R version 4.4.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.6.0
-✔ ggplot2   3.5.1     ✔ tibble    3.3.0
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.2.0     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-</div>
-<p>Este conjunto de paquetes incluye herramientas para importar datos, transformarlos y visualizarlos. Vamos a trabajar con el paquete gapminder, por lo cual vamos a instalar el paquete, luego cargarlo, y construir un objeto a partir del dataset que incluye.</p>
+<p>Esto nos sirve para empezar a prestar atención a la sintaxis de R, es decir, a la forma en la que se escriben los comandos para ejecutar las acciones que necesitamos. En este caso, todas las palabras que aparezcan afuera de los paréntesis se denominan <strong>funciones</strong> y lo que aparece dentro de ellas son los <strong>argumentos</strong> de esas funciones, que son los elementos o los parámetros que debemos especificar para que esa función se ejecute. Por ejemplo, en el caso anterior, tenemos dos funciones: <code>install.packages()</code> y <code>library()</code>. La primera instala paquetes y la segunda los carga dentro de nuestra sesión actual de R. El argumento que toman ambas es el nombre del paquete: en el primer caso, se debe indicar el nombre entre comillas (porque es un elemento nuevo) y, en el segundo, sin comillas, porque es un elemento que ya está en la memoria de R y solo debemos traerlo a esta sesión en particular. Las funciones pueden tomar muchos argumentos distintos: algunos serán obligatorios, otros no. Podés aprender más sobre las funciones escribiendo <code>?install.packages</code>, por ejemplo, en la consola: eso abre la documentación, es decir, la guía informativa sobre el funcionamiento de esa función.</p>
+<p>Como mencionamos antes, <code>tidyverse</code> es un conjunto de paquetes que incluye herramientas para importar datos, transformarlos y visualizarlos. Además, vamos a usar el paquete <code>gapminder</code> como fuente de datos, por lo cual vamos a instalar el paquete, luego cargarlo, y construir un objeto a partir del dataset que incluye.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("")</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#datos &lt;- read_csv("datos_encuesta.csv")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"gapminder"</span>, <span class="at">repos =</span> <span class="st">"http://cran.us.r-project.org"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+The downloaded binary packages are in
+    /var/folders/gx/n4drsz9j2c3b9dd6phbrgttr0000gn/T//RtmpLZMlHa/downloaded_packages</code></pre>
 </div>
-<p>El resultado es un data frame que queda disponible en el entorno de trabajo. Antes de hacer cualquier cálculo, conviene entender qué tenemos delante.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> gapminder<span class="sc">::</span>gapminder</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>La primera línea es idéntica a lo que hicimos con el paquete anterior. La segunda introduce una novedad: si necesitamos tomar solamente un elemento de ese paquete (como en este caso, que solamente necesitamos cargar un conjunto de datos), podemos llamar al elemento dentro del paquete usando los dos-dos puntos (<code>::</code>). El primer elemento es el nombre del paquete y el segundo es el nombre de la función o el elemento específico que queremos traer. Esto es útil cuando queremos controlar la cantidad de memoria que usamos, porque nos permite cargar solamente lo que necesitamos y no todo el paquete entero. También sirve para aquellos casos donde dos paquetes distintos tienen una función con el mismo nombre (que no es muy frecuente, pero ocurre): identificar el nombre del paquete desambigua qué función queremos usar.</p>
+<p>En esta segunda línea tenemos también el operador de asignación <code>&lt;-</code> que lo que hace es asignar un nombre (la palabra que está a la izquierda) al elemento que está a la derecha. Entonces, esta línea podría traducirse de esta forma: “ponele el nombre <code>datos</code> al elemento <code>gapminder</code> que proviene del paquete <code>gapminder</code>”. Una vez que ejecutamos esta línea, si no hay ningún error, debería crearse en el panel “Environment” un elemento que se llame “datos” y que tenga 1704 observaciones y 6 variables:</p>
+<p><img src="images/CleanShot 2026-01-29 at 22.20.26@2x.png" class="img-fluid"></p>
 <hr>
 </section>
 <section id="explorar-la-estructura-de-los-datos" class="level3">
@@ -1135,12 +1117,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Explorar datos no significa todavía analizarlos en profundidad. Implica responder preguntas básicas: cuántas filas hay, qué variables contiene el dataset, qué tipo de valores aparecen.</p>
 <p>Algunas funciones clave en esta etapa son:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#glimpse(datos)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(datos)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,704
+Columns: 6
+$ country   &lt;fct&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan", …
+$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …
+$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, …
+$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…
+$ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12…
+$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, …</code></pre>
 </div>
-<p><code>glimpse()</code> permite ver rápidamente los nombres de las variables, su tipo y algunos ejemplos de valores. En datos de encuestas, esta función ayuda a detectar codificaciones problemáticas o variables que conviene recodificar más adelante.</p>
+</div>
+<p><code>glimpse()</code> permite ver rápidamente, en la consola, los nombres de las variables, su tipo y algunos ejemplos de valores. Aparecerá algo así:</p>
+<p><img src="images/CleanShot 2026-01-29 at 22.26.29@2x.png" class="img-fluid"></p>
+<p>En cada fila de este resultado vemos primero el nombre de las columnas, es decir, de las variables (“country”, “continent”, “year”, etc), a continuación el tipo</p>
+<p>En datos de encuestas, esta función ayuda a detectar codificaciones problemáticas o variables que conviene recodificar más adelante.</p>
 <p>También es habitual mirar resúmenes generales:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(datos)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(datos)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Este paso inicial evita muchos errores posteriores y ayuda a formular mejores preguntas analíticas.</p>
 <hr>
@@ -1150,11 +1145,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Analizar datos siempre implica elegir. Raramente se trabaja con todas las variables y todos los casos al mismo tiempo.</p>
 <p>Para seleccionar columnas relevantes:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#datos_reducidos &lt;- select(datos, edad, sexo, educacion, ingreso)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#datos_reducidos &lt;- select(datos, edad, sexo, educacion, ingreso)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Para filtrar observaciones según algún criterio:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#datos_adultos &lt;- filter(datos_reducidos, edad &gt;= 18)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#datos_adultos &lt;- filter(datos_reducidos, edad &gt;= 18)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Estas operaciones ya introducen una perspectiva analítica. Definen qué parte de la realidad queda dentro del análisis y cuál queda fuera.</p>
 <hr>
@@ -1164,12 +1159,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Una vez definidos los datos de interés, suele ser necesario resumirlos. Promedios, medianas, proporciones y conteos son operaciones centrales en el análisis cuantitativo.</p>
 <p>Por ejemplo, calcular el ingreso promedio por nivel educativo:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>resumen <span class="ot">&lt;-</span> datos_adultos <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(educacion) <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">ingreso_promedio =</span> <span class="fu">mean</span>(ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>resumen <span class="ot">&lt;-</span> datos_adultos <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(educacion) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">ingreso_promedio =</span> <span class="fu">mean</span>(ingreso, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Aquí aparecen varias ideas importantes:</p>
 <ul>
@@ -1185,12 +1180,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>En muchos datasets, especialmente de encuestas, los datos no están en el formato más conveniente para el análisis o la visualización. Para eso se utilizan funciones de <code>tidyr</code>.</p>
 <p>Un caso típico es pasar de un formato ancho a uno largo:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>datos_largos <span class="ot">&lt;-</span> datos_adultos <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"item_"</span>),</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"pregunta"</span>,</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"respuesta"</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>datos_largos <span class="ot">&lt;-</span> datos_adultos <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"item_"</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"pregunta"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"respuesta"</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Este tipo de transformación resulta clave cuando se analizan baterías de preguntas o se quiere comparar patrones entre ítems.</p>
 <hr>
@@ -1201,8 +1196,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>En R, la visualización se apoya en <strong>ggplot2</strong>, que implementa la llamada gramática de gráficos. La idea central es construir gráficos por capas, definiendo datos, variables estéticas y geometrías.</p>
 <p>Un ejemplo simple:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_adultos, <span class="fu">aes</span>(<span class="at">x =</span> educacion, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_adultos, <span class="fu">aes</span>(<span class="at">x =</span> educacion, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Este gráfico permite comparar la distribución de ingresos según nivel educativo. Incluso con un código breve, ya aparecen decisiones analíticas importantes: qué variable va en cada eje y qué tipo de gráfico se utiliza.</p>
 <hr>
@@ -1212,19 +1207,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Una vez creado un gráfico básico, suele ser necesario ajustarlo para mejorar su legibilidad.</p>
 <p>Por ejemplo, cambiar etiquetas y títulos:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_adultos, <span class="fu">aes</span>(<span class="at">x =</span> educacion, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribución de ingresos por nivel educativo"</span>,</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Nivel educativo"</span>,</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Ingreso mensual"</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_adultos, <span class="fu">aes</span>(<span class="at">x =</span> educacion, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribución de ingresos por nivel educativo"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Nivel educativo"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Ingreso mensual"</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>También es posible facetar gráficos para comparar grupos:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_adultos, <span class="fu">aes</span>(<span class="at">x =</span> educacion, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> sexo)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos_adultos, <span class="fu">aes</span>(<span class="at">x =</span> educacion, <span class="at">y =</span> ingreso)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> sexo)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Estas decisiones no son neutras. Orientan la interpretación y ponen el foco en ciertos contrastes.</p>
 <hr>
@@ -1258,7 +1253,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Para cuando tengas más <em>cancha</em> con RStudio, <a href="https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE">acá</a> podés encontrar más atajos de teclado en RStudio.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

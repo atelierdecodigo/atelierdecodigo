@@ -1,6 +1,6 @@
 ---
 title: "Una guía práctica para empezar a analizar y graficar datos cuantitativos en R"
-author: Atelier de Código
+#author: Atelier de Código
 date: 2026-01-24
 description: "Guía paso a paso para empezar a analizar y graficar datos cuantitativos en R. Carga de datos reales, exploración, transformación con tidyverse y visualización con ggplot2, explicadas de forma clara y aplicada."
 ---
@@ -29,22 +29,37 @@ En este recorrido voy a usar ejemplos inspirados en este tipo de datos, con vari
 
 ### 2. Cargar datos y preparar el entorno de trabajo
 
-El primer paso consiste en cargar los paquetes necesarios. En R, la mayor parte del trabajo exploratorio y gráfico se apoya en el ecosistema **tidyverse** (podés leer más sobre Tidyverse [acá](https://atelierdecodigo.com/posts/r-base-tidyverse.html)). Si ya tenés instalado el Tidyverse, podés saltearte la primera línea (el símbolo `#` sirve para "comentar" una línea entera y evitar que se ejecute; si necesitás ejecutarla, lo borrás y listo). Lo que sí hay que hacer siempre es cargar el paquete con la función `library()`.
+Lo primero que tenés que hacer es instalar R y RStudio, y eso lo podés ver [en este post](https://atelierdecodigo.com/posts/instalar-r-rstudio.html). R es el lenguaje de programación (el motor que ejecuta los comandos) y RStudio es la interfaz gráfica (técnicamente [el entorno de desarrollo integrado](https://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html)) que permite ejecutar el código en R de forma más cómoda. Una vez que tengas todo instalado, abrí RStudio y familiarizate con los cuatro paneles: el editor de scripts arriba a la izquierda, la consola abajo a la izquierda, el entorno (*environment*) arriba a la derecha y el panel de archivos (*files, plots...*) abajo a la derecha. Si bien podés [escribir y ejecutar todo tu código en la consola, te sugerimos que lo hagas en el editor de scripts](https://atelierdecodigo.com/posts/consola-script-escribir-codigo.html), ya que así podrás guardarlo y volver a ejecutarlo en otro momento.
 
-```{r}
-#install.packages("tidyverse")
+El código que tenés que escribir y ejecutar en esta guía lo vas a encontrar en recuadros grises. Si bien podés copiar y pegar cada línea de código en tu script, nuestra sugerencia es que [escribas *a mano*](https://atelierdecodigo.com/posts/escribir-codigo-a-mano.html) los comandos, porque eso ayuda a incorporar la práctica de la programación. Los escribís en el editor de scripts (el panel que está arriba a la izquierda en RStudio) y los ejecutás haciendo control+enter (en Windows o Linux), command+enter (en macOS), o directamente apretando el botón que dice "Run". Si no solés usar atajos de teclado (las combinaciones de teclas)[^1], te sugerimos que te acostumbres a hacerlo. Escribir código es una práctica intelectual, pero también es una práctica física: a medida que tu cuerpo se acostumbre a interactuar con la computadora para esta función, más fácil y natural te va a resultar todo.
+
+[^1]: Para cuando tengas más *cancha* con RStudio, [acá](https://support.posit.co/hc/en-us/articles/200711853-Keyboard-Shortcuts-in-the-RStudio-IDE) podés encontrar más atajos de teclado en RStudio.
+
+El primer paso consiste en cargar los paquetes necesarios. En R, la mayor parte del trabajo exploratorio y gráfico se apoya en el ecosistema **tidyverse** (podés leer más sobre Tidyverse [acá](https://atelierdecodigo.com/posts/r-base-tidyverse.html)). Si ya tenés instalado el Tidyverse, podés saltearte la primera línea (el símbolo `#` sirve para "comentar" una línea entera y evitar que se ejecute; si necesitás ejecutarla, lo borrás y listo). Lo que sí hay que hacer siempre es cargar el paquete con la función `library()`. La instalación de `tidyverse` puede llevar unos minutos; además, va a mostrar una descripción de lo que hace en la consola, así que no te preocupes si aparece mucho texto en la consola (a menos que algo diga error, en ese caso hay que investigar qué está pasando).
+
+```{r, eval=FALSE}
+install.packages("tidyverse")
 library(tidyverse)
 ```
 
-
-Este conjunto de paquetes incluye herramientas para importar datos, transformarlos y visualizarlos. Vamos a trabajar con el paquete gapminder, por lo cual vamos a instalar el paquete, luego cargarlo, y construir un objeto a partir del dataset que incluye.
-
-```{r}     
-#install.packages("")
-#datos <- read_csv("datos_encuesta.csv")
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
 ```
 
-El resultado es un data frame que queda disponible en el entorno de trabajo. Antes de hacer cualquier cálculo, conviene entender qué tenemos delante.
+Esto nos sirve para empezar a prestar atención a la sintaxis de R, es decir, a la forma en la que se escriben los comandos para ejecutar las acciones que necesitamos. En este caso, todas las palabras que aparezcan afuera de los paréntesis se denominan **funciones** y lo que aparece dentro de ellas son los **argumentos** de esas funciones, que son los elementos o los parámetros que debemos especificar para que esa función se ejecute. Por ejemplo, en el caso anterior, tenemos dos funciones: `install.packages()` y `library()`. La primera instala paquetes y la segunda los carga dentro de nuestra sesión actual de R. El argumento que toman ambas es el nombre del paquete: en el primer caso, se debe indicar el nombre entre comillas (porque es un elemento nuevo) y, en el segundo, sin comillas, porque es un elemento que ya está en la memoria de R y solo debemos traerlo a esta sesión en particular. Las funciones pueden tomar muchos argumentos distintos: algunos serán obligatorios, otros no. Podés aprender más sobre las funciones escribiendo `?install.packages`, por ejemplo, en la consola: eso abre la documentación, es decir, la guía informativa sobre el funcionamiento de esa función.
+
+Como mencionamos antes, `tidyverse` es un conjunto de paquetes que incluye herramientas para importar datos, transformarlos y visualizarlos. Además, vamos a usar el paquete `gapminder` como fuente de datos, por lo cual vamos a instalar el paquete, luego cargarlo, y construir un objeto a partir del dataset que incluye.
+
+```{r, message=FALSE}
+install.packages("gapminder", repos = "http://cran.us.r-project.org")
+datos <- gapminder::gapminder
+```
+
+La primera línea es idéntica a lo que hicimos con el paquete anterior. La segunda introduce una novedad: si necesitamos tomar solamente un elemento de ese paquete (como en este caso, que solamente necesitamos cargar un conjunto de datos), podemos llamar al elemento dentro del paquete usando los dos-dos puntos (`::`). El primer elemento es el nombre del paquete y el segundo es el nombre de la función o el elemento específico que queremos traer. Esto es útil cuando queremos controlar la cantidad de memoria que usamos, porque nos permite cargar solamente lo que necesitamos y no todo el paquete entero. También sirve para aquellos casos donde dos paquetes distintos tienen una función con el mismo nombre (que no es muy frecuente, pero ocurre): identificar el nombre del paquete desambigua qué función queremos usar.
+
+En esta segunda línea tenemos también el operador de asignación `<-` que lo que hace es asignar un nombre (la palabra que está a la izquierda) al elemento que está a la derecha. Entonces, esta línea podría traducirse de esta forma: "ponele el nombre `datos` al elemento `gapminder` que proviene del paquete `gapminder`". Una vez que ejecutamos esta línea, si no hay ningún error, debería crearse en el panel "Environment" un elemento que se llame "datos" y que tenga 1704 observaciones y 6 variables:
+
+![](images/CleanShot%202026-01-29%20at%2022.20.26@2x.png)
 
 ------------------------------------------------------------------------
 
@@ -54,15 +69,21 @@ Explorar datos no significa todavía analizarlos en profundidad. Implica respond
 
 Algunas funciones clave en esta etapa son:
 
-```{r}         
-#glimpse(datos)
+```{r}
+glimpse(datos)
 ```
 
-`glimpse()` permite ver rápidamente los nombres de las variables, su tipo y algunos ejemplos de valores. En datos de encuestas, esta función ayuda a detectar codificaciones problemáticas o variables que conviene recodificar más adelante.
+`glimpse()` permite ver rápidamente, en la consola, los nombres de las variables, su tipo y algunos ejemplos de valores. Aparecerá algo así:
+
+![](images/CleanShot 2026-01-29 at 22.26.29@2x.png)
+
+En cada fila de este resultado vemos primero el nombre de las columnas, es decir, de las variables ("country", "continent", "year", etc), a continuación el tipo
+
+En datos de encuestas, esta función ayuda a detectar codificaciones problemáticas o variables que conviene recodificar más adelante.
 
 También es habitual mirar resúmenes generales:
 
-```{r}         
+```{r}
 #summary(datos)
 ```
 
@@ -76,13 +97,13 @@ Analizar datos siempre implica elegir. Raramente se trabaja con todas las variab
 
 Para seleccionar columnas relevantes:
 
-```{r}         
+```{r}
 #datos_reducidos <- select(datos, edad, sexo, educacion, ingreso)
 ```
 
 Para filtrar observaciones según algún criterio:
 
-```{r}         
+```{r}
 #datos_adultos <- filter(datos_reducidos, edad >= 18)
 ```
 
@@ -96,7 +117,7 @@ Una vez definidos los datos de interés, suele ser necesario resumirlos. Promedi
 
 Por ejemplo, calcular el ingreso promedio por nivel educativo:
 
-```{r, eval=FALSE}         
+```{r, eval=FALSE}
 resumen <- datos_adultos %>%
   group_by(educacion) %>%
   summarise(
@@ -121,7 +142,7 @@ En muchos datasets, especialmente de encuestas, los datos no están en el format
 
 Un caso típico es pasar de un formato ancho a uno largo:
 
-```{r, eval=FALSE}         
+```{r, eval=FALSE}
 datos_largos <- datos_adultos %>%
   pivot_longer(
     cols = starts_with("item_"),
@@ -142,7 +163,7 @@ En R, la visualización se apoya en **ggplot2**, que implementa la llamada gram�
 
 Un ejemplo simple:
 
-```{r, eval=FALSE}         
+```{r, eval=FALSE}
 ggplot(datos_adultos, aes(x = educacion, y = ingreso)) +
   geom_boxplot()
 ```
@@ -157,7 +178,7 @@ Una vez creado un gráfico básico, suele ser necesario ajustarlo para mejorar s
 
 Por ejemplo, cambiar etiquetas y títulos:
 
-```{r, eval=FALSE}         
+```{r, eval=FALSE}
 ggplot(datos_adultos, aes(x = educacion, y = ingreso)) +
   geom_boxplot() +
   labs(
@@ -169,7 +190,7 @@ ggplot(datos_adultos, aes(x = educacion, y = ingreso)) +
 
 También es posible facetar gráficos para comparar grupos:
 
-```{r, eval=FALSE}         
+```{r, eval=FALSE}
 ggplot(datos_adultos, aes(x = educacion, y = ingreso)) +
   geom_boxplot() +
   facet_wrap(~ sexo)
@@ -193,13 +214,12 @@ Trabajar con scripts bien estructurados y proyectos en RStudio ayuda a sostener 
 
 Si miramos el recorrido completo, aparece un patrón:
 
-1.   Cargar datos reales.
+1.  Cargar datos reales.
 2.  Explorar su estructura.
-6.  Seleccionar y filtrar.
-8.  Resumir información.
-10. Reorganizar cuando es necesario.
-12. Visualizar para analizar y comunicar.
-
+3.  Seleccionar y filtrar.
+4.  Resumir información.
+5.  Reorganizar cuando es necesario.
+6.  Visualizar para analizar y comunicar.
 
 Este flujo no es lineal ni rígido. Muchas veces se vuelve hacia atrás, se ajustan decisiones o se reformulan preguntas. R y tidyverse facilitan este ida y vuelta, dejando registro de cada paso.
 
