@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Code Atelier"
+  site-url: https://atelierdecodigo.com/en
+  margin-header: subscribe-en.html
+  navbar:
+    left:
+      - href: index.qmd
+        text: "Home"
+      - href: about.qmd
+        text: "About"
+      - href: contact.qmd
+        text: "Contact"
+      - href: posts/index.qmd
+        text: "Blog"
+    right:
+      - text: "SPA"
+        href: /index.html
+      - text: "ENG"
+        href: /en/index.html
+
+format:
+  html:
+    theme: litera
+    css: ../styles.css

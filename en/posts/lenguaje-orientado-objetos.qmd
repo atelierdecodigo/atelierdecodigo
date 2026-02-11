@@ -1,0 +1,45 @@
+---
+title: "¿Qué es la programación orientada a objetos y por qué R se considera un lenguaje orientado a objetos?"
+date: 2026-01-29
+toc: false
+page-layout: full
+description: "¿Qué significa que un lenguaje sea orientado a objetos? Este post introduce la idea de programación orientada a objetos y explica cómo R implementa esta lógica a través de clases, objetos y métodos en el trabajo cotidiano con datos."
+---
+
+Cuando se empieza a programar, muchas de las operaciones parecen simples instrucciones que se ejecutan en secuencia: cargar datos, aplicar una función, obtener un resultado. A medida que los proyectos crecen, aparece otra necesidad: organizar el código y los datos de forma que sea más fácil de entender, reutilizar y extender. La **programación orientada a objetos (POO)** surge como una respuesta a ese problema de organización.
+
+Pensar en orientación a objetos implica cambiar ligeramente el foco. En lugar de concentrarse solo en acciones, se pone atención en las entidades sobre las que se actúa y en las relaciones entre datos y operaciones. Esta forma de estructurar el código no es exclusiva de un lenguaje, sino una manera de modelar problemas.
+
+### La idea central de la orientación a objetos
+
+En términos generales, la programación orientada a objetos se basa en el concepto de **objeto**. Un objeto combina dos cosas: datos y las operaciones que tienen sentido para esos datos. Por ejemplo, un conjunto de datos puede tener asociadas operaciones para resumirse, graficarse o transformarse.
+
+Los objetos suelen pertenecer a una clase, que define qué tipo de datos contienen y qué operaciones se pueden aplicar. A partir de una clase se crean objetos concretos. Esta separación permite trabajar con abstracciones: no hace falta conocer todos los detalles internos para usar un objeto de manera consistente.
+
+Otro concepto importante es el de método, que es una función asociada a una clase específica. En lugar de pensar que una función existe de forma aislada, se la entiende como una operación que se aplica a un tipo particular de objeto.
+
+### Por qué esta lógica resulta útil
+
+La orientación a objetos ayuda a manejar la **complejidad**. Permite escribir código que se adapta a distintos tipos de datos sin reescribirse por completo, facilita la extensión de funcionalidades y promueve cierta coherencia interna. Para quien lee el código, también ofrece pistas sobre qué operaciones son esperables para cada tipo de objeto.
+
+Esta forma de organizar el trabajo es especialmente valiosa en lenguajes usados para análisis de datos, donde conviven tablas, modelos estadísticos, gráficos y resultados intermedios. Cada uno de estos elementos puede pensarse como un objeto con comportamientos propios.
+
+### R como lenguaje orientado a objetos
+
+R es un lenguaje orientado a objetos, aunque no siempre se lo perciba de ese modo al comenzar a usarlo. Esto se debe a que R implementa la orientación a objetos de una manera particular, menos explícita que en otros lenguajes como Java o Python.
+
+En R, casi todo es un objeto. Un vector, un data frame, un modelo estadístico o un gráfico son objetos con una clase asociada. Esa clase define cómo se comportan frente a ciertas funciones. Por ejemplo, la función summary() produce resultados distintos según el tipo de objeto que recibe. El mismo nombre de función activa métodos diferentes según la clase del objeto de entrada.
+
+Este mecanismo se conoce como despacho de métodos. En lugar de llamar a una función específica para cada tipo de dato, R decide internamente qué método usar. Para quien analiza datos, esto reduce la carga cognitiva: se usan las mismas funciones generales y el comportamiento se ajusta al objeto.
+
+### Los sistemas de objetos en R
+
+R tiene varios sistemas de objetos. Los más conocidos son S3 y S4, y más recientemente R6. S3 es un sistema flexible e informal, muy extendido en paquetes y en el uso cotidiano. S4 es más estricto y define de forma explícita la estructura de las clases. R6 se parece más a la orientación a objetos clásica, con objetos mutables.
+
+Para empezar, no es necesario dominar estos sistemas en detalle. Lo importante es reconocer que cuando se trabaja con data frames, modelos o gráficos, se está interactuando con objetos que responden a reglas específicas según su clase.
+
+### Leer código desde esta perspectiva
+
+Entender que R es un lenguaje orientado a objetos ayuda a leer mejor el código. Permite preguntarse qué tipo de objeto se tiene entre manos, qué operaciones son coherentes con ese objeto y por qué una función se comporta de cierta manera. Esta mirada vuelve más predecible el análisis y facilita el aprendizaje de nuevos paquetes.
+
+La orientación a objetos en R no exige escribir clases desde el primer día. Funciona, en muchos casos, como una infraestructura silenciosa que organiza el lenguaje. Reconocer su presencia ayuda a pasar de ejecutar código a interpretarlo como parte de un sistema más amplio.

@@ -1,0 +1,13 @@
+---
+title: Atelier de código
+lang: en
+---
+
+A space dedicated to learning data science, with a focus on research, teaching, and reproducible practices.
+
+## What you’ll find here
+
+  -   Resources on R and data analysis
+  -   Open projects and documentation
+  -   Tutoring and mentoring
+  -   Data analysis

@@ -1,5 +1,6 @@
 ---
 title: Atelier de código
+lang: es
 ---
 
 Un espacio dedicado al aprendizaje de la ciencia de datos, 

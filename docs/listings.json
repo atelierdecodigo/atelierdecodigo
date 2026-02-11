@@ -1,5 +1,23 @@
 [
   {
+    "listing": "/en/posts/index.html",
+    "items": [
+      "/en/posts/lenguaje-orientado-objetos.html",
+      "/en/posts/que-es-ciencia-de-datos.html",
+      "/en/posts/libros-aprender-ciencia-datos.html",
+      "/en/posts/gramatica-graficos-ggplot.html",
+      "/en/posts/proyectos-control-versiones-github.html",
+      "/en/posts/instalar-r-rstudio.html",
+      "/en/posts/proyectos-rstudio.html",
+      "/en/posts/reproducibilidad.html",
+      "/en/posts/consola-script-escribir-codigo.html",
+      "/en/posts/r-base-tidyverse.html",
+      "/en/posts/r-humanidades-aprender.html",
+      "/en/posts/entorno-desarrollo-integrado-ide.html",
+      "/en/posts/r-lenguaje-programacion.html"
+    ]
+  },
+  {
     "listing": "/posts/index.html",
     "items": [
       "/posts/lenguaje-orientado-objetos.html",
@@ -7,9 +25,9 @@
       "/posts/libros-aprender-ciencia-datos.html",
       "/posts/gramatica-graficos-ggplot.html",
       "/posts/proyectos-control-versiones-github.html",
-      "/posts/reproducibilidad.html",
-      "/posts/proyectos-rstudio.html",
       "/posts/instalar-r-rstudio.html",
+      "/posts/proyectos-rstudio.html",
+      "/posts/reproducibilidad.html",
       "/posts/consola-script-escribir-codigo.html",
       "/posts/r-base-tidyverse.html",
       "/posts/r-humanidades-aprender.html",

@@ -1,0 +1,124 @@
+---
+title: "Herramientas para hacer análisis estadísticos: un mapa posible"
+date: 2026-01-30
+page-layout: full
+toc: false
+draft: true
+description: "¿Qué herramientas existen para hacer análisis estadísticos? ¿Cuándo conviene usar cada una de ellas? Este post propone un recorrido general por las principales herramientas usadas para análisis estadísticos, con sus ventajas y desventajas, y cierra con una discusión específica sobre cuándo conviene (y cuándo no) usar R."
+---
+
+Hacer análisis estadísticos hoy no es solo una cuestión de saber estadística. También implica elegir con qué herramientas trabajar. Esa elección condiciona qué tipo de análisis es viable, cuán reproducible será el proceso, qué tan fácil será colaborar con otras personas y cómo se comunicarán los resultados. No existe una única herramienta "correcta": cada una responde a tradiciones, necesidades y perfiles de usuario distintos.
+
+Este post propone un recorrido general por las principales herramientas usadas para análisis estadísticos, con sus ventajas y desventajas, y cierra con una discusión específica sobre cuándo conviene (y cuándo no) usar R.
+
+### Hojas de cálculo: Excel, Google Sheets y similares
+
+Las hojas de cálculo suelen ser el primer contacto con el análisis de datos. Permiten cargar datos, hacer cálculos básicos, tablas y gráficos sin necesidad de programar.
+
+**Ventajas**
+
+-   Muy accesibles y conocidas.
+
+-   Curva de aprendizaje baja.
+
+-   Útiles para exploraciones rápidas y datasets pequeños.
+
+**Desventajas**
+
+-   Escalabilidad limitada.
+
+-   Alto riesgo de errores difíciles de rastrear.
+
+-   Poco adecuadas para análisis complejos o reproducibles.
+
+-   Separan datos, análisis y resultados en pasos poco transparentes.
+
+En general, funcionan bien como herramienta inicial o complementaria, pero se vuelven frágiles cuando el análisis crece.
+
+### Software estadístico con interfaz gráfica: SPSS, Stata, Jamovi, JASP
+
+Estos programas están diseñados específicamente para análisis estadísticos y ofrecen menús, botones y cuadros de diálogo que guían al usuario.
+
+**Ventajas**
+
+-   Pensados para análisis estadísticos clásicos.
+
+-   Reducen la barrera de entrada para personas sin experiencia en programación.
+
+-   Resultados relativamente estandarizados.
+
+**Desventajas**
+
+-   Menor flexibilidad para análisis no previstos.
+
+-   Dificultad para automatizar procesos complejos.
+
+-   Reproducibilidad limitada si no se trabaja explícitamente con scripts.
+
+-   En muchos casos, licencias costosas (Jamovi y JASP son de acceso libre).
+
+Son muy usados en ámbitos académicos y profesionales donde se repiten análisis similares y se prioriza la rapidez operativa.
+
+### Lenguajes de programación de propósito general: Python
+
+Python no nació como lenguaje estadístico, pero se consolidó como una herramienta central en ciencia de datos gracias a sus librerías.
+
+**Ventajas**
+
+-   Gran ecosistema para análisis, machine learning y producción.
+
+-   Integración sencilla con sistemas, bases de datos y aplicaciones.
+
+-   Comunidad muy amplia y activa.
+
+**Desventajas**
+
+-   Estadística clásica menos integrada conceptualmente que en otros entornos.
+
+-   Requiere más decisiones técnicas por parte del usuario.
+
+-   Resultados estadísticos menos "listos para reportar" en contextos académicos.
+
+Python suele ser elegido cuando el análisis estadístico es parte de un flujo más amplio que incluye software, automatización o despliegue.
+
+### Lenguajes especializados en estadística: R
+
+R fue diseñado desde su origen como un entorno para estadística y análisis de datos. Esto se refleja tanto en su sintaxis como en su ecosistema de paquetes.
+
+Antes de evaluar R en particular, conviene remarcar que no es solo un lenguaje, sino una forma de pensar el análisis: basada en objetos, funciones y scripts que documentan cada decisión analítica.
+
+**Por qué sí conviene usar R**
+
+R es especialmente fuerte cuando el análisis estadístico es el núcleo del trabajo.
+
+-   Tiene implementadas prácticamente todas las técnicas estadísticas clásicas y modernas.
+
+-   La estadística no es un "agregado", sino el corazón del lenguaje.
+
+-   Facilita análisis reproducibles mediante scripts, RMarkdown y Quarto.
+
+-   Permite integrar datos, análisis, visualización y texto en un mismo flujo.
+
+-   Es gratuito y de código abierto, lo que favorece la transparencia y la colaboración.
+
+-   Cuenta con una comunidad académica muy activa, que desarrolla paquetes alineados con avances metodológicos recientes.
+
+Para investigación, docencia y análisis exploratorios complejos, R ofrece un equilibrio poco frecuente entre potencia, expresividad y rigor estadístico.
+
+**Por qué no siempre conviene usar R**
+
+-   Tiene una curva de aprendizaje más exigente para quienes nunca programaron.
+
+-   Puede resultar menos adecuado para entornos productivos o aplicaciones a gran escala.
+
+-   La gestión de dependencias y versiones puede volverse compleja.
+
+-   No siempre es la mejor opción si el análisis estadístico es mínimo frente a otras tareas (por ejemplo, ingeniería de software).
+
+Además, en equipos donde nadie usa R, introducirlo puede generar costos de capacitación y mantenimiento.
+
+### Elegir herramientas que te sirvan a vos
+
+La elección de una herramienta para análisis estadísticos no es solo técnica: es situada. Depende del tipo de datos, del objetivo del análisis, del equipo de trabajo y del contexto institucional.
+
+R no reemplaza a todas las demás herramientas, pero ocupa un lugar específico y sólido cuando se busca hacer estadística de manera rigurosa, reproducible y conceptualmente informada. Entender sus ventajas y límites permite usarlo mejor ---o decidir no usarlo--- con criterios claros y explícitos.

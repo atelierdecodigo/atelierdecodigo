@@ -250,35 +250,47 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
   <pubDate>Sat, 24 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>Reproducibilidad: por qué importa y qué tiene que ver con programar bien</title>
-  <link>https://atelierdecodigo.com/posts/reproducibilidad.html</link>
+  <title>Empezar con R: instalación y primeros pasos</title>
+  <link>https://atelierdecodigo.com/posts/instalar-r-rstudio.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>En muchas áreas de investigación, los resultados no se producen de una sola vez. Se construyen a partir de datos, decisiones analíticas, ajustes, correcciones y vueltas atrás. En ese proceso, una pregunta aparece tarde o temprano: ¿otra persona podría obtener los mismos resultados siguiendo los mismos pasos? A esa posibilidad se la suele llamar <a href="https://blog.scielo.org/es/2023/06/02/reproduccion-replicacion-en-investigacion-cientifica-parte-2/">reproducibilidad</a>.</p>
-<p>La reproducibilidad se refiere a la capacidad de repetir un análisis y llegar a los mismos resultados usando los mismos datos y los mismos procedimientos. No implica que los resultados sean universales ni definitivos, sino que el camino que llevó a ellos sea claro y verificable. En términos prácticos, un análisis reproducible permite entender qué se hizo, cómo se hizo y en qué orden.</p>
-<p>La falta de reproducibilidad rara vez se debe a mala intención (<a href="https://datacolada.org/118">aunque a veces ocurre</a>). Más bien suele estar asociada a prácticas habituales pero poco sistemáticas: archivos de datos modificados sin registro, análisis hechos parcialmente en la consola, pasos intermedios que no se guardan, resultados copiados y pegados en documentos finales. Con el tiempo, incluso quien realizó el análisis puede perder la capacidad de reconstruirlo.</p>
+<p>Empezar con R suele generar dudas muy concretas. Qué hay que instalar, en qué orden, para qué sirve cada cosa. Antes de escribir una sola línea de código, conviene aclarar este punto, porque R funciona a partir de varias piezas que se combinan entre sí. La buena noticia es que el proceso de instalación es sencillo y solo hay que hacerlo una vez.</p>
+<p>El primer paso es instalar R. R es el lenguaje de programación propiamente dicho. Para hacerlo, hay que ir al sitio oficial del proyecto <a href="https://cran.r-project.org">CRAN</a>, y elegir el archivo instalador que corresponda a nuestro sistema operativo (Windows, macOS o Linux). Al hacer clic, accedemos a las instrucciones específicas para cada caso.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://atelierdecodigo.com/posts/images/spidermanmeme.jpg" class="img-fluid figure-img" alt="Meme donde se ve a dos Spiderman señalándose entre sí."></p>
-<figcaption>Cuando buscamos al culpable de que nuestro código ya no funcione tan solo unos meses después de haberlo escrito.</figcaption>
+<p><img src="https://atelierdecodigo.com/posts/images/CleanShot 2026-01-20 at 17.27.03.png" class="img-fluid figure-img"></p>
+<figcaption>Instalar R desde CRAN</figcaption>
 </figure>
 </div>
-<p>En este punto, la programación cumple un rol central. Trabajar con código permite dejar registro explícito de cada decisión. Un script puede cómo se cargaron los datos, qué transformaciones se aplicaron, qué modelos se ajustaron y cómo se produjeron los resultados, tanto tablas como gráficos. Ese registro no depende de la memoria ni de explicaciones posteriores. Está escrito y puede leerse, ya sea en texto plano usando un archivo RMarkdown o Quarto, o en los comentarios del propio código.</p>
-<p>Las <a href="https://rpubs.com/reyzaguirre/125657">buenas prácticas de programación</a> refuerzan esta lógica. Escribir código en <a href="https://atelierdecodigo.com/posts/consola-script-escribir-codigo.html">scripts</a> en lugar de hacerlo solo en la consola permite conservar el proceso completo. Usar nombres claros para objetos y funciones facilita la lectura. Agregar comentarios ayuda a entender por qué se tomó cierta decisión y no otra. Organizar el trabajo en <a href="https://atelierdecodigo.com/posts/proyectos-rstudio.html">proyectos</a> mantiene juntos los datos, el código y los resultados. Todas estas prácticas apuntan a lo mismo: que el análisis pueda ser retomado y entendido.</p>
-<p>La reproducibilidad también se beneficia de la separación entre datos crudos y datos procesados. Mantener una versión original de los datos y realizar todas las transformaciones mediante código evita errores difíciles de detectar. Si algo cambia en los datos de entrada (por ejemplo, si agregaste sujetos a tu toma de datos), el análisis puede volver a ejecutarse sin necesidad de rehacer pasos de forma manual.</p>
-<p>Otro aspecto clave es la automatización. Cuando los resultados se generan a partir del código, no hace falta copiar valores de un lado a otro. Gráficos, tablas y estadísticas se producen directamente desde los scripts. Esto reduce errores y asegura que los resultados estén alineados con los datos y las decisiones actuales del análisis.</p>
-<p>Herramientas como RStudio facilitan este enfoque. El trabajo con <a href="https://atelierdecodigo.com/posts/proyectos-rstudio.html">proyectos</a>, el uso de <a href="http://atelierdecodigo.com/posts/consola-script-escribir-codigo.html">scripts</a> y la posibilidad de integrar código y texto en documentos reproducibles como <a href="https://macarenaquiroga.com/post/guia-hiper-basica-a-rmarkdown/">RMarkdown</a> permiten construir análisis que se ejecutan de principio a fin. El resultado es un trabajo más transparente, tanto para quien lo realiza como para quien lo lee.</p>
-<p>La reproducibilidad no es un objetivo abstracto ni una exigencia externa. Tiene efectos muy concretos en el trabajo cotidiano. Ahorra tiempo cuando hay que corregir algo, permite retomar análisis después de semanas o meses y facilita el intercambio con otras personas. Incluso cuando el análisis no se va a compartir públicamente, trabajar de forma reproducible mejora la calidad del proceso.</p>
-<p>Programar bien no garantiza por sí solo la reproducibilidad, pero crea las condiciones para que sea posible. Escribir código legible, ordenado y documentado convierte al análisis en un objeto que puede revisarse, discutirse y mejorarse. En ese sentido, las buenas prácticas de programación forman parte del trabajo científico tanto como la formulación de preguntas o la interpretación de resultados.</p>
-<p>En los próximos textos de esta serie, vamos a seguir profundizando en herramientas concretas que ayudan a sostener esta forma de trabajar, desde la organización del código hasta el uso de control de versiones.</p>
+<p>Técnicamente podríamos usar R directamente desde ese software que acabamos de instalar, en Windows y en macOS. Sin embargo, no es una interfaz gráfica muy amigable, por lo que la mayoría de las personas usa otros <a href="http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html">entornos</a> como RStudio, VSCode o Positron. Si recién estamos empezando, es preferible usar RStudio, porque la mayoría de los tutoriales van a mostrar imágenes de ese entorno.</p>
+<p>Como mencionamos <a href="http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html">en un post anterior</a>, RStudio es un programa independiente que se instala por separado. Es una interfaz gráfica (técnicamente, un entorno de desarrollo integrado) que facilita la interacción entre el usuario y el lenguaje de programación R. Para instalarlo, hay que ir al sitio de <a href="https://posit.co/download/rstudio-desktop">RStudio</a> y descargar la versión gratuita. Como se ve en la imagen, también podemos instalar R desde aquí, pero si ya lo instalamos desde CRAN no es necesario volver a instalarlo.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://atelierdecodigo.com/posts/images/CleanShot 2026-01-20 at 17.29.28.png" class="img-fluid figure-img"></p>
+<figcaption>Instalar RStudio.</figcaption>
+</figure>
+</div>
+<p>Al abrir RStudio por primera vez, este detecta automáticamente la instalación de R y queda listo para usar. A partir de ese momento, RStudio se convierte en el espacio principal de trabajo.</p>
+<p>Con R y RStudio instalados, ya es posible escribir y ejecutar código. El siguiente paso habitual es instalar paquetes, que son agregados que amplían las capacidades de R. Uno de los más usados es el Tidyverse, un conjunto de paquetes pensados para trabajar con datos de manera ordenada y legible (podés leer más sobre qué son los paquetes <a href="http://atelierdecodigo.com/posts/r-base-tidyverse.html">acá</a>).</p>
+<p>Instalar un paquete en R se hace escribiendo una instrucción en la consola. En el caso del Tidyverse, el comando es:</p>
+<p><code>install.packages("tidyverse")</code></p>
+<p>Una vez que escribimos el código, debemos ejecutarlo (control+Enter o el ícono de “Run”). Este paso requiere conexión a internet y puede demorar unos minutos, porque el Tidyverse incluye varios paquetes. Van a aparecer muchos mensajes de colores en la consola: eso es normal (a menos que aparezca algo que diga “Warning” o “Error”). La instalación se hace una sola vez. Una vez instalado, para usarlo en una sesión de trabajo hay que cargarlo con:</p>
+<p><code>library(tidyverse)</code></p>
+<p>Esta diferencia entre instalar y cargar suele confundir al principio. Instalar descarga el paquete en la computadora. Cargar lo pone a disposición en la sesión actual de R. Cada vez que se inicia una sesión nueva y se quiere usar el Tidyverse, hay que volver a ejecutar <code>library(tidyverse)</code>.</p>
+<p>Después de cargarlo, R muestra algunos mensajes en la consola indicando qué paquetes se activaron. A partir de ese momento, funciones como <code>ggplot</code>, <code>mutate</code> o <code>filter</code> quedan disponibles. No hace falta entenderlas todas de inmediato. Lo importante es saber que forman parte de un mismo ecosistema y que comparten una lógica común.</p>
+<p>Un punto práctico para quienes empiezan es verificar que todo esté funcionando. Por ejemplo, escribir una línea simple como:</p>
+<p><code>ggplot(mtcars, aes(x = mpg, y = wt)) + geom_point()</code></p>
+<p>Si aparece un gráfico, la instalación fue exitosa. No importa si todavía no se entiende el código. Eso se irá trabajando más adelante.</p>
+<p>Instalar R, RStudio y el Tidyverse marca el inicio del trabajo. A partir de ahí, aprender R implica familiarizarse con <a href="http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html">el entorno</a>, con la escritura de <a href="http://atelierdecodigo.com/posts/consola-script-escribir-codigo.html">scripts</a> y con la lectura del código. Tener estas herramientas bien instaladas y funcionando evita muchos problemas innecesarios y permite concentrarse en lo más importante: entender qué hace el código y cómo usarlo para analizar datos.</p>
+<p>En los próximos posts de esta serie vamos a ir desarmando estas piezas con más detalle, para que el paso inicial se transforme en una base sólida de trabajo.</p>
 
 
 
  ]]></description>
-  <guid>https://atelierdecodigo.com/posts/reproducibilidad.html</guid>
+  <guid>https://atelierdecodigo.com/posts/instalar-r-rstudio.html</guid>
   <pubDate>Thu, 22 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
@@ -326,47 +338,35 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
   <pubDate>Thu, 22 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>Empezar con R: instalación y primeros pasos</title>
-  <link>https://atelierdecodigo.com/posts/instalar-r-rstudio.html</link>
+  <title>Reproducibilidad: por qué importa y qué tiene que ver con programar bien</title>
+  <link>https://atelierdecodigo.com/posts/reproducibilidad.html</link>
   <description><![CDATA[ 
 
 
 
 
-<p>Empezar con R suele generar dudas muy concretas. Qué hay que instalar, en qué orden, para qué sirve cada cosa. Antes de escribir una sola línea de código, conviene aclarar este punto, porque R funciona a partir de varias piezas que se combinan entre sí. La buena noticia es que el proceso de instalación es sencillo y solo hay que hacerlo una vez.</p>
-<p>El primer paso es instalar R. R es el lenguaje de programación propiamente dicho. Para hacerlo, hay que ir al sitio oficial del proyecto <a href="https://cran.r-project.org">CRAN</a>, y elegir el archivo instalador que corresponda a nuestro sistema operativo (Windows, macOS o Linux). Al hacer clic, accedemos a las instrucciones específicas para cada caso.</p>
+<p>En muchas áreas de investigación, los resultados no se producen de una sola vez. Se construyen a partir de datos, decisiones analíticas, ajustes, correcciones y vueltas atrás. En ese proceso, una pregunta aparece tarde o temprano: ¿otra persona podría obtener los mismos resultados siguiendo los mismos pasos? A esa posibilidad se la suele llamar <a href="https://blog.scielo.org/es/2023/06/02/reproduccion-replicacion-en-investigacion-cientifica-parte-2/">reproducibilidad</a>.</p>
+<p>La reproducibilidad se refiere a la capacidad de repetir un análisis y llegar a los mismos resultados usando los mismos datos y los mismos procedimientos. No implica que los resultados sean universales ni definitivos, sino que el camino que llevó a ellos sea claro y verificable. En términos prácticos, un análisis reproducible permite entender qué se hizo, cómo se hizo y en qué orden.</p>
+<p>La falta de reproducibilidad rara vez se debe a mala intención (<a href="https://datacolada.org/118">aunque a veces ocurre</a>). Más bien suele estar asociada a prácticas habituales pero poco sistemáticas: archivos de datos modificados sin registro, análisis hechos parcialmente en la consola, pasos intermedios que no se guardan, resultados copiados y pegados en documentos finales. Con el tiempo, incluso quien realizó el análisis puede perder la capacidad de reconstruirlo.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://atelierdecodigo.com/posts/images/CleanShot 2026-01-20 at 17.27.03.png" class="img-fluid figure-img"></p>
-<figcaption>Instalar R desde CRAN</figcaption>
+<p><img src="https://atelierdecodigo.com/posts/images/spidermanmeme.jpg" class="img-fluid figure-img" alt="Meme donde se ve a dos Spiderman señalándose entre sí."></p>
+<figcaption>Cuando buscamos al culpable de que nuestro código ya no funcione tan solo unos meses después de haberlo escrito.</figcaption>
 </figure>
 </div>
-<p>Técnicamente podríamos usar R directamente desde ese software que acabamos de instalar, en Windows y en macOS. Sin embargo, no es una interfaz gráfica muy amigable, por lo que la mayoría de las personas usa otros <a href="http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html">entornos</a> como RStudio, VSCode o Positron. Si recién estamos empezando, es preferible usar RStudio, porque la mayoría de los tutoriales van a mostrar imágenes de ese entorno.</p>
-<p>Como mencionamos <a href="http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html">en un post anterior</a>, RStudio es un programa independiente que se instala por separado. Es una interfaz gráfica (técnicamente, un entorno de desarrollo integrado) que facilita la interacción entre el usuario y el lenguaje de programación R. Para instalarlo, hay que ir al sitio de <a href="https://posit.co/download/rstudio-desktop">RStudio</a> y descargar la versión gratuita. Como se ve en la imagen, también podemos instalar R desde aquí, pero si ya lo instalamos desde CRAN no es necesario volver a instalarlo.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://atelierdecodigo.com/posts/images/CleanShot 2026-01-20 at 17.29.28.png" class="img-fluid figure-img"></p>
-<figcaption>Instalar RStudio.</figcaption>
-</figure>
-</div>
-<p>Al abrir RStudio por primera vez, este detecta automáticamente la instalación de R y queda listo para usar. A partir de ese momento, RStudio se convierte en el espacio principal de trabajo.</p>
-<p>Con R y RStudio instalados, ya es posible escribir y ejecutar código. El siguiente paso habitual es instalar paquetes, que son agregados que amplían las capacidades de R. Uno de los más usados es el Tidyverse, un conjunto de paquetes pensados para trabajar con datos de manera ordenada y legible (podés leer más sobre qué son los paquetes <a href="http://atelierdecodigo.com/posts/r-base-tidyverse.html">acá</a>).</p>
-<p>Instalar un paquete en R se hace escribiendo una instrucción en la consola. En el caso del Tidyverse, el comando es:</p>
-<p><code>install.packages("tidyverse")</code></p>
-<p>Una vez que escribimos el código, debemos ejecutarlo (control+Enter o el ícono de “Run”). Este paso requiere conexión a internet y puede demorar unos minutos, porque el Tidyverse incluye varios paquetes. Van a aparecer muchos mensajes de colores en la consola: eso es normal (a menos que aparezca algo que diga “Warning” o “Error”). La instalación se hace una sola vez. Una vez instalado, para usarlo en una sesión de trabajo hay que cargarlo con:</p>
-<p><code>library(tidyverse)</code></p>
-<p>Esta diferencia entre instalar y cargar suele confundir al principio. Instalar descarga el paquete en la computadora. Cargar lo pone a disposición en la sesión actual de R. Cada vez que se inicia una sesión nueva y se quiere usar el Tidyverse, hay que volver a ejecutar <code>library(tidyverse)</code>.</p>
-<p>Después de cargarlo, R muestra algunos mensajes en la consola indicando qué paquetes se activaron. A partir de ese momento, funciones como <code>ggplot</code>, <code>mutate</code> o <code>filter</code> quedan disponibles. No hace falta entenderlas todas de inmediato. Lo importante es saber que forman parte de un mismo ecosistema y que comparten una lógica común.</p>
-<p>Un punto práctico para quienes empiezan es verificar que todo esté funcionando. Por ejemplo, escribir una línea simple como:</p>
-<p><code>ggplot(mtcars, aes(x = mpg, y = wt)) + geom_point()</code></p>
-<p>Si aparece un gráfico, la instalación fue exitosa. No importa si todavía no se entiende el código. Eso se irá trabajando más adelante.</p>
-<p>Instalar R, RStudio y el Tidyverse marca el inicio del trabajo. A partir de ahí, aprender R implica familiarizarse con <a href="http://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html">el entorno</a>, con la escritura de <a href="http://atelierdecodigo.com/posts/consola-script-escribir-codigo.html">scripts</a> y con la lectura del código. Tener estas herramientas bien instaladas y funcionando evita muchos problemas innecesarios y permite concentrarse en lo más importante: entender qué hace el código y cómo usarlo para analizar datos.</p>
-<p>En los próximos posts de esta serie vamos a ir desarmando estas piezas con más detalle, para que el paso inicial se transforme en una base sólida de trabajo.</p>
+<p>En este punto, la programación cumple un rol central. Trabajar con código permite dejar registro explícito de cada decisión. Un script puede cómo se cargaron los datos, qué transformaciones se aplicaron, qué modelos se ajustaron y cómo se produjeron los resultados, tanto tablas como gráficos. Ese registro no depende de la memoria ni de explicaciones posteriores. Está escrito y puede leerse, ya sea en texto plano usando un archivo RMarkdown o Quarto, o en los comentarios del propio código.</p>
+<p>Las <a href="https://rpubs.com/reyzaguirre/125657">buenas prácticas de programación</a> refuerzan esta lógica. Escribir código en <a href="https://atelierdecodigo.com/posts/consola-script-escribir-codigo.html">scripts</a> en lugar de hacerlo solo en la consola permite conservar el proceso completo. Usar nombres claros para objetos y funciones facilita la lectura. Agregar comentarios ayuda a entender por qué se tomó cierta decisión y no otra. Organizar el trabajo en <a href="https://atelierdecodigo.com/posts/proyectos-rstudio.html">proyectos</a> mantiene juntos los datos, el código y los resultados. Todas estas prácticas apuntan a lo mismo: que el análisis pueda ser retomado y entendido.</p>
+<p>La reproducibilidad también se beneficia de la separación entre datos crudos y datos procesados. Mantener una versión original de los datos y realizar todas las transformaciones mediante código evita errores difíciles de detectar. Si algo cambia en los datos de entrada (por ejemplo, si agregaste sujetos a tu toma de datos), el análisis puede volver a ejecutarse sin necesidad de rehacer pasos de forma manual.</p>
+<p>Otro aspecto clave es la automatización. Cuando los resultados se generan a partir del código, no hace falta copiar valores de un lado a otro. Gráficos, tablas y estadísticas se producen directamente desde los scripts. Esto reduce errores y asegura que los resultados estén alineados con los datos y las decisiones actuales del análisis.</p>
+<p>Herramientas como RStudio facilitan este enfoque. El trabajo con <a href="https://atelierdecodigo.com/posts/proyectos-rstudio.html">proyectos</a>, el uso de <a href="http://atelierdecodigo.com/posts/consola-script-escribir-codigo.html">scripts</a> y la posibilidad de integrar código y texto en documentos reproducibles como <a href="https://macarenaquiroga.com/post/guia-hiper-basica-a-rmarkdown/">RMarkdown</a> permiten construir análisis que se ejecutan de principio a fin. El resultado es un trabajo más transparente, tanto para quien lo realiza como para quien lo lee.</p>
+<p>La reproducibilidad no es un objetivo abstracto ni una exigencia externa. Tiene efectos muy concretos en el trabajo cotidiano. Ahorra tiempo cuando hay que corregir algo, permite retomar análisis después de semanas o meses y facilita el intercambio con otras personas. Incluso cuando el análisis no se va a compartir públicamente, trabajar de forma reproducible mejora la calidad del proceso.</p>
+<p>Programar bien no garantiza por sí solo la reproducibilidad, pero crea las condiciones para que sea posible. Escribir código legible, ordenado y documentado convierte al análisis en un objeto que puede revisarse, discutirse y mejorarse. En ese sentido, las buenas prácticas de programación forman parte del trabajo científico tanto como la formulación de preguntas o la interpretación de resultados.</p>
+<p>En los próximos textos de esta serie, vamos a seguir profundizando en herramientas concretas que ayudan a sostener esta forma de trabajar, desde la organización del código hasta el uso de control de versiones.</p>
 
 
 
  ]]></description>
-  <guid>https://atelierdecodigo.com/posts/instalar-r-rstudio.html</guid>
+  <guid>https://atelierdecodigo.com/posts/reproducibilidad.html</guid>
   <pubDate>Thu, 22 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 <item>

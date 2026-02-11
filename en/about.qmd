@@ -1,0 +1,5 @@
+---
+title: "Goal"
+---
+
+From *Atelier de código*, we want to support you on your journey into data analysis. For those ready to dive in, we offer R courses for beginners (and not-so-beginners as well), covering programming fundamentals, data cleaning and organization, statistical analysis, and visualization. For those who already have a foundation but need someone to think things through with, we provide tutoring sessions where we advise you on your analysis. And for those who don\'t have the time (or the inclination!) to learn programming, we analyze your data and deliver a tailored report.

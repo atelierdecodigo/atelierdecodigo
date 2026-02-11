@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "posts/**/*.qmd"
 
 website:
   title: "Atelier de código"
@@ -16,6 +19,11 @@ website:
         text: Contacto
       - href: posts/index.qmd
         text: Blog
+    right:
+      - text: "SPA"
+        href: /index.html
+      - text: "ENG"
+        href: /en/index.html
 
 format:
   html:
