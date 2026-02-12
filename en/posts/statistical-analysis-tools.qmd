@@ -1,0 +1,102 @@
+---
+title: "Tools for Statistical Analysis: A Possible Map"
+date: 2026-01-30
+page-layout: full
+toc: false
+draft: true
+description: "What tools exist for statistical analysis? When is it best to use each of them? This post offers a general overview of the main tools used for statistical analysis, discussing their advantages and disadvantages, and concludes with a specific discussion on when it is (and is not) advisable to use R."
+---
+
+Performing statistical analyses today is not just a matter of knowing statistics. It also involves choosing which tools to work with. That choice dictates what type of analysis is viable, how reproducible the process will be, how easy it will be to collaborate with others, and how results will be communicated. There is no single "correct" tool: each responds to different traditions, needs, and user profiles.
+
+This post offers a general overview of the main tools used for statistical analysis, discussing their advantages and disadvantages, and concludes with a specific discussion on when it is (and is not) advisable to use R.
+
+### Spreadsheets: Excel, Google Sheets, and similar
+
+Spreadsheets are often the first contact with data analysis. They allow loading data, performing basic calculations, creating tables and charts without the need for programming.
+
+**Advantages**
+
+-   Highly accessible and well-known.
+-   Low learning curve.
+-   Useful for quick explorations and small datasets.
+
+**Disadvantages**
+
+-   Limited scalability.
+-   High risk of errors that are difficult to trace.
+-   Less suitable for complex or reproducible analyses.
+-   They separate data, analysis, and results into non-transparent steps.
+
+In general, they work well as an initial or complementary tool, but become fragile as the analysis grows.
+
+### Statistical software with a graphical interface: SPSS, Stata, Jamovi, JASP
+
+These programs are specifically designed for statistical analysis and offer menus, buttons, and dialog boxes that guide the user.
+
+**Advantages**
+
+-   Designed for classical statistical analyses.
+-   Reduce the entry barrier for people without programming experience.
+-   Relatively standardized results.
+
+**Disadvantages**
+
+-   Less flexibility for unforeseen analyses.
+-   Difficulty in automating complex processes.
+-   Limited reproducibility if not working explicitly with scripts.
+-   In many cases, costly licenses (Jamovi and JASP are open access).
+
+They are widely used in academic and professional settings where similar analyses are repeated and operational speed is prioritized.
+
+### General-purpose programming languages: Python
+
+Python was not born as a statistical language, but it has consolidated itself as a central tool in data science thanks to its libraries.
+
+**Advantages**
+
+-   Large ecosystem for analysis, machine learning, and production.
+-   Easy integration with systems, databases, and applications.
+-   Very large and active community.
+
+**Disadvantages**
+
+-   Classical statistics less conceptually integrated than in other environments.
+-   Requires more technical decisions from the user.
+-   Statistical results less "ready for reporting" in academic contexts.
+
+Python is often chosen when statistical analysis is part of a broader workflow that includes software, automation, or deployment.
+
+### Specialized languages for statistics: R
+
+`R` was designed from its origin as an environment for statistics and data analysis. This is reflected in both its syntax and its package ecosystem.
+
+Before evaluating `R` in particular, it is worth noting that it is not just a language, but a way of thinking about analysis: based on objects, functions, and scripts that document each analytical decision.
+
+**Why it is advisable to use R**
+
+`R` is especially strong when statistical analysis is the core of the work.
+
+-   It has virtually all classical and modern statistical techniques implemented.
+-   Statistics is not an "add-on" but the heart of the language.
+-   Facilitates reproducible analyses using scripts, RMarkdown, and Quarto.
+-   Allows integrating data, analysis, visualization, and text into a single workflow.
+-   It is free and open-source, which promotes transparency and collaboration.
+-   It has a very active academic community that develops packages aligned with recent methodological advancements.
+
+For research, teaching, and complex exploratory analyses, `R` offers a rare balance of power, expressiveness, and statistical rigor.
+
+**Why it is not always advisable to use R**
+
+-   It has a more demanding learning curve for those who have never programmed.
+-   It may be less suitable for production environments or large-scale applications.
+-   Dependency and version management can become complex.
+-   It is not always the best option if statistical analysis is minimal compared to other tasks (e.g., software engineering).
+
+Additionally, in teams where no one uses `R`, introducing it can generate training and maintenance costs.
+
+### Choosing Tools That Work for You
+
+The choice of a tool for statistical analysis is not just technical: it is situated. It depends on the type of data, the objective of the analysis, the work team, and the institutional context.
+
+`R` does not replace all other tools, but it occupies a specific and solid place when the goal is to perform statistics rigorously, reproducibly, and conceptually informed. Understanding its advantages and limitations allows for better use of it —or the decision not to use it— with clear and explicit criteria.

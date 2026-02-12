@@ -1,0 +1,39 @@
+---
+title: "6 Essential Books for Learning Data Science"
+date: 2026-01-27
+page-layout: full
+toc: false
+description: "Five books available online for free for an introduction and in-depth study of data science, from fundamentals and communication to programming with R and applied statistics."
+---
+
+Delving into data science goes beyond learning syntax or executing commands. Reading books that articulate concepts, techniques, and reflections helps to understand the field as a whole. Fortunately, there are texts freely available on the web that cover everything from fundamentals to concrete applications. Below I present five recommended, open-access books. Some are in English, others in Spanish.
+
+#### [1. *R for Data Science* (Hadley Wickham, Garrett Grolemund, and Mine Çetinkaya-Rundel)](https://r4ds.hadley.nz/)
+
+This book is the absolute foundation for programming in R in the world of data science. It covers topics such as data cleaning and visualization, among others. It is designed for beginners but with a level of detail that allows for continuous learning. It has its Spanish version [here](https://davidrsch.github.io/r4ds-es/).
+
+#### [2. *Telling Stories with Data* (Rohan Alexander)](https://rohanalexander.github.io/telling_stories-published/)
+
+Focused on statistical communication and analysis narrative, this book covers everything from data collection and cleaning to results presentation. It includes code examples and activities that reinforce the understanding of each technique. Its focus on how to translate data into clear conclusions makes it especially useful for those working with interpretive analysis.
+
+#### [3. *Libro Vivo de Ciencia de Datos* (Pablo Casas)](https://librovivodecienciadedatos.ai/)
+
+This book in Spanish presents an intuitive introduction to data science and machine learning, with a didactic approach. It offers a practical vision of how to think and work with data from initial levels.
+
+#### [4. *Deep R Programming* (Marek Gagolewski)](https://deepr.gagolewski.com/index.html)
+
+Although more technical, this free resource offers a deep introduction to the R language from a data science perspective. The book covers data transformations, numerical computation, functional programming, and advanced structures, with practical examples and exercises.
+
+#### [5. *OpenIntro Statistics* (David Diez, Christopher Barr, and Mine Çetinkaya-Rundel)](https://www.biostat.jhsph.edu/~iruczins/teaching/books/2019.openintro.statistics.pdf)
+
+Although this text is a statistics book, it is essential reading for data science. Statistics is a pillar of data analysis, and this book guides the reader from basic concepts to applied techniques.
+
+### [6. *Learning Statistics with R* (Danielle Navarro)](https://learningstatisticswithr.com/)
+
+This book in English compiles the materials from an introductory statistics course that the author taught at the University of Adelaide, with examples in R. It condenses not only the theory but also the practice for conducting real and informed data analysis. Furthermore, Danielle is a very active person in the R community, and her contributions are truly fundamental.
+
+### How to Use These Books in Your Learning
+
+These texts serve different purposes: some introduce general concepts, others delve into specific tools, and others integrate programming and analysis. An effective reading strategy can combine a more conceptual book with practical materials that include code exercises and real-world cases.
+
+If you are just starting, it can be useful to begin with introductory chapters (for example, data science fundamentals and results communication) before moving on to more technical texts or those focused on specific languages like R.

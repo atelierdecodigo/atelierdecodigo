@@ -1,0 +1,42 @@
+---
+title: "What is Machine Learning?"
+date: 2026-01-29
+page-layout: full
+toc: false
+draft: true
+description: "What is machine learning and how does it work? This post offers a general introduction to machine learning, explains its basic ideas, and presents the main types of approaches for those new to the topic."
+---
+
+The term *machine learning* frequently appears in news, courses, and conversations about technology and [data science](https://atelierdecodigo.com/posts/que-es-ciencia-de-datos.html). It is often associated with complex systems, automation, or artificial intelligence, which can create the impression that it is something distant or exclusively technical. However, machine learning can be understood from a relatively simple idea: using data to build models that learn patterns and enable predictions or classifications.
+
+As a starting point, it's useful to think of learning as a process guided by examples. Instead of writing explicit rules for every possible situation, the system is given a dataset and asked to identify regularities. From these regularities, the model can generalize and operate on new cases.
+
+#### Where Machine Learning Comes From
+
+Machine learning has roots in several fields. On one hand, in statistics, which for decades has been developing models to describe relationships between variables and make inferences. On the other hand, in computer science, which provides the methods to implement these models efficiently and scalably. Ideas from artificial intelligence also play a role, particularly the interest in building systems capable of adapting to available information.
+
+The growth of machine learning is closely linked to the availability of large volumes of digital data and increased computing capacity. As records of interactions, texts, images, or transactions accumulate, it becomes possible to train increasingly complex models on real and updated information.
+
+#### Learning from Data
+
+In general terms, a machine learning model is built from three elements. First, a dataset that serves as learning material. Second, an algorithm that defines how to search for patterns in that data. Third, an objective that indicates what kind of result is expected, for example, predicting a value, classifying cases, or detecting clusters.
+
+A simple example can help solidify ideas. Suppose we have data about people and want to predict if they are employed based on variables such as age, education level, or region. The model analyzes previous examples where the outcome is known and adjusts its parameters to approximate that outcome. When it receives a new case, it produces a prediction based on what it has learned.
+
+#### Basic Types of Machine Learning
+
+A common distinction is between supervised and unsupervised learning. In supervised learning, the data includes a known target variable. The model learns from labeled examples. In unsupervised learning, there is no prior label. The objective is to explore the data structure, find groups or recurring patterns.
+
+There are also intermediate and more specific approaches, such as reinforcement learning, where a system learns from feedback on its actions. For a first approximation, it is sufficient to recognize that the type of problem defines which techniques are most suitable.
+
+#### What a Model Does and Does Not Do
+
+A machine learning model produces results based on the data it was trained with. This implies that its conclusions depend on how that data was constructed, what variables were included, and what assumptions were made during the process. The model does not have a broad understanding of the world. It operates on statistical regularities.
+
+For this reason, machine learning does not replace interpretation. It helps identify patterns and automate certain analyses, but it is still necessary to evaluate whether these patterns make sense, whether they generalize to other contexts, and what implications they have. Decisions about what data to use and how to interpret the results remain central.
+
+#### A Tool in Context
+
+Like other analytical techniques, machine learning is used in specific contexts. It can be used to classify texts, detect fraud, analyze images, study career paths, or explore social dynamics. Its value depends on how it is integrated into a framework of clear questions and work practices.
+
+Learning machine learning does not only involve familiarizing oneself with algorithms. It involves understanding what types of problems can be formulated, how to evaluate results, and how to communicate findings responsibly. In that sense, it works best when approached as part of a broader analysis process, where data, code, and interpretation are closely linked.

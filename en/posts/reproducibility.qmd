@@ -1,0 +1,31 @@
+---
+title: "Reproducibility: why it matters and what it has to do with good programming"
+date: 2026-01-22
+page-layout: full
+toc: false
+description: "What does it mean for an analysis to be reproducible and why does it matter? This post explains the idea of reproducibility in science and shows how good programming practices help support clear, verifiable, and easy-to-resume analyses."
+---
+
+In many research areas, results are not produced all at once. They are built from data, analytical decisions, adjustments, corrections, and backtracking. In this process, a question arises sooner or later: could another person obtain the same results by following the same steps? This possibility is often called [reproducibility](https://royalsocietypublishing.org/rsta/article/379/2197/20200210/111826/The-fundamental-principles-of).
+
+Reproducibility refers to the ability to repeat an analysis and arrive at the same results using the same data and the same procedures. It does not imply that the results are universal or definitive, but rather that the path that led to them is clear and verifiable. In practical terms, a reproducible analysis allows one to understand what was done, how it was done, and in what order.
+
+Lack of reproducibility is rarely due to malicious intent (though sometimes it happens). Rather, it is often associated with common but unsystematic practices: data files modified without a log, analyses partially done in the console, intermediate steps not saved, results copied and pasted into final documents. Over time, even the person who performed the analysis can lose the ability to reconstruct it.
+
+![When we look for the culprit as to why our code no longer works just a few months after we wrote it.](images/spidermanmeme.jpg){fig-alt="Meme showing two Spidermen pointing at each other."}
+
+At this point, programming plays a central role. Working with code allows for an explicit record of each decision. A script can show how data was loaded, what transformations were applied, what models were fitted, and how results were produced, both tables and graphs. This record does not depend on memory or subsequent explanations. It is written and can be read, either in plain text using an RMarkdown or Quarto file, or in the comments within the code itself.
+
+[Good programming practices](https://medium.com/@josueparra2892/20-best-programming-practices-407df688b96e) reinforce this logic. Writing code in [scripts](https://atelierdecodigo.com/en/posts/console-script-writing-code.html) instead of just in the console allows the entire process to be preserved. Using clear names for objects and functions facilitates readability. Adding comments helps understand why a certain decision was made and not another. Organizing work into [projects](https://atelierdecodigo.com/en/posts/projects-rstudio.html) keeps data, code, and results together. All these practices aim at the same thing: that the analysis can be resumed and understood.
+
+Reproducibility also benefits from the separation between raw data and processed data. Maintaining an original version of the data and performing all transformations via code prevents hard-to-detect errors. If something changes in the input data (for example, if you added subjects to your data collection), the analysis can be rerun without needing to manually redo steps.
+
+Another key aspect is automation. When results are generated from code, there's no need to copy values from one place to another. Graphs, tables, and statistics are produced directly from the scripts. This reduces errors and ensures that the results are aligned with the data and the current analytical decisions.
+
+Tools like RStudio facilitate this approach. Working with [projects](https://atelierdecodigo.com/en/posts/projects-rstudio.html), using [scripts](http://atelierdecodigo.com/en/posts/console-script-writing-code.html), and the ability to integrate code and text into reproducible documents like [RMarkdown](https://macarenaquiroga.com/en/post/super-basic-rmarkdown-guide-beginners/) allow for building analyses that run from beginning to end. The result is more transparent work, both for the person performing it and for the person reading it.
+
+Reproducibility is not an abstract goal or an external requirement. It has very concrete effects on daily work. It saves time when something needs to be corrected, allows analyses to be resumed after weeks or months, and facilitates exchange with other people. Even when the analysis will not be shared publicly, working reproducibly improves the quality of the process.
+
+Good programming alone does not guarantee reproducibility, but it creates the conditions for it to be possible. Writing legible, organized, and documented code transforms the analysis into an object that can be reviewed, discussed, and improved. In that sense, good programming practices are as much a part of scientific work as formulating questions or interpreting results.
+
+In the upcoming posts in this series, we will continue to delve into concrete tools that help sustain this way of working, from code organization to the use of version control.

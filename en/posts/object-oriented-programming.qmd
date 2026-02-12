@@ -1,0 +1,45 @@
+---
+title: "What is object-oriented programming and why is R considered an object-oriented language?"
+date: 2026-01-29
+toc: false
+page-layout: full
+description: "What does it mean for a language to be object-oriented? This post introduces the concept of object-oriented programming and explains how R implements this logic through classes, objects, and methods in daily data work."
+---
+
+When you start programming, many operations seem like simple instructions executed in sequence: load data, apply a function, get a result. As projects grow, another need emerges: organizing code and data in a way that is easier to understand, reuse, and extend. **Object-oriented programming (OOP)** arises as a response to this organizational problem.
+
+Thinking in terms of object orientation involves slightly shifting the focus. Instead of concentrating solely on actions, attention is placed on the entities being acted upon and the relationships between data and operations. This way of structuring code is not exclusive to one language but rather a method for modeling problems.
+
+### The Core Idea of Object Orientation
+
+Generally speaking, object-oriented programming is based on the concept of an **object**. An object combines two things: data and the operations that make sense for that data. For instance, a dataset can have associated operations for summarization, plotting, or transformation.
+
+Objects usually belong to a class, which defines what kind of data they contain and what operations can be applied. Concrete objects are created from a class. This separation allows working with abstractions: there's no need to know all the internal details to use an object consistently.
+
+Another important concept is that of a method, which is a function associated with a specific class. Instead of thinking of a function as existing in isolation, it is understood as an operation applied to a particular type of object.
+
+### Why This Logic Is Useful
+
+Object orientation helps manage **complexity**. It allows writing code that adapts to different data types without being completely rewritten, facilitates the extension of functionalities, and promotes a certain internal coherence. For those reading the code, it also offers clues about which operations are expected for each type of object.
+
+This way of organizing work is especially valuable in languages used for data analysis, where tables, statistical models, plots, and intermediate results coexist. Each of these elements can be thought of as an object with its own behaviors.
+
+### R as an Object-Oriented Language
+
+R is an object-oriented language, although it's not always perceived that way when you start using it. This is because R implements object orientation in a particular way, less explicit than in other languages like Java or Python.
+
+In R, almost everything is an object. A vector, a data frame, a statistical model, or a plot are objects with an associated class. That class defines how they behave with certain functions. For example, the `summary()` function produces different results depending on the type of object it receives. The same function name activates different methods depending on the class of the input object.
+
+This mechanism is known as method dispatch. Instead of calling a specific function for each data type, R internally decides which method to use. For data analysts, this reduces cognitive load: the same general functions are used, and the behavior adjusts to the object.
+
+### Object Systems in R
+
+R has several object systems. The most well-known are S3 and S4, and more recently R6. S3 is a flexible and informal system, widely used in packages and in everyday use. S4 is stricter and explicitly defines the structure of classes. R6 is more similar to classic object orientation, with mutable objects.
+
+To start, it's not necessary to master these systems in detail. The important thing is to recognize that when working with data frames, models, or plots, you are interacting with objects that respond to specific rules according to their class.
+
+### Reading Code from This Perspective
+
+Understanding that R is an object-oriented language helps to better read code. It allows you to ask what type of object you are working with, what operations are consistent with that object, and why a function behaves in a certain way. This perspective makes analysis more predictable and facilitates learning new packages.
+
+Object orientation in R does not require writing classes from day one. It often functions as a silent infrastructure that organizes the language. Recognizing its presence helps to move from executing code to interpreting it as part of a broader system.

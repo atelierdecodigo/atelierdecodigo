@@ -2,19 +2,19 @@
   {
     "listing": "/en/posts/index.html",
     "items": [
-      "/en/posts/lenguaje-orientado-objetos.html",
-      "/en/posts/que-es-ciencia-de-datos.html",
-      "/en/posts/libros-aprender-ciencia-datos.html",
-      "/en/posts/gramatica-graficos-ggplot.html",
-      "/en/posts/proyectos-control-versiones-github.html",
-      "/en/posts/instalar-r-rstudio.html",
-      "/en/posts/proyectos-rstudio.html",
-      "/en/posts/reproducibilidad.html",
-      "/en/posts/consola-script-escribir-codigo.html",
+      "/en/posts/object-oriented-programming.html",
+      "/en/posts/what-is-data-science.html",
+      "/en/posts/books-learning-data-science.html",
+      "/en/posts/grammar-graphics-ggplot.html",
+      "/en/posts/projects-version-control-github.html",
+      "/en/posts/install-r-rstudio.html",
+      "/en/posts/projects-rstudio.html",
+      "/en/posts/reproducibility.html",
+      "/en/posts/console-script-writing-code.html",
       "/en/posts/r-base-tidyverse.html",
-      "/en/posts/r-humanidades-aprender.html",
-      "/en/posts/entorno-desarrollo-integrado-ide.html",
-      "/en/posts/r-lenguaje-programacion.html"
+      "/en/posts/r-humanities-learning.html",
+      "/en/posts/integrated-development-environment-ide.html",
+      "/en/posts/r-programming-language.html"
     ]
   },
   {

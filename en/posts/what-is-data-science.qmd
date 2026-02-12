@@ -1,0 +1,41 @@
+---
+title: "What is Data Science and Why All the Interest?"
+date: 2026-01-28
+page-layout: full
+toc: false
+description: "What is data science and where does it come from? This post explores its origin, its link to statistics and big data, and analyzes why more and more people are approaching this field from diverse analytical traditions."
+---
+
+In recent years, the expression *data science* has become ubiquitous. It appears in job offers, academic programs, research projects, and public debates. Sometimes it is presented as a new and homogeneous discipline; other times, as a diffuse set of techniques. To understand what it is about, it is useful to place it historically, review its links with statistics and big data, and consider why it is particularly attractive to those coming from analytical traditions linked to the social sciences.
+
+### An origin linked to concrete problems
+
+Data science does not emerge from a single field or at a precise moment. It consolidates from the convergence of existing practices: statistical analysis, programming, database management, and working with large volumes of information. By the mid-20th century, applied statistics already played a central role in scientific research and decision-making. Later, with the expansion of computing and digital storage, it became possible to work with increasingly larger and more complex datasets.
+
+The term *data science* began to circulate more forcefully towards the late nineties and early two thousands, when it became evident that the problems were no longer just about calculating indicators, but about organizing, cleaning, transforming, and interpreting heterogeneous data. Data science thus configures itself as a practical response to a recurring question: how to produce knowledge from data in contexts where the volume, variety, and velocity of information challenge traditional approaches.
+
+#### Data science and statistics
+
+The relationship between data science and statistics is close, though not always obvious. Many of data science's central tools, such as estimation, inference, or modeling, come directly from statistics. However, data science broadens the focus. In addition to analyzing already prepared data, it deals with the entire process: from obtaining information to communicating results.
+
+In this sense, programming plays a key role. Not only as a means to execute calculations, but as a way to describe procedures explicitly and reproducibly. Code allows documenting decisions, repeating analyses, and adjusting intermediate steps. Statistics provides the conceptual frameworks for interpreting results, while programming articulates these frameworks with concrete data and complex workflows.
+
+#### The link with big data
+
+Big data often appears associated with data science, although they are not synonyms. Big data refers, in general terms, to large or highly complex datasets that require specific infrastructures for their storage and processing. Data science can work with big data, but also with small databases, surveys, administrative records, or textual corpora.
+
+What they share is a common concern: how to transform data into meaningful information. In many cases, the challenge is not the quantity of data, but its quality, structure, and context of production. From this perspective, data science is not defined solely by volume, but by an approach to analysis that integrates technique, interpretation, and decision-making.
+
+#### Why it sparks interest in the social sciences
+
+The growing interest of people trained in social disciplines in data science has several reasons. Firstly, many contemporary research projects work with digital data: online surveys, administrative databases, social networks, textual archives, or interaction logs. These materials require tools that allow for systematic exploration and analysis.
+
+Secondly, data science proposes a way of working that dialogues well with classic concerns of social analysis. The need to make assumptions explicit, document procedures, and reflect on the categories used finds an ally in the use of code and reproducible workflows. The analysis leaves traces that can be read, discussed, and reviewed.
+
+Furthermore, data science brings to the forefront questions about the power of data, biases, representativeness, and the social uses of information. These questions are not foreign to the critical traditions of the social sciences. On the contrary, they offer a space where technical tools and conceptual reflection meet.
+
+#### A situated practice
+
+More than a closed discipline, data science can be understood as a situated practice. Its tools adapt to specific problems and concrete contexts of research, work, or intervention. Learning data science involves learning to formulate questions, evaluate sources, make methodological decisions, and communicate results responsibly.
+
+From this perspective, programming, analyzing, and visualizing data are not ends in themselves. They are means to construct knowledge in dialogue with theoretical frameworks, substantive questions, and material conditions of production. Data science thus becomes a fertile space for those who seek to articulate technique and reflection, without losing sight of the fact that data are always anchored in social practices.

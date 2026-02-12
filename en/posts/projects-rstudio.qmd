@@ -1,0 +1,49 @@
+---
+title: "Working with projects in RStudio: organizing your work from the start"
+date: 2026-01-22
+page-layout: full
+toc: false
+description: "What does it mean to work with projects in RStudio and why is it advisable to do so from the beginning? This post explains what projects are for and shows step-by-step how to create and use one in practice."
+---
+
+When you start using R, it's common to work with loose files: a script here, a data file there, results saved on the desktop or in unclear folders. This mode of work often functions at first, but it becomes fragile as the analysis grows, as time passes, or when another person needs to understand what was done (or you, in the future!). At that point, a key RStudio tool appears: projects.
+
+An RStudio project is a way to organize your work within a main folder. Everything that belongs to a specific analysis or project lives within that space: scripts, data, plots, tables, and documents. When you open a project, RStudio knows where it stands and always works from that location. This avoids one of the most frequent problems when starting out: errors with [absolute or relative paths](https://en.wikipedia.org/wiki/Path_(computing)), and files that "cannot be found".
+
+From a conceptual point of view, working with projects helps to make the work structure explicit. The analysis stops being a succession of dispersed commands and gains a clear framework. Each file serves a purpose, and its location makes sense. Furthermore, the project saves information about the [working environment](http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html), making it easier to resume analysis after a period without having to reconstruct everything from scratch.
+
+Projects also promote reproducibility. If everything is within the same folder, it's easier to move the work to another computer or share it, for example, through a Github repository. There's no need to rewrite absolute paths or adjust settings every time. RStudio takes care of opening the project and getting everything ready to continue.
+
+### How to create an RStudio project step-by-step
+
+1.  Open RStudio.
+
+2.  In the top menu, click on **File** and then on **New Project....**
+
+3.  RStudio will offer three options. To start, the simplest one is **New Directory**.
+
+4.  Choose **New Project**.
+
+5.  Specify the project name and the location where you want the folder to be created.
+
+6.  Click on **Create Project**.
+
+RStudio will create a folder with that name and automatically open the project. From that moment on, every time you open that project file, identified by the `.Rproj` extension, RStudio will work from that folder. You'll see it in the upper right corner, next to a light blue cube with an "R":
+
+![](images/CleanShot%202026-01-18%20at%2020.09.35@2x.png)
+
+### What changes when working within a project
+
+Once the project is created, it's advisable to adopt some simple practices. Save scripts within the project folder, for example in a subfolder called `scripts`. Place data in another folder, such as `data`. Save plots or tables in specific folders. This organization is not mandatory, but it helps make the work more readable.
+
+Another important change is the use of relative paths. Within a project, when referring to a file, it is named in relation to the project folder. For example, `data/survey.csv`. This works as long as the project is open and prevents errors when the analysis is moved.
+
+RStudio also displays the name of the active project in the upper right corner. This visual detail serves as a constant reminder of the context you are working in. Opening a script without opening the project can cause confusion, so it's advisable to get used to always starting your work from the `.Rproj` file.
+
+Finally: a personal recommendation. Before finishing work or closing the file, try restarting your RStudio session (in the top bar, **Session** and then **Restart R**), and try running all the code from scratch. If everything goes well, then your code is clean and ready to be saved. But if you modified something (for example, in the console) that broke the continuity of the code, an error will pop up. And believe me, it's better to correct it right away than the next day (or months or years later...).
+
+### Projects as a work habit
+
+Working with projects doesn't require advanced knowledge or change the way you write code. It primarily changes how you organize it. Incorporating this habit from the start saves time, reduces errors, and makes the analysis easier to understand, even for the person who created it.
+
+In the next post in this series, we will go a step further and explain how to connect an RStudio project with a version control system. This allows you to track changes, revert to previous states of your work, and collaborate in a more organized way.

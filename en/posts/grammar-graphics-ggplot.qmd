@@ -1,0 +1,49 @@
+---
+title: "Grammar of Graphics"
+editor: visual
+date: 2026-01-26
+page-layout: full
+toc: false
+description: "What do statistical graphics have in common? This post introduces the idea of the grammar of graphics and shows how ggplot2 allows thinking of visualization as a language composed of explicit analytical decisions."
+---
+
+### The grammar of graphics: thinking of visualization as a language
+
+Graphics hold a central place in data analysis. They are used to explore patterns, communicate results, and support arguments. However, they are often thought of as a final product, something that is "chosen" from a set of available options. The idea of a **grammar of graphics** proposes a shift: graphics can be understood as constructions composed of parts or *layers*, organized according to relatively stable rules, comparable to how languages work.
+
+Instead of asking "what type of chart should I make", the question becomes ["what do I want to convey"](https://macarenaquiroga.com/en/post/how-to-choose-a-chart-type-based-on-research-questions/). This will allow us to think about what relationships we want to represent and what elements we need to combine to make them visible. Visualization ceases to be decorative and becomes integrated into analytical reasoning.
+
+#### What is understood by the grammar of graphics
+
+The concept of the grammar of graphics was developed by Leland Wilkinson in his book [*The Grammar of Graphics*](https://link.springer.com/chapter/10.1007/978-3-642-21551-3_13) and starts from a simple idea: any statistical graphic can be decomposed into basic components. These include data, variables mapped to visual properties, geometric shapes that represent that data, and scales that translate values into positions, colors, or sizes.
+
+From this approach, a graphic is not an indivisible object, but the result of a series of explicit decisions. Which variable goes on the horizontal axis, which on the vertical, whether values are represented by points, bars, or lines, how observations are grouped. Each of these choices is part of the graphic's structure and affects its interpretation.
+
+#### The grammar of graphics in ggplot2
+
+Hadley Wickham revisits this concept in his article [*A Layered Grammar of Graphics*](https://www.tandfonline.com/doi/abs/10.1198/jcgs.2009.07098) and introduces his `ggplot2` package which implements this idea directly. To build a graphic, one starts with a dataset and adds layers, each with a specific function. The code reflects this compositional logic and allows the graphic to be read as a sequence of decisions.
+
+A minimal example can illustrate this structure:
+
+```         
+ggplot(data = datos, aes(x = edad, y = ingreso)) +
+  geom_point()
+```
+
+In this snippet, several key components appear. `ggplot()` defines the dataset and the basic mapping, i.e., which variables are associated with which visual dimensions. `geom_point()` adds a concrete geometry, in this case points. If we wanted to change the form of representation, we could replace or add geometries without redoing the entire graphic.
+
+This way of working favors controlled experimentation. It is possible to modify just one part of the graphic and observe how the result changes. It also facilitates comparing visualizations that share a common structure, which is especially useful in exploratory analyses.
+
+#### Visualizing as part of the analysis
+
+Thinking of visualization as a language implies recognizing that graphics are not neutral. Each graphic emphasizes certain relationships and relegates others to the background. The grammar of graphics forces us to make these choices explicit, both in the code and in the reasoning that accompanies it.
+
+In social analysis contexts, this explicitness is relevant. Visualizing distributions, comparing groups, or tracking temporal evolutions involves defining categories, scales, and units of analysis. The grammar of graphics provides a framework for making these decisions visible and for discussing them.
+
+Furthermore, by working with code, the graphic becomes reproducible and revisable. Others can read how it was constructed, modify it, or adapt it to new questions. Visualization ceases to be a conclusion of the analysis and becomes part of the process.
+
+#### A tool for learning to read graphics
+
+The grammar of graphics not only serves to produce visualizations, but also to read them critically. Identifying which variables are being compared, what scales are used, and what geometries are involved allows for better evaluation of someone else's graphic and understanding what it shows and what it hides.
+
+From this perspective, learning `ggplot2` is not just learning a syntax. It is incorporating a way of thinking about visualization as a situated analytical practice, with rules, possibilities, and limits. In the next posts in the series, we will work with concrete examples to see how this grammar comes into play in common data analysis graphics.

@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2026-01-20">
-<meta name="description" content="¿Qué es R base y qué cambia cuando usamos paquetes? Este post explica la estructura modular de R, introduce el rol de los paquetes y dedica una sección al Tidyverse como conjunto de herramientas con una filosofía propia de trabajo con datos.">
+<meta name="description" content="What is R base, and what changes when we use packages? This post explains R’s modular structure, introduces the role of packages, and dedicates a section to the Tidyverse as a set of tools with its own philosophy for working with data.">
 
-<title>R base, paquetes y Tidyverse: de qué hablamos cuando usamos R – Code Atelier</title>
+<title>R base, packages, and Tidyverse: what we talk about when we use R – Atelier de código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,24 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,6 +70,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5204545081685155" crossorigin="anonymous"></script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -82,8 +83,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Code Atelier</span>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Atelier de código</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -93,29 +94,29 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">Acerca de</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../contact.html"> 
-<span class="menu-text">Contact</span></a>
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contacto</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../posts/index.html"> 
+    <a class="nav-link" href="../../posts/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">SPA</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../en/index.html"> 
+    <a class="nav-link" href="../../en/index.html"> 
 <span class="menu-text">ENG</span></a>
   </li>  
 </ul>
@@ -130,7 +131,886 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
-<p>subscribe-en.html</p>
+<style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1768479");</style>
+    <style type="text/css">
+    /* LOADER */
+    .ml-form-embedSubmitLoad {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+    }
+
+    .g-recaptcha {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    height: ;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+
+    .ml-form-embedSubmitLoad:after {
+      content: " ";
+      display: block;
+      width: 11px;
+      height: 11px;
+      margin: 1px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+    border-color: #ffffff #ffffff #ffffff transparent;
+    animation: ml-form-embedSubmitLoad 1.2s linear infinite;
+    }
+    @keyframes ml-form-embedSubmitLoad {
+      0% {
+      transform: rotate(0deg);
+      }
+      100% {
+      transform: rotate(360deg);
+      }
+    }
+      #mlb2-35912686.ml-form-embedContainer {
+        box-sizing: border-box;
+        display: table;
+        margin: 0 auto;
+        position: static;
+        width: 100% !important;
+      }
+      #mlb2-35912686.ml-form-embedContainer h4,
+      #mlb2-35912686.ml-form-embedContainer p,
+      #mlb2-35912686.ml-form-embedContainer span,
+      #mlb2-35912686.ml-form-embedContainer button {
+        text-transform: none !important;
+        letter-spacing: normal !important;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper {
+        background-color: #f6f6f6;
+        
+        border-width: 0px;
+        border-color: transparent;
+        border-radius: 4px;
+        border-style: solid;
+        box-sizing: border-box;
+        display: inline-block !important;
+        margin: 0;
+        padding: 0;
+        position: relative;
+              }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper.embedPopup,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper.embedDefault { width: 400px; }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper.embedForm { max-width: 400px; width: 100%; }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-align-left { text-align: left; }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-align-center { text-align: center; }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-align-default { display: table-cell !important; vertical-align: middle !important; text-align: center !important; }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-align-right { text-align: right; }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedHeader img {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        height: auto;
+        margin: 0 auto !important;
+        max-width: 100%;
+        width: undefinedpx;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody {
+        padding: 20px 20px 0 20px;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody.ml-form-embedBodyHorizontal {
+        padding-bottom: 0;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent {
+        text-align: left;
+        margin: 0 0 20px 0;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent h4,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4 {
+        color: #000000;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        font-weight: 400;
+        margin: 0 0 10px 0;
+        text-align: left;
+        word-break: break-word;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p {
+        color: #000000;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        margin: 0 0 10px 0;
+        text-align: left;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent ul,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent ol,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent ul,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent ol {
+        color: #000000;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent ol ol,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent ol ol {
+        list-style-type: lower-alpha;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent ol ol ol,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent ol ol ol {
+        list-style-type: lower-roman;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p a,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p a {
+        color: #000000;
+        text-decoration: underline;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-block-form .ml-field-group {
+        text-align: left!important;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-block-form .ml-field-group label {
+        margin-bottom: 5px;
+        color: #333333;
+        font-size: 14px;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        font-weight: bold; font-style: normal; text-decoration: none;;
+        display: inline-block;
+        line-height: 20px;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p:last-child,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p:last-child {
+        margin: 0;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody form {
+        margin: 0;
+        width: 100%;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-formContent,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow {
+        margin: 0 0 20px 0;
+        width: 100%;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow {
+        float: left;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-formContent.horozintalForm {
+        margin: 0;
+        padding: 0 0 20px 0;
+        width: 100%;
+        height: auto;
+        float: left;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow {
+        margin: 0 0 10px 0;
+        width: 100%;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow.ml-last-item {
+        margin: 0;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow.ml-formfieldHorizintal {
+        margin: 0;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input {
+        background-color: #ffffff !important;
+        color: #333333 !important;
+        border-color: #cccccc;
+        border-radius: 4px !important;
+        border-style: solid !important;
+        border-width: 1px !important;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        font-size: 14px !important;
+        height: auto;
+        line-height: 21px !important;
+        margin-bottom: 0;
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 10px 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::-webkit-input-placeholder,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input::-webkit-input-placeholder { color: #333333; }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::-moz-placeholder,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input::-moz-placeholder { color: #333333; }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input:-ms-input-placeholder,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input:-ms-input-placeholder { color: #333333; }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input:-moz-placeholder,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input:-moz-placeholder { color: #333333; }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow textarea, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow textarea {
+        background-color: #ffffff !important;
+        color: #333333 !important;
+        border-color: #cccccc;
+        border-radius: 4px !important;
+        border-style: solid !important;
+        border-width: 1px !important;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        font-size: 14px !important;
+        height: auto;
+        line-height: 21px !important;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding: 10px 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-label::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-label::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before {
+          border-color: #cccccc!important;
+          background-color: #ffffff!important;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input.custom-control-input[type="checkbox"]{
+        box-sizing: border-box;
+        padding: 0;
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        margin-top: 5px;
+        margin-left: -1.5rem;
+        overflow: visible;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before {
+        border-radius: 4px!important;
+      }
+
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type=checkbox]:checked~.label-description::after, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox input[type=checkbox]:checked~.label-description::after, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-input:checked~.custom-control-label::after, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-input:checked~.custom-control-label::after, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox input[type=checkbox]:checked~.label-description::after {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-input:checked~.custom-control-label::after, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-input:checked~.custom-control-label::after {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-input:checked~.custom-control-label::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-input:checked~.custom-control-label::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-input:checked~.custom-control-label::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-input:checked~.custom-control-label::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox input[type=checkbox]:checked~.label-description::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox input[type=checkbox]:checked~.label-description::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type=checkbox]:checked~.label-description::before  {
+          border-color: #000000!important;
+          background-color: #000000!important;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-label::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-label::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-label::after, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-label::after, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label::after, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label::after {
+           top: 2px;
+           box-sizing: border-box;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::after, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::after {
+           top: 0px!important;
+           box-sizing: border-box!important;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::after {
+        top: 0px!important;
+           box-sizing: border-box!important;
+      }
+
+       #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::after {
+            top: 0px!important;
+            box-sizing: border-box!important;
+            position: absolute;
+            left: -1.5rem;
+            display: block;
+            width: 1rem;
+            height: 1rem;
+            content: "";
+       }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::before {
+        top: 0px!important;
+        box-sizing: border-box!important;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .custom-control-label::before {
+          position: absolute;
+          top: 4px;
+          left: -1.5rem;
+          display: block;
+          width: 16px;
+          height: 16px;
+          pointer-events: none;
+          content: "";
+          background-color: #ffffff;
+          border: #adb5bd solid 1px;
+          border-radius: 50%;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .custom-control-label::after {
+          position: absolute;
+          top: 2px!important;
+          left: -1.5rem;
+          display: block;
+          width: 1rem;
+          height: 1rem;
+          content: "";
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::before, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::before {
+          position: absolute;
+          top: 4px;
+          left: -1.5rem;
+          display: block;
+          width: 16px;
+          height: 16px;
+          pointer-events: none;
+          content: "";
+          background-color: #ffffff;
+          border: #adb5bd solid 1px;
+          border-radius: 50%;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::after {
+          position: absolute;
+          top: 0px!important;
+          left: -1.5rem;
+          display: block;
+          width: 1rem;
+          height: 1rem;
+          content: "";
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::after {
+          position: absolute;
+          top: 0px!important;
+          left: -1.5rem;
+          display: block;
+          width: 1rem;
+          height: 1rem;
+          content: "";
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .custom-radio .custom-control-label::after {
+          background: no-repeat 50%/50% 50%;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .custom-checkbox .custom-control-label::after, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsOptionsCheckbox .label-description::after, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-interestGroupsRow .ml-form-interestGroupsRowCheckbox .label-description::after, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description::after {
+          background: no-repeat 50%/50% 50%;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-control, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-control {
+        position: relative;
+        display: block;
+        min-height: 1.5rem;
+        padding-left: 1.5rem;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-input, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-input, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-input, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-input {
+          position: absolute;
+          z-index: -1;
+          opacity: 0;
+          box-sizing: border-box;
+          padding: 0;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-radio .custom-control-label, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-radio .custom-control-label, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-checkbox .custom-control-label, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-checkbox .custom-control-label {
+          color: #000000;
+          font-size: 12px!important;
+          font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+          line-height: 22px;
+          margin-bottom: 0;
+          position: relative;
+          vertical-align: top;
+          font-style: normal;
+          font-weight: 700;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow .custom-select, #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow .custom-select {
+        background-color: #ffffff !important;
+        color: #333333 !important;
+        border-color: #cccccc;
+        border-radius: 4px !important;
+        border-style: solid !important;
+        border-width: 1px !important;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        font-size: 14px !important;
+        line-height: 20px !important;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding: 10px 28px 10px 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+        height: auto;
+        display: inline-block;
+        vertical-align: middle;
+        background: url('https://assets.mlcdn.com/ml/images/default/dropdown.svg') no-repeat right .75rem center/8px 10px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow {
+        height: auto;
+        width: 100%;
+        float: left;
+      }
+      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal { width: 70%; float: left; }
+      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-button-horizontal { width: 30%; float: left; }
+      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-button-horizontal.labelsOn { padding-top: 25px;  }
+      .ml-form-formContent.horozintalForm .ml-form-horizontalRow .horizontal-fields { box-sizing: border-box; float: left; padding-right: 10px;  }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow input {
+        background-color: #ffffff;
+        color: #333333;
+        border-color: #cccccc;
+        border-radius: 4px;
+        border-style: solid;
+        border-width: 1px;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding: 10px 10px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-y: initial;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button {
+        background-color: #000000 !important;
+        border-color: #000000;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 4px;
+        box-shadow: none;
+        color: #ffffff !important;
+        cursor: pointer;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        font-size: 14px !important;
+        font-weight: 700;
+        line-height: 20px;
+        margin: 0 !important;
+        padding: 10px !important;
+        width: 100%;
+        height: auto;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow button:hover {
+        background-color: #333333 !important;
+        border-color: #333333 !important;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow input[type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        margin-top: 5px;
+        margin-left: -1.5rem;
+        overflow: visible;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow .label-description {
+        color: #000000;
+        display: block;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        text-align: left;
+        margin-bottom: 0;
+        position: relative;
+        vertical-align: top;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label {
+        font-weight: normal;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        display: block;
+        min-height: 24px;
+        padding-left: 24px;
+
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label a {
+        color: #000000;
+        text-decoration: underline;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label p {
+        color: #000000 !important;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+        font-size: 12px !important;
+        font-weight: normal !important;
+        line-height: 18px !important;
+        padding: 0 !important;
+        margin: 0 5px 0 0 !important;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow label p:last-child {
+        margin: 0;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit {
+        margin: 0 0 20px 0;
+        float: left;
+        width: 100%;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button {
+        background-color: #000000 !important;
+        border: none !important;
+        border-radius: 4px !important;
+        box-shadow: none !important;
+        color: #ffffff !important;
+        cursor: pointer;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        line-height: 21px !important;
+        height: auto;
+        padding: 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button.loading {
+        display: none;
+      }
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover {
+        background-color: #333333 !important;
+      }
+      .ml-subscribe-close {
+        width: 30px;
+        height: 30px;
+        background: url('https://assets.mlcdn.com/ml/images/default/modal_close.png') no-repeat;
+        background-size: 30px;
+        cursor: pointer;
+        margin-top: -10px;
+        margin-right: -10px;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .ml-error input, .ml-error textarea, .ml-error select {
+        border-color: red!important;
+      }
+
+      .ml-error .custom-checkbox-radio-list {
+        border: 1px solid red !important;
+        border-radius: 4px;
+        padding: 10px;
+      }
+
+      .ml-error .label-description,
+      .ml-error .label-description p,
+      .ml-error .label-description p a,
+      .ml-error label:first-child {
+        color: #ff0000 !important;
+      }
+
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow.ml-error .label-description p,
+      #mlb2-35912686.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow.ml-error .label-description p:first-letter {
+        color: #ff0000 !important;
+      }
+            @media only screen and (max-width: 400px){
+
+        .ml-form-embedWrapper.embedDefault, .ml-form-embedWrapper.embedPopup { width: 100%!important; }
+        .ml-form-formContent.horozintalForm { float: left!important; }
+        .ml-form-formContent.horozintalForm .ml-form-horizontalRow { height: auto!important; width: 100%!important; float: left!important; }
+        .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal { width: 100%!important; }
+        .ml-form-formContent.horozintalForm .ml-form-horizontalRow .ml-input-horizontal > div { padding-right: 0px!important; padding-bottom: 10px; }
+        .ml-form-formContent.horozintalForm .ml-button-horizontal { width: 100%!important; }
+        .ml-form-formContent.horozintalForm .ml-button-horizontal.labelsOn { padding-top: 0px!important; }
+
+      }
+    </style>
+
+    
+  
+    
+    
+
+    
+    
+
+    
+    
+
+    
+
+      
+        
+        
+      
+
+      
+        
+        
+      
+
+      
+
+            
+            
+            
+            
+            
+            
+      
+
+      
+
+      
+        
+        
+         
+        
+        
+      
+
+        
+        
+        
+        
+        
+        
+      
+
+       
+
+        
+        
+        
+        
+        
+        
+        
+       
+
+
+      
+        
+        
+        
+        
+  
+
+
+
+  
+        
+        
+        
+      
+
+
+      
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+        
+        
+        
+        
+        
+      
+
+      
+        
+        
+        
+        
+        
+      
+
+      
+        
+        
+        
+        
+        
+      
+
+       
+
+        
+        
+        
+        
+       
+
+       
+        
+        
+        
+        
+      
+
+      
+        
+        
+        
+        
+        
+        
+        
+       
+
+    
+
+    
+
+
+      
+
+
+      
+
+      
+      
+
+      
+
+      
+
+
+
+
+
+    
+
+      
+    <div id="mlb2-35912686" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-35912686">
+      <div class="ml-form-align-center ">
+        <div class="ml-form-embedWrapper embedForm">
+
+          
+          
+
+          <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+
+            <div class="ml-form-embedContent" style=" ">
+              
+                <h4>Newsletter</h4>
+                <p>Suscribite para no perderte ninguna actualización.</p>
+              
+            </div>
+
+            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2046950/forms/176965019617986012/subscribe" data-code="" method="post" target="_blank">
+              <div class="ml-form-formContent">
+                
+
+                  
+                  <div class="ml-form-fieldRow ml-last-item">
+                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+
+                      
+
+
+                      <!-- input -->
+                      <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email" autocomplete="email">
+                      <!-- /input -->
+
+                      <!-- textarea -->
+                      
+                      <!-- /textarea -->
+
+                      <!-- select -->
+                      
+                      <!-- /select -->
+
+                      <!-- checkboxes -->
+            
+            <!-- /checkboxes -->
+
+                      <!-- radio -->
+                      
+                      <!-- /radio -->
+
+                      <!-- countries -->
+                      
+                      <!-- /countries -->
+
+
+
+
+
+                    </div>
+                  </div>
+                
+              </div>
+
+              
+
+              <!-- Privacy policy -->
+              
+              <!-- /Privacy policy -->
+
+              
+
+              
+
+              
+
+
+
+
+
+
+              
+              <input type="hidden" name="ml-submit" value="1">
+
+              <div class="ml-form-embedSubmit">
+                
+                  <button type="submit" class="primary">Subscribite</button>
+                
+                <button disabled="disabled" style="display: none;" type="button" class="loading">
+                  <div class="ml-form-embedSubmitLoad"></div>
+                  <span class="sr-only">Loading...</span>
+                </button>
+              </div>
+
+              
+              <input type="hidden" name="anticsrf" value="true">
+            </form>
+          </div>
+
+          <div class="ml-form-successBody row-success" style="display: none">
+
+            <div class="ml-form-successContent">
+              
+                <h4>¡Gracias!</h4>
+                
+                  <p>Te suscribiste exitosamente a nuestra lista de correos.</p>
+                
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+
+  
+  
+  <script>
+    function ml_webform_success_35912686() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-35912686 .row-success').show();
+      $('.ml-subscribe-form-35912686 .row-form').hide();
+    }
+      </script>
+  
+  
+      <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
+        <script>
+            fetch("https://assets.mailerlite.com/jsonp/2046950/forms/176965019617986012/takel")
+        </script>
 </div></div>
     </div>
 <!-- main -->
@@ -138,12 +1018,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R base, paquetes y Tidyverse: de qué hablamos cuando usamos R</h1>
+<h1 class="title">R base, packages, and Tidyverse: what we talk about when we use R</h1>
 </div>
 
 <div>
   <div class="description">
-    ¿Qué es R base y qué cambia cuando usamos paquetes? Este post explica la estructura modular de R, introduce el rol de los paquetes y dedica una sección al Tidyverse como conjunto de herramientas con una filosofía propia de trabajo con datos.
+    What is R base, and what changes when we use packages? This post explains R’s modular structure, introduces the role of packages, and dedicates a section to the Tidyverse as a set of tools with its own philosophy for working with data.
   </div>
 </div>
 
@@ -166,26 +1046,26 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Cuando empezamos a trabajar con R, una de las primeras expresiones que aparecen es “R base”. No, mentira: cuando empezamos a trabajar con R no tenemos idea de lo que estamos haciendo. Copiamos el código de los cursos que estamos haciendo o de los libros o tutoriales que estamos siguiendo. Es posible que esos materiales contengan información sobre la fuente de esas funciones, pero como aprendices nuestra <a href="https://es.wikipedia.org/wiki/Memoria_de_trabajo">memoria de trabajo</a> está un poco saturada y seguramente no le hayamos prestado atención.</p>
-<p>A medida que vamos incorporando los conceptos y automatizando el ritmo de trabajo, podemos empezar a prestar atención a la teoría. Y vemos que surgen estos conceptos: R base, paquetes, librerías, Tidyverse. Estas palabras circulan con naturalidad en tutoriales, clases y foros, aunque no siempre se explicita qué significan ni cómo se relacionan entre sí. Sin embargo, entender esta arquitectura es clave para poder leer código con mayor autonomía y para tomar decisiones informadas sobre cómo trabajar con datos.</p>
-<p><strong>R base</strong> refiere al conjunto de funcionalidades que vienen incluidas cuando se instala R. Incluye el lenguaje propiamente dicho, un conjunto amplio de funciones fundamentales y algunos paquetes básicos que se cargan automáticamente. Operaciones aritméticas, creación de objetos, manejo básico de vectores y data frames, funciones como <code>mean()</code>, <code>sum()</code>, <code>plot()</code> o <code>summary()</code>, forman parte de este núcleo. R base define la gramática mínima del lenguaje y establece las reglas que permiten que todo lo demás funcione.</p>
-<p>Trabajar solo con R base es posible, y de hecho durante muchos años fue la forma estándar de usar R. Sin embargo, ese núcleo está pensado para ser extendido. R fue diseñado desde el inicio como un lenguaje<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, capaz de incorporar nuevas funcionalidades sin modificar su estructura central. Esa extensibilidad se materializa a través de los paquetes.</p>
-<p>Un paquete es un conjunto organizado de funciones, datos y documentación que se puede descargar e incorporar a una sesión de R. Cada paquete responde a una necesidad específica: análisis estadístico particular, visualización, manejo de textos, trabajo con encuestas, modelos avanzados o formatos de datos concretos. Técnicamente, instalar un paquete implica descargarlo en la computadora; usarlo implica cargarlo en la sesión activa. Conceptualmente, usar un paquete implica adoptar una forma particular de resolver problemas analíticos. Hay paquetes de todos los gustos y colores: algunos se enfocan en funciones, otros en datos. Dado que hay muchos paquetes distintos que realizan las mismas acciones, en el último tiempo se ha insistido bastante en <a href="https://ropensci.org/blog/2021/11/16/how-to-cite-r-and-r-packages/">la importancia de citar los paquetes utilizados en el análisis de datos</a>, con lo cual han surgido, no sin cierta ironía, <a href="https://pakillo.github.io/grateful/">paquetes que facilitan el citado de los paquetes</a>.</p>
-<p>Los paquetes pueden pensarse como cristalizaciones de prácticas de investigación. Quien desarrolla un paquete toma decisiones sobre qué operaciones facilitar, cómo nombrarlas, qué estructuras de datos privilegiar y qué supuestos dar por sentados. Cuando usamos una función de un paquete, no solo estamos reutilizando código, sino también incorporando una cierta manera de pensar el análisis. Si bien es difícil conocer a fondo el paquete del cual estamos tomando una función, siempre es una buena práctica leer <a href="https://www.r-project.org/other-docs.html">su documentación</a>.</p>
-<p>En este punto suele aparecer otra fuente de confusión: el término “librería”. En R, librería se usa para referirse al lugar donde están instalados los paquetes en el sistema, y también, por extensión, al acto de cargarlos mediante la función <code>library()</code>. En la práctica cotidiana, hablar de paquetes y librerías suele ser intercambiable, aunque desde un punto de vista técnico no sean exactamente lo mismo. Lo importante es entender que R base se amplía mediante paquetes que se cargan según las necesidades del análisis.</p>
-<p>Dentro de este universo de paquetes, hay uno que ocupa un lugar particular: el <a href="https://tidyverse.org/">Tidyverse</a>. El Tidyverse no es un paquete único, sino un conjunto de paquetes diseñados para trabajar de manera coherente entre sí. Incluye herramientas muy utilizadas para la manipulación de datos, la visualización y la importación de archivos, como <code>dplyr</code>, <code>ggplot2</code>, <code>tidyr</code>, <code>readr</code> y <code>stringr</code>, entre otros. Todos comparten una filosofía común y una sintaxis relativamente consistente, que se encuentra en el libro <a href="https://es.r4ds.hadley.nz/"><em>R para ciencia de datos</em></a> [<a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a>] de Hadley Wickham y Garrett Gloremund.</p>
-<p>La propuesta central del Tidyverse es organizar el trabajo con datos a partir de principios claros. Uno de los más conocidos es el concepto de datos “ordenados” (<em>tidy data</em>), donde cada variable ocupa una columna, cada observación una fila y cada tipo de unidad analítica una tabla.</p>
+<p>When we start working with R, one of the first expressions that appears is “R base.” No, just kidding: when we start working with R, we have no idea what we’re doing. We copy code from the courses we’re taking or from the books or tutorials we’re following. It’s possible that these materials contain information about the source of those functions, but as learners, our <a href="https://en.wikipedia.org/wiki/Working_memory">working memory</a> is a bit saturated, and we’ve probably not paid attention to it.</p>
+<p>As we incorporate concepts and automate our workflow, we can start paying attention to the theory. And we see these concepts emerge: R base, packages, libraries, Tidyverse. These words circulate naturally in tutorials, classes, and forums, although their meaning and how they relate to each other are not always explicitly stated. However, understanding this architecture is key to being able to read code with greater autonomy and to make informed decisions about how to work with data.</p>
+<p><strong>R base</strong> refers to the set of functionalities included when R is installed. It includes the language itself, a wide range of fundamental functions, and some basic packages that are loaded automatically. Arithmetic operations, object creation, basic handling of vectors and data frames, functions like <code>mean()</code>, <code>sum()</code>, <code>plot()</code>, or <code>summary()</code> are part of this core. R base defines the minimal grammar of the language and establishes the rules that allow everything else to function.</p>
+<p>Working solely with R base is possible, and in fact, for many years, it was the standard way to use R. However, that core is designed to be extended. R was designed from the beginning as a language<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, capable of incorporating new functionalities without modifying its central structure. This extensibility is materialized through packages.</p>
+<p>A package is an organized collection of functions, data, and documentation that can be downloaded and incorporated into an R session. Each package addresses a specific need: particular statistical analysis, visualization, text manipulation, survey work, advanced models, or specific data formats. Technically, installing a package means downloading it to your computer; using it means loading it into the active session. Conceptually, using a package implies adopting a particular way of solving analytical problems. There are packages of all types and colors: some focus on functions, others on data. Given that many different packages perform the same actions, there has recently been much emphasis on <a href="https://ropensci.org/blog/2021/11/16/how-to-cite-r-and-r-packages/">the importance of citing packages used in data analysis</a>, which has led to the emergence, not without some irony, of <a href="https://pakillo.github.io/grateful/">packages that facilitate package citation</a>.</p>
+<p>Packages can be thought of as crystallizations of research practices. Whoever develops a package makes decisions about which operations to facilitate, how to name them, which data structures to prioritize, and which assumptions to take for granted. When we use a function from a package, we are not only reusing code but also incorporating a certain way of thinking about analysis. While it is difficult to know a package thoroughly from which we are taking a function, it is always good practice to read <a href="https://www.r-project.org/other-docs.html">its documentation</a>.</p>
+<p>At this point, another source of confusion often appears: the term “library.” In R, “library” is used to refer to the location where packages are installed on the system, and also, by extension, to the act of loading them using the <code>library()</code> function. In everyday practice, speaking of packages and libraries is often interchangeable, although from a technical standpoint, they are not exactly the same. The important thing is to understand that R base is extended through packages that are loaded according to the needs of the analysis.</p>
+<p>Within this universe of packages, there is one that occupies a particular place: the <a href="https://tidyverse.org/">Tidyverse</a>. The Tidyverse is not a single package, but a collection of packages designed to work coherently with each other. It includes widely used tools for data manipulation, visualization, and file import, such as <code>dplyr</code>, <code>ggplot2</code>, <code>tidyr</code>, <code>readr</code>, and <code>stringr</code>, among others. All share a common philosophy and a relatively consistent syntax, found in the book <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> by Hadley Wickham and Garrett Grolemund.</p>
+<p>The central proposal of the Tidyverse is to organize data work based on clear principles. One of the best known is the concept of “tidy data,” where each variable occupies a column, each observation a row, and each type of analytical unit a table.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/CleanShot 2026-01-20 at 17.09.46.png" class="img-fluid figure-img"></p>
-<figcaption>Imagen tomada del libro “R para Ciencia de Datos”, de Hadley Wickham y Garrett Grolemund.</figcaption>
+<figcaption>Image taken from the book “R for Data Science” by Hadley Wickham and Garrett Grolemund.</figcaption>
 </figure>
 </div>
-<p>Este principio, que puede parecer puramente técnico, tiene implicancias analíticas importantes, porque fuerza a explicitar qué se considera una variable, qué cuenta como observación y cómo se estructuran los datos. Esto puede cambiar no solamente entre conjuntos de datos, sino también entre análisis y mismo entre funciones. Por ejemplo, una función que haga un análisis estadístico de comparación de grupos puede tomar la variable de agrupación de una sola columna o puede pedir que cada grupo tenga su propia columna.</p>
-<p>Otro rasgo distintivo del Tidyverse es su énfasis en la legibilidad del código. Las funciones suelen tener nombres verbales, los argumentos privilegian la claridad y el uso del operador <code>%&gt;%</code> propone una lectura secuencial de las operaciones. Para quienes vienen de tradiciones donde la interpretación de textos y la explicitación de procedimientos son centrales, esta orientación resulta especialmente atractiva. El código se presenta como una secuencia de transformaciones que puede leerse casi como una narración del análisis (<a href="https://www.reddit.com/r/rstats/comments/vbd6jq/piping_in_r_is_like_baking/#lightbox">¡o como una receta de cocina!</a>)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
-<p>Esto no significa que el Tidyverse reemplace a R base. De hecho, se apoya constantemente en él. Muchas funciones del Tidyverse envuelven o reorganizan funcionalidades existentes en R base, ofreciendo una interfaz distinta. Elegir trabajar con R base, con paquetes específicos o con el Tidyverse no es una cuestión de corrección, sino de enfoque. Cada opción implica adoptar ciertas convenciones y renunciar a otras. También tiene que ver con conocer a la audiencia de nuestro código: determinados paquetes suelen ser más <em>famosos</em> en determinados ámbitos y eso puede privilegiar nuestra decisión de usarlos frente a otras alternativas menos conocidas. En definitiva, se trata de usar el <em>lenguaje</em> de la forma que facilitará su comprensión.</p>
-<p>Entender estas diferencias permite salir de una lógica puramente instrumental. Usar R no consiste solo en saber qué comando ejecutar, sino en comprender qué marco conceptual estamos utilizando al hacerlo. R base, los paquetes y el Tidyverse forman capas de un mismo lenguaje, que se combinan de maneras diversas según el problema de investigación, el tipo de datos y las preguntas que se quieren formular.</p>
-<p>En los próximos textos de esta serie volveremos sobre estas herramientas con ejemplos concretos. La idea no será aprender listas de funciones, sino desarrollar criterios para leer código, reconocer estilos y elegir conscientemente cómo trabajar con R en contextos de investigación situados.</p>
+<p>This principle, which may seem purely technical, has important analytical implications because it forces one to explicitly state what is considered a variable, what counts as an observation, and how data is structured. This can change not only between datasets but also between analyses and even between functions. For example, a function that performs a statistical analysis comparing groups might take the grouping variable from a single column or might require each group to have its own column.</p>
+<p>Another distinctive feature of the Tidyverse is its emphasis on code readability. Functions often have verbal names, arguments prioritize clarity, and the use of the <code>%&gt;%</code> operator suggests a sequential reading of operations. For those coming from traditions where text interpretation and procedure explication are central, this orientation is particularly appealing. The code is presented as a sequence of transformations that can be read almost like a narrative of the analysis (<a href="https://www.reddit.com/r/rstats/comments/vbd6jq/piping_in_r_is_like_baking/#lightbox">or like a cooking recipe!</a>)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p>This does not mean that the Tidyverse replaces R base. In fact, it constantly relies on it. Many Tidyverse functions wrap or reorganize existing functionalities in R base, offering a different interface. Choosing to work with R base, with specific packages, or with the Tidyverse is not a matter of correctness, but of approach. Each option implies adopting certain conventions and foregoing others. It also has to do with knowing the audience for our code: certain packages tend to be more <em>famous</em> in specific fields, and that can prioritize our decision to use them over less known alternatives. Ultimately, it’s about using the <em>language</em> in a way that will facilitate its understanding.</p>
+<p>Understanding these differences allows us to move beyond a purely instrumental logic. Using R is not just about knowing which command to execute, but about understanding what conceptual framework we are employing when doing so. R base, packages, and the Tidyverse form layers of the same language, which combine in various ways depending on the research problem, the type of data, and the questions one wants to ask.</p>
+<p>In the next texts in this series, we will revisit these tools with concrete examples. The idea will not be to learn lists of functions, but to develop criteria for reading code, recognizing styles, and consciously choosing how to work with R in situated research contexts.</p>
 
 
 
@@ -193,8 +1073,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Otra vez aparecen metáforas que acercan el lenguaje de programación a otras disciplinas. En este caso, pienso en <a href="https://books.google.com.ar/books?id=ISgIzxoFgikC&amp;printsec=copyright#v=onepage&amp;q&amp;f=false">la concepción modular de la mente</a>, de Jerry Fodor.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Acá hay que hacer una aclaración. El famoso operador <code>%&gt;%</code> (<em>pipe</em>) durante mucho tiempo fue sinónimo de Tidyverse aunque proviene del paquete específico <code>magrittr</code>. Sin embargo, la versión R 4.1.0 que salió en mayo del 2021 incorporó un operador similar, <code>|&gt;</code>, con lo cual la concatenación de funciones como la que se ve en ese simpático gif ya no es exclusiva de Tidyverse. En rigor de verdad, ambos operadores tienen funcionamientos distintos, por lo cual reemplazar el operador <code>%&gt;%</code> por <code>|&gt;</code> de forma masiva en nuestro código puede dar lugar a errores. Las diferencias pueden ser demasiado técnicas para alguien que recién está empezando, pero si les interesa pueden leer un poco <a href="https://tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/">acá</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Again, metaphors appear that bring programming language closer to other disciplines. In this case, I’m thinking of Jerry Fodor’s <a href="https://books.google.com.ar/books?id=ISgIzxoFgikC&amp;printsec=copyright#v=onepage&amp;q&amp;f=false">the modular conception of the mind</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>A clarification is needed here. The famous <code>%&gt;%</code> operator (<em>pipe</em>) was for a long time synonymous with the Tidyverse, although it comes from the specific <code>magrittr</code> package. However, R version 4.1.0, released in May 2021, incorporated a similar operator, <code>|&gt;</code>, meaning that function chaining, like that seen in that charming GIF, is no longer exclusive to the Tidyverse. Strictly speaking, both operators have different functionalities, so massively replacing the <code>%&gt;%</code> operator with <code>|&gt;</code> in our code can lead to errors. The differences might be too technical for someone just starting, but if you’re interested, you can read more <a href="https://tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/">here</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -270,7 +1150,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/atelierdecodigo\.com\/en");
+        var filterRegex = new RegExp("https:\/\/atelierdecodigo\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

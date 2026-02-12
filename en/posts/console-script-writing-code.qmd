@@ -1,0 +1,27 @@
+---
+title: "Console and Script: Two Ways to Write Code in R"
+date: 2026-01-21
+page-layout: full
+toc: false
+description: "Console and script serve different functions in R. This post clearly explains what each is for, when to use them, and how they complement each other in daily work."
+---
+
+When R or RStudio is opened for the first time, the console is usually the starting point. It's the window where the `>` symbol appears and where instructions can be written directly. You write a line of code, press Enter, and R responds. That response can be a number, a table, a message, or a plot. The console basically serves to tell R what to do and see the result immediately.
+
+![](images/CleanShot%202026-01-18%20at%2019.40.28@2x.png){fig-alt="Image of an empty console."}
+
+The console is useful for quick actions. For example, calculating an average, viewing the content of an object, or testing if a function does what we expect. It's also common to use it for small trials while learning. The problem is that what is written in the console is not saved in an organized way. If R is closed or the session is restarted, that history is lost. Even with the session open, reviewing what was done a while ago can be confusing.
+
+The script serves another function. A script is a file where code is written to be saved. In RStudio, it usually has the `.R` extension and opens in the editor pane (you can go to `File`, `New File`, `R Script` or click on the icon with a green cross). There, you can write many lines of code, add comments, and organize the analysis step by step. Writing in a script does not execute the code automatically. Each line or block is run only when indicated, either with the button that says "Run", or with Control+Enter.
+
+![](images/CleanShot 2026-01-18 at 19.45.25@2x.png){fig-alt="Image of an empty script."}
+
+This difference is important. The script allows separating two moments: writing and executing. First, the code is written calmly. Then, it is decided what to execute and when. This makes the work more organized and easier to pick up again. If the file is reopened days or weeks later, the code is still there, in the order it was conceived.
+
+A very common use is to combine both spaces. The console is used to quickly test something. If that code proves useful, it is copied or written directly into the script. In this way, the script becomes the main record of the work, while the console functions as a testing ground.
+
+RStudio facilitates this way of working. From the script, code can be executed, and the result appears in the console, but the code remains saved in the script file. This dynamic is especially useful when the analysis has multiple steps or when the work needs to be shared with other people.
+
+In practical terms, a good initial rule is this: the console serves for testing and exploring; the script serves for saving and organizing. There's no need to choose one over the other exclusively. The important thing is to understand what each space contributes and to use it consciously.
+
+Learning to write in scripts from the beginning saves time later on. It allows for easy error correction, repeating analyses without starting from scratch, and better understanding what was done at each stage. For beginners, this distinction often marks a before and after in how they work with R.
