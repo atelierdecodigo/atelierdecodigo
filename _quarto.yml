@@ -4,6 +4,7 @@ project:
   render:
     - "*.qmd"
     - "posts/**/*.qmd"
+    - "!en/**"
 
 website:
   title: "Atelier de código"

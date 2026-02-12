@@ -1,23 +1,5 @@
 [
   {
-    "listing": "/en/posts/index.html",
-    "items": [
-      "/en/posts/object-oriented-programming.html",
-      "/en/posts/what-is-data-science.html",
-      "/en/posts/books-learning-data-science.html",
-      "/en/posts/grammar-graphics-ggplot.html",
-      "/en/posts/projects-version-control-github.html",
-      "/en/posts/install-r-rstudio.html",
-      "/en/posts/projects-rstudio.html",
-      "/en/posts/reproducibility.html",
-      "/en/posts/console-script-writing-code.html",
-      "/en/posts/r-base-tidyverse.html",
-      "/en/posts/r-humanities-learning.html",
-      "/en/posts/integrated-development-environment-ide.html",
-      "/en/posts/r-programming-language.html"
-    ]
-  },
-  {
     "listing": "/posts/index.html",
     "items": [
       "/posts/lenguaje-orientado-objetos.html",
