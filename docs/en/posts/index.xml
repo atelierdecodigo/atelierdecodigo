@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Code Atelier</title>
+<link>https://atelierdecodigo.com/en/posts/</link>
+<atom:link href="https://atelierdecodigo.com/en/posts/index.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.8.27</generator>
+<lastBuildDate>Thu, 29 Jan 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>What is object-oriented programming and why is R considered an object-oriented language?</title>
+  <link>https://atelierdecodigo.com/en/posts/object-oriented-programming.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>When you start programming, many operations seem like simple instructions executed in sequence: load data, apply a function, get a result. As projects grow, another need emerges: organizing code and data in a way that is easier to understand, reuse, and extend. <strong>Object-oriented programming (OOP)</strong> arises as a response to this organizational problem.</p>
+<p>Thinking in terms of object orientation involves slightly shifting the focus. Instead of concentrating solely on actions, attention is placed on the entities being acted upon and the relationships between data and operations. This way of structuring code is not exclusive to one language but rather a method for modeling problems.</p>
+<section id="the-core-idea-of-object-orientation" class="level3">
+<h3 class="anchored" data-anchor-id="the-core-idea-of-object-orientation">The Core Idea of Object Orientation</h3>
+<p>Generally speaking, object-oriented programming is based on the concept of an <strong>object</strong>. An object combines two things: data and the operations that make sense for that data. For instance, a dataset can have associated operations for summarization, plotting, or transformation.</p>
+<p>Objects usually belong to a class, which defines what kind of data they contain and what operations can be applied. Concrete objects are created from a class. This separation allows working with abstractions: there’s no need to know all the internal details to use an object consistently.</p>
+<p>Another important concept is that of a method, which is a function associated with a specific class. Instead of thinking of a function as existing in isolation, it is understood as an operation applied to a particular type of object.</p>
+</section>
+<section id="why-this-logic-is-useful" class="level3">
+<h3 class="anchored" data-anchor-id="why-this-logic-is-useful">Why This Logic Is Useful</h3>
+<p>Object orientation helps manage <strong>complexity</strong>. It allows writing code that adapts to different data types without being completely rewritten, facilitates the extension of functionalities, and promotes a certain internal coherence. For those reading the code, it also offers clues about which operations are expected for each type of object.</p>
+<p>This way of organizing work is especially valuable in languages used for data analysis, where tables, statistical models, plots, and intermediate results coexist. Each of these elements can be thought of as an object with its own behaviors.</p>
+</section>
+<section id="r-as-an-object-oriented-language" class="level3">
+<h3 class="anchored" data-anchor-id="r-as-an-object-oriented-language">R as an Object-Oriented Language</h3>
+<p>R is an object-oriented language, although it’s not always perceived that way when you start using it. This is because R implements object orientation in a particular way, less explicit than in other languages like Java or Python.</p>
+<p>In R, almost everything is an object. A vector, a data frame, a statistical model, or a plot are objects with an associated class. That class defines how they behave with certain functions. For example, the <code>summary()</code> function produces different results depending on the type of object it receives. The same function name activates different methods depending on the class of the input object.</p>
+<p>This mechanism is known as method dispatch. Instead of calling a specific function for each data type, R internally decides which method to use. For data analysts, this reduces cognitive load: the same general functions are used, and the behavior adjusts to the object.</p>
+</section>
+<section id="object-systems-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="object-systems-in-r">Object Systems in R</h3>
+<p>R has several object systems. The most well-known are S3 and S4, and more recently R6. S3 is a flexible and informal system, widely used in packages and in everyday use. S4 is stricter and explicitly defines the structure of classes. R6 is more similar to classic object orientation, with mutable objects.</p>
+<p>To start, it’s not necessary to master these systems in detail. The important thing is to recognize that when working with data frames, models, or plots, you are interacting with objects that respond to specific rules according to their class.</p>
+</section>
+<section id="reading-code-from-this-perspective" class="level3">
+<h3 class="anchored" data-anchor-id="reading-code-from-this-perspective">Reading Code from This Perspective</h3>
+<p>Understanding that R is an object-oriented language helps to better read code. It allows you to ask what type of object you are working with, what operations are consistent with that object, and why a function behaves in a certain way. This perspective makes analysis more predictable and facilitates learning new packages.</p>
+<p>Object orientation in R does not require writing classes from day one. It often functions as a silent infrastructure that organizes the language. Recognizing its presence helps to move from executing code to interpreting it as part of a broader system.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/object-oriented-programming.html</guid>
+  <pubDate>Thu, 29 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>What is Data Science and Why All the Interest?</title>
+  <link>https://atelierdecodigo.com/en/posts/what-is-data-science.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>In recent years, the expression <em>data science</em> has become ubiquitous. It appears in job offers, academic programs, research projects, and public debates. Sometimes it is presented as a new and homogeneous discipline; other times, as a diffuse set of techniques. To understand what it is about, it is useful to place it historically, review its links with statistics and big data, and consider why it is particularly attractive to those coming from analytical traditions linked to the social sciences.</p>
+<section id="an-origin-linked-to-concrete-problems" class="level3">
+<h3 class="anchored" data-anchor-id="an-origin-linked-to-concrete-problems">An origin linked to concrete problems</h3>
+<p>Data science does not emerge from a single field or at a precise moment. It consolidates from the convergence of existing practices: statistical analysis, programming, database management, and working with large volumes of information. By the mid-20th century, applied statistics already played a central role in scientific research and decision-making. Later, with the expansion of computing and digital storage, it became possible to work with increasingly larger and more complex datasets.</p>
+<p>The term <em>data science</em> began to circulate more forcefully towards the late nineties and early two thousands, when it became evident that the problems were no longer just about calculating indicators, but about organizing, cleaning, transforming, and interpreting heterogeneous data. Data science thus configures itself as a practical response to a recurring question: how to produce knowledge from data in contexts where the volume, variety, and velocity of information challenge traditional approaches.</p>
+<section id="data-science-and-statistics" class="level4">
+<h4 class="anchored" data-anchor-id="data-science-and-statistics">Data science and statistics</h4>
+<p>The relationship between data science and statistics is close, though not always obvious. Many of data science’s central tools, such as estimation, inference, or modeling, come directly from statistics. However, data science broadens the focus. In addition to analyzing already prepared data, it deals with the entire process: from obtaining information to communicating results.</p>
+<p>In this sense, programming plays a key role. Not only as a means to execute calculations, but as a way to describe procedures explicitly and reproducibly. Code allows documenting decisions, repeating analyses, and adjusting intermediate steps. Statistics provides the conceptual frameworks for interpreting results, while programming articulates these frameworks with concrete data and complex workflows.</p>
+</section>
+<section id="the-link-with-big-data" class="level4">
+<h4 class="anchored" data-anchor-id="the-link-with-big-data">The link with big data</h4>
+<p>Big data often appears associated with data science, although they are not synonyms. Big data refers, in general terms, to large or highly complex datasets that require specific infrastructures for their storage and processing. Data science can work with big data, but also with small databases, surveys, administrative records, or textual corpora.</p>
+<p>What they share is a common concern: how to transform data into meaningful information. In many cases, the challenge is not the quantity of data, but its quality, structure, and context of production. From this perspective, data science is not defined solely by volume, but by an approach to analysis that integrates technique, interpretation, and decision-making.</p>
+</section>
+<section id="why-it-sparks-interest-in-the-social-sciences" class="level4">
+<h4 class="anchored" data-anchor-id="why-it-sparks-interest-in-the-social-sciences">Why it sparks interest in the social sciences</h4>
+<p>The growing interest of people trained in social disciplines in data science has several reasons. Firstly, many contemporary research projects work with digital data: online surveys, administrative databases, social networks, textual archives, or interaction logs. These materials require tools that allow for systematic exploration and analysis.</p>
+<p>Secondly, data science proposes a way of working that dialogues well with classic concerns of social analysis. The need to make assumptions explicit, document procedures, and reflect on the categories used finds an ally in the use of code and reproducible workflows. The analysis leaves traces that can be read, discussed, and reviewed.</p>
+<p>Furthermore, data science brings to the forefront questions about the power of data, biases, representativeness, and the social uses of information. These questions are not foreign to the critical traditions of the social sciences. On the contrary, they offer a space where technical tools and conceptual reflection meet.</p>
+</section>
+<section id="a-situated-practice" class="level4">
+<h4 class="anchored" data-anchor-id="a-situated-practice">A situated practice</h4>
+<p>More than a closed discipline, data science can be understood as a situated practice. Its tools adapt to specific problems and concrete contexts of research, work, or intervention. Learning data science involves learning to formulate questions, evaluate sources, make methodological decisions, and communicate results responsibly.</p>
+<p>From this perspective, programming, analyzing, and visualizing data are not ends in themselves. They are means to construct knowledge in dialogue with theoretical frameworks, substantive questions, and material conditions of production. Data science thus becomes a fertile space for those who seek to articulate technique and reflection, without losing sight of the fact that data are always anchored in social practices.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/what-is-data-science.html</guid>
+  <pubDate>Wed, 28 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>6 Essential Books for Learning Data Science</title>
+  <link>https://atelierdecodigo.com/en/posts/books-learning-data-science.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Delving into data science goes beyond learning syntax or executing commands. Reading books that articulate concepts, techniques, and reflections helps to understand the field as a whole. Fortunately, there are texts freely available on the web that cover everything from fundamentals to concrete applications. Below I present five recommended, open-access books. Some are in English, others in Spanish.</p>
+<section id="r-for-data-science-hadley-wickham-garrett-grolemund-and-mine-çetinkaya-rundel" class="level4">
+<h4 class="anchored" data-anchor-id="r-for-data-science-hadley-wickham-garrett-grolemund-and-mine-çetinkaya-rundel"><a href="https://r4ds.hadley.nz/">1. <em>R for Data Science</em> (Hadley Wickham, Garrett Grolemund, and Mine Çetinkaya-Rundel)</a></h4>
+<p>This book is the absolute foundation for programming in R in the world of data science. It covers topics such as data cleaning and visualization, among others. It is designed for beginners but with a level of detail that allows for continuous learning. It has its Spanish version <a href="https://davidrsch.github.io/r4ds-es/">here</a>.</p>
+</section>
+<section id="telling-stories-with-data-rohan-alexander" class="level4">
+<h4 class="anchored" data-anchor-id="telling-stories-with-data-rohan-alexander"><a href="https://rohanalexander.github.io/telling_stories-published/">2. <em>Telling Stories with Data</em> (Rohan Alexander)</a></h4>
+<p>Focused on statistical communication and analysis narrative, this book covers everything from data collection and cleaning to results presentation. It includes code examples and activities that reinforce the understanding of each technique. Its focus on how to translate data into clear conclusions makes it especially useful for those working with interpretive analysis.</p>
+</section>
+<section id="libro-vivo-de-ciencia-de-datos-pablo-casas" class="level4">
+<h4 class="anchored" data-anchor-id="libro-vivo-de-ciencia-de-datos-pablo-casas"><a href="https://librovivodecienciadedatos.ai/">3. <em>Libro Vivo de Ciencia de Datos</em> (Pablo Casas)</a></h4>
+<p>This book in Spanish presents an intuitive introduction to data science and machine learning, with a didactic approach. It offers a practical vision of how to think and work with data from initial levels.</p>
+</section>
+<section id="deep-r-programming-marek-gagolewski" class="level4">
+<h4 class="anchored" data-anchor-id="deep-r-programming-marek-gagolewski"><a href="https://deepr.gagolewski.com/index.html">4. <em>Deep R Programming</em> (Marek Gagolewski)</a></h4>
+<p>Although more technical, this free resource offers a deep introduction to the R language from a data science perspective. The book covers data transformations, numerical computation, functional programming, and advanced structures, with practical examples and exercises.</p>
+</section>
+<section id="openintro-statistics-david-diez-christopher-barr-and-mine-çetinkaya-rundel" class="level4">
+<h4 class="anchored" data-anchor-id="openintro-statistics-david-diez-christopher-barr-and-mine-çetinkaya-rundel"><a href="https://www.biostat.jhsph.edu/~iruczins/teaching/books/2019.openintro.statistics.pdf">5. <em>OpenIntro Statistics</em> (David Diez, Christopher Barr, and Mine Çetinkaya-Rundel)</a></h4>
+<p>Although this text is a statistics book, it is essential reading for data science. Statistics is a pillar of data analysis, and this book guides the reader from basic concepts to applied techniques.</p>
+</section>
+<section id="learning-statistics-with-r-danielle-navarro" class="level3">
+<h3 class="anchored" data-anchor-id="learning-statistics-with-r-danielle-navarro"><a href="https://learningstatisticswithr.com/">6. <em>Learning Statistics with R</em> (Danielle Navarro)</a></h3>
+<p>This book in English compiles the materials from an introductory statistics course that the author taught at the University of Adelaide, with examples in R. It condenses not only the theory but also the practice for conducting real and informed data analysis. Furthermore, Danielle is a very active person in the R community, and her contributions are truly fundamental.</p>
+</section>
+<section id="how-to-use-these-books-in-your-learning" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-use-these-books-in-your-learning">How to Use These Books in Your Learning</h3>
+<p>These texts serve different purposes: some introduce general concepts, others delve into specific tools, and others integrate programming and analysis. An effective reading strategy can combine a more conceptual book with practical materials that include code exercises and real-world cases.</p>
+<p>If you are just starting, it can be useful to begin with introductory chapters (for example, data science fundamentals and results communication) before moving on to more technical texts or those focused on specific languages like R.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/books-learning-data-science.html</guid>
+  <pubDate>Tue, 27 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Grammar of Graphics</title>
+  <link>https://atelierdecodigo.com/en/posts/grammar-graphics-ggplot.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="the-grammar-of-graphics-thinking-of-visualization-as-a-language" class="level3">
+<h3 class="anchored" data-anchor-id="the-grammar-of-graphics-thinking-of-visualization-as-a-language">The grammar of graphics: thinking of visualization as a language</h3>
+<p>Graphics hold a central place in data analysis. They are used to explore patterns, communicate results, and support arguments. However, they are often thought of as a final product, something that is “chosen” from a set of available options. The idea of a <strong>grammar of graphics</strong> proposes a shift: graphics can be understood as constructions composed of parts or <em>layers</em>, organized according to relatively stable rules, comparable to how languages work.</p>
+<p>Instead of asking “what type of chart should I make”, the question becomes <a href="https://macarenaquiroga.com/en/post/how-to-choose-a-chart-type-based-on-research-questions/">“what do I want to convey”</a>. This will allow us to think about what relationships we want to represent and what elements we need to combine to make them visible. Visualization ceases to be decorative and becomes integrated into analytical reasoning.</p>
+<section id="what-is-understood-by-the-grammar-of-graphics" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-understood-by-the-grammar-of-graphics">What is understood by the grammar of graphics</h4>
+<p>The concept of the grammar of graphics was developed by Leland Wilkinson in his book <a href="https://link.springer.com/chapter/10.1007/978-3-642-21551-3_13"><em>The Grammar of Graphics</em></a> and starts from a simple idea: any statistical graphic can be decomposed into basic components. These include data, variables mapped to visual properties, geometric shapes that represent that data, and scales that translate values into positions, colors, or sizes.</p>
+<p>From this approach, a graphic is not an indivisible object, but the result of a series of explicit decisions. Which variable goes on the horizontal axis, which on the vertical, whether values are represented by points, bars, or lines, how observations are grouped. Each of these choices is part of the graphic’s structure and affects its interpretation.</p>
+</section>
+<section id="the-grammar-of-graphics-in-ggplot2" class="level4">
+<h4 class="anchored" data-anchor-id="the-grammar-of-graphics-in-ggplot2">The grammar of graphics in ggplot2</h4>
+<p>Hadley Wickham revisits this concept in his article <a href="https://www.tandfonline.com/doi/abs/10.1198/jcgs.2009.07098"><em>A Layered Grammar of Graphics</em></a> and introduces his <code>ggplot2</code> package which implements this idea directly. To build a graphic, one starts with a dataset and adds layers, each with a specific function. The code reflects this compositional logic and allows the graphic to be read as a sequence of decisions.</p>
+<p>A minimal example can illustrate this structure:</p>
+<pre><code>ggplot(data = datos, aes(x = edad, y = ingreso)) +
+  geom_point()</code></pre>
+<p>In this snippet, several key components appear. <code>ggplot()</code> defines the dataset and the basic mapping, i.e., which variables are associated with which visual dimensions. <code>geom_point()</code> adds a concrete geometry, in this case points. If we wanted to change the form of representation, we could replace or add geometries without redoing the entire graphic.</p>
+<p>This way of working favors controlled experimentation. It is possible to modify just one part of the graphic and observe how the result changes. It also facilitates comparing visualizations that share a common structure, which is especially useful in exploratory analyses.</p>
+</section>
+<section id="visualizing-as-part-of-the-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="visualizing-as-part-of-the-analysis">Visualizing as part of the analysis</h4>
+<p>Thinking of visualization as a language implies recognizing that graphics are not neutral. Each graphic emphasizes certain relationships and relegates others to the background. The grammar of graphics forces us to make these choices explicit, both in the code and in the reasoning that accompanies it.</p>
+<p>In social analysis contexts, this explicitness is relevant. Visualizing distributions, comparing groups, or tracking temporal evolutions involves defining categories, scales, and units of analysis. The grammar of graphics provides a framework for making these decisions visible and for discussing them.</p>
+<p>Furthermore, by working with code, the graphic becomes reproducible and revisable. Others can read how it was constructed, modify it, or adapt it to new questions. Visualization ceases to be a conclusion of the analysis and becomes part of the process.</p>
+</section>
+<section id="a-tool-for-learning-to-read-graphics" class="level4">
+<h4 class="anchored" data-anchor-id="a-tool-for-learning-to-read-graphics">A tool for learning to read graphics</h4>
+<p>The grammar of graphics not only serves to produce visualizations, but also to read them critically. Identifying which variables are being compared, what scales are used, and what geometries are involved allows for better evaluation of someone else’s graphic and understanding what it shows and what it hides.</p>
+<p>From this perspective, learning <code>ggplot2</code> is not just learning a syntax. It is incorporating a way of thinking about visualization as a situated analytical practice, with rules, possibilities, and limits. In the next posts in the series, we will work with concrete examples to see how this grammar comes into play in common data analysis graphics.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/grammar-graphics-ggplot.html</guid>
+  <pubDate>Mon, 26 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>RStudio Projects and Version Control: Working Without Getting Lost in Files</title>
+  <link>https://atelierdecodigo.com/en/posts/projects-version-control-github.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Those who start working with data usually do so with loose files. A script called <code>final_analysis.R</code>, then another <code>final_analysis_v2.R</code>, then <code>real_final_analysis.R</code>. As work progresses, copies appear on different devices, versions sent by email, and duplicated folders. If several people are also involved, the situation quickly becomes confusing: it’s not clear which is the most updated file, what changes each person made, or which version was used to obtain a result.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://atelierdecodigo.com/en/posts/images/memeversionfinal.jpg" class="img-fluid figure-img" alt="An image of a folder containing Word files named &quot;Final Document&quot;, &quot;Final Document 2&quot;, &quot;Finally Definitive Document&quot; and so on."></p>
+<figcaption>Come on, who hasn’t been in this situation?</figcaption>
+</figure>
+</div>
+<p>A common response to this problem is to move everything to the cloud. Services like Google Drive or Dropbox allow files to be available from different locations and devices. This solves part of the problem, because it reduces the circulation of disconnected copies. However, an important question remains open: how to record changes over time, go back if something goes wrong, or understand what was modified between one version and another of the same file.</p>
+<p>That’s where version control comes in, and particularly platforms like <a href="https://github.com/">GitHub</a><sup>1</sup>. Version control allows you to save the history of a project, record each change in an organized way, and work collaboratively without stepping on each other’s work. GitHub adds a cloud infrastructure that facilitates sharing projects, collaborating, and maintaining a clear reference of which version is current. Instead of exchanging finished files, you work on the same project, with an explicit record of its evolution.</p>
+<p>In short, the way Git works is as follows: we have a repository (we can think of it as a folder hosted in the cloud) from which we download a copy to our computer. We make changes to that repository, but as long as we don’t do anything else, the version in the cloud (on GitHub) will remain as it was before. Once we finish working or reach a satisfactory result, we “upload” those changes to that repository and the one in the cloud is updated (and both the repository in the cloud and the one we have on our computer will be identical).</p>
+<p>Different people can work with the same repository and “upload” their changes, as long as those changes do not conflict. When this happens (and it will happen, comrades, inevitably), Git allows us to know where that conflict occurs, which versions conflicted (“up to version 4 everything was fine, in Pepito’s version 5 everything went wrong”) and gives us the possibility to revert changes to a previous version (or forcibly accept the changes). The good thing is that Git keeps a record of everything, which can get us out of trouble more than once.</p>
+<section id="create-an-rstudio-project-connected-to-github" class="level3">
+<h3 class="anchored" data-anchor-id="create-an-rstudio-project-connected-to-github">Create an RStudio project connected to GitHub</h3>
+<p>RStudio already includes a functionality that allows integrating our projects with a GitHub repository. To combine RStudio with version control, the starting point is still an <a href="https://atelierdecodigo.com/en/posts/projects-rstudio.html">RStudio project</a>. The difference is that this project will be associated with a repository from the beginning.</p>
+<ol type="1">
+<li><strong>Create a GitHub repository</strong> Log in to your GitHub account and create a new repository by clicking the green button in the top right, <em>New</em>.</li>
+</ol>
+<p><img src="https://atelierdecodigo.com/en/posts/images/CleanShot 2026-01-21 at 22.47.36@2x.png" class="img-fluid"></p>
+<p>Choose a simple name and check the option to initialize it with a <code>README.md</code> file. Copy the repository URL, which we will use in the next step.</p>
+<ol start="2" type="1">
+<li><p><strong>Create the project from RStudio</strong> In RStudio, go to <em>File &gt; New Project</em>. Choose the <em>Version Control</em> option and then <em>Git</em>. Paste the GitHub repository URL and select the local folder where you want the project to be downloaded. Upon accepting, RStudio creates a folder that already includes the link to the repository.</p></li>
+<li><p><strong>Recognize the working environment</strong> Once the project is created, you will notice a new panel in RStudio called <em>Git</em>. From there, you can view modified files, save changes, and send them to the remote repository. From this moment on, all work should be done within this project folder.</p></li>
+<li><p><strong>Save and record changes</strong> Here you have two different ways to upload changes: one is through the graphical interface integrated into RStudio and the other is through the terminal also integrated into RStudio. For the first method, you need to identify the tab that says “Git”, next to “Environment” and “History”. When you edit a script or add a file, RStudio marks those changes in the <em>Git</em> panel. To upload them to the repository, you select the files in the <em>Staged</em> column, click the <em>Commit</em> button (here you write a brief message describing what you did), and confirm the change. That record is saved as part of the project history. Finally, you click <em>Push</em> and the files are uploaded. The next time you start working, you need to do a “Pull” to ensure you download all changes that other people (or you on another device) have made to your local repository.</p></li>
+</ol>
+<p>The second way is through the terminal, which is next to the “Console” tab. The logic is the same: you select the files, add a descriptive message indicating what you did (the <em>commit</em>), and then upload them. The difference is that you do it with commands:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">git add .</span>
+<span id="cb1-2">git commit <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>m <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"descriptive message"</span></span>
+<span id="cb1-3">git push</span>
+<span id="cb1-4"></span>
+<span id="cb1-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># next time you pick up work</span></span>
+<span id="cb1-6">git pull</span></code></pre></div></div>
+</div>
+<p>Each time you type a command, you press <em>enter</em> to execute it. In my experience, it’s faster and simpler than using the RStudio graphical interface, but it’s a matter of taste.</p>
+<p>This workflow allows for more organized and transparent work. Every decision is recorded, errors can be reverted, and the project becomes a shared space with memory.</p>
+<p>Working with projects and version control is not just a technical matter. It is a way to organize intellectual work, to make it more readable, and to reduce friction when collaborating with others. We must warn you that, as <a href="https://en.wikipedia.org/wiki/Uncle_Ben">Uncle Ben</a> said, with great power comes great responsibility, and it’s normal to encounter errors when using Git (especially if we use several devices and forget to update changes). There are many commands for thousands of situations and tight spots you might find yourself in, so I suggest having guides like <a href="https://rogerdudler.github.io/git-guide/index.html">this one</a> or even this <a href="https://www.freecodecamp.org/news/the-beginners-guide-to-git-github/">FreeCodeCamp course</a> handy.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>While we will talk about GitHub here, strictly speaking, one thing is <em>Git</em> and another is <em>GitHub</em>. <strong>Git</strong> is the version control system that is installed locally and is responsible for recording changes in files, something like the technology that allows tracking changes. <strong>GitHub</strong>, <strong>GitLab</strong>, and similar platforms are services that host Git repositories in the cloud and add tools for sharing, collaborating, and managing projects.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/projects-version-control-github.html</guid>
+  <pubDate>Sat, 24 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Reproducibility: why it matters and what it has to do with good programming</title>
+  <link>https://atelierdecodigo.com/en/posts/reproducibility.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>In many research areas, results are not produced all at once. They are built from data, analytical decisions, adjustments, corrections, and backtracking. In this process, a question arises sooner or later: could another person obtain the same results by following the same steps? This possibility is often called <a href="https://royalsocietypublishing.org/rsta/article/379/2197/20200210/111826/The-fundamental-principles-of">reproducibility</a>.</p>
+<p>Reproducibility refers to the ability to repeat an analysis and arrive at the same results using the same data and the same procedures. It does not imply that the results are universal or definitive, but rather that the path that led to them is clear and verifiable. In practical terms, a reproducible analysis allows one to understand what was done, how it was done, and in what order.</p>
+<p>Lack of reproducibility is rarely due to malicious intent (though sometimes it happens). Rather, it is often associated with common but unsystematic practices: data files modified without a log, analyses partially done in the console, intermediate steps not saved, results copied and pasted into final documents. Over time, even the person who performed the analysis can lose the ability to reconstruct it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://atelierdecodigo.com/en/posts/images/spidermanmeme.jpg" class="img-fluid figure-img" alt="Meme showing two Spidermen pointing at each other."></p>
+<figcaption>When we look for the culprit as to why our code no longer works just a few months after we wrote it.</figcaption>
+</figure>
+</div>
+<p>At this point, programming plays a central role. Working with code allows for an explicit record of each decision. A script can show how data was loaded, what transformations were applied, what models were fitted, and how results were produced, both tables and graphs. This record does not depend on memory or subsequent explanations. It is written and can be read, either in plain text using an RMarkdown or Quarto file, or in the comments within the code itself.</p>
+<p><a href="https://medium.com/@josueparra2892/20-best-programming-practices-407df688b96e">Good programming practices</a> reinforce this logic. Writing code in <a href="https://atelierdecodigo.com/en/posts/console-script-writing-code.html">scripts</a> instead of just in the console allows the entire process to be preserved. Using clear names for objects and functions facilitates readability. Adding comments helps understand why a certain decision was made and not another. Organizing work into <a href="https://atelierdecodigo.com/en/posts/projects-rstudio.html">projects</a> keeps data, code, and results together. All these practices aim at the same thing: that the analysis can be resumed and understood.</p>
+<p>Reproducibility also benefits from the separation between raw data and processed data. Maintaining an original version of the data and performing all transformations via code prevents hard-to-detect errors. If something changes in the input data (for example, if you added subjects to your data collection), the analysis can be rerun without needing to manually redo steps.</p>
+<p>Another key aspect is automation. When results are generated from code, there’s no need to copy values from one place to another. Graphs, tables, and statistics are produced directly from the scripts. This reduces errors and ensures that the results are aligned with the data and the current analytical decisions.</p>
+<p>Tools like RStudio facilitate this approach. Working with <a href="https://atelierdecodigo.com/en/posts/projects-rstudio.html">projects</a>, using <a href="http://atelierdecodigo.com/en/posts/console-script-writing-code.html">scripts</a>, and the ability to integrate code and text into reproducible documents like <a href="https://macarenaquiroga.com/en/post/super-basic-rmarkdown-guide-beginners/">RMarkdown</a> allow for building analyses that run from beginning to end. The result is more transparent work, both for the person performing it and for the person reading it.</p>
+<p>Reproducibility is not an abstract goal or an external requirement. It has very concrete effects on daily work. It saves time when something needs to be corrected, allows analyses to be resumed after weeks or months, and facilitates exchange with other people. Even when the analysis will not be shared publicly, working reproducibly improves the quality of the process.</p>
+<p>Good programming alone does not guarantee reproducibility, but it creates the conditions for it to be possible. Writing legible, organized, and documented code transforms the analysis into an object that can be reviewed, discussed, and improved. In that sense, good programming practices are as much a part of scientific work as formulating questions or interpreting results.</p>
+<p>In the upcoming posts in this series, we will continue to delve into concrete tools that help sustain this way of working, from code organization to the use of version control.</p>
+
+
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/reproducibility.html</guid>
+  <pubDate>Thu, 22 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Working with projects in RStudio: organizing your work from the start</title>
+  <link>https://atelierdecodigo.com/en/posts/projects-rstudio.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>When you start using R, it’s common to work with loose files: a script here, a data file there, results saved on the desktop or in unclear folders. This mode of work often functions at first, but it becomes fragile as the analysis grows, as time passes, or when another person needs to understand what was done (or you, in the future!). At that point, a key RStudio tool appears: projects.</p>
+<p>An RStudio project is a way to organize your work within a main folder. Everything that belongs to a specific analysis or project lives within that space: scripts, data, plots, tables, and documents. When you open a project, RStudio knows where it stands and always works from that location. This avoids one of the most frequent problems when starting out: errors with <a href="https://en.wikipedia.org/wiki/Path_(computing)">absolute or relative paths</a>, and files that “cannot be found”.</p>
+<p>From a conceptual point of view, working with projects helps to make the work structure explicit. The analysis stops being a succession of dispersed commands and gains a clear framework. Each file serves a purpose, and its location makes sense. Furthermore, the project saves information about the <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">working environment</a>, making it easier to resume analysis after a period without having to reconstruct everything from scratch.</p>
+<p>Projects also promote reproducibility. If everything is within the same folder, it’s easier to move the work to another computer or share it, for example, through a Github repository. There’s no need to rewrite absolute paths or adjust settings every time. RStudio takes care of opening the project and getting everything ready to continue.</p>
+<section id="how-to-create-an-rstudio-project-step-by-step" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-create-an-rstudio-project-step-by-step">How to create an RStudio project step-by-step</h3>
+<ol type="1">
+<li><p>Open RStudio.</p></li>
+<li><p>In the top menu, click on <strong>File</strong> and then on <strong>New Project….</strong></p></li>
+<li><p>RStudio will offer three options. To start, the simplest one is <strong>New Directory</strong>.</p></li>
+<li><p>Choose <strong>New Project</strong>.</p></li>
+<li><p>Specify the project name and the location where you want the folder to be created.</p></li>
+<li><p>Click on <strong>Create Project</strong>.</p></li>
+</ol>
+<p>RStudio will create a folder with that name and automatically open the project. From that moment on, every time you open that project file, identified by the <code>.Rproj</code> extension, RStudio will work from that folder. You’ll see it in the upper right corner, next to a light blue cube with an “R”:</p>
+<p><img src="https://atelierdecodigo.com/en/posts/images/CleanShot 2026-01-18 at 20.09.35@2x.png" class="img-fluid"></p>
+</section>
+<section id="what-changes-when-working-within-a-project" class="level3">
+<h3 class="anchored" data-anchor-id="what-changes-when-working-within-a-project">What changes when working within a project</h3>
+<p>Once the project is created, it’s advisable to adopt some simple practices. Save scripts within the project folder, for example in a subfolder called <code>scripts</code>. Place data in another folder, such as <code>data</code>. Save plots or tables in specific folders. This organization is not mandatory, but it helps make the work more readable.</p>
+<p>Another important change is the use of relative paths. Within a project, when referring to a file, it is named in relation to the project folder. For example, <code>data/survey.csv</code>. This works as long as the project is open and prevents errors when the analysis is moved.</p>
+<p>RStudio also displays the name of the active project in the upper right corner. This visual detail serves as a constant reminder of the context you are working in. Opening a script without opening the project can cause confusion, so it’s advisable to get used to always starting your work from the <code>.Rproj</code> file.</p>
+<p>Finally: a personal recommendation. Before finishing work or closing the file, try restarting your RStudio session (in the top bar, <strong>Session</strong> and then <strong>Restart R</strong>), and try running all the code from scratch. If everything goes well, then your code is clean and ready to be saved. But if you modified something (for example, in the console) that broke the continuity of the code, an error will pop up. And believe me, it’s better to correct it right away than the next day (or months or years later…).</p>
+</section>
+<section id="projects-as-a-work-habit" class="level3">
+<h3 class="anchored" data-anchor-id="projects-as-a-work-habit">Projects as a work habit</h3>
+<p>Working with projects doesn’t require advanced knowledge or change the way you write code. It primarily changes how you organize it. Incorporating this habit from the start saves time, reduces errors, and makes the analysis easier to understand, even for the person who created it.</p>
+<p>In the next post in this series, we will go a step further and explain how to connect an RStudio project with a version control system. This allows you to track changes, revert to previous states of your work, and collaborate in a more organized way.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/projects-rstudio.html</guid>
+  <pubDate>Thu, 22 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Getting Started with R: Installation and First Steps</title>
+  <link>https://atelierdecodigo.com/en/posts/install-r-rstudio.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Starting with R often raises very specific questions. What to install, in what order, what each thing is for. Before writing a single line of code, it’s worth clarifying this point, because R works with several pieces that combine with each other. The good news is that the installation process is simple and only needs to be done once.</p>
+<p>The first step is to install R. R is the programming language itself. To do this, go to the official project site <a href="https://cran.r-project.org">CRAN</a>, and choose the installer file that corresponds to your operating system (Windows, macOS, or Linux). By clicking, you will access the specific instructions for each case.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://atelierdecodigo.com/en/posts/images/installR.jpg" class="img-fluid figure-img" alt="Fragment of CRAN website with links to download R"></p>
+<figcaption>Install R</figcaption>
+</figure>
+</div>
+<p>Technically, we could use R directly from the software we just installed, on Windows and macOS. However, it is not a very user-friendly graphical interface, so most people use other <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">environments</a> like RStudio, VSCode, or Positron. If we are just starting, it is preferable to use RStudio, because most tutorials will show images of that environment.</p>
+<p>As we mentioned <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">in a previous post</a>, RStudio is an independent program that is installed separately. It is a graphical interface (technically, an integrated development environment) that facilitates the interaction between the user and the R programming language. To install it, you have to go to the <a href="https://posit.co/download/rstudio-desktop">RStudio</a> site and download the free version. As seen in the image, we can also install R from here, but if we have already installed it from CRAN, there is no need to install it again.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://atelierdecodigo.com/en/posts/images/installRStudio.jpg" class="img-fluid figure-img" alt="Fragments from RStudio website with links to install RStudio"></p>
+<figcaption>Install RStudio.</figcaption>
+</figure>
+</div>
+<p>When opening RStudio for the first time, it automatically detects the R installation and is ready to use. From that moment on, RStudio becomes the main workspace.</p>
+<p>With R and RStudio installed, it is now possible to write and execute code. The next usual step is to install packages, which are add-ons that extend R’s capabilities. One of the most used is the Tidyverse, a set of packages designed to work with data in an organized and readable way (you can read more about what packages are <a href="http://atelierdecodigo.com/en/posts/r-base-tidyverse.html">here</a>).</p>
+<p>Installing a package in R is done by typing an instruction in the console. In the case of the Tidyverse, the command is:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">install.packages</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"tidyverse"</span>)</span></code></pre></div></div>
+</div>
+<p>Once we write the code, we must execute it (control+Enter or the “Run” icon). This step requires an internet connection and may take a few minutes, because the Tidyverse includes several packages. Many colored messages will appear in the console: this is normal (unless something says “Warning” or “Error”). The installation is done only once. Once installed, to use it in a work session, you have to load it with:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span></code></pre></div></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tibble' was built under R version 4.4.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.4.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'stringr' was built under R version 4.4.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.6.0
+✔ ggplot2   3.5.1     ✔ tibble    3.3.0
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.2.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<p>This difference between installing and loading often causes confusion at first. Installing downloads the package to the computer. Loading makes it available in the current R session. Every time a new session is started and you want to use the Tidyverse, you have to run <code>library(tidyverse)</code> again.</p>
+<p>After loading it, R shows some messages in the console indicating which packages were activated. From that moment on, functions like <code>ggplot</code>, <code>mutate</code>, or <code>filter</code> become available. There’s no need to understand them all immediately. The important thing is to know that they are part of the same ecosystem and share a common logic.</p>
+<p>A practical tip for beginners is to verify that everything is working. For example, write a simple line like:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(mtcars, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> mpg, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> wt)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>()</span></code></pre></div></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://atelierdecodigo.com/en/posts/install-r-rstudio_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If a plot appears, the installation was successful. It doesn’t matter if the code is not yet understood. That will be worked on later.</p>
+<p>Installing R, RStudio, and the Tidyverse marks the beginning of the work. From there, learning R involves familiarizing oneself with <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">the environment</a>, with writing <a href="http://atelierdecodigo.com/posts/console-script-writing-code.html">scripts</a>, and with reading code. Having these tools well installed and working avoids many unnecessary problems and allows you to focus on what’s most important: understanding what the code does and how to use it to analyze data.</p>
+<p>In the next posts of this series, we will break down these pieces in more detail, so that the initial step transforms into a solid working foundation.</p>
+
+
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/install-r-rstudio.html</guid>
+  <pubDate>Thu, 22 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Console and Script: Two Ways to Write Code in R</title>
+  <link>https://atelierdecodigo.com/en/posts/console-script-writing-code.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>When R or RStudio is opened for the first time, the console is usually the starting point. It’s the window where the <code>&gt;</code> symbol appears and where instructions can be written directly. You write a line of code, press Enter, and R responds. That response can be a number, a table, a message, or a plot. The console basically serves to tell R what to do and see the result immediately.</p>
+<p><img src="https://atelierdecodigo.com/en/posts/images/CleanShot 2026-01-18 at 19.40.28@2x.png" class="img-fluid" alt="Image of an empty console."></p>
+<p>The console is useful for quick actions. For example, calculating an average, viewing the content of an object, or testing if a function does what we expect. It’s also common to use it for small trials while learning. The problem is that what is written in the console is not saved in an organized way. If R is closed or the session is restarted, that history is lost. Even with the session open, reviewing what was done a while ago can be confusing.</p>
+<p>The script serves another function. A script is a file where code is written to be saved. In RStudio, it usually has the <code>.R</code> extension and opens in the editor pane (you can go to <code>File</code>, <code>New File</code>, <code>R Script</code> or click on the icon with a green cross). There, you can write many lines of code, add comments, and organize the analysis step by step. Writing in a script does not execute the code automatically. Each line or block is run only when indicated, either with the button that says “Run”, or with Control+Enter.</p>
+<p><img src="https://atelierdecodigo.com/en/posts/images/CleanShot 2026-01-18 at 19.45.25@2x.png" class="img-fluid" alt="Image of an empty script."></p>
+<p>This difference is important. The script allows separating two moments: writing and executing. First, the code is written calmly. Then, it is decided what to execute and when. This makes the work more organized and easier to pick up again. If the file is reopened days or weeks later, the code is still there, in the order it was conceived.</p>
+<p>A very common use is to combine both spaces. The console is used to quickly test something. If that code proves useful, it is copied or written directly into the script. In this way, the script becomes the main record of the work, while the console functions as a testing ground.</p>
+<p>RStudio facilitates this way of working. From the script, code can be executed, and the result appears in the console, but the code remains saved in the script file. This dynamic is especially useful when the analysis has multiple steps or when the work needs to be shared with other people.</p>
+<p>In practical terms, a good initial rule is this: the console serves for testing and exploring; the script serves for saving and organizing. There’s no need to choose one over the other exclusively. The important thing is to understand what each space contributes and to use it consciously.</p>
+<p>Learning to write in scripts from the beginning saves time later on. It allows for easy error correction, repeating analyses without starting from scratch, and better understanding what was done at each stage. For beginners, this distinction often marks a before and after in how they work with R.</p>
+
+
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/console-script-writing-code.html</guid>
+  <pubDate>Wed, 21 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>R base, packages, and Tidyverse: what we talk about when we use R</title>
+  <link>https://atelierdecodigo.com/en/posts/r-base-tidyverse.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>When we start working with R, one of the first expressions that appears is “R base.” No, just kidding: when we start working with R, we have no idea what we’re doing. We copy code from the courses we’re taking or from the books or tutorials we’re following. It’s possible that these materials contain information about the source of those functions, but as learners, our <a href="https://en.wikipedia.org/wiki/Working_memory">working memory</a> is a bit saturated, and we’ve probably not paid attention to it.</p>
+<p>As we incorporate concepts and automate our workflow, we can start paying attention to the theory. And we see these concepts emerge: R base, packages, libraries, Tidyverse. These words circulate naturally in tutorials, classes, and forums, although their meaning and how they relate to each other are not always explicitly stated. However, understanding this architecture is key to being able to read code with greater autonomy and to make informed decisions about how to work with data.</p>
+<p><strong>R base</strong> refers to the set of functionalities included when R is installed. It includes the language itself, a wide range of fundamental functions, and some basic packages that are loaded automatically. Arithmetic operations, object creation, basic handling of vectors and data frames, functions like <code>mean()</code>, <code>sum()</code>, <code>plot()</code>, or <code>summary()</code> are part of this core. R base defines the minimal grammar of the language and establishes the rules that allow everything else to function.</p>
+<p>Working solely with R base is possible, and in fact, for many years, it was the standard way to use R. However, that core is designed to be extended. R was designed from the beginning as a language<sup>1</sup>, capable of incorporating new functionalities without modifying its central structure. This extensibility is materialized through packages.</p>
+<p>A package is an organized collection of functions, data, and documentation that can be downloaded and incorporated into an R session. Each package addresses a specific need: particular statistical analysis, visualization, text manipulation, survey work, advanced models, or specific data formats. Technically, installing a package means downloading it to your computer; using it means loading it into the active session. Conceptually, using a package implies adopting a particular way of solving analytical problems. There are packages of all types and colors: some focus on functions, others on data. Given that many different packages perform the same actions, there has recently been much emphasis on <a href="https://ropensci.org/blog/2021/11/16/how-to-cite-r-and-r-packages/">the importance of citing packages used in data analysis</a>, which has led to the emergence, not without some irony, of <a href="https://pakillo.github.io/grateful/">packages that facilitate package citation</a>.</p>
+<p>Packages can be thought of as crystallizations of research practices. Whoever develops a package makes decisions about which operations to facilitate, how to name them, which data structures to prioritize, and which assumptions to take for granted. When we use a function from a package, we are not only reusing code but also incorporating a certain way of thinking about analysis. While it is difficult to know a package thoroughly from which we are taking a function, it is always good practice to read <a href="https://www.r-project.org/other-docs.html">its documentation</a>.</p>
+<p>At this point, another source of confusion often appears: the term “library.” In R, “library” is used to refer to the location where packages are installed on the system, and also, by extension, to the act of loading them using the <code>library()</code> function. In everyday practice, speaking of packages and libraries is often interchangeable, although from a technical standpoint, they are not exactly the same. The important thing is to understand that R base is extended through packages that are loaded according to the needs of the analysis.</p>
+<p>Within this universe of packages, there is one that occupies a particular place: the <a href="https://tidyverse.org/">Tidyverse</a>. The Tidyverse is not a single package, but a collection of packages designed to work coherently with each other. It includes widely used tools for data manipulation, visualization, and file import, such as <code>dplyr</code>, <code>ggplot2</code>, <code>tidyr</code>, <code>readr</code>, and <code>stringr</code>, among others. All share a common philosophy and a relatively consistent syntax, found in the book <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> by Hadley Wickham and Garrett Grolemund.</p>
+<p>The central proposal of the Tidyverse is to organize data work based on clear principles. One of the best known is the concept of “tidy data,” where each variable occupies a column, each observation a row, and each type of analytical unit a table.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://atelierdecodigo.com/en/posts/images/CleanShot 2026-01-20 at 17.09.46.png" class="img-fluid figure-img"></p>
+<figcaption>Image taken from the book “R for Data Science” by Hadley Wickham and Garrett Grolemund.</figcaption>
+</figure>
+</div>
+<p>This principle, which may seem purely technical, has important analytical implications because it forces one to explicitly state what is considered a variable, what counts as an observation, and how data is structured. This can change not only between datasets but also between analyses and even between functions. For example, a function that performs a statistical analysis comparing groups might take the grouping variable from a single column or might require each group to have its own column.</p>
+<p>Another distinctive feature of the Tidyverse is its emphasis on code readability. Functions often have verbal names, arguments prioritize clarity, and the use of the <code>%&gt;%</code> operator suggests a sequential reading of operations. For those coming from traditions where text interpretation and procedure explication are central, this orientation is particularly appealing. The code is presented as a sequence of transformations that can be read almost like a narrative of the analysis (<a href="https://www.reddit.com/r/rstats/comments/vbd6jq/piping_in_r_is_like_baking/#lightbox">or like a cooking recipe!</a>)<sup>2</sup>.</p>
+<p>This does not mean that the Tidyverse replaces R base. In fact, it constantly relies on it. Many Tidyverse functions wrap or reorganize existing functionalities in R base, offering a different interface. Choosing to work with R base, with specific packages, or with the Tidyverse is not a matter of correctness, but of approach. Each option implies adopting certain conventions and foregoing others. It also has to do with knowing the audience for our code: certain packages tend to be more <em>famous</em> in specific fields, and that can prioritize our decision to use them over less known alternatives. Ultimately, it’s about using the <em>language</em> in a way that will facilitate its understanding.</p>
+<p>Understanding these differences allows us to move beyond a purely instrumental logic. Using R is not just about knowing which command to execute, but about understanding what conceptual framework we are employing when doing so. R base, packages, and the Tidyverse form layers of the same language, which combine in various ways depending on the research problem, the type of data, and the questions one wants to ask.</p>
+<p>In the next texts in this series, we will revisit these tools with concrete examples. The idea will not be to learn lists of functions, but to develop criteria for reading code, recognizing styles, and consciously choosing how to work with R in situated research contexts.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Again, metaphors appear that bring programming language closer to other disciplines. In this case, I’m thinking of Jerry Fodor’s <a href="https://books.google.com.ar/books?id=ISgIzxoFgikC&amp;printsec=copyright#v=onepage&amp;q&amp;f=false">the modular conception of the mind</a>.↩︎</p></li>
+<li id="fn2"><p>A clarification is needed here. The famous <code>%&gt;%</code> operator (<em>pipe</em>) was for a long time synonymous with the Tidyverse, although it comes from the specific <code>magrittr</code> package. However, R version 4.1.0, released in May 2021, incorporated a similar operator, <code>|&gt;</code>, meaning that function chaining, like that seen in that charming GIF, is no longer exclusive to the Tidyverse. Strictly speaking, both operators have different functionalities, so massively replacing the <code>%&gt;%</code> operator with <code>|&gt;</code> in our code can lead to errors. The differences might be too technical for someone just starting, but if you’re interested, you can read more <a href="https://tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/">here</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/r-base-tidyverse.html</guid>
+  <pubDate>Tue, 20 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>R for the Humanities: Why Learn to Program?</title>
+  <link>https://atelierdecodigo.com/en/posts/r-humanities-learning.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Learning to program is often presented as a technical skill, associated with a technology-focused job market. For those of us who come from the social sciences and humanities, that world can feel alien. Our daily work has a different materiality (texts?) and is shaped by questions about language, interpretation, category construction, and situated knowledge production. However, increasingly, technological tools are emerging that allow these two worlds to be intertwined, and more and more people from linguistics, sociology, or political science are working with code and data science.</p>
+<p>We often stop to think about what programming brings to those of us who work in these areas, but what can <em>we</em> bring to that world? What new perspectives can we offer on technology? There’s one that seems central to us, which we’ve mentioned several times because it’s at the core of our experience: programming is writing. Beyond the obvious associations between a “natural language” and a “programming language,” we fundamentally believe there’s a textual dimension shared by both <em>texts</em> and <em>scripts</em>. In this context, we propose to view programming not so much as an instrumental skill, but rather as a practice of writing and analysis that dialogues with already familiar concerns.</p>
+<p>Programming involves writing instructions in a formal language, but also reading, interpreting, and revising them. An <a href="https://atelierdecodigo.com/en/posts/console-script-writing-code.html">script</a> in R is not just a sequence of commands that “works” or “doesn’t work”: it’s a text that condenses analytical decisions, theoretical assumptions, and methodological choices. Where do we start? How much do we focus on descriptive analysis versus inferential analysis? Do we write alone or do we expect someone else to read us? Do we comment on our text?</p>
+<p>Just as we analyze an academic text by asking what concepts it uses, what it leaves out, or how it organizes its argument, code can also be read critically. Learning to program in R, then, opens up the possibility of thinking with data in an explicit and revisable way.</p>
+<p>R is especially interesting for this cross-section because it <a href="https://atelierdecodigo.com/posts/r-programming-language.html">was born and developed in academia</a>. Its widespread use in statistics, linguistics, sociology, psychology, and education sciences is no coincidence. The logic of the language favors exploratory and reflective work with data, where each analysis step can be recorded. Furthermore, its package ecosystem reflects specific disciplinary debates and traditions, which materialize in functions, arguments, and data structures. Paradoxically, many people see the R vs Python debate as an academia vs.&nbsp;industry debate (mostly by those from industry who have negative biases towards academic work).</p>
+<p>Something of this is seen in course learning materials: the vast majority focus on instructions on how to perform a specific task, but rarely are there explanations about the intrinsic functioning of the language. In fact, the <em>linguistic</em> aspect of a programming language is rarely highlighted, despite inheriting attributes such as <a href="https://en.wikipedia.org/wiki/Syntax_(programming_languages)">syntax</a>) or <a href="https://en.wikipedia.org/wiki/Semantics#Computer_science">semantics</a>. Those of us who come from linguistics and have an ingrained perspective on the formal or combinatorial aspects of structures have an advantage that is not usually mentioned. Rather, the opposite: those from the social sciences and humanities often feel that their way of thinking is different from what is needed to enter the world of technology (we discussed this at <a href="https://www.youtube.com/watch?v=t4f76etAF0Q">#LatinR2024</a>, in Spanish).</p>
+<p>From our perspective, learning to program does not mean abandoning practices specific to other areas. On the contrary, it means extending them to a new type of text. Code becomes a space where theory, method, and data are articulated. Tools like RStudio, and practices such as using reproducible scripts or documents in <a href="https://macarenaquiroga.com/en/post/super-basic-rmarkdown-guide-beginners/">R Markdown</a>, reinforce this idea by integrating code, text, and results into a single medium.</p>
+<p>In closing this reflection, it’s worth insisting on a central idea: programming is a situated practice. It is learned in specific contexts, to answer concrete questions, with determined disciplinary traditions. Learning R from the humanities and social sciences does not imply simply adopting an alien language, but rather appropriating it, reading it critically, and using it to think about one’s own problems. Programming, in this sense, is another way of writing, analyzing, and producing knowledge.</p>
+
+
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/r-humanities-learning.html</guid>
+  <pubDate>Sun, 18 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>R: A Language Born to Think with Data</title>
+  <link>https://atelierdecodigo.com/en/posts/r-programming-language.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>When we, from the social sciences and humanities, first approach a programming language, an ambiguous feeling often arises: curiosity, interest, and, at the same time, a certain caution. Programming is frequently associated with a technical practice, distant from reading, discursive analysis, or theoretical reflection. However, we can choose a different entry point to learn R. Its history, its uses, and the community that sustains it make it a language particularly close to an analytical perspective on data and on the conditions of knowledge production.</p>
+<p>R originated in the field of academic statistics. In the early 1990s, Ross Ihaka and Robert Gentleman, statisticians at the University of Auckland, developed R as a free re-implementation of the S language, used since the 1970s in statistical research. From that initial moment, R was conceived as a tool for exploring data, testing models, and supporting scientific research processes. This origin helps to understand many of its current characteristics and also the practices that have consolidated around its use.</p>
+<p>One of R’s distinctive features is its orientation towards interactive analysis. The code executes progressively and allows for exploratory work with data: trying an operation, observing the result, adjusting the instruction, and re-evaluating. For those accustomed to building analyses iteratively, based on provisional hypotheses and constant reformulations, this mode of work is particularly familiar. Programming in R usually involves sustaining a process of controlled exploration, rather than following a completely predefined path.</p>
+<p>From a technical point of view, R relies heavily on the use of functions. Most operations are performed by applying functions to objects (in fact, R is <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">an object-oriented language</a>, just like Python). A function can be understood as a formalized operation that receives one or more arguments, executes a series of internal steps, and returns a result. Calculating an average, transforming a variable, fitting a model, or producing a graph are examples of tasks performed using functions. Reading code in R involves identifying which functions appear, what arguments they receive, and what type of object they generate as output.</p>
+<p>This emphasis on functions favors a careful reading of code as if it were a text. Each function call presents a relatively stable structure: a name, parentheses, and arguments that can be explicitly named or implicitly defined by default values. For those with experience in text analysis, this syntax can be approached as a system of markers that guides interpretation. Understanding why a function produces a certain result often requires pausing on these details and on the assumptions that the function incorporates.</p>
+<p>Over time, the uses of R expanded considerably. Currently, it is used for statistical analysis, modeling, data visualization, text analysis, social network studies, working with spatial data, and experiments in psychology and linguistics, among many other fields. This expansion is largely explained by the package system. A package is an organized collection of functions, data, and documentation that extends the language’s capabilities. R thus functions as a constantly growing environment, fed by contributions from different academic communities. For the social sciences and humanities, this feature is particularly relevant. Many of the tools available in R were developed by researchers working on problems similar to ours. Packages oriented towards the analysis of surveys, texts, linguistic corpora, or longitudinal data incorporate specific theoretical and methodological decisions. By reading the code that uses these packages, one also accesses these decisions: how a unit of analysis is defined, which operations are considered relevant, what assumptions are adopted about the data.</p>
+<p>In this sense, R can be thought of as a language in which particular ways of thinking and researching are inscribed. The existence of object classes, the representation of models as examinable objects, or the construction of layered graphics organize the relationship between the analyst and the analyzed phenomenon. Learning R implies learning to recognize and work with these mediations.</p>
+<p>For this reason, in a series aimed at those beginning programming from the social sciences and humanities, it is productive to present R as a language with a history, conventions, and communities of use. Reading code in R, even when it initially takes time and effort, is part of a technical literacy that dialogues with habitual practices of reading and interpretation.</p>
+<p>In the next texts in this series, we will introduce concrete code snippets. The goal will be to learn to read them, decompose them, and understand what they are doing and what they are saying. Programming in R, from within our disciplines, implies incorporating a new form of writing and of situated knowledge production.</p>
+
+
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/r-programming-language.html</guid>
+  <pubDate>Sat, 17 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Integrated Development Environments (or IDEs, for friends)</title>
+  <link>https://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>When someone starts programming, one of the first common confusions relates to the working environment. Where does the code “live”? Is it written in a common text file? Is it executed from a console (and what is a console)? Is R the same as RStudio? Do I have to <a href="http://atelierdecodigo.com/en/posts/install-r-rstudio.html">install</a> both things? In what order? These questions are not minor, because they refer to a key distinction: the difference between a programming language and the environment in which that language is used. At this point, the notion of an <strong>IDE</strong> appears, short for <em>Integrated Development Environment</em>, or integrated development environment.</p>
+<p>An IDE is a program that brings together several necessary programming tools in one space. Generally speaking, it combines at least four components: a code editor, a console where instructions are executed, tools for exploring files and objects, and aids for writing and reading code. The IDE does not replace the programming language, but rather offers a graphical interface that facilitates its use. R remains R, with its syntax and rules, regardless of the IDE used. However, the work experience changes substantially depending on the chosen environment.</p>
+<p>There are widely used IDEs across different languages. <a href="https://code.visualstudio.com/">Visual Studio Code</a> is one of the most popular today and is used for working with multiple languages, from R and Python to JavaScript. <a href="https://eclipseide.org/">Eclipse</a> has a long tradition in Java development. <a href="https://www.spyder-ide.org/download">Spyder</a> is common in the Python ecosystem, especially in scientific contexts. In the case of R, the most widespread IDE is <strong>RStudio</strong>, which was specifically designed to work with this language and with common data analysis practices. In recent years, <a href="https://posit.co/products/ide/positron/">Positron</a> also appeared, an IDE developed by <a href="https://posit.co/">Posit</a> that reuses many of RStudio’s ideas and articulates them with a more generalist logic, oriented to working with multiple languages. However, in this series, we will focus on <a href="https://posit.co/products/open-source/rstudio/?sid=1">RStudio</a> because it remains the most widespread environment in the academic use of R and because its design is deeply aligned with common practices of analysis, teaching, and reproducible writing in this language. And also because it’s what we’re used to :)</p>
+<p>RStudio is organized into an interface that, at first glance, can be overwhelming: panels, tabs, buttons, windows. However, this arrangement responds to a work logic worth understanding. In one panel, you typically find the script editor, where code is written. In another, the console, which allows executing lines or blocks of code and immediately seeing their results. Other panels show the objects available in the session, project files, generated plots, or function documentation. This organization is not merely decorative. It proposes a way of thinking about data work as an activity distributed among writing, execution, exploration, and reading. In <a href="https://macarenaquiroga.com/en/post/help-i-have-quantitative-data/">this post</a> there is a description of what each of these parts looks like. The important thing is to recognize each unit separately, because eventually the user can rearrange the position of the panels on their screen.</p>
+<p>The script editor occupies a central place. There, the code is presented as text that can be read, reviewed, and modified. RStudio offers aids such as syntax highlighting, automatic indentation, and autocompletion, although it takes some time to understand these functionalities and incorporate them into daily practice. These features not only reduce technical errors but also facilitate code readability. Colors, indents, and suggestions make structures visible that would otherwise remain hidden in a uniform mass of characters. The IDE, in this sense, acts as a mediator that makes the language more legible. A script is, ultimately, a text.</p>
+<p>We can think of the script editor as a word processor, like Word or GoogleDocs. The editor will mark with a red cross when something alters R’s syntax (just as word processors underline words with spelling errors). Paying attention to errors is a very effective way to understand how the syntax of a programming language works.</p>
+<p>In the console, we can execute functions directly, although they will not be saved unless we write them in the script (and this can cause problems if we lose track of our code). Working with the console can be useful when learning, because it enables constant testing, error, and reformulation, but the fact that the code and its results appear in the same place can hinder the clarity of our progress. The IDE does not force a linear path but accompanies back-and-forth processes between hypotheses, code, and results.</p>
+<p>Another relevant aspect of RStudio is its integration with projects. Working on a project (a post on this is coming!) involves organizing files, data, scripts, and results within a coherent structure. This practice, which may seem excessive at first, becomes fundamental when analyses grow in complexity or when they are resumed after some time. The IDE facilitates this organization and, in doing so, promotes a more reflective and documented way of working. Code ceases to be something ephemeral that is executed once and lost, to become a record of the analytical process. This also fosters reproducibility, a crucial aspect of scientific practice.</p>
+<p>RStudio also includes direct access to documentation, meaning the description and usage guide for functions and packages. When writing a function, it’s possible to quickly consult what it does, what arguments it expects, and what it returns. For example, executing <code>?summary</code> in the console will yield the specific usage guide for that function. This proximity to help reinforces the idea that programming involves reading as much as writing. Functions are not used blindly; instead, they are interpreted, compared, and chosen based on what one wants to do with the data. No one knows everything by heart; instead, we constantly refer to the materials produced by those who created these functions.</p>
+<p>It is important to emphasize that learning to use an IDE is not a prerequisite for “knowing how to program,” but it is part of the technical literacy that accompanies language learning. The IDE shapes habits, reading modes, and ways of organizing work. In that sense, it is not neutral. RStudio, in particular, is designed for analytical practices typical of academic work: data exploration, reproducible writing, combining code and text, and producing plots and reports.</p>
+<p>Thinking of the IDE as a mere technical support can lead to underestimating it. In reality, it functions as a workspace that embodies a certain conception of programming. For those starting with R from the social sciences and humanities, understanding what an IDE is and how it organizes the programming experience helps dismantle the idea that code is opaque or inaccessible. The environment is also read, interpreted, and learned to be used in a situated manner.</p>
+<p>In the upcoming texts of this series, we will revisit RStudio in greater detail, observing how certain interface decisions interact with concrete analytical practices. Understanding the environment is a key step to start thinking of code as a language one works with, and not just as a tool that is executed.</p>
+
+
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html</guid>
+  <pubDate>Sat, 17 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
