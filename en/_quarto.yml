@@ -1,11 +1,11 @@
 project:
   type: website
-  output-dir: ../docs/en
+  output-dir: _site
 
 website:
   title: "Atelier de Código"
   site-url: https://atelierdecodigo.com/en
-  margin-header: ./subscribe-en.html
+  margin-header: subscribe-en.html
   navbar:
     left:
       - href: index.qmd
