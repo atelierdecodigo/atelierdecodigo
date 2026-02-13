@@ -22,9 +22,9 @@ website:
         text: Blog
     right:
       - text: "SPA"
-        href: /index.html
+        href: https://atelierdecodigo.com/index.html
       - text: "ENG"
-        href: /en/index.html
+        href: https://atelierdecodigo.com/en/index.html
 
 format:
   html:
