@@ -2,6 +2,7 @@
 title: "R para humanidades: ¿Por qué aprender a programar?"
 date: 2026-01-18
 page-layout: full
+author: "Atelier de Código"
 toc: false
 description: "¿Por qué aprender a programar desde las ciencias sociales y humanas? Este post propone pensar R como un lenguaje de análisis y escritura, muestra ejemplos simples de código comentado y presenta la programación como una práctica situada de producción de conocimiento."
 ---

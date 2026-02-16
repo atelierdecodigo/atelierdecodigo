@@ -1,6 +1,7 @@
 ---
 title: "6 libros imprescindibles para aprender Ciencia de Datos"
 date: 2026-01-27
+author: "Atelier de Código"
 page-layout: full
 toc: false
 description: "Cinco libros disponibles gratuitamente en línea para introducción y profundización en ciencia de datos, desde fundamentos y comunicación hasta programación con R y estadística aplicada."

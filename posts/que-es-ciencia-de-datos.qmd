@@ -2,6 +2,7 @@
 title: "¿Qué es la ciencia de datos y por qué tanto interés?"
 date: 2026-01-28
 page-layout: full
+author: "Atelier de Código"
 toc: false
 description: "¿Qué es la ciencia de datos y de dónde viene? Este post recorre su origen, su vínculo con la estadística y el big data, y analiza por qué cada vez más personas se acercan a este campo desde tradiciones analíticas diversas."
 ---

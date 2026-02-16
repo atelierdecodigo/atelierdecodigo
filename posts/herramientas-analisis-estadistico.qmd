@@ -1,5 +1,6 @@
 ---
 title: "Herramientas para hacer análisis estadísticos: un mapa posible"
+author: "Atelier de Código"
 date: 2026-01-30
 page-layout: full
 toc: false

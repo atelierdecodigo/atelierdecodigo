@@ -2,6 +2,7 @@
 title: "R base, packages, and Tidyverse: what we talk about when we use R"
 date: 2026-01-20
 page-layout: full
+author: "Atelier de Código"
 toc: false
 description: "What is R base, and what changes when we use packages? This post explains R's modular structure, introduces the role of packages, and dedicates a section to the Tidyverse as a set of tools with its own philosophy for working with data."
 ---

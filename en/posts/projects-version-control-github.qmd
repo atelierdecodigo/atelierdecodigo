@@ -2,6 +2,7 @@
 title: "RStudio Projects and Version Control: Working Without Getting Lost in Files"
 date: 2026-01-24
 page-layout: full
+author: "Atelier de Código"
 toc: false
 description: "Working with loose files and duplicated versions leads to confusion, especially in collaborative projects. This post introduces the use of RStudio projects combined with version control in GitHub and proposes a more organized and reproducible workflow."
 ---

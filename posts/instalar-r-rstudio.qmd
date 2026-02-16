@@ -1,6 +1,7 @@
 ---
 title: "Empezar con R: instalación y primeros pasos"
 date: 2026-01-22
+author: "Atelier de Código"
 page-layout: full
 toc: false
 description: "¿Cómo empezar con R desde cero? Este post explica paso a paso cómo instalar R y RStudio, cómo instalar y cargar el Tidyverse y qué verificar para asegurarse de que todo esté funcionando correctamente."

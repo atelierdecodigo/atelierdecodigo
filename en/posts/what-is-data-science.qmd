@@ -2,6 +2,7 @@
 title: "What is Data Science and Why All the Interest?"
 date: 2026-01-28
 page-layout: full
+author: "Atelier de Código"
 toc: false
 description: "What is data science and where does it come from? This post explores its origin, its link to statistics and big data, and analyzes why more and more people are approaching this field from diverse analytical traditions."
 ---

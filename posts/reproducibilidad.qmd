@@ -1,5 +1,6 @@
 ---
 title: "Reproducibilidad: por qué importa y qué tiene que ver con programar bien"
+author: "Atelier de Código"
 date: 2026-01-22
 page-layout: full
 toc: false

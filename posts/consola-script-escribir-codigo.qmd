@@ -1,6 +1,7 @@
 ---
 title: "Consola y script: dos formas de escribir código en R"
 date: 2026-01-21
+author: "Atelier de Código"
 page-layout: full
 toc: false
 description: "Consola y script cumplen funciones distintas en R. Este post explica de forma clara para qué sirve cada uno, cuándo conviene usarlos y cómo se complementan en el trabajo cotidiano."
@@ -14,7 +15,7 @@ La consola es útil para acciones rápidas. Por ejemplo, calcular un promedio, v
 
 El script cumple otra función. Un script es un archivo donde se escribe código para guardarlo. En RStudio suele tener extensión `.R` y se abre en el panel del editor (pueden ir a `File`, `New File`, `R Script` o hacer click en el ícono con una cruz verde). Allí se pueden escribir muchas líneas de código, agregar comentarios y organizar el análisis paso a paso. Escribir en un script no ejecuta el código automáticamente. Cada línea o bloque se corre solo cuando se lo indica, ya sea con el botón que dice "Run", o con control+Enter.
 
-![](images/CleanShot 2026-01-18 at 19.45.25@2x.png){fig-alt="Imagen de un script vacío."}
+![](images/CleanShot%202026-01-18%20at%2019.45.25@2x.png){fig-alt="Imagen de un script vacío."}
 
 Esta diferencia es importante. El script permite separar dos momentos: escribir y ejecutar. Primero se escribe el código con calma. Después se decide qué ejecutar y cuándo. Esto hace que el trabajo sea más ordenado y más fácil de retomar. Si se vuelve a abrir el archivo días o semanas después, el código sigue ahí, en el orden en que fue pensado.
 

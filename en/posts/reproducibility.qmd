@@ -2,6 +2,7 @@
 title: "Reproducibility: why it matters and what it has to do with good programming"
 date: 2026-01-22
 page-layout: full
+author: "Atelier de Código"
 toc: false
 description: "What does it mean for an analysis to be reproducible and why does it matter? This post explains the idea of reproducibility in science and shows how good programming practices help support clear, verifiable, and easy-to-resume analyses."
 ---

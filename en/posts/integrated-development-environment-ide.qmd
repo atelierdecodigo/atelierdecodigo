@@ -1,5 +1,6 @@
 ---
 title: "Integrated Development Environments (or IDEs, for friends)"
+author: "Atelier de Código"
 date: 2026-01-17
 page-layout: full
 toc: false

@@ -2,6 +2,7 @@
 title: "Working with projects in RStudio: organizing your work from the start"
 date: 2026-01-22
 page-layout: full
+author: "Atelier de Código"
 toc: false
 description: "What does it mean to work with projects in RStudio and why is it advisable to do so from the beginning? This post explains what projects are for and shows step-by-step how to create and use one in practice."
 ---

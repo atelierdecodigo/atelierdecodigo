@@ -2,6 +2,7 @@
 title: "Trabajar con proyectos en RStudio: ordenar el trabajo desde el inicio"
 date: 2026-01-22
 page-layout: full
+author: "Atelier de Código"
 toc: false
 description: "¿Qué significa trabajar con proyectos en RStudio y por qué conviene hacerlo desde el inicio? Este post explica para qué sirven los proyectos y muestra paso a paso cómo crear y usar uno en la práctica."
 ---

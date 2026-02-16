@@ -1,6 +1,7 @@
 ---
 title: "Proyectos en RStudio y control de versiones: trabajar sin perderse en archivos"
 date: 2026-01-24
+author: "Atelier de Código"
 page-layout: full
 toc: false
 description: "Trabajar con archivos sueltos y versiones duplicadas genera confusión, sobre todo en trabajos colaborativos. Este post introduce el uso de proyectos en RStudio combinados con control de versiones en GitHub y propone un flujo de trabajo más ordenado y reproducible."

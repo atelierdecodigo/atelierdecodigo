@@ -2,6 +2,7 @@
 title: "Console and Script: Two Ways to Write Code in R"
 date: 2026-01-21
 page-layout: full
+author: "Atelier de Código"
 toc: false
 description: "Console and script serve different functions in R. This post clearly explains what each is for, when to use them, and how they complement each other in daily work."
 ---

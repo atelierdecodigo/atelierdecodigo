@@ -3,6 +3,7 @@ title: "¿Qué es el Machine Learning?"
 date: 2026-01-29
 page-layout: full
 toc: false
+author: "Atelier de Código"
 draft: true
 description: "¿Qué es el machine learning y cómo funciona? Este post ofrece una introducción general al aprendizaje automático, explica sus ideas básicas y presenta los principales tipos de enfoques para quienes se acercan al tema por primera vez."
 ---

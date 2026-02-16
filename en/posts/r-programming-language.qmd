@@ -2,6 +2,7 @@
 title: "R: A Language Born to Think with Data"
 date: 2026-01-17
 page-layout: full
+author: "Atelier de Código"
 toc: false
 description: "What does programming have to do with reading, interpreting, and producing knowledge in social sciences and humanities? This text proposes an entry into R from its history and academic uses, showing how its design, its function-based logic, and its package ecosystem interact with familiar analytical practices. More than a technical introduction, it is an invitation to read code as language and to think of programming as a situated research practice."
 ---

@@ -2,6 +2,7 @@
 title: "R for the Humanities: Why Learn to Program?"
 date: 2026-01-18
 page-layout: full
+author: "Atelier de Código"
 toc: false
 description: "Why learn to program from the social sciences and humanities? This post proposes thinking about R as a language for analysis and writing, shows simple examples of commented code, and presents programming as a situated practice of knowledge production."
 ---

@@ -13,6 +13,7 @@
 <lastBuildDate>Thu, 29 Jan 2026 03:00:00 GMT</lastBuildDate>
 <item>
   <title>¿Qué es la programación orientada a objetos y por qué R se considera un lenguaje orientado a objetos?</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/posts/lenguaje-orientado-objetos.html</link>
   <description><![CDATA[ 
 
@@ -57,6 +58,7 @@
 </item>
 <item>
   <title>¿Qué es la ciencia de datos y por qué tanto interés?</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/posts/que-es-ciencia-de-datos.html</link>
   <description><![CDATA[ 
 
@@ -99,6 +101,7 @@
 </item>
 <item>
   <title>6 libros imprescindibles para aprender Ciencia de Datos</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/posts/libros-aprender-ciencia-datos.html</link>
   <description><![CDATA[ 
 
@@ -144,6 +147,7 @@
 </item>
 <item>
   <title>Gramática de gráficos</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/posts/gramatica-graficos-ggplot.html</link>
   <description><![CDATA[ 
 
@@ -189,6 +193,7 @@
 </item>
 <item>
   <title>Proyectos en RStudio y control de versiones: trabajar sin perderse en archivos</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/posts/proyectos-control-versiones-github.html</link>
   <description><![CDATA[ 
 
@@ -251,6 +256,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 </item>
 <item>
   <title>Empezar con R: instalación y primeros pasos</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/posts/instalar-r-rstudio.html</link>
   <description><![CDATA[ 
 
@@ -295,6 +301,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 </item>
 <item>
   <title>Trabajar con proyectos en RStudio: ordenar el trabajo desde el inicio</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/posts/proyectos-rstudio.html</link>
   <description><![CDATA[ 
 
@@ -339,6 +346,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 </item>
 <item>
   <title>Reproducibilidad: por qué importa y qué tiene que ver con programar bien</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/posts/reproducibilidad.html</link>
   <description><![CDATA[ 
 
@@ -371,6 +379,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 </item>
 <item>
   <title>Consola y script: dos formas de escribir código en R</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/posts/consola-script-escribir-codigo.html</link>
   <description><![CDATA[ 
 
@@ -396,6 +405,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 </item>
 <item>
   <title>R base, paquetes y Tidyverse: de qué hablamos cuando usamos R</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/posts/r-base-tidyverse.html</link>
   <description><![CDATA[ 
 
@@ -438,6 +448,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 </item>
 <item>
   <title>R para humanidades: ¿Por qué aprender a programar?</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/posts/r-humanidades-aprender.html</link>
   <description><![CDATA[ 
 
@@ -461,6 +472,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 </item>
 <item>
   <title>Los entornos de desarrollo integrado (o IDE, para los amigos)</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html</link>
   <description><![CDATA[ 
 
@@ -488,6 +500,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 </item>
 <item>
   <title>R: un lenguaje que nació para pensar con datos</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/posts/r-lenguaje-programacion.html</link>
   <description><![CDATA[ 
 

@@ -13,6 +13,7 @@
 <lastBuildDate>Thu, 29 Jan 2026 03:00:00 GMT</lastBuildDate>
 <item>
   <title>What is object-oriented programming and why is R considered an object-oriented language?</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/en/posts/object-oriented-programming.html</link>
   <description><![CDATA[ 
 
@@ -57,6 +58,7 @@
 </item>
 <item>
   <title>What is Data Science and Why All the Interest?</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/en/posts/what-is-data-science.html</link>
   <description><![CDATA[ 
 
@@ -99,6 +101,7 @@
 </item>
 <item>
   <title>6 Essential Books for Learning Data Science</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/en/posts/books-learning-data-science.html</link>
   <description><![CDATA[ 
 
@@ -144,6 +147,7 @@
 </item>
 <item>
   <title>Grammar of Graphics</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/en/posts/grammar-graphics-ggplot.html</link>
   <description><![CDATA[ 
 
@@ -189,6 +193,7 @@
 </item>
 <item>
   <title>RStudio Projects and Version Control: Working Without Getting Lost in Files</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/en/posts/projects-version-control-github.html</link>
   <description><![CDATA[ 
 
@@ -253,6 +258,7 @@ font-style: inherit;"># next time you pick up work</span></span>
 </item>
 <item>
   <title>Reproducibility: why it matters and what it has to do with good programming</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/en/posts/reproducibility.html</link>
   <description><![CDATA[ 
 
@@ -285,6 +291,7 @@ font-style: inherit;"># next time you pick up work</span></span>
 </item>
 <item>
   <title>Working with projects in RStudio: organizing your work from the start</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/en/posts/projects-rstudio.html</link>
   <description><![CDATA[ 
 
@@ -329,6 +336,7 @@ font-style: inherit;"># next time you pick up work</span></span>
 </item>
 <item>
   <title>Getting Started with R: Installation and First Steps</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/en/posts/install-r-rstudio.html</link>
   <description><![CDATA[ 
 
@@ -425,6 +433,7 @@ font-style: inherit;">geom_point</span>()</span></code></pre></div></div>
 </item>
 <item>
   <title>Console and Script: Two Ways to Write Code in R</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/en/posts/console-script-writing-code.html</link>
   <description><![CDATA[ 
 
@@ -450,6 +459,7 @@ font-style: inherit;">geom_point</span>()</span></code></pre></div></div>
 </item>
 <item>
   <title>R base, packages, and Tidyverse: what we talk about when we use R</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/en/posts/r-base-tidyverse.html</link>
   <description><![CDATA[ 
 
@@ -492,6 +502,7 @@ font-style: inherit;">geom_point</span>()</span></code></pre></div></div>
 </item>
 <item>
   <title>R for the Humanities: Why Learn to Program?</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/en/posts/r-humanities-learning.html</link>
   <description><![CDATA[ 
 
@@ -515,6 +526,7 @@ font-style: inherit;">geom_point</span>()</span></code></pre></div></div>
 </item>
 <item>
   <title>R: A Language Born to Think with Data</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/en/posts/r-programming-language.html</link>
   <description><![CDATA[ 
 
@@ -539,6 +551,7 @@ font-style: inherit;">geom_point</span>()</span></code></pre></div></div>
 </item>
 <item>
   <title>Integrated Development Environments (or IDEs, for friends)</title>
+  <dc:creator>Atelier de Código</dc:creator>
   <link>https://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html</link>
   <description><![CDATA[ 
 

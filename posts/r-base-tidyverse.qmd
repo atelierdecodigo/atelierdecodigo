@@ -2,6 +2,7 @@
 title: "R base, paquetes y Tidyverse: de qué hablamos cuando usamos R"
 date: 2026-01-20
 page-layout: full
+author: "Atelier de Código"
 toc: false
 description: "¿Qué es R base y qué cambia cuando usamos paquetes? Este post explica la estructura modular de R, introduce el rol de los paquetes y dedica una sección al Tidyverse como conjunto de herramientas con una filosofía propia de trabajo con datos."
 ---
@@ -26,7 +27,7 @@ Dentro de este universo de paquetes, hay uno que ocupa un lugar particular: el [
 
 La propuesta central del Tidyverse es organizar el trabajo con datos a partir de principios claros. Uno de los más conocidos es el concepto de datos "ordenados" (*tidy data*), donde cada variable ocupa una columna, cada observación una fila y cada tipo de unidad analítica una tabla.
 
-![Imagen tomada del libro "R para Ciencia de Datos", de Hadley Wickham y Garrett Grolemund.](images/CleanShot 2026-01-20 at 17.09.46.png)
+![Imagen tomada del libro "R para Ciencia de Datos", de Hadley Wickham y Garrett Grolemund.](images/CleanShot%202026-01-20%20at%2017.09.46.png)
 
 Este principio, que puede parecer puramente técnico, tiene implicancias analíticas importantes, porque fuerza a explicitar qué se considera una variable, qué cuenta como observación y cómo se estructuran los datos. Esto puede cambiar no solamente entre conjuntos de datos, sino también entre análisis y mismo entre funciones. Por ejemplo, una función que haga un análisis estadístico de comparación de grupos puede tomar la variable de agrupación de una sola columna o puede pedir que cada grupo tenga su propia columna.
 

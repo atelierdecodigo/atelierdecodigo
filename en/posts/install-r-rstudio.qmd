@@ -1,5 +1,6 @@
 ---
 title: "Getting Started with R: Installation and First Steps"
+author: "Atelier de Código"
 date: 2026-01-22
 page-layout: full
 toc: false

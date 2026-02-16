@@ -10,6 +10,9 @@ website:
   title: "Atelier de código"
   site-url: https://atelierdecodigo.com
   margin-header: subscribe.html
+  open-graph:
+    site-name: "Atelier de código"
+    locale: es_AR  
   navbar:
     left:
       - href: index.qmd

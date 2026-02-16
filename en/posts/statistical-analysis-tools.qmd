@@ -3,6 +3,7 @@ title: "Tools for Statistical Analysis: A Possible Map"
 date: 2026-01-30
 page-layout: full
 toc: false
+author: "Atelier de Código"
 draft: true
 description: "What tools exist for statistical analysis? When is it best to use each of them? This post offers a general overview of the main tools used for statistical analysis, discussing their advantages and disadvantages, and concludes with a specific discussion on when it is (and is not) advisable to use R."
 ---

@@ -2,6 +2,7 @@
 title: "6 Essential Books for Learning Data Science"
 date: 2026-01-27
 page-layout: full
+author: "Atelier de Código"
 toc: false
 description: "Five books available online for free for an introduction and in-depth study of data science, from fundamentals and communication to programming with R and applied statistics."
 ---
