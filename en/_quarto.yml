@@ -26,3 +26,4 @@ format:
   html:
     theme: litera
     css: ../styles.css
+    include-in-header: ../_includes/google-ads-head.html
