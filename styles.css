@@ -102,8 +102,8 @@ h1, h2, h3 {
 
 .newsletter {
   background-color: #f8f9fa;
-  padding: 4rem 2rem;
-  margin: 4rem auto;
+  padding: 1rem 1rem;
+  margin: 1rem auto;
   max-width: 750px;
   text-align: center;
 }
@@ -113,7 +113,7 @@ h1, h2, h3 {
 }
 
 .newsletter p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 /* ===============================
@@ -121,8 +121,8 @@ h1, h2, h3 {
 ================================ */
 
 section, .section {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 /* Ocultar sidebar newsletter en Home */

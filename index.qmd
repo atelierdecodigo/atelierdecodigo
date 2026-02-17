@@ -1,7 +1,7 @@
 ---
 title: ""
 description: "Aprender a pensar con datos."
-page-layout: full
+#page-layout: full
 listing:
   - id: recientes
     contents: 
@@ -25,8 +25,8 @@ Un espacio para entender qué estás haciendo cuando analizás, modelás y visua
 :::
 
 ::: manifiesto
-El mundo de la programación puede ser hostil para quienes vienen de otros caminos, pero no tiene por qué serlo. En Atelier de Código creemos que aprender a programar es más que seguir una lista de comandos de forma automática. Este sitio es un laboratorio de ideas sobre análisis de datos con perspectiva científica. Aprendemos a hacer, pero también a entender por qué lo hacemos así. \
-Programar no es repetir recetas: es tomar decisiones. 
+El mundo de la programación puede ser hostil para quienes vienen de otros caminos, pero no tiene por qué serlo. En Atelier de Código creemos que aprender a programar es más que seguir una lista de comandos de forma automática. Este sitio es un laboratorio de ideas sobre análisis de datos con perspectiva científica. Aprendemos a hacer, pero también a entender por qué lo hacemos así.\
+Programar no es repetir recetas: es tomar decisiones.
 :::
 
 ------------------------------------------------------------------------
@@ -42,7 +42,7 @@ Programar no es repetir recetas: es tomar decisiones.
 ## Un mail por mes
 
 Artículos nuevos. Reflexiones sobre análisis, modelos y decisiones metodológicas.\
-Novedades que nos llamaron la atención y que queremos compartir. \
+Novedades que nos llamaron la atención y que queremos compartir.\
 Sin ruido. Sin listas vacías.\
 
 <!-- MailerLite Universal -->
@@ -762,7 +762,6 @@ Sin ruido. Sin listas vacías.\
             fetch("https://assets.mailerlite.com/jsonp/2046950/forms/179667438490617335/takel")
         </script>
 ```
-
 :::
 
 ------------------------------------------------------------------------
@@ -791,11 +790,8 @@ En los próximos meses vas a encontrar:
 -   Cursos estructurados
 -   Acompañamiento en proyectos de análisis
 
-Porque aprender datos no es solo consumir contenido:\
-es practicar, equivocarse y volver a pensar.
+Porque aprender datos no es solo consumir contenido: es practicar, equivocarse y volver a pensar.
 
 ------------------------------------------------------------------------
 
-::: google-ads
 <!-- Google Ads -->
-:::
