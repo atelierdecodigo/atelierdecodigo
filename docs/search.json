@@ -44,16 +44,51 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Atelier de código",
+    "title": "Atelier de Código",
     "section": "",
-    "text": "Un espacio dedicado al aprendizaje de la ciencia de datos, con foco en investigación, docencia y prácticas reproducibles."
+    "text": "Atelier de Código es un espacio dedicado a la formación en programación en R, análisis estadístico y ciencia de datos, con especial atención a las ciencias sociales y la educación.\nEl objetivo es ofrecer materiales que combinen claridad técnica, profundidad conceptual y trabajo con datos reales.\nExplorar todos los artículos"
   },
   {
-    "objectID": "index.html#qué-vas-a-encontrar-acá",
-    "href": "index.html#qué-vas-a-encontrar-acá",
-    "title": "Atelier de código",
-    "section": "Qué vas a encontrar acá",
-    "text": "Qué vas a encontrar acá\n\nMateriales sobre R y análisis de datos\nProyectos abiertos y documentación\nTutorías y acompañamiento\nAnálisis de datos"
+    "objectID": "index.html#qué-podés-aprender-acá",
+    "href": "index.html#qué-podés-aprender-acá",
+    "title": "Atelier de Código",
+    "section": "Qué podés aprender acá",
+    "text": "Qué podés aprender acá\n\nProgramación en R aplicada a datos reales\nGuías paso a paso para cargar, transformar y visualizar datos utilizando tidyverse, ggplot2 y flujos de trabajo reproducibles.\n\n\nAnálisis cuantitativo con criterio metodológico\nExplicaciones accesibles sobre modelos, decisiones analíticas y herramientas estadísticas, pensadas para investigación social y educativa.\n\n\nFundamentos de ciencia de datos\nTextos introductorios y de profundización sobre machine learning, big data, reproducibilidad y diseño de proyectos de análisis."
+  },
+  {
+    "objectID": "index.html#rutas-de-aprendizaje",
+    "href": "index.html#rutas-de-aprendizaje",
+    "title": "Atelier de Código",
+    "section": "Rutas de aprendizaje",
+    "text": "Rutas de aprendizaje\n\n1. Introducción a la ciencia de datos\n\n¿Qué es la ciencia de datos?\n\nOrígenes y vínculos con la estadística\n\nBig data y análisis social\n\n\n\n2. Primeros pasos en R\n\nQué es un lenguaje orientado a objetos y por qué R lo es\n\nCómo empezar a analizar datos cuantitativos\n\nOrganización de proyectos con RStudio y GitHub\n\n\n\n3. Visualización y análisis\n\nGramática de gráficos\n\nIntroducción a tidyverse\n\nHerramientas para hacer análisis estadísticos\n\n\n\n4. Aprender a programar con criterio\n\nPor qué conviene escribir el código desde cero cuando se está aprendiendo\n\nCómo leer tutoriales y reutilizar código de manera productiva"
+  },
+  {
+    "objectID": "index.html#artículos-recientes",
+    "href": "index.html#artículos-recientes",
+    "title": "Atelier de Código",
+    "section": "Artículos recientes",
+    "text": "Artículos recientes\nLos últimos contenidos publicados en el sitio:\n\n\n\n\n\nBlog\n\n\n\n\n\n\n\n\n\n\n\n\n\n¿Qué es la programación orientada a objetos y por qué R se considera un lenguaje orientado a objetos?\n\n\n¿Qué significa que un lenguaje sea orientado a objetos? Este post introduce la idea de programación orientada a objetos y explica cómo R implementa esta lógica a través de clases, objetos y métodos en el trabajo cotidiano con datos.\n\n\n\n\n\nJan 29, 2026\n\n\n\n\n\n\n\n¿Qué es la ciencia de datos y por qué tanto interés?\n\n\n¿Qué es la ciencia de datos y de dónde viene? Este post recorre su origen, su vínculo con la estadística y el big data, y analiza por qué cada vez más personas se acercan a este campo desde tradiciones analíticas diversas.\n\n\n\n\n\nJan 28, 2026\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#enfoque-del-proyecto",
+    "href": "index.html#enfoque-del-proyecto",
+    "title": "Atelier de Código",
+    "section": "Enfoque del proyecto",
+    "text": "Enfoque del proyecto\nEl trabajo con datos implica decisiones técnicas y metodológicas. Este sitio propone hacer explícitos esos procesos, documentar los pasos y favorecer prácticas reproducibles.\nLos contenidos están pensados para:\n\nEstudiantes que se inician en análisis cuantitativo.\n\nDocentes e investigadores que incorporan programación en su práctica.\n\nPersonas interesadas en comprender en profundidad las herramientas que utilizan."
+  },
+  {
+    "objectID": "index.html#recursos-y-materiales-abiertos",
+    "href": "index.html#recursos-y-materiales-abiertos",
+    "title": "Atelier de Código",
+    "section": "Recursos y materiales abiertos",
+    "text": "Recursos y materiales abiertos\nLos artículos incluyen ejemplos con datasets públicos, código descargable y referencias bibliográficas. Siempre que es posible, se priorizan herramientas de software libre y documentación accesible."
+  },
+  {
+    "objectID": "index.html#contacto-y-repositorio",
+    "href": "index.html#contacto-y-repositorio",
+    "title": "Atelier de Código",
+    "section": "Contacto y repositorio",
+    "text": "Contacto y repositorio\nEl código y materiales complementarios están disponibles en el repositorio del proyecto.\nPara consultas o propuestas de colaboración, podés escribir a través de la sección de contacto del sitio."
   },
   {
     "objectID": "about.html",

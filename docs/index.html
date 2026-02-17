@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Formación en ciencia de datos, análisis cuantitativo y programación en R con enfoque en ciencias sociales y educación.">
 
-<title>Atelier de código</title>
+<title>Atelier de Código – Atelier de código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -55,19 +58,48 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No se han encontrado resultados",
-    "search-matching-documents-text": "documentos encontrados",
-    "search-copy-link-title": "Copiar el enlace en la búsqueda",
-    "search-hide-matches-text": "Ocultar resultados adicionales",
-    "search-more-match-text": "resultado adicional en este documento",
-    "search-more-matches-text": "resultados adicionales en este documento",
-    "search-clear-button-title": "Borrar",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar",
-    "search-label": "Buscar"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-recientes .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-description','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-recientes'] = new List('listing-recientes', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5204545081685155" crossorigin="anonymous"></script>
      
 <!-- Tags hreflang para SEO multiidioma -->
@@ -75,10 +107,39 @@ ul.task-list li input[type="checkbox"] {
 <link rel="alternate" hreflang="en" href="https://atelierdecodigo.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://atelierdecodigo.com/">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Atelier de código">
-<meta property="og:description" content="">
+<meta property="og:title" content="Atelier de Código – Atelier de código">
+<meta property="og:description" content="Formación en ciencia de datos, análisis cuantitativo y programación en R con enfoque en ciencias sociales y educación.">
 <meta property="og:site_name" content="Atelier de código">
 <meta property="og:locale" content="es_AR">
 </head>
@@ -94,8 +155,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Atelier de código</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Buscar"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -1026,9 +1087,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Atelier de código</h1>
+<h1 class="title">Atelier de Código</h1>
 </div>
 
+<div>
+  <div class="description">
+    Formación en ciencia de datos, análisis cuantitativo y programación en R con enfoque en ciencias sociales y educación.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -1043,15 +1109,149 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Un espacio dedicado al aprendizaje de la ciencia de datos, con foco en investigación, docencia y prácticas reproducibles.</p>
-<section id="qué-vas-a-encontrar-acá" class="level2">
-<h2 class="anchored" data-anchor-id="qué-vas-a-encontrar-acá">Qué vas a encontrar acá</h2>
+<p>Atelier de Código es un espacio dedicado a la formación en programación en R, análisis estadístico y ciencia de datos, con especial atención a las ciencias sociales y la educación.</p>
+<p>El objetivo es ofrecer materiales que combinen claridad técnica, profundidad conceptual y trabajo con datos reales.</p>
+<p><a href="./posts/index.html">Explorar todos los artículos</a></p>
+<hr>
+<section id="qué-podés-aprender-acá" class="level2">
+<h2 class="anchored" data-anchor-id="qué-podés-aprender-acá">Qué podés aprender acá</h2>
+<section id="programación-en-r-aplicada-a-datos-reales" class="level3">
+<h3 class="anchored" data-anchor-id="programación-en-r-aplicada-a-datos-reales">Programación en R aplicada a datos reales</h3>
+<p>Guías paso a paso para cargar, transformar y visualizar datos utilizando tidyverse, ggplot2 y flujos de trabajo reproducibles.</p>
+</section>
+<section id="análisis-cuantitativo-con-criterio-metodológico" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-cuantitativo-con-criterio-metodológico">Análisis cuantitativo con criterio metodológico</h3>
+<p>Explicaciones accesibles sobre modelos, decisiones analíticas y herramientas estadísticas, pensadas para investigación social y educativa.</p>
+</section>
+<section id="fundamentos-de-ciencia-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="fundamentos-de-ciencia-de-datos">Fundamentos de ciencia de datos</h3>
+<p>Textos introductorios y de profundización sobre machine learning, big data, reproducibilidad y diseño de proyectos de análisis.</p>
+<hr>
+</section>
+</section>
+<section id="rutas-de-aprendizaje" class="level2">
+<h2 class="anchored" data-anchor-id="rutas-de-aprendizaje">Rutas de aprendizaje</h2>
+<section id="introducción-a-la-ciencia-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="introducción-a-la-ciencia-de-datos">1. Introducción a la ciencia de datos</h3>
 <ul>
-<li>Materiales sobre R y análisis de datos</li>
-<li>Proyectos abiertos y documentación</li>
-<li>Tutorías y acompañamiento</li>
-<li>Análisis de datos</li>
+<li>¿Qué es la ciencia de datos?<br>
+</li>
+<li>Orígenes y vínculos con la estadística<br>
+</li>
+<li>Big data y análisis social</li>
 </ul>
+</section>
+<section id="primeros-pasos-en-r" class="level3">
+<h3 class="anchored" data-anchor-id="primeros-pasos-en-r">2. Primeros pasos en R</h3>
+<ul>
+<li>Qué es un lenguaje orientado a objetos y por qué R lo es<br>
+</li>
+<li>Cómo empezar a analizar datos cuantitativos<br>
+</li>
+<li>Organización de proyectos con RStudio y GitHub</li>
+</ul>
+</section>
+<section id="visualización-y-análisis" class="level3">
+<h3 class="anchored" data-anchor-id="visualización-y-análisis">3. Visualización y análisis</h3>
+<ul>
+<li>Gramática de gráficos<br>
+</li>
+<li>Introducción a tidyverse<br>
+</li>
+<li>Herramientas para hacer análisis estadísticos</li>
+</ul>
+</section>
+<section id="aprender-a-programar-con-criterio" class="level3">
+<h3 class="anchored" data-anchor-id="aprender-a-programar-con-criterio">4. Aprender a programar con criterio</h3>
+<ul>
+<li>Por qué conviene escribir el código desde cero cuando se está aprendiendo<br>
+</li>
+<li>Cómo leer tutoriales y reutilizar código de manera productiva</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="artículos-recientes" class="level2">
+<h2 class="anchored" data-anchor-id="artículos-recientes">Artículos recientes</h2>
+<p>Los últimos contenidos publicados en el sitio:</p>
+<div id="listing-recientes" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1768758042967" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/index.html" class="no-external">Blog</a>
+</h3>
+<div class="delink listing-description"><a href="./posts/index.html" class="no-external">
+¿Qué significa que un lenguaje sea orientado a objetos? Este post introduce la idea de programación orientada a objetos y explica cómo R implementa esta lógica a través de…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/index.html" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1769655600000" data-listing-file-modified-sort="1771264099754" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="712">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/lenguaje-orientado-objetos.html" class="no-external">¿Qué es la programación orientada a objetos y por qué R se considera un lenguaje orientado a objetos?</a>
+</h3>
+<div class="delink listing-description"><a href="./posts/lenguaje-orientado-objetos.html" class="no-external">
+<p>¿Qué significa que un lenguaje sea orientado a objetos? Este post introduce la idea de programación orientada a objetos y explica cómo R implementa esta lógica a través de clases, objetos y métodos en el trabajo cotidiano con datos.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/lenguaje-orientado-objetos.html" class="no-external">
+<div class="listing-date">
+Jan 29, 2026
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1769569200000" data-listing-file-modified-sort="1771264117143" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="804">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/que-es-ciencia-de-datos.html" class="no-external">¿Qué es la ciencia de datos y por qué tanto interés?</a>
+</h3>
+<div class="delink listing-description"><a href="./posts/que-es-ciencia-de-datos.html" class="no-external">
+<p>¿Qué es la ciencia de datos y de dónde viene? Este post recorre su origen, su vínculo con la estadística y el big data, y analiza por qué cada vez más personas se acercan a este campo desde tradiciones analíticas diversas.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/que-es-ciencia-de-datos.html" class="no-external">
+<div class="listing-date">
+Jan 28, 2026
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+<hr>
+</section>
+<section id="enfoque-del-proyecto" class="level2">
+<h2 class="anchored" data-anchor-id="enfoque-del-proyecto">Enfoque del proyecto</h2>
+<p>El trabajo con datos implica decisiones técnicas y metodológicas. Este sitio propone hacer explícitos esos procesos, documentar los pasos y favorecer prácticas reproducibles.</p>
+<p>Los contenidos están pensados para:</p>
+<ul>
+<li>Estudiantes que se inician en análisis cuantitativo.<br>
+</li>
+<li>Docentes e investigadores que incorporan programación en su práctica.<br>
+</li>
+<li>Personas interesadas en comprender en profundidad las herramientas que utilizan.</li>
+</ul>
+<hr>
+</section>
+<section id="recursos-y-materiales-abiertos" class="level2">
+<h2 class="anchored" data-anchor-id="recursos-y-materiales-abiertos">Recursos y materiales abiertos</h2>
+<p>Los artículos incluyen ejemplos con datasets públicos, código descargable y referencias bibliográficas. Siempre que es posible, se priorizan herramientas de software libre y documentación accesible.</p>
+<hr>
+</section>
+<section id="contacto-y-repositorio" class="level2">
+<h2 class="anchored" data-anchor-id="contacto-y-repositorio">Contacto y repositorio</h2>
+<p>El código y materiales complementarios están disponibles en el repositorio del proyecto.</p>
+<p>Para consultas o propuestas de colaboración, podés escribir a través de la sección de contacto del sitio.</p>
+
 
 
 </section>
@@ -1082,12 +1282,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copiado");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copiado");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

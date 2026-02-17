@@ -1,14 +1,95 @@
 ---
-title: Atelier de código
-lang: es
+title: "Atelier de Código"
+description: "Formación en ciencia de datos, análisis cuantitativo y programación en R con enfoque en ciencias sociales y educación."
+listing:
+  - id: recientes
+    contents: posts
+    sort: "date desc"
+    max-items: 3
+    type: default
+    fields: [title, description, date]
 ---
 
-Un espacio dedicado al aprendizaje de la ciencia de datos, 
-con foco en investigación, docencia y prácticas reproducibles.
+Atelier de Código es un espacio dedicado a la formación en programación en R, análisis estadístico y ciencia de datos, con especial atención a las ciencias sociales y la educación.  
 
-## Qué vas a encontrar acá
+El objetivo es ofrecer materiales que combinen claridad técnica, profundidad conceptual y trabajo con datos reales.
 
-- Materiales sobre R y análisis de datos
-- Proyectos abiertos y documentación
-- Tutorías y acompañamiento
-- Análisis de datos
+[Explorar todos los artículos](./posts/index.qmd)
+
+---
+
+## Qué podés aprender acá
+
+### Programación en R aplicada a datos reales
+
+Guías paso a paso para cargar, transformar y visualizar datos utilizando tidyverse, ggplot2 y flujos de trabajo reproducibles.
+
+### Análisis cuantitativo con criterio metodológico
+
+Explicaciones accesibles sobre modelos, decisiones analíticas y herramientas estadísticas, pensadas para investigación social y educativa.
+
+### Fundamentos de ciencia de datos
+
+Textos introductorios y de profundización sobre machine learning, big data, reproducibilidad y diseño de proyectos de análisis.
+
+---
+
+## Rutas de aprendizaje
+
+### 1. Introducción a la ciencia de datos
+
+- ¿Qué es la ciencia de datos?  
+- Orígenes y vínculos con la estadística  
+- Big data y análisis social  
+
+### 2. Primeros pasos en R
+
+- Qué es un lenguaje orientado a objetos y por qué R lo es  
+- Cómo empezar a analizar datos cuantitativos  
+- Organización de proyectos con RStudio y GitHub  
+
+### 3. Visualización y análisis
+
+- Gramática de gráficos  
+- Introducción a tidyverse  
+- Herramientas para hacer análisis estadísticos  
+
+### 4. Aprender a programar con criterio
+
+- Por qué conviene escribir el código desde cero cuando se está aprendiendo  
+- Cómo leer tutoriales y reutilizar código de manera productiva  
+
+---
+
+## Artículos recientes
+
+Los últimos contenidos publicados en el sitio:
+
+:::{#recientes}
+:::
+
+---
+
+## Enfoque del proyecto
+
+El trabajo con datos implica decisiones técnicas y metodológicas. Este sitio propone hacer explícitos esos procesos, documentar los pasos y favorecer prácticas reproducibles.
+
+Los contenidos están pensados para:
+
+- Estudiantes que se inician en análisis cuantitativo.  
+- Docentes e investigadores que incorporan programación en su práctica.  
+- Personas interesadas en comprender en profundidad las herramientas que utilizan.  
+
+---
+
+## Recursos y materiales abiertos
+
+Los artículos incluyen ejemplos con datasets públicos, código descargable y referencias bibliográficas. Siempre que es posible, se priorizan herramientas de software libre y documentación accesible.
+
+---
+
+## Contacto y repositorio
+
+El código y materiales complementarios están disponibles en el repositorio del proyecto.  
+
+Para consultas o propuestas de colaboración, podés escribir a través de la sección de contacto del sitio.
