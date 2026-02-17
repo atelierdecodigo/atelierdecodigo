@@ -9,7 +9,7 @@ project:
 website:
   title: "Atelier de código"
   site-url: https://atelierdecodigo.com
-  margin-header: subscribe.html
+  #margin-header: subscribe.html
   open-graph:
     site-name: "Atelier de código"
     locale: es_AR  
@@ -22,7 +22,7 @@ website:
       - href: contact.qmd
         text: Contacto
       - href: posts/index.qmd
-        text: Blog
+        text: Artículos
     right:
       - text: "SPA"
         href: https://atelierdecodigo.com/index.html

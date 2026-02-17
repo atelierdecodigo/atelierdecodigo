@@ -1,6 +1,7 @@
 ---
 title: "¿Qué es el Machine Learning?"
 date: 2026-01-29
+categories: [articulo]
 page-layout: full
 toc: false
 author: "Atelier de Código"

@@ -1,6 +1,7 @@
 ---
 title: "Consola y script: dos formas de escribir código en R"
 date: 2026-01-21
+categories: [articulo]
 author: "Atelier de Código"
 page-layout: full
 toc: false

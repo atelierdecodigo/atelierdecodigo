@@ -3,6 +3,7 @@ title: "Gramática de gráficos"
 author: "Atelier de Código"
 editor: visual
 date: 2026-01-26
+categories: [articulo]
 page-layout: full
 toc: false
 description: "¿Qué tienen en común los gráficos estadísticos? Este post introduce la idea de la gramática de los gráficos y muestra cómo ggplot2 permite pensar la visualización como un lenguaje compuesto por decisiones analíticas explícitas."

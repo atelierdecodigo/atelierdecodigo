@@ -1,6 +1,7 @@
 ---
 title: "R base, paquetes y Tidyverse: de qué hablamos cuando usamos R"
 date: 2026-01-20
+categories: [articulo]
 page-layout: full
 author: "Atelier de Código"
 toc: false

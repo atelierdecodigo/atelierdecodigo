@@ -1,5 +1,5 @@
 ---
-title: "Blog"
+title: "Artículos"
 page-layout: full
 listing:
   contents: .

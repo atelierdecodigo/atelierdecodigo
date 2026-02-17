@@ -1,6 +1,7 @@
 ---
 title: "6 libros imprescindibles para aprender Ciencia de Datos"
 date: 2026-01-27
+categories: [articulo]
 author: "Atelier de Código"
 page-layout: full
 toc: false

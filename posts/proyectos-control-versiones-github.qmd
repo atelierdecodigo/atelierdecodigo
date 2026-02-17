@@ -1,6 +1,7 @@
 ---
 title: "Proyectos en RStudio y control de versiones: trabajar sin perderse en archivos"
 date: 2026-01-24
+categories: [articulo]
 author: "Atelier de Código"
 page-layout: full
 toc: false

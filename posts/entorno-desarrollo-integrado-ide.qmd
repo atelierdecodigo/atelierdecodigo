@@ -1,6 +1,7 @@
 ---
 title: "Los entornos de desarrollo integrado (o IDE, para los amigos)"
 date: 2026-01-17
+categories: [articulo]
 author: "Atelier de Código"
 page-layout: full
 toc: false

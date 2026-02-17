@@ -1,6 +1,7 @@
 ---
 title: "¿Qué es la programación orientada a objetos y por qué R se considera un lenguaje orientado a objetos?"
 date: 2026-01-29
+categories: [articulo]
 toc: false
 page-layout: full
 author: "Atelier de Código"

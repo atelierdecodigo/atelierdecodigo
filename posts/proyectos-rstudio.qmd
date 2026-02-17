@@ -1,6 +1,7 @@
 ---
 title: "Trabajar con proyectos en RStudio: ordenar el trabajo desde el inicio"
 date: 2026-01-22
+categories: [articulo]
 page-layout: full
 author: "Atelier de Código"
 toc: false

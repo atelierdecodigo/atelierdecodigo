@@ -1,6 +1,7 @@
 ---
 title: "Empezar con R: instalación y primeros pasos"
 date: 2026-01-22
+categories: [articulo]
 author: "Atelier de Código"
 page-layout: full
 toc: false

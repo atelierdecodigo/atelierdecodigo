@@ -2,7 +2,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/index.html",
       "/posts/lenguaje-orientado-objetos.html",
       "/posts/que-es-ciencia-de-datos.html",
       "/posts/libros-aprender-ciencia-datos.html",

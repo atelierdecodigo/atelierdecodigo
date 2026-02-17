@@ -2,6 +2,7 @@
 title: "Por qué insistimos en escribir el código desde cero (y no copipastearlo)"
 author: "Atelier de Código"
 date: 2026-01-30
+categories: [articulo]
 page-layout: full
 toc: false
 draft: true

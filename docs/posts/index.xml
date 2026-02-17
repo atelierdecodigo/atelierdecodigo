@@ -53,6 +53,7 @@
 </section>
 
  ]]></description>
+  <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/lenguaje-orientado-objetos.html</guid>
   <pubDate>Thu, 29 Jan 2026 03:00:00 GMT</pubDate>
 </item>
@@ -96,6 +97,7 @@
 </section>
 
  ]]></description>
+  <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/que-es-ciencia-de-datos.html</guid>
   <pubDate>Wed, 28 Jan 2026 03:00:00 GMT</pubDate>
 </item>
@@ -142,6 +144,7 @@
 </section>
 
  ]]></description>
+  <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/libros-aprender-ciencia-datos.html</guid>
   <pubDate>Tue, 27 Jan 2026 03:00:00 GMT</pubDate>
 </item>
@@ -188,6 +191,7 @@
 </section>
 
  ]]></description>
+  <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/gramatica-graficos-ggplot.html</guid>
   <pubDate>Mon, 26 Jan 2026 03:00:00 GMT</pubDate>
 </item>
@@ -251,6 +255,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 <li id="fn1"><p>Si bien acá vamos a hablar de Github, en rigor de verdad una cosa es <em>Git</em> y otra cosa es <em>Github</em>. <strong>git</strong> es el sistema de control de versiones que se instala localmente y se encarga de registrar los cambios en los archivos, algo así como la tecnología que permite el seguimiento de los cambios. <strong>GitHub</strong>, <strong>GitLab</strong> y plataformas similares son servicios que alojan repositorios git en la nube y agregan herramientas para compartir, colaborar y gestionar proyectos.↩︎</p></li>
 </ol>
 </section></div> ]]></description>
+  <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/proyectos-control-versiones-github.html</guid>
   <pubDate>Sat, 24 Jan 2026 03:00:00 GMT</pubDate>
 </item>
@@ -296,6 +301,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 
 
  ]]></description>
+  <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/instalar-r-rstudio.html</guid>
   <pubDate>Thu, 22 Jan 2026 03:00:00 GMT</pubDate>
 </item>
@@ -341,6 +347,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 </section>
 
  ]]></description>
+  <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/proyectos-rstudio.html</guid>
   <pubDate>Thu, 22 Jan 2026 03:00:00 GMT</pubDate>
 </item>
@@ -374,6 +381,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 
 
  ]]></description>
+  <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/reproducibilidad.html</guid>
   <pubDate>Thu, 22 Jan 2026 03:00:00 GMT</pubDate>
 </item>
@@ -400,6 +408,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 
 
  ]]></description>
+  <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/consola-script-escribir-codigo.html</guid>
   <pubDate>Wed, 21 Jan 2026 03:00:00 GMT</pubDate>
 </item>
@@ -443,6 +452,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 <li id="fn2"><p>Acá hay que hacer una aclaración. El famoso operador <code>%&gt;%</code> (<em>pipe</em>) durante mucho tiempo fue sinónimo de Tidyverse aunque proviene del paquete específico <code>magrittr</code>. Sin embargo, la versión R 4.1.0 que salió en mayo del 2021 incorporó un operador similar, <code>|&gt;</code>, con lo cual la concatenación de funciones como la que se ve en ese simpático gif ya no es exclusiva de Tidyverse. En rigor de verdad, ambos operadores tienen funcionamientos distintos, por lo cual reemplazar el operador <code>%&gt;%</code> por <code>|&gt;</code> de forma masiva en nuestro código puede dar lugar a errores. Las diferencias pueden ser demasiado técnicas para alguien que recién está empezando, pero si les interesa pueden leer un poco <a href="https://tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/">acá</a>.↩︎</p></li>
 </ol>
 </section></div> ]]></description>
+  <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/r-base-tidyverse.html</guid>
   <pubDate>Tue, 20 Jan 2026 03:00:00 GMT</pubDate>
 </item>
@@ -467,6 +477,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 
 
  ]]></description>
+  <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/r-humanidades-aprender.html</guid>
   <pubDate>Sun, 18 Jan 2026 03:00:00 GMT</pubDate>
 </item>
@@ -495,6 +506,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 
 
  ]]></description>
+  <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/entorno-desarrollo-integrado-ide.html</guid>
   <pubDate>Sat, 17 Jan 2026 03:00:00 GMT</pubDate>
 </item>
@@ -520,6 +532,7 @@ font-style: inherit;"># la próxima vez que retomes el trabajo</span></span>
 
 
  ]]></description>
+  <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/r-lenguaje-programacion.html</guid>
   <pubDate>Sat, 17 Jan 2026 03:00:00 GMT</pubDate>
 </item>

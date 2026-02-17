@@ -2,6 +2,7 @@
 title: "Reproducibilidad: por qué importa y qué tiene que ver con programar bien"
 author: "Atelier de Código"
 date: 2026-01-22
+categories: [articulo]
 page-layout: full
 toc: false
 description: "¿Qué significa que un análisis sea reproducible y por qué importa? Este post explica la idea de reproducibilidad en ciencia y muestra cómo las buenas prácticas de programación ayudan a sostener análisis claros, verificables y fáciles de retomar."
