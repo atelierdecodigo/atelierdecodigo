@@ -16,5 +16,23 @@
       "/posts/r-programming-language.html",
       "/posts/integrated-development-environment-ide.html"
     ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/object-oriented-programming.html",
+      "/posts/what-is-data-science.html",
+      "/posts/books-learning-data-science.html",
+      "/posts/grammar-graphics-ggplot.html",
+      "/posts/projects-version-control-github.html",
+      "/posts/install-r-rstudio.html",
+      "/posts/projects-rstudio.html",
+      "/posts/reproducibility.html",
+      "/posts/console-script-writing-code.html",
+      "/posts/r-base-tidyverse.html",
+      "/posts/r-humanities-learning.html",
+      "/posts/integrated-development-environment-ide.html",
+      "/posts/r-programming-language.html"
+    ]
   }
 ]

@@ -128,15 +128,36 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Atelier de código",
+    "title": "Learning to think with data",
     "section": "",
-    "text": "A space dedicated to learning data science, with a focus on research, teaching, and reproducible practices."
+    "text": "A space to understand what you’re doing when you analyze, model, and visualize.\n\nSubscribe to the newsletter See latest articles"
   },
   {
-    "objectID": "index.html#what-youll-find-here",
-    "href": "index.html#what-youll-find-here",
-    "title": "Atelier de código",
-    "section": "What you’ll find here",
-    "text": "What you’ll find here\n\nResources on R and data analysis\nOpen projects and documentation\nTutoring and mentoring\nData analysis"
+    "objectID": "index.html#latest-articles",
+    "href": "index.html#latest-articles",
+    "title": "Learning to think with data",
+    "section": "Latest articles",
+    "text": "Latest articles\n\n\n\n\n\nWhat is object-oriented programming and why is R considered an object-oriented language?\n\n\nWhat does it mean for a language to be object-oriented? This post introduces the concept of object-oriented programming and explains how R implements this logic through classes, objects, and methods in daily data work.\n\n\n\n\n\nJan 29, 2026\n\n\n\n\n\n\n\nWhat is Data Science and Why All the Interest?\n\n\nWhat is data science and where does it come from? This post explores its origin, its link to statistics and big data, and analyzes why more and more people are approaching this field from diverse analytical traditions.\n\n\n\n\n\nJan 28, 2026\n\n\n\n\n\n\n\n6 Essential Books for Learning Data Science\n\n\nFive books available online for free for an introduction and in-depth study of data science, from fundamentals and communication to programming with R and applied statistics.\n\n\n\n\n\nJan 27, 2026\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#one-email-a-month",
+    "href": "index.html#one-email-a-month",
+    "title": "Learning to think with data",
+    "section": "One email a month",
+    "text": "One email a month\nNew articles. Reflections on analysis, models, and methodological decisions.\nNews that caught our attention and that we want to share.\nNo noise. No empty lists.\n\n\n\n    \n\n\n    \n      \n        \n\n          \n\n            \n              \n            \n\n            \n              \n                \n\n                  \n                  \n                    \n\n                      \n\n\n                      \n                      \n                      \n\n                      \n                      \n                      \n\n                      \n                      \n                      \n\n                      \n            \n            \n\n                      \n                      \n                      \n\n                      \n                      \n                      \n\n                    \n                  \n                \n              \n\n              \n\n              \n                \n                  Subscribe\n                \n                \n                  \n                  Loading...\n                \n              \n\n              \n            \n          \n\n          \n            \n              Thank you!\n              You have successfully joined our subscriber list."
+  },
+  {
+    "objectID": "index.html#what-you-can-learn-here",
+    "href": "index.html#what-you-can-learn-here",
+    "title": "Learning to think with data",
+    "section": "What you can learn here",
+    "text": "What you can learn here\nR programming applied to real data\nClear guides for loading, transforming, and visualizing data with tidyverse, ggplot2, and reproducible workflows.\nQuantitative analysis with methodological rigor\nAccessible explanations of models, analytical decisions, and statistical tools, designed for social science and educational research.\nData science fundamentals\nIntroductory and in-depth texts on machine learning, reproducibility, and analysis project design."
+  },
+  {
+    "objectID": "index.html#this-space-is-growing",
+    "href": "index.html#this-space-is-growing",
+    "title": "Learning to think with data",
+    "section": "This space is growing",
+    "text": "This space is growing\nIn the coming months you’ll find:\n\nDownloadable materials\nStructured courses\nSupport for data analysis projects\n\nBecause learning data is not just consuming content: it’s practicing, making mistakes, and thinking again."
   }
 ]

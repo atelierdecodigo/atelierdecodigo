@@ -33,4 +33,6 @@ format:
   html:
     theme: litera
     css: styles.css
-    include-in-header: _includes/google-ads-head.html
+    include-in-header:
+      - _includes/google-ads-head.html
+      - _includes/hreflang.html

@@ -1,4 +1,7 @@
 #!/bin/bash
+# Sincronizar CSS
+cp styles.css en/styles.css
+
 # Renderizar español
 quarto render
 

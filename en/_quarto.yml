@@ -5,7 +5,7 @@ project:
 website:
   title: "Atelier de Código"
   site-url: https://atelierdecodigo.com/en
-  margin-header: subscribe-en.html
+  #margin-header: subscribe-en.html
   open-graph:
     site-name: "Atelier de código"
     locale: en_US
@@ -28,5 +28,5 @@ website:
 format:
   html:
     theme: litera
-    css: ../styles.css
+    css: styles.css
     include-in-header: ../_includes/google-ads-head.html
