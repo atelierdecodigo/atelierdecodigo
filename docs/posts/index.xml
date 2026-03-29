@@ -10,7 +10,7 @@
 <atom:link href="https://atelierdecodigo.com/posts/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Fri, 30 Jan 2026 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 01 Apr 2026 03:00:00 GMT</lastBuildDate>
 <item>
   <title>Por qué insistimos en escribir el código desde cero (y no copipastearlo)</title>
   <dc:creator>Atelier de Código</dc:creator>
@@ -51,7 +51,7 @@ Hattie, John, and Helen Timperley. 2007. <span>“The Power of Feedback.”</spa
 </div></section></div> ]]></description>
   <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/escribir-codigo-a-mano.html</guid>
-  <pubDate>Fri, 30 Jan 2026 03:00:00 GMT</pubDate>
+  <pubDate>Wed, 01 Apr 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Herramientas para hacer análisis estadísticos: un mapa posible</title>
@@ -151,7 +151,7 @@ Hattie, John, and Helen Timperley. 2007. <span>“The Power of Feedback.”</spa
  ]]></description>
   <category>articulo</category>
   <guid>https://atelierdecodigo.com/posts/herramientas-analisis-estadistico.html</guid>
-  <pubDate>Fri, 30 Jan 2026 03:00:00 GMT</pubDate>
+  <pubDate>Sun, 29 Mar 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>¿Qué es la programación orientada a objetos y por qué R se considera un lenguaje orientado a objetos?</title>
