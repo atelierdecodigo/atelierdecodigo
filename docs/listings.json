@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/escribir-codigo-a-mano.html",
+      "/posts/herramientas-analisis-estadistico.html",
       "/posts/lenguaje-orientado-objetos.html",
       "/posts/que-es-ciencia-de-datos.html",
       "/posts/libros-aprender-ciencia-datos.html",
@@ -20,6 +22,8 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/escribir-codigo-a-mano.html",
+      "/posts/herramientas-analisis-estadistico.html",
       "/posts/lenguaje-orientado-objetos.html",
       "/posts/que-es-ciencia-de-datos.html",
       "/posts/libros-aprender-ciencia-datos.html",

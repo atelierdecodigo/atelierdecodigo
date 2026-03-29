@@ -10,7 +10,149 @@
 <atom:link href="https://atelierdecodigo.com/posts/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Thu, 29 Jan 2026 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 30 Jan 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Por qué insistimos en escribir el código desde cero (y no copipastearlo)</title>
+  <dc:creator>Atelier de Código</dc:creator>
+  <link>https://atelierdecodigo.com/posts/escribir-codigo-a-mano.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Cuando alguien empieza a aprender a programar, una de las primeras tentaciones es copiar y pegar código de tutoriales, blogs o respuestas de internet. El razonamiento es lógico: el código funciona, aparece el resultado esperado y parece que el problema está resuelto. Sin embargo, desde lo que sabemos en las ciencias de la educación y en la psicología cognitiva, esta forma de aprender tiene límites claros. Aunque copiar y pegar ahorra tiempo, no siempre ayuda a entender qué está pasando ni a aprender de manera duradera.</p>
+<p>Escribir el código a mano, desde cero, suele ser más lento y a veces frustrante. Aparecen errores, el programa no corre a la primera y hay que volver atrás varias veces. Justamente por eso, esta forma de trabajo suele ser mucho más efectiva para aprender. Cuando una persona escribe código línea por línea, se ve obligada a tomar decisiones: qué función usar, en qué orden, con qué argumentos. Este esfuerzo activo es central en el aprendizaje significativo, tal como lo plantea la psicología cognitiva desde hace décadas <span class="citation" data-cites="chi2009">(Chi 2009)</span>.</p>
+<p>Un problema frecuente cuando se copia código es la sensación de que “ya se entendió”. Como el script funciona, se genera una confianza que no siempre es real. En educación, esto se conoce como una ilusión de aprendizaje: parece que se avanzó, pero cuando hay que modificar algo pequeño o resolver un problema similar desde cero, el conocimiento no alcanza (podemos pensar que lo mismo ocurre cuando usamos IA… <em>en exceso</em>). Investigaciones sobre aprendizaje muestran que el reconocimiento pasivo suele confundirse con comprensión profunda, cuando en realidad son procesos distintos <span class="citation" data-cites="bjork2013">(Bjork, Dunlosky, and Kornell 2013)</span>.</p>
+<p>También es importante el rol del error. En programación, equivocarse es inevitable: paréntesis mal cerrados, nombres mal escritos, funciones usadas de manera incorrecta. Aunque esto puede resultar molesto, los errores cumplen una función clave en el aprendizaje. Cada error obliga a leer mensajes, revisar el código y pensar qué fue lo que salió mal. Este proceso se vincula con la idea de aprendizaje por ensayo y error y con la noción de feedback como motor del aprendizaje <span class="citation" data-cites="hattie2007">(Hattie and Timperley 2007)</span>. Cuando se copia y pega, muchos de esos errores ya fueron resueltos por otra persona y se pierde la oportunidad de aprender de ellos.</p>
+<p>Desde la psicología cognitiva sabemos que al principio aprender algo nuevo requiere mucha atención consciente. Escribir código por primera vez exige pensar cada paso. Con el tiempo y la práctica, algunas acciones se vuelven automáticas. Este pasaje de lo consciente a lo más fluido es parte del proceso normal de aprendizaje de habilidades complejas <span class="citation" data-cites="anderson1982">(Anderson 1982)</span>. El problema de copiar código demasiado pronto es que da la sensación de automatización sin haber pasado por esa etapa de comprensión. El resultado suele ser un conocimiento frágil, que funciona solo mientras el problema sea muy parecido al ejemplo original.</p>
+<p>Una comparación útil es pensar la programación como la escritura. Nadie aprende a escribir textos copiando párrafos enteros de otros autores una y otra vez. Leer modelos ayuda, claro, pero el aprendizaje ocurre cuando se intenta escribir, se cometen errores y se reescribe. En educación, esta idea está muy presente en enfoques que entienden el aprendizaje como una práctica activa y situada, donde hacer es una condición para entender <span class="citation" data-cites="bruner1996">(Bruner 1996)</span>.</p>
+<p>Todo esto no significa que copiar y pegar esté prohibido o sea algo negativo. En etapas más avanzadas, cuando ya se entienden bien las estructuras básicas, reutilizar código es parte del trabajo real de programar. Pero cuando se está aprendiendo, escribir el código desde cero funciona como una inversión. Lleva más tiempo al principio, pero construye una base más sólida que permite después leer, adaptar y reutilizar código con criterio.</p>
+<p>En definitiva, escribir código a mano no es una cuestión de disciplina ni de esfuerzo innecesario. Es una forma de aprender alineada con cómo las personas construyen conocimiento. Permite detectar qué se entiende y qué no, aprovechar los errores como fuente de aprendizaje y desarrollar una comprensión más profunda del lenguaje de programación.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-anderson1982" class="csl-entry">
+Anderson, John R. 1982. <span>“Acquisition of Cognitive Skill.”</span> <em>Psychological Review</em> 89 (4): 369. <a href="https://psycnet.apa.org/record/1982-27252-001">https://psycnet.apa.org/record/1982-27252-001</a>.
+</div>
+<div id="ref-bjork2013" class="csl-entry">
+Bjork, Robert A., John Dunlosky, and Nate Kornell. 2013. <span>“Self-Regulated Learning: Beliefs, Techniques, and Illusions.”</span> <em>Annual Review of Psychology</em> 64 (1): 417–44. <a href="https://doi.org/10.1146/annurev-psych-113011-143823">https://doi.org/10.1146/annurev-psych-113011-143823</a>.
+</div>
+<div id="ref-bruner1996" class="csl-entry">
+Bruner, Jerome. 1996. <em>The Culture of Education</em>. Harvard University Press. <a href="https://doi.org/10.4159/9780674251083">https://doi.org/10.4159/9780674251083</a>.
+</div>
+<div id="ref-chi2009" class="csl-entry">
+Chi, Michelene T. H. 2009. <span>“Active<span>-</span>Constructive<span>-</span>Interactive: A Conceptual Framework for Differentiating Learning Activities.”</span> <em>Topics in Cognitive Science</em> 1 (1): 73–105. <a href="https://doi.org/10.1111/j.1756-8765.2008.01005.x">https://doi.org/10.1111/j.1756-8765.2008.01005.x</a>.
+</div>
+<div id="ref-hattie2007" class="csl-entry">
+Hattie, John, and Helen Timperley. 2007. <span>“The Power of Feedback.”</span> <em>Review of Educational Research</em> 77 (1): 81–112. <a href="https://doi.org/10.3102/003465430298487">https://doi.org/10.3102/003465430298487</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>articulo</category>
+  <guid>https://atelierdecodigo.com/posts/escribir-codigo-a-mano.html</guid>
+  <pubDate>Fri, 30 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Herramientas para hacer análisis estadísticos: un mapa posible</title>
+  <dc:creator>Atelier de Código</dc:creator>
+  <link>https://atelierdecodigo.com/posts/herramientas-analisis-estadistico.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Hacer análisis estadísticos hoy no es solo una cuestión de saber estadística. También implica elegir con qué herramientas trabajar. Esa elección condiciona qué tipo de análisis es viable, cuán reproducible será el proceso, qué tan fácil será colaborar con otras personas y cómo se comunicarán los resultados. No existe una única herramienta “correcta”: cada una responde a tradiciones, necesidades y perfiles de usuario distintos.</p>
+<p>Este post propone un recorrido general por las principales herramientas usadas para análisis estadísticos, con sus ventajas y desventajas, y cierra con una discusión específica sobre cuándo conviene (y cuándo no) usar R.</p>
+<section id="hojas-de-cálculo-excel-google-sheets-y-similares" class="level3">
+<h3 class="anchored" data-anchor-id="hojas-de-cálculo-excel-google-sheets-y-similares">Hojas de cálculo: Excel, Google Sheets y similares</h3>
+<p>Las hojas de cálculo suelen ser el primer contacto con el análisis de datos. Permiten cargar datos, hacer cálculos básicos, tablas y gráficos sin necesidad de programar.</p>
+<p><strong>Ventajas</strong></p>
+<ul>
+<li><p>Muy accesibles y conocidas.</p></li>
+<li><p>Curva de aprendizaje baja.</p></li>
+<li><p>Útiles para exploraciones rápidas y datasets pequeños.</p></li>
+</ul>
+<p><strong>Desventajas</strong></p>
+<ul>
+<li><p>Escalabilidad limitada.</p></li>
+<li><p>Alto riesgo de errores difíciles de rastrear.</p></li>
+<li><p>Poco adecuadas para análisis complejos o reproducibles.</p></li>
+<li><p>Separan datos, análisis y resultados en pasos poco transparentes.</p></li>
+</ul>
+<p>En general, funcionan bien como herramienta inicial o complementaria, pero se vuelven frágiles cuando el análisis crece.</p>
+</section>
+<section id="software-estadístico-con-interfaz-gráfica-spss-stata-jamovi-jasp" class="level3">
+<h3 class="anchored" data-anchor-id="software-estadístico-con-interfaz-gráfica-spss-stata-jamovi-jasp">Software estadístico con interfaz gráfica: SPSS, Stata, Jamovi, JASP</h3>
+<p>Estos programas están diseñados específicamente para análisis estadísticos y ofrecen menús, botones y cuadros de diálogo que guían al usuario.</p>
+<p><strong>Ventajas</strong></p>
+<ul>
+<li><p>Pensados para análisis estadísticos clásicos.</p></li>
+<li><p>Reducen la barrera de entrada para personas sin experiencia en programación.</p></li>
+<li><p>Resultados relativamente estandarizados.</p></li>
+</ul>
+<p><strong>Desventajas</strong></p>
+<ul>
+<li><p>Menor flexibilidad para análisis no previstos.</p></li>
+<li><p>Dificultad para automatizar procesos complejos.</p></li>
+<li><p><a href="https://atelierdecodigo.com/posts/reproducibilidad.html">Reproducibilidad</a> limitada si no se trabaja explícitamente con <a href="https://atelierdecodigo.com/posts/consola-script-escribir-codigo.html">scripts</a>.</p></li>
+<li><p>En algunos casos, licencias costosas (Jamovi y JASP son de acceso libre).</p></li>
+</ul>
+<p>Son muy usados en ámbitos académicos y profesionales donde se repiten análisis similares y se prioriza la rapidez operativa.</p>
+</section>
+<section id="lenguajes-de-programación-de-propósito-general-python" class="level3">
+<h3 class="anchored" data-anchor-id="lenguajes-de-programación-de-propósito-general-python">Lenguajes de programación de propósito general: Python</h3>
+<p>Python no nació como lenguaje estadístico, pero se consolidó como una herramienta central en <a href="https://atelierdecodigo.com/posts/que-es-ciencia-de-datos.html">ciencia de datos</a> gracias a sus librerías.</p>
+<p><strong>Ventajas</strong></p>
+<ul>
+<li><p>Gran ecosistema para análisis, machine learning y producción.</p></li>
+<li><p>Integración sencilla con sistemas, bases de datos y aplicaciones.</p></li>
+<li><p>Comunidad muy amplia y activa.</p></li>
+</ul>
+<p><strong>Desventajas</strong></p>
+<ul>
+<li><p>Estadística clásica menos integrada conceptualmente que en otros entornos.</p></li>
+<li><p>Requiere más decisiones técnicas por parte del usuario.</p></li>
+<li><p>Resultados estadísticos menos “listos para reportar” en contextos académicos.</p></li>
+</ul>
+<p>Python suele ser elegido cuando el análisis estadístico es parte de un flujo más amplio que incluye software, automatización o despliegue.</p>
+</section>
+<section id="lenguajes-especializados-en-estadística-r" class="level3">
+<h3 class="anchored" data-anchor-id="lenguajes-especializados-en-estadística-r">Lenguajes especializados en estadística: R</h3>
+<p>R fue diseñado desde su origen como un entorno para estadística y análisis de datos. Esto se refleja tanto en su sintaxis como en su <a href="https://atelierdecodigo.com/posts/r-base-tidyverse.html">ecosistema de paquetes</a>.</p>
+<p><strong>Por qué sí conviene usar R</strong></p>
+<p>R es especialmente fuerte cuando el análisis estadístico es el núcleo del trabajo.</p>
+<ul>
+<li><p>Tiene implementadas prácticamente todas las técnicas estadísticas clásicas y modernas.</p></li>
+<li><p>La estadística es el corazón del lenguaje.</p></li>
+<li><p>Facilita análisis <a href="https://atelierdecodigo.com/posts/reproducibilidad.html">reproducibles</a> mediante scripts, <a href="https://macarenaquiroga.com/post/guia-hiper-basica-a-rmarkdown/">RMarkdown</a> y Quarto.</p></li>
+<li><p>Permite integrar datos, análisis, visualización y texto en un mismo flujo.</p></li>
+<li><p>Es gratuito y de código abierto, lo que favorece la transparencia y la colaboración.</p></li>
+<li><p>Cuenta con una comunidad académica muy activa, que desarrolla paquetes alineados con avances metodológicos recientes.</p></li>
+</ul>
+<p>Para investigación, docencia y análisis exploratorios complejos, R ofrece un equilibrio poco frecuente entre potencia, expresividad y rigor estadístico.</p>
+<p><strong>Por qué no siempre conviene usar R</strong></p>
+<ul>
+<li><p>Tiene una curva de aprendizaje más exigente para quienes nunca programaron.</p></li>
+<li><p>Puede resultar menos adecuado para entornos productivos o aplicaciones a gran escala.</p></li>
+<li><p>La gestión de dependencias y versiones puede volverse compleja.</p></li>
+<li><p>No siempre es la mejor opción si el análisis estadístico es mínimo frente a otras tareas (por ejemplo, ingeniería de software).</p></li>
+</ul>
+<p>Además, en equipos donde nadie usa R, introducirlo puede generar costos de capacitación y mantenimiento.</p>
+</section>
+<section id="elegir-herramientas-que-te-sirvan-a-vos-y-a-tu-equipo" class="level3">
+<h3 class="anchored" data-anchor-id="elegir-herramientas-que-te-sirvan-a-vos-y-a-tu-equipo">Elegir herramientas que te sirvan a vos y a tu equipo</h3>
+<p>La elección de una herramienta para análisis estadísticos es una decisión situada. Depende del tipo de datos, del objetivo del análisis, del equipo de trabajo y del contexto institucional.</p>
+<p>R no reemplaza a todas las demás herramientas, pero ocupa un lugar específico y sólido cuando se busca hacer estadística de manera rigurosa, reproducible y conceptualmente informada. Entender sus ventajas y límites permite usarlo mejor, o decidir no usarlo, con criterios claros y explícitos.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>articulo</category>
+  <guid>https://atelierdecodigo.com/posts/herramientas-analisis-estadistico.html</guid>
+  <pubDate>Fri, 30 Jan 2026 03:00:00 GMT</pubDate>
+</item>
 <item>
   <title>¿Qué es la programación orientada a objetos y por qué R se considera un lenguaje orientado a objetos?</title>
   <dc:creator>Atelier de Código</dc:creator>
