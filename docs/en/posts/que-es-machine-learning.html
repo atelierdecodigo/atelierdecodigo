@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Atelier de Código">
-<meta name="dcterms.date" content="2026-01-22">
-<meta name="description" content="How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.">
+<meta name="dcterms.date" content="2026-04-11">
+<meta name="description" content="Machine learning is not a black box that produces automatic answers, but a modeling process where each decision reflects assumptions worth understanding. This post explains what happens when a system learns from data, how a model is built, and why interpretation remains central, even when the algorithm does the heavy lifting.">
 
-<title>Getting Started with R: Installation and First Steps – Atelier de Código</title>
+<title>What is Machine Learning? – Atelier de Código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,41 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -115,12 +80,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Getting Started with R: Installation and First Steps – Atelier de Código">
-<meta property="og:description" content="How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.">
-<meta property="og:image" content="https://atelierdecodigo.com/en/posts/images/installR.jpg">
+<meta property="og:title" content="What is Machine Learning? – Atelier de Código">
+<meta property="og:description" content="Machine learning is not a black box that produces automatic answers, but a modeling process where each decision reflects assumptions worth understanding. This post explains what happens when a system learns from data, how a model is built, and why interpretation remains central, even when the algorithm does the heavy lifting.">
 <meta property="og:site_name" content="Atelier de código">
 <meta property="og:locale" content="en_US">
-<meta property="og:image:alt" content="Fragment of CRAN website with links to download R">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -183,12 +146,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Getting Started with R: Installation and First Steps</h1>
-</div>
+<h1 class="title">What is Machine Learning?</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">article</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.
+    Machine learning is not a black box that produces automatic answers, but a modeling process where each decision reflects assumptions worth understanding. This post explains what happens when a system learns from data, how a model is built, and why interpretation remains central, even when the algorithm does the heavy lifting.
   </div>
 </div>
 
@@ -205,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 22, 2026</p>
+      <p class="date">April 11, 2026</p>
     </div>
   </div>
   
@@ -217,73 +183,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Starting with R often raises very specific questions. What to install, in what order, what each thing is for. Before writing a single line of code, it’s worth clarifying this point, because R works with several pieces that combine with each other. The good news is that the installation process is simple and only needs to be done once.</p>
-<p>The first step is to install R. R is the programming language itself. To do this, go to the official project site <a href="https://cran.r-project.org">CRAN</a>, and choose the installer file that corresponds to your operating system (Windows, macOS, or Linux). By clicking, you will access the specific instructions for each case.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/installR.jpg" class="img-fluid figure-img" alt="Fragment of CRAN website with links to download R"></p>
-<figcaption>Install R</figcaption>
-</figure>
-</div>
-<p>Technically, we could use R directly from the software we just installed, on Windows and macOS. However, it is not a very user-friendly graphical interface, so most people use other <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">environments</a> like RStudio, VSCode, or Positron. If we are just starting, it is preferable to use RStudio, because most tutorials will show images of that environment.</p>
-<p>As we mentioned <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">in a previous post</a>, RStudio is an independent program that is installed separately. It is a graphical interface (technically, an integrated development environment) that facilitates the interaction between the user and the R programming language. To install it, you have to go to the <a href="https://posit.co/download/rstudio-desktop">RStudio</a> site and download the free version. As seen in the image, we can also install R from here, but if we have already installed it from CRAN, there is no need to install it again.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/installRStudio.jpg" class="img-fluid figure-img" alt="Fragments from RStudio website with links to install RStudio"></p>
-<figcaption>Install RStudio.</figcaption>
-</figure>
-</div>
-<p>When opening RStudio for the first time, it automatically detects the R installation and is ready to use. From that moment on, RStudio becomes the main workspace.</p>
-<p>With R and RStudio installed, it is now possible to write and execute code. The next usual step is to install packages, which are add-ons that extend R’s capabilities. One of the most used is the Tidyverse, a set of packages designed to work with data in an organized and readable way (you can read more about what packages are <a href="http://atelierdecodigo.com/en/posts/r-base-tidyverse.html">here</a>).</p>
-<p>Installing a package in R is done by typing an instruction in the console. In the case of the Tidyverse, the command is:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Once we write the code, we must execute it (control+Enter or the “Run” icon). This step requires an internet connection and may take a few minutes, because the Tidyverse includes several packages. Many colored messages will appear in the console: this is normal (unless something says “Warning” or “Error”). The installation is done only once. Once installed, to use it in a work session, you have to load it with:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tibble' was built under R version 4.4.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.4.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'stringr' was built under R version 4.4.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.6.0
-✔ ggplot2   3.5.1     ✔ tibble    3.3.0
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.2.0     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-</div>
-<p>This difference between installing and loading often causes confusion at first. Installing downloads the package to the computer. Loading makes it available in the current R session. Every time a new session is started and you want to use the Tidyverse, you have to run <code>library(tidyverse)</code> again.</p>
-<p>After loading it, R shows some messages in the console indicating which packages were activated. From that moment on, functions like <code>ggplot</code>, <code>mutate</code>, or <code>filter</code> become available. There’s no need to understand them all immediately. The important thing is to know that they are part of the same ecosystem and share a common logic.</p>
-<p>A practical tip for beginners is to verify that everything is working. For example, write a simple line like:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="install-r-rstudio_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>If a plot appears, the installation was successful. It doesn’t matter if the code is not yet understood. That will be worked on later.</p>
-<p>Installing R, RStudio, and the Tidyverse marks the beginning of the work. From there, learning R involves familiarizing oneself with <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">the environment</a>, with writing <a href="http://atelierdecodigo.com/posts/console-script-writing-code.html">scripts</a>, and with reading code. Having these tools well installed and working avoids many unnecessary problems and allows you to focus on what’s most important: understanding what the code does and how to use it to analyze data.</p>
-<p>In the next posts of this series, we will break down these pieces in more detail, so that the initial step transforms into a solid working foundation.</p>
+<p><strong>What is Machine Learning?</strong></p>
+<p>The term <em>machine learning</em> frequently appears in news, courses, and conversations about technology and <a href="https://atelierdecodigo.com/en/posts/what-is-data-science.html">data science</a>. It is often associated with complex systems, automation, or artificial intelligence, which can give the impression that it is something distant or exclusively technical. However, the core idea of machine learning is much more concrete: using data to build models that identify patterns and allow for predictions or classifications on new cases.</p>
+<p>What distinguishes this approach from other forms of programming is that the system does not follow rules explicitly written by a programmer for every possible situation. Instead, it is presented with a set of examples and asked to find regularities within them. Based on these regularities, the model can operate on data it did not see during its construction. This ability to generalize from examples is what is often called “learning,” although it is worth remembering that this is a metaphor: what occurs is a mathematical adjustment of parameters, not a deep understanding in any profound sense.</p>
+<p><strong>Where it comes from</strong></p>
+<p>Machine learning has roots in several converging fields. <a href="https://atelierdecodigo.com/en/posts/herramientas-analisis-estadistico.html">Statistics</a> has been developing models for decades to describe relationships between variables and make inferences about populations. Computer science contributes the methods to implement these models efficiently and execute them on large volumes of data. Artificial intelligence, for its part, contributed the explicit interest in building systems that adapt to available information instead of following fixed procedures.</p>
+<p>The sustained growth of machine learning in recent years is closely linked to two material conditions: the massive accumulation of digital data —records of interactions, texts, images, transactions— and the considerable increase in available computing power. When both conditions are combined, training complex models on real and updated information becomes technically viable, and this has opened the field to an enormous variety of applications.</p>
+<p><strong>How a Model is Built</strong></p>
+<p>A machine learning model is built from three elements worth distinguishing. The first is a dataset that serves as training material: the examples from which the system will learn. The second is an algorithm<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> that defines how to search for patterns in that data, i.e., what type of mathematical structure will be adjusted. The third is an objective that indicates what result is expected from the model: predicting a numerical value, classifying cases into categories, detecting clusters, among others.</p>
+<p>A concrete example can help clarify this structure. Suppose we have data on individuals and sociodemographic information —age, education level, region of residence— and we want to build a model that predicts whether someone is employed. The algorithm analyzes the examples where the outcome is already known and adjusts its internal parameters to approximate that outcome. When it subsequently receives a new case —someone about whom it does not have the answer—, it produces a prediction based on what it learned from previous examples.</p>
+<p>What happens in this adjustment process is, in essence, a search for the parameter configuration that minimizes the model’s error on the training data. The different machine learning algorithms represent different ways of approaching this search and different ways of representing the patterns found.</p>
+<p><strong>Types of Learning</strong></p>
+<p>One of the most common distinctions in the field is between supervised learning and unsupervised learning. In the former, the data includes a known target variable —a label or outcome— and the model learns to relate input variables to that outcome. The employment example belongs to this category: there is a known outcome for each training case. In unsupervised learning, however, there is no prior label. The goal is to explore the data’s structure, identify groups or recurring patterns without anyone having defined the correct categories beforehand.</p>
+<p>There are also more specific approaches, such as reinforcement learning, where a system learns from the feedback it receives from its own actions in an environment. For a first approach to the field, the most relevant thing is to understand that the choice between these types of approaches is not arbitrary: it depends on the nature of the problem, the type of data available, and what question you want to answer.</p>
+<p><strong>What a Model Does and Doesn’t Do</strong></p>
+<p>A fundamental aspect of machine learning is that the results a model produces depend directly on the data with which it was trained. This implies that the assumptions, biases, and limitations of that data are transferred to the model. If the training data is incomplete, unrepresentative, or reflects structural inequalities, the model will learn those same regularities and project them onto new cases.</p>
+<p>For this reason, machine learning does not replace interpretation or judgment. It helps identify patterns and automate certain analyses that would be impossible to do by hand, but it is still necessary to evaluate whether those patterns make sense in the context of the problem, whether they generalize reasonably to other contexts, and what concrete implications the predictions have. Decisions about what data to use, how to prepare it, and how to interpret the results remain human decisions, and these largely determine the quality and responsibility of an analysis.</p>
+<p>Nevertheless, we know that the world is changing at an overwhelming speed and that these principles are not always maintained (or not shared by everyone). However, we would like to recall at this point the famous <a href="https://simonwillison.net/2025/Feb/3/a-computer-can-never-be-held-accountable/">1979 IBM training manual</a>: “a computer can never be held accountable, therefore a computer must never make a management decision.” By action or omission, it is possible that in various spheres—political, business, governmental—machine learning algorithms are used to make decisions that can be decisive in people’s lives: this—we believe—must be handled with extreme care<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p><strong>A Way to Look at the Problem</strong></p>
+<p>Machine learning is used in very diverse contexts: classifying texts, detecting fraud, analyzing medical images, studying career paths, modeling social dynamics. In each of these cases, the value of the technique does not come from the algorithm itself but from how it is integrated into a framework of clear questions and rigorous work practices. Machine learning is a data processing technique like many others: it should not be the end, but rather one of the means.</p>
+<p>Learning machine learning, in that sense, involves understanding what kind of problems can be formulated as learning problems, how to evaluate whether a model generalizes well or simply memorized the training data, and how to honestly communicate the results regarding their scope and limitations. Perhaps the most important shift in perspective is this: moving from thinking of machine learning as a black box that produces answers to thinking of it as a modeling process where every decision —about the data, about the algorithm, about the objective— reflects assumptions worth making explicit.</p>
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>For those of us from other fields, the word <em>algorithm</em> might seem distant, mysterious, almost mystical. But in essence, an algorithm is a series of steps to accomplish something, which can be applied in different situations. For example, the series of steps to “tie a knot” can be applied to shoelaces, a scarf, a boat’s ropes, etc. In these cases, we talk about mathematical algorithms, which involve taking a value and performing a series of mathematical operations on that value.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This is a topic that requires <em>rivers of ink</em>, but we cannot help but wonder: to what extent in some cases is this technology being leveraged to make decisions that, if made by people, would be widely questioned? Are they perhaps taking advantage of the algorithm’s supposed objectivity (which is not real) to detach themselves from the moral burden of decisions? Is it really possible to <a href="https://www.wsj.com/tech/ai/anthropic-amanda-askell-philosopher-ai-3c031883">teach ethics to a language model</a> or is it just a loophole for criticism?<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

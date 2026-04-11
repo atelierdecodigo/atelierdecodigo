@@ -10,11 +10,197 @@
 <atom:link href="https://atelierdecodigo.com/en/posts/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Thu, 29 Jan 2026 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 11 Apr 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>What is Machine Learning?</title>
+  <dc:creator>Atelier de Código</dc:creator>
+  <link>https://atelierdecodigo.com/en/posts/que-es-machine-learning.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><strong>What is Machine Learning?</strong></p>
+<p>The term <em>machine learning</em> frequently appears in news, courses, and conversations about technology and <a href="https://atelierdecodigo.com/en/posts/what-is-data-science.html">data science</a>. It is often associated with complex systems, automation, or artificial intelligence, which can give the impression that it is something distant or exclusively technical. However, the core idea of machine learning is much more concrete: using data to build models that identify patterns and allow for predictions or classifications on new cases.</p>
+<p>What distinguishes this approach from other forms of programming is that the system does not follow rules explicitly written by a programmer for every possible situation. Instead, it is presented with a set of examples and asked to find regularities within them. Based on these regularities, the model can operate on data it did not see during its construction. This ability to generalize from examples is what is often called “learning,” although it is worth remembering that this is a metaphor: what occurs is a mathematical adjustment of parameters, not a deep understanding in any profound sense.</p>
+<p><strong>Where it comes from</strong></p>
+<p>Machine learning has roots in several converging fields. <a href="https://atelierdecodigo.com/en/posts/herramientas-analisis-estadistico.html">Statistics</a> has been developing models for decades to describe relationships between variables and make inferences about populations. Computer science contributes the methods to implement these models efficiently and execute them on large volumes of data. Artificial intelligence, for its part, contributed the explicit interest in building systems that adapt to available information instead of following fixed procedures.</p>
+<p>The sustained growth of machine learning in recent years is closely linked to two material conditions: the massive accumulation of digital data —records of interactions, texts, images, transactions— and the considerable increase in available computing power. When both conditions are combined, training complex models on real and updated information becomes technically viable, and this has opened the field to an enormous variety of applications.</p>
+<p><strong>How a Model is Built</strong></p>
+<p>A machine learning model is built from three elements worth distinguishing. The first is a dataset that serves as training material: the examples from which the system will learn. The second is an algorithm<sup>1</sup> that defines how to search for patterns in that data, i.e., what type of mathematical structure will be adjusted. The third is an objective that indicates what result is expected from the model: predicting a numerical value, classifying cases into categories, detecting clusters, among others.</p>
+<p>A concrete example can help clarify this structure. Suppose we have data on individuals and sociodemographic information —age, education level, region of residence— and we want to build a model that predicts whether someone is employed. The algorithm analyzes the examples where the outcome is already known and adjusts its internal parameters to approximate that outcome. When it subsequently receives a new case —someone about whom it does not have the answer—, it produces a prediction based on what it learned from previous examples.</p>
+<p>What happens in this adjustment process is, in essence, a search for the parameter configuration that minimizes the model’s error on the training data. The different machine learning algorithms represent different ways of approaching this search and different ways of representing the patterns found.</p>
+<p><strong>Types of Learning</strong></p>
+<p>One of the most common distinctions in the field is between supervised learning and unsupervised learning. In the former, the data includes a known target variable —a label or outcome— and the model learns to relate input variables to that outcome. The employment example belongs to this category: there is a known outcome for each training case. In unsupervised learning, however, there is no prior label. The goal is to explore the data’s structure, identify groups or recurring patterns without anyone having defined the correct categories beforehand.</p>
+<p>There are also more specific approaches, such as reinforcement learning, where a system learns from the feedback it receives from its own actions in an environment. For a first approach to the field, the most relevant thing is to understand that the choice between these types of approaches is not arbitrary: it depends on the nature of the problem, the type of data available, and what question you want to answer.</p>
+<p><strong>What a Model Does and Doesn’t Do</strong></p>
+<p>A fundamental aspect of machine learning is that the results a model produces depend directly on the data with which it was trained. This implies that the assumptions, biases, and limitations of that data are transferred to the model. If the training data is incomplete, unrepresentative, or reflects structural inequalities, the model will learn those same regularities and project them onto new cases.</p>
+<p>For this reason, machine learning does not replace interpretation or judgment. It helps identify patterns and automate certain analyses that would be impossible to do by hand, but it is still necessary to evaluate whether those patterns make sense in the context of the problem, whether they generalize reasonably to other contexts, and what concrete implications the predictions have. Decisions about what data to use, how to prepare it, and how to interpret the results remain human decisions, and these largely determine the quality and responsibility of an analysis.</p>
+<p>Nevertheless, we know that the world is changing at an overwhelming speed and that these principles are not always maintained (or not shared by everyone). However, we would like to recall at this point the famous <a href="https://simonwillison.net/2025/Feb/3/a-computer-can-never-be-held-accountable/">1979 IBM training manual</a>: “a computer can never be held accountable, therefore a computer must never make a management decision.” By action or omission, it is possible that in various spheres—political, business, governmental—machine learning algorithms are used to make decisions that can be decisive in people’s lives: this—we believe—must be handled with extreme care<sup>2</sup>.</p>
+<p><strong>A Way to Look at the Problem</strong></p>
+<p>Machine learning is used in very diverse contexts: classifying texts, detecting fraud, analyzing medical images, studying career paths, modeling social dynamics. In each of these cases, the value of the technique does not come from the algorithm itself but from how it is integrated into a framework of clear questions and rigorous work practices. Machine learning is a data processing technique like many others: it should not be the end, but rather one of the means.</p>
+<p>Learning machine learning, in that sense, involves understanding what kind of problems can be formulated as learning problems, how to evaluate whether a model generalizes well or simply memorized the training data, and how to honestly communicate the results regarding their scope and limitations. Perhaps the most important shift in perspective is this: moving from thinking of machine learning as a black box that produces answers to thinking of it as a modeling process where every decision —about the data, about the algorithm, about the objective— reflects assumptions worth making explicit.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>For those of us from other fields, the word <em>algorithm</em> might seem distant, mysterious, almost mystical. But in essence, an algorithm is a series of steps to accomplish something, which can be applied in different situations. For example, the series of steps to “tie a knot” can be applied to shoelaces, a scarf, a boat’s ropes, etc. In these cases, we talk about mathematical algorithms, which involve taking a value and performing a series of mathematical operations on that value.↩︎</p></li>
+<li id="fn2"><p>This is a topic that requires <em>rivers of ink</em>, but we cannot help but wonder: to what extent in some cases is this technology being leveraged to make decisions that, if made by people, would be widely questioned? Are they perhaps taking advantage of the algorithm’s supposed objectivity (which is not real) to detach themselves from the moral burden of decisions? Is it really possible to <a href="https://www.wsj.com/tech/ai/anthropic-amanda-askell-philosopher-ai-3c031883">teach ethics to a language model</a> or is it just a loophole for criticism?↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>article</category>
+  <guid>https://atelierdecodigo.com/en/posts/que-es-machine-learning.html</guid>
+  <pubDate>Sat, 11 Apr 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Why we insist on writing code from scratch (and not copy-pasting it)</title>
+  <dc:creator>Atelier de Código</dc:creator>
+  <link>https://atelierdecodigo.com/en/posts/escribir-codigo-a-mano.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>When someone starts learning to program, one of the first temptations is to copy and paste code from tutorials, blogs, or internet answers. The reasoning is logical: the code works, the expected result appears, and it seems the problem is solved. However, from what we know in educational sciences and cognitive psychology, this way of learning has clear limits. Although copying and pasting saves time, it doesn’t always help to understand what’s happening or to learn in a lasting way.</p>
+<p>Writing code by hand, from scratch, is usually slower and sometimes frustrating. Errors appear, the program doesn’t run on the first try, and you have to go back several times. Precisely because of this, this way of working is often much more effective for learning. When a person writes code line by line, they are forced to make decisions: which function to use, in what order, with what arguments. This active effort is central to meaningful learning, as cognitive psychology has pointed out for decades <span class="citation" data-cites="chi2009">(Chi 2009)</span>.</p>
+<p>A frequent problem when copying code is the feeling that “it’s already understood.” Since the script works, a confidence is generated that isn’t always real. In education, this is known as an illusion of learning: it seems that progress has been made, but when something small needs to be modified or a similar problem solved from scratch, the knowledge is insufficient (we can think that the same thing happens when we use AI… <em>excessively</em>). Research on learning shows that passive recognition is often confused with deep understanding, when in reality they are distinct processes <span class="citation" data-cites="bjork2013">(Bjork, Dunlosky, and Kornell 2013)</span>.</p>
+<p>The role of error is also important. In programming, making mistakes is inevitable: misplaced parentheses, misspelled names, functions used incorrectly. While this can be annoying, errors play a key role in learning. Each error forces you to read messages, review the code, and think about what went wrong. This process is linked to the idea of trial-and-error learning and the notion of feedback as a driver of learning <span class="citation" data-cites="hattie2007">(Hattie and Timperley 2007)</span>. When you copy and paste, many of those errors have already been solved by someone else, and the opportunity to learn from them is lost.</p>
+<p>From cognitive psychology, we know that initially learning something new requires a lot of conscious attention. Writing code for the first time demands thinking about each step. With time and practice, some actions become automatic. This transition from conscious to more fluid is part of the normal learning process for complex skills <span class="citation" data-cites="anderson1982">(Anderson 1982)</span>. The problem with copying code too early is that it gives the sensation of automation without having gone through that stage of comprehension. The result is usually fragile knowledge, which only works as long as the problem is very similar to the original example.</p>
+<p>A useful comparison is to think of programming like writing. Nobody learns to write texts by copying entire paragraphs from other authors over and over again. Reading models helps, of course, but learning happens when one tries to write, makes mistakes, and rewrites. In education, this idea is very present in approaches that understand learning as an active and situated practice, where doing is a condition for understanding <span class="citation" data-cites="bruner1996">(Bruner 1996)</span>.</p>
+<p>All this does not mean that copying and pasting is forbidden or negative. In more advanced stages, when the basic structures are well understood, reusing code is part of the real work of programming. But when learning, writing code from scratch acts as an investment. It takes more time at first but builds a more solid foundation that later allows one to read, adapt, and reuse code judiciously.</p>
+<p>Ultimately, writing code by hand is not a matter of discipline or unnecessary effort. It is a way of learning aligned with how people construct knowledge. It allows detecting what is understood and what is not, leveraging errors as a source of learning, and developing a deeper understanding of the programming language.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-anderson1982" class="csl-entry">
+Anderson, John R. 1982. <span>“Acquisition of Cognitive Skill.”</span> <em>Psychological Review</em> 89 (4): 369. <a href="https://psycnet.apa.org/record/1982-27252-001">https://psycnet.apa.org/record/1982-27252-001</a>.
+</div>
+<div id="ref-bjork2013" class="csl-entry">
+Bjork, Robert A., John Dunlosky, and Nate Kornell. 2013. <span>“Self-Regulated Learning: Beliefs, Techniques, and Illusions.”</span> <em>Annual Review of Psychology</em> 64 (1): 417–44. <a href="https://doi.org/10.1146/annurev-psych-113011-143823">https://doi.org/10.1146/annurev-psych-113011-143823</a>.
+</div>
+<div id="ref-bruner1996" class="csl-entry">
+Bruner, Jerome. 1996. <em>The Culture of Education</em>. Harvard University Press. <a href="https://doi.org/10.4159/9780674251083">https://doi.org/10.4159/9780674251083</a>.
+</div>
+<div id="ref-chi2009" class="csl-entry">
+Chi, Michelene T. H. 2009. <span>“Active<span>-</span>Constructive<span>-</span>Interactive: A Conceptual Framework for Differentiating Learning Activities.”</span> <em>Topics in Cognitive Science</em> 1 (1): 73–105. <a href="https://doi.org/10.1111/j.1756-8765.2008.01005.x">https://doi.org/10.1111/j.1756-8765.2008.01005.x</a>.
+</div>
+<div id="ref-hattie2007" class="csl-entry">
+Hattie, John, and Helen Timperley. 2007. <span>“The Power of Feedback.”</span> <em>Review of Educational Research</em> 77 (1): 81–112. <a href="https://doi.org/10.3102/003465430298487">https://doi.org/10.3102/003465430298487</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>article</category>
+  <guid>https://atelierdecodigo.com/en/posts/escribir-codigo-a-mano.html</guid>
+  <pubDate>Wed, 01 Apr 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Tools for Statistical Analysis: A Possible Map</title>
+  <dc:creator>Atelier de Código</dc:creator>
+  <link>https://atelierdecodigo.com/en/posts/herramientas-analisis-estadistico.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Performing statistical analyses today is not just a matter of knowing statistics. It also involves choosing which tools to work with. That choice dictates what type of analysis is viable, how reproducible the process will be, how easy it will be to collaborate with others, and how results will be communicated. There is no single “correct” tool: each responds to different traditions, needs, and user profiles.</p>
+<p>This post offers a general overview of the main tools used for statistical analysis, discussing their advantages and disadvantages, and concludes with a specific discussion on when it is (and is not) advisable to use R.</p>
+<section id="spreadsheets-excel-google-sheets-and-similar" class="level3">
+<h3 class="anchored" data-anchor-id="spreadsheets-excel-google-sheets-and-similar">Spreadsheets: Excel, Google Sheets, and similar</h3>
+<p>Spreadsheets are often the first contact with data analysis. They allow loading data, performing basic calculations, creating tables and charts without the need for programming.</p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Highly accessible and well-known.</li>
+<li>Low learning curve.</li>
+<li>Useful for quick explorations and small datasets.</li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>Limited scalability.</li>
+<li>High risk of errors that are difficult to trace.</li>
+<li>Less suitable for complex or reproducible analyses.</li>
+<li>They separate data, analysis, and results into non-transparent steps.</li>
+</ul>
+<p>In general, they work well as an initial or complementary tool, but become fragile as the analysis grows.</p>
+</section>
+<section id="statistical-software-with-a-graphical-interface-spss-stata-jamovi-jasp" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-software-with-a-graphical-interface-spss-stata-jamovi-jasp">Statistical software with a graphical interface: SPSS, Stata, Jamovi, JASP</h3>
+<p>These programs are specifically designed for statistical analysis and offer menus, buttons, and dialog boxes that guide the user.</p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Designed for classical statistical analyses.</li>
+<li>Reduce the entry barrier for people without programming experience.</li>
+<li>Relatively standardized results.</li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>Less flexibility for unforeseen analyses.</li>
+<li>Difficulty in automating complex processes.</li>
+<li>Limited reproducibility if not working explicitly with scripts.</li>
+<li>In many cases, costly licenses (Jamovi and JASP are open access).</li>
+</ul>
+<p>They are widely used in academic and professional settings where similar analyses are repeated and operational speed is prioritized.</p>
+</section>
+<section id="general-purpose-programming-languages-python" class="level3">
+<h3 class="anchored" data-anchor-id="general-purpose-programming-languages-python">General-purpose programming languages: Python</h3>
+<p>Python was not born as a statistical language, but it has consolidated itself as a central tool in data science thanks to its libraries.</p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Large ecosystem for analysis, machine learning, and production.</li>
+<li>Easy integration with systems, databases, and applications.</li>
+<li>Very large and active community.</li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>Classical statistics less conceptually integrated than in other environments.</li>
+<li>Requires more technical decisions from the user.</li>
+<li>Statistical results less “ready for reporting” in academic contexts.</li>
+</ul>
+<p>Python is often chosen when statistical analysis is part of a broader workflow that includes software, automation, or deployment.</p>
+</section>
+<section id="specialized-languages-for-statistics-r" class="level3">
+<h3 class="anchored" data-anchor-id="specialized-languages-for-statistics-r">Specialized languages for statistics: R</h3>
+<p><code>R</code> was designed from its origin as an environment for statistics and data analysis. This is reflected in both its syntax and its package ecosystem.</p>
+<p>Before evaluating <code>R</code> in particular, it is worth noting that it is not just a language, but a way of thinking about analysis: based on objects, functions, and scripts that document each analytical decision.</p>
+<p><strong>Why it is advisable to use R</strong></p>
+<p><code>R</code> is especially strong when statistical analysis is the core of the work.</p>
+<ul>
+<li>It has virtually all classical and modern statistical techniques implemented.</li>
+<li>Statistics is not an “add-on” but the heart of the language.</li>
+<li>Facilitates reproducible analyses using scripts, RMarkdown, and Quarto.</li>
+<li>Allows integrating data, analysis, visualization, and text into a single workflow.</li>
+<li>It is free and open-source, which promotes transparency and collaboration.</li>
+<li>It has a very active academic community that develops packages aligned with recent methodological advancements.</li>
+</ul>
+<p>For research, teaching, and complex exploratory analyses, <code>R</code> offers a rare balance of power, expressiveness, and statistical rigor.</p>
+<p><strong>Why it is not always advisable to use R</strong></p>
+<ul>
+<li>It has a more demanding learning curve for those who have never programmed.</li>
+<li>It may be less suitable for production environments or large-scale applications.</li>
+<li>Dependency and version management can become complex.</li>
+<li>It is not always the best option if statistical analysis is minimal compared to other tasks (e.g., software engineering).</li>
+</ul>
+<p>Additionally, in teams where no one uses <code>R</code>, introducing it can generate training and maintenance costs.</p>
+</section>
+<section id="choosing-tools-that-work-for-you" class="level3">
+<h3 class="anchored" data-anchor-id="choosing-tools-that-work-for-you">Choosing Tools That Work for You</h3>
+<p>The choice of a tool for statistical analysis is not just technical: it is situated. It depends on the type of data, the objective of the analysis, the work team, and the institutional context.</p>
+<p><code>R</code> does not replace all other tools, but it occupies a specific and solid place when the goal is to perform statistics rigorously, reproducibly, and conceptually informed. Understanding its advantages and limitations allows for better use of it —or the decision not to use it— with clear and explicit criteria.</p>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/herramientas-analisis-estadistico.html</guid>
+  <pubDate>Fri, 30 Jan 2026 03:00:00 GMT</pubDate>
+</item>
 <item>
   <title>What is object-oriented programming and why is R considered an object-oriented language?</title>
   <dc:creator>Atelier de Código</dc:creator>
-  <link>https://atelierdecodigo.com/en/posts/object-oriented-programming.html</link>
+  <link>https://atelierdecodigo.com/en/posts/lenguaje-orientado-objetos.html</link>
   <description><![CDATA[ 
 
 
@@ -53,13 +239,13 @@
 </section>
 
  ]]></description>
-  <guid>https://atelierdecodigo.com/en/posts/object-oriented-programming.html</guid>
+  <guid>https://atelierdecodigo.com/en/posts/lenguaje-orientado-objetos.html</guid>
   <pubDate>Thu, 29 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>What is Data Science and Why All the Interest?</title>
   <dc:creator>Atelier de Código</dc:creator>
-  <link>https://atelierdecodigo.com/en/posts/what-is-data-science.html</link>
+  <link>https://atelierdecodigo.com/en/posts/que-es-ciencia-de-datos.html</link>
   <description><![CDATA[ 
 
 
@@ -96,13 +282,13 @@
 </section>
 
  ]]></description>
-  <guid>https://atelierdecodigo.com/en/posts/what-is-data-science.html</guid>
+  <guid>https://atelierdecodigo.com/en/posts/que-es-ciencia-de-datos.html</guid>
   <pubDate>Wed, 28 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>6 Essential Books for Learning Data Science</title>
   <dc:creator>Atelier de Código</dc:creator>
-  <link>https://atelierdecodigo.com/en/posts/books-learning-data-science.html</link>
+  <link>https://atelierdecodigo.com/en/posts/libros-aprender-ciencia-datos.html</link>
   <description><![CDATA[ 
 
 
@@ -142,13 +328,13 @@
 </section>
 
  ]]></description>
-  <guid>https://atelierdecodigo.com/en/posts/books-learning-data-science.html</guid>
+  <guid>https://atelierdecodigo.com/en/posts/libros-aprender-ciencia-datos.html</guid>
   <pubDate>Tue, 27 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Grammar of Graphics</title>
   <dc:creator>Atelier de Código</dc:creator>
-  <link>https://atelierdecodigo.com/en/posts/grammar-graphics-ggplot.html</link>
+  <link>https://atelierdecodigo.com/en/posts/gramatica-graficos-ggplot.html</link>
   <description><![CDATA[ 
 
 
@@ -188,13 +374,13 @@
 </section>
 
  ]]></description>
-  <guid>https://atelierdecodigo.com/en/posts/grammar-graphics-ggplot.html</guid>
+  <guid>https://atelierdecodigo.com/en/posts/gramatica-graficos-ggplot.html</guid>
   <pubDate>Mon, 26 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>RStudio Projects and Version Control: Working Without Getting Lost in Files</title>
   <dc:creator>Atelier de Código</dc:creator>
-  <link>https://atelierdecodigo.com/en/posts/projects-version-control-github.html</link>
+  <link>https://atelierdecodigo.com/en/posts/proyectos-control-versiones-github.html</link>
   <description><![CDATA[ 
 
 
@@ -253,13 +439,13 @@ font-style: inherit;"># next time you pick up work</span></span>
 <li id="fn1"><p>While we will talk about GitHub here, strictly speaking, one thing is <em>Git</em> and another is <em>GitHub</em>. <strong>Git</strong> is the version control system that is installed locally and is responsible for recording changes in files, something like the technology that allows tracking changes. <strong>GitHub</strong>, <strong>GitLab</strong>, and similar platforms are services that host Git repositories in the cloud and add tools for sharing, collaborating, and managing projects.↩︎</p></li>
 </ol>
 </section></div> ]]></description>
-  <guid>https://atelierdecodigo.com/en/posts/projects-version-control-github.html</guid>
+  <guid>https://atelierdecodigo.com/en/posts/proyectos-control-versiones-github.html</guid>
   <pubDate>Sat, 24 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Reproducibility: why it matters and what it has to do with good programming</title>
   <dc:creator>Atelier de Código</dc:creator>
-  <link>https://atelierdecodigo.com/en/posts/reproducibility.html</link>
+  <link>https://atelierdecodigo.com/en/posts/reproducibilidad.html</link>
   <description><![CDATA[ 
 
 
@@ -286,13 +472,13 @@ font-style: inherit;"># next time you pick up work</span></span>
 
 
  ]]></description>
-  <guid>https://atelierdecodigo.com/en/posts/reproducibility.html</guid>
+  <guid>https://atelierdecodigo.com/en/posts/reproducibilidad.html</guid>
   <pubDate>Thu, 22 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Working with projects in RStudio: organizing your work from the start</title>
   <dc:creator>Atelier de Código</dc:creator>
-  <link>https://atelierdecodigo.com/en/posts/projects-rstudio.html</link>
+  <link>https://atelierdecodigo.com/en/posts/proyectos-rstudio.html</link>
   <description><![CDATA[ 
 
 
@@ -331,13 +517,13 @@ font-style: inherit;"># next time you pick up work</span></span>
 </section>
 
  ]]></description>
-  <guid>https://atelierdecodigo.com/en/posts/projects-rstudio.html</guid>
+  <guid>https://atelierdecodigo.com/en/posts/proyectos-rstudio.html</guid>
   <pubDate>Thu, 22 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Getting Started with R: Installation and First Steps</title>
   <dc:creator>Atelier de Código</dc:creator>
-  <link>https://atelierdecodigo.com/en/posts/install-r-rstudio.html</link>
+  <link>https://atelierdecodigo.com/en/posts/instalar-r-rstudio.html</link>
   <description><![CDATA[ 
 
 
@@ -416,7 +602,7 @@ font-style: inherit;">geom_point</span>()</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://atelierdecodigo.com/en/posts/install-r-rstudio_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://atelierdecodigo.com/en/posts/instalar-r-rstudio_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -428,13 +614,13 @@ font-style: inherit;">geom_point</span>()</span></code></pre></div></div>
 
 
  ]]></description>
-  <guid>https://atelierdecodigo.com/en/posts/install-r-rstudio.html</guid>
+  <guid>https://atelierdecodigo.com/en/posts/instalar-r-rstudio.html</guid>
   <pubDate>Thu, 22 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Console and Script: Two Ways to Write Code in R</title>
   <dc:creator>Atelier de Código</dc:creator>
-  <link>https://atelierdecodigo.com/en/posts/console-script-writing-code.html</link>
+  <link>https://atelierdecodigo.com/en/posts/consola-script-escribir-codigo.html</link>
   <description><![CDATA[ 
 
 
@@ -454,7 +640,7 @@ font-style: inherit;">geom_point</span>()</span></code></pre></div></div>
 
 
  ]]></description>
-  <guid>https://atelierdecodigo.com/en/posts/console-script-writing-code.html</guid>
+  <guid>https://atelierdecodigo.com/en/posts/consola-script-escribir-codigo.html</guid>
   <pubDate>Wed, 21 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
@@ -503,7 +689,7 @@ font-style: inherit;">geom_point</span>()</span></code></pre></div></div>
 <item>
   <title>R for the Humanities: Why Learn to Program?</title>
   <dc:creator>Atelier de Código</dc:creator>
-  <link>https://atelierdecodigo.com/en/posts/r-humanities-learning.html</link>
+  <link>https://atelierdecodigo.com/en/posts/r-humanidades-aprender.html</link>
   <description><![CDATA[ 
 
 
@@ -521,38 +707,13 @@ font-style: inherit;">geom_point</span>()</span></code></pre></div></div>
 
 
  ]]></description>
-  <guid>https://atelierdecodigo.com/en/posts/r-humanities-learning.html</guid>
+  <guid>https://atelierdecodigo.com/en/posts/r-humanidades-aprender.html</guid>
   <pubDate>Sun, 18 Jan 2026 03:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>R: A Language Born to Think with Data</title>
-  <dc:creator>Atelier de Código</dc:creator>
-  <link>https://atelierdecodigo.com/en/posts/r-programming-language.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p>When we, from the social sciences and humanities, first approach a programming language, an ambiguous feeling often arises: curiosity, interest, and, at the same time, a certain caution. Programming is frequently associated with a technical practice, distant from reading, discursive analysis, or theoretical reflection. However, we can choose a different entry point to learn R. Its history, its uses, and the community that sustains it make it a language particularly close to an analytical perspective on data and on the conditions of knowledge production.</p>
-<p>R originated in the field of academic statistics. In the early 1990s, Ross Ihaka and Robert Gentleman, statisticians at the University of Auckland, developed R as a free re-implementation of the S language, used since the 1970s in statistical research. From that initial moment, R was conceived as a tool for exploring data, testing models, and supporting scientific research processes. This origin helps to understand many of its current characteristics and also the practices that have consolidated around its use.</p>
-<p>One of R’s distinctive features is its orientation towards interactive analysis. The code executes progressively and allows for exploratory work with data: trying an operation, observing the result, adjusting the instruction, and re-evaluating. For those accustomed to building analyses iteratively, based on provisional hypotheses and constant reformulations, this mode of work is particularly familiar. Programming in R usually involves sustaining a process of controlled exploration, rather than following a completely predefined path.</p>
-<p>From a technical point of view, R relies heavily on the use of functions. Most operations are performed by applying functions to objects (in fact, R is <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">an object-oriented language</a>, just like Python). A function can be understood as a formalized operation that receives one or more arguments, executes a series of internal steps, and returns a result. Calculating an average, transforming a variable, fitting a model, or producing a graph are examples of tasks performed using functions. Reading code in R involves identifying which functions appear, what arguments they receive, and what type of object they generate as output.</p>
-<p>This emphasis on functions favors a careful reading of code as if it were a text. Each function call presents a relatively stable structure: a name, parentheses, and arguments that can be explicitly named or implicitly defined by default values. For those with experience in text analysis, this syntax can be approached as a system of markers that guides interpretation. Understanding why a function produces a certain result often requires pausing on these details and on the assumptions that the function incorporates.</p>
-<p>Over time, the uses of R expanded considerably. Currently, it is used for statistical analysis, modeling, data visualization, text analysis, social network studies, working with spatial data, and experiments in psychology and linguistics, among many other fields. This expansion is largely explained by the package system. A package is an organized collection of functions, data, and documentation that extends the language’s capabilities. R thus functions as a constantly growing environment, fed by contributions from different academic communities. For the social sciences and humanities, this feature is particularly relevant. Many of the tools available in R were developed by researchers working on problems similar to ours. Packages oriented towards the analysis of surveys, texts, linguistic corpora, or longitudinal data incorporate specific theoretical and methodological decisions. By reading the code that uses these packages, one also accesses these decisions: how a unit of analysis is defined, which operations are considered relevant, what assumptions are adopted about the data.</p>
-<p>In this sense, R can be thought of as a language in which particular ways of thinking and researching are inscribed. The existence of object classes, the representation of models as examinable objects, or the construction of layered graphics organize the relationship between the analyst and the analyzed phenomenon. Learning R implies learning to recognize and work with these mediations.</p>
-<p>For this reason, in a series aimed at those beginning programming from the social sciences and humanities, it is productive to present R as a language with a history, conventions, and communities of use. Reading code in R, even when it initially takes time and effort, is part of a technical literacy that dialogues with habitual practices of reading and interpretation.</p>
-<p>In the next texts in this series, we will introduce concrete code snippets. The goal will be to learn to read them, decompose them, and understand what they are doing and what they are saying. Programming in R, from within our disciplines, implies incorporating a new form of writing and of situated knowledge production.</p>
-
-
-
- ]]></description>
-  <guid>https://atelierdecodigo.com/en/posts/r-programming-language.html</guid>
-  <pubDate>Sat, 17 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Integrated Development Environments (or IDEs, for friends)</title>
   <dc:creator>Atelier de Código</dc:creator>
-  <link>https://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html</link>
+  <link>https://atelierdecodigo.com/en/posts/entorno-desarrollo-integrado-ide.html</link>
   <description><![CDATA[ 
 
 
@@ -574,7 +735,32 @@ font-style: inherit;">geom_point</span>()</span></code></pre></div></div>
 
 
  ]]></description>
-  <guid>https://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html</guid>
+  <guid>https://atelierdecodigo.com/en/posts/entorno-desarrollo-integrado-ide.html</guid>
+  <pubDate>Sat, 17 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>R: A Language Born to Think with Data</title>
+  <dc:creator>Atelier de Código</dc:creator>
+  <link>https://atelierdecodigo.com/en/posts/r-lenguaje-programacion.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>When we, from the social sciences and humanities, first approach a programming language, an ambiguous feeling often arises: curiosity, interest, and, at the same time, a certain caution. Programming is frequently associated with a technical practice, distant from reading, discursive analysis, or theoretical reflection. However, we can choose a different entry point to learn R. Its history, its uses, and the community that sustains it make it a language particularly close to an analytical perspective on data and on the conditions of knowledge production.</p>
+<p>R originated in the field of academic statistics. In the early 1990s, Ross Ihaka and Robert Gentleman, statisticians at the University of Auckland, developed R as a free re-implementation of the S language, used since the 1970s in statistical research. From that initial moment, R was conceived as a tool for exploring data, testing models, and supporting scientific research processes. This origin helps to understand many of its current characteristics and also the practices that have consolidated around its use.</p>
+<p>One of R’s distinctive features is its orientation towards interactive analysis. The code executes progressively and allows for exploratory work with data: trying an operation, observing the result, adjusting the instruction, and re-evaluating. For those accustomed to building analyses iteratively, based on provisional hypotheses and constant reformulations, this mode of work is particularly familiar. Programming in R usually involves sustaining a process of controlled exploration, rather than following a completely predefined path.</p>
+<p>From a technical point of view, R relies heavily on the use of functions. Most operations are performed by applying functions to objects (in fact, R is <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">an object-oriented language</a>, just like Python). A function can be understood as a formalized operation that receives one or more arguments, executes a series of internal steps, and returns a result. Calculating an average, transforming a variable, fitting a model, or producing a graph are examples of tasks performed using functions. Reading code in R involves identifying which functions appear, what arguments they receive, and what type of object they generate as output.</p>
+<p>This emphasis on functions favors a careful reading of code as if it were a text. Each function call presents a relatively stable structure: a name, parentheses, and arguments that can be explicitly named or implicitly defined by default values. For those with experience in text analysis, this syntax can be approached as a system of markers that guides interpretation. Understanding why a function produces a certain result often requires pausing on these details and on the assumptions that the function incorporates.</p>
+<p>Over time, the uses of R expanded considerably. Currently, it is used for statistical analysis, modeling, data visualization, text analysis, social network studies, working with spatial data, and experiments in psychology and linguistics, among many other fields. This expansion is largely explained by the package system. A package is an organized collection of functions, data, and documentation that extends the language’s capabilities. R thus functions as a constantly growing environment, fed by contributions from different academic communities. For the social sciences and humanities, this feature is particularly relevant. Many of the tools available in R were developed by researchers working on problems similar to ours. Packages oriented towards the analysis of surveys, texts, linguistic corpora, or longitudinal data incorporate specific theoretical and methodological decisions. By reading the code that uses these packages, one also accesses these decisions: how a unit of analysis is defined, which operations are considered relevant, what assumptions are adopted about the data.</p>
+<p>In this sense, R can be thought of as a language in which particular ways of thinking and researching are inscribed. The existence of object classes, the representation of models as examinable objects, or the construction of layered graphics organize the relationship between the analyst and the analyzed phenomenon. Learning R implies learning to recognize and work with these mediations.</p>
+<p>For this reason, in a series aimed at those beginning programming from the social sciences and humanities, it is productive to present R as a language with a history, conventions, and communities of use. Reading code in R, even when it initially takes time and effort, is part of a technical literacy that dialogues with habitual practices of reading and interpretation.</p>
+<p>In the next texts in this series, we will introduce concrete code snippets. The goal will be to learn to read them, decompose them, and understand what they are doing and what they are saying. Programming in R, from within our disciplines, implies incorporating a new form of writing and of situated knowledge production.</p>
+
+
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/r-lenguaje-programacion.html</guid>
   <pubDate>Sat, 17 Jan 2026 03:00:00 GMT</pubDate>
 </item>
 </channel>

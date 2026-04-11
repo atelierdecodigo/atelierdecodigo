@@ -126,40 +126,21 @@ body.quarto-post .content {
 }
 
 /* ===============================
-   HEADER DEL POST
+   HEADER DEL POST (versión robusta)
 ================================ */
-/* Título: pisa Bootstrap con selector más específico */
-body.quarto-post .quarto-title h1.title,
-body.quarto-post #title-block-header h1.title {
+
+/* Pisa Bootstrap con el mismo selector (o más largo) */
+#title-block-header.quarto-title-block.default .quarto-title .title,
+body.quarto-post h1.title {
   margin-top: 0;
   margin-bottom: 1rem;
-  padding-bottom: 0;
 }
 
-/* Separador visual debajo del bloque de título */
-body.quarto-post #title-block-header,
-body.quarto-post .quarto-title-block {
+/* Separador del bloque header */
+#title-block-header.quarto-title-block {
   margin-bottom: 3rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #eee;
-}
-
-/* Descripción/subtítulo del post */
-body.quarto-post .quarto-title .description,
-body.quarto-post .quarto-title .subtitle {
-  font-size: 0.95rem;
-  font-style: italic;
-  line-height: 1.6;
-  color: #666;
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Metadata (fecha, autor) */
-body.quarto-post .quarto-title-meta {
-  font-size: 0.8rem;
-  color: #777;
-  margin-bottom: 1.5rem;
 }
 
 /* ===============================

@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Atelier de Código">
-<meta name="dcterms.date" content="2026-01-22">
-<meta name="description" content="How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.">
+<meta name="dcterms.date" content="2026-01-30">
+<meta name="description" content="What tools exist for statistical analysis? When is it best to use each of them? This post offers a general overview of the main tools used for statistical analysis, discussing their advantages and disadvantages, and concludes with a specific discussion on when it is (and is not) advisable to use R.">
 
-<title>Getting Started with R: Installation and First Steps – Atelier de Código</title>
+<title>Tools for Statistical Analysis: A Possible Map – Atelier de Código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,41 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -115,12 +80,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Getting Started with R: Installation and First Steps – Atelier de Código">
-<meta property="og:description" content="How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.">
-<meta property="og:image" content="https://atelierdecodigo.com/en/posts/images/installR.jpg">
+<meta property="og:title" content="Tools for Statistical Analysis: A Possible Map – Atelier de Código">
+<meta property="og:description" content="What tools exist for statistical analysis? When is it best to use each of them? This post offers a general overview of the main tools used for statistical analysis, discussing their advantages and disadvantages, and concludes with a specific discussion on when it is (and is not) advisable to use R.">
 <meta property="og:site_name" content="Atelier de código">
 <meta property="og:locale" content="en_US">
-<meta property="og:image:alt" content="Fragment of CRAN website with links to download R">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -183,12 +146,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Getting Started with R: Installation and First Steps</h1>
+<h1 class="title">Tools for Statistical Analysis: A Possible Map</h1>
 </div>
 
 <div>
   <div class="description">
-    How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.
+    What tools exist for statistical analysis? When is it best to use each of them? This post offers a general overview of the main tools used for statistical analysis, discussing their advantages and disadvantages, and concludes with a specific discussion on when it is (and is not) advisable to use R.
   </div>
 </div>
 
@@ -205,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 22, 2026</p>
+      <p class="date">January 30, 2026</p>
     </div>
   </div>
   
@@ -217,71 +180,92 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Starting with R often raises very specific questions. What to install, in what order, what each thing is for. Before writing a single line of code, it’s worth clarifying this point, because R works with several pieces that combine with each other. The good news is that the installation process is simple and only needs to be done once.</p>
-<p>The first step is to install R. R is the programming language itself. To do this, go to the official project site <a href="https://cran.r-project.org">CRAN</a>, and choose the installer file that corresponds to your operating system (Windows, macOS, or Linux). By clicking, you will access the specific instructions for each case.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/installR.jpg" class="img-fluid figure-img" alt="Fragment of CRAN website with links to download R"></p>
-<figcaption>Install R</figcaption>
-</figure>
-</div>
-<p>Technically, we could use R directly from the software we just installed, on Windows and macOS. However, it is not a very user-friendly graphical interface, so most people use other <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">environments</a> like RStudio, VSCode, or Positron. If we are just starting, it is preferable to use RStudio, because most tutorials will show images of that environment.</p>
-<p>As we mentioned <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">in a previous post</a>, RStudio is an independent program that is installed separately. It is a graphical interface (technically, an integrated development environment) that facilitates the interaction between the user and the R programming language. To install it, you have to go to the <a href="https://posit.co/download/rstudio-desktop">RStudio</a> site and download the free version. As seen in the image, we can also install R from here, but if we have already installed it from CRAN, there is no need to install it again.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/installRStudio.jpg" class="img-fluid figure-img" alt="Fragments from RStudio website with links to install RStudio"></p>
-<figcaption>Install RStudio.</figcaption>
-</figure>
-</div>
-<p>When opening RStudio for the first time, it automatically detects the R installation and is ready to use. From that moment on, RStudio becomes the main workspace.</p>
-<p>With R and RStudio installed, it is now possible to write and execute code. The next usual step is to install packages, which are add-ons that extend R’s capabilities. One of the most used is the Tidyverse, a set of packages designed to work with data in an organized and readable way (you can read more about what packages are <a href="http://atelierdecodigo.com/en/posts/r-base-tidyverse.html">here</a>).</p>
-<p>Installing a package in R is done by typing an instruction in the console. In the case of the Tidyverse, the command is:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Once we write the code, we must execute it (control+Enter or the “Run” icon). This step requires an internet connection and may take a few minutes, because the Tidyverse includes several packages. Many colored messages will appear in the console: this is normal (unless something says “Warning” or “Error”). The installation is done only once. Once installed, to use it in a work session, you have to load it with:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tibble' was built under R version 4.4.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.4.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'stringr' was built under R version 4.4.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.6.0
-✔ ggplot2   3.5.1     ✔ tibble    3.3.0
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.2.0     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-</div>
-<p>This difference between installing and loading often causes confusion at first. Installing downloads the package to the computer. Loading makes it available in the current R session. Every time a new session is started and you want to use the Tidyverse, you have to run <code>library(tidyverse)</code> again.</p>
-<p>After loading it, R shows some messages in the console indicating which packages were activated. From that moment on, functions like <code>ggplot</code>, <code>mutate</code>, or <code>filter</code> become available. There’s no need to understand them all immediately. The important thing is to know that they are part of the same ecosystem and share a common logic.</p>
-<p>A practical tip for beginners is to verify that everything is working. For example, write a simple line like:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="install-r-rstudio_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>If a plot appears, the installation was successful. It doesn’t matter if the code is not yet understood. That will be worked on later.</p>
-<p>Installing R, RStudio, and the Tidyverse marks the beginning of the work. From there, learning R involves familiarizing oneself with <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">the environment</a>, with writing <a href="http://atelierdecodigo.com/posts/console-script-writing-code.html">scripts</a>, and with reading code. Having these tools well installed and working avoids many unnecessary problems and allows you to focus on what’s most important: understanding what the code does and how to use it to analyze data.</p>
-<p>In the next posts of this series, we will break down these pieces in more detail, so that the initial step transforms into a solid working foundation.</p>
+<p>Performing statistical analyses today is not just a matter of knowing statistics. It also involves choosing which tools to work with. That choice dictates what type of analysis is viable, how reproducible the process will be, how easy it will be to collaborate with others, and how results will be communicated. There is no single “correct” tool: each responds to different traditions, needs, and user profiles.</p>
+<p>This post offers a general overview of the main tools used for statistical analysis, discussing their advantages and disadvantages, and concludes with a specific discussion on when it is (and is not) advisable to use R.</p>
+<section id="spreadsheets-excel-google-sheets-and-similar" class="level3">
+<h3 class="anchored" data-anchor-id="spreadsheets-excel-google-sheets-and-similar">Spreadsheets: Excel, Google Sheets, and similar</h3>
+<p>Spreadsheets are often the first contact with data analysis. They allow loading data, performing basic calculations, creating tables and charts without the need for programming.</p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Highly accessible and well-known.</li>
+<li>Low learning curve.</li>
+<li>Useful for quick explorations and small datasets.</li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>Limited scalability.</li>
+<li>High risk of errors that are difficult to trace.</li>
+<li>Less suitable for complex or reproducible analyses.</li>
+<li>They separate data, analysis, and results into non-transparent steps.</li>
+</ul>
+<p>In general, they work well as an initial or complementary tool, but become fragile as the analysis grows.</p>
+</section>
+<section id="statistical-software-with-a-graphical-interface-spss-stata-jamovi-jasp" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-software-with-a-graphical-interface-spss-stata-jamovi-jasp">Statistical software with a graphical interface: SPSS, Stata, Jamovi, JASP</h3>
+<p>These programs are specifically designed for statistical analysis and offer menus, buttons, and dialog boxes that guide the user.</p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Designed for classical statistical analyses.</li>
+<li>Reduce the entry barrier for people without programming experience.</li>
+<li>Relatively standardized results.</li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>Less flexibility for unforeseen analyses.</li>
+<li>Difficulty in automating complex processes.</li>
+<li>Limited reproducibility if not working explicitly with scripts.</li>
+<li>In many cases, costly licenses (Jamovi and JASP are open access).</li>
+</ul>
+<p>They are widely used in academic and professional settings where similar analyses are repeated and operational speed is prioritized.</p>
+</section>
+<section id="general-purpose-programming-languages-python" class="level3">
+<h3 class="anchored" data-anchor-id="general-purpose-programming-languages-python">General-purpose programming languages: Python</h3>
+<p>Python was not born as a statistical language, but it has consolidated itself as a central tool in data science thanks to its libraries.</p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Large ecosystem for analysis, machine learning, and production.</li>
+<li>Easy integration with systems, databases, and applications.</li>
+<li>Very large and active community.</li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>Classical statistics less conceptually integrated than in other environments.</li>
+<li>Requires more technical decisions from the user.</li>
+<li>Statistical results less “ready for reporting” in academic contexts.</li>
+</ul>
+<p>Python is often chosen when statistical analysis is part of a broader workflow that includes software, automation, or deployment.</p>
+</section>
+<section id="specialized-languages-for-statistics-r" class="level3">
+<h3 class="anchored" data-anchor-id="specialized-languages-for-statistics-r">Specialized languages for statistics: R</h3>
+<p><code>R</code> was designed from its origin as an environment for statistics and data analysis. This is reflected in both its syntax and its package ecosystem.</p>
+<p>Before evaluating <code>R</code> in particular, it is worth noting that it is not just a language, but a way of thinking about analysis: based on objects, functions, and scripts that document each analytical decision.</p>
+<p><strong>Why it is advisable to use R</strong></p>
+<p><code>R</code> is especially strong when statistical analysis is the core of the work.</p>
+<ul>
+<li>It has virtually all classical and modern statistical techniques implemented.</li>
+<li>Statistics is not an “add-on” but the heart of the language.</li>
+<li>Facilitates reproducible analyses using scripts, RMarkdown, and Quarto.</li>
+<li>Allows integrating data, analysis, visualization, and text into a single workflow.</li>
+<li>It is free and open-source, which promotes transparency and collaboration.</li>
+<li>It has a very active academic community that develops packages aligned with recent methodological advancements.</li>
+</ul>
+<p>For research, teaching, and complex exploratory analyses, <code>R</code> offers a rare balance of power, expressiveness, and statistical rigor.</p>
+<p><strong>Why it is not always advisable to use R</strong></p>
+<ul>
+<li>It has a more demanding learning curve for those who have never programmed.</li>
+<li>It may be less suitable for production environments or large-scale applications.</li>
+<li>Dependency and version management can become complex.</li>
+<li>It is not always the best option if statistical analysis is minimal compared to other tasks (e.g., software engineering).</li>
+</ul>
+<p>Additionally, in teams where no one uses <code>R</code>, introducing it can generate training and maintenance costs.</p>
+</section>
+<section id="choosing-tools-that-work-for-you" class="level3">
+<h3 class="anchored" data-anchor-id="choosing-tools-that-work-for-you">Choosing Tools That Work for You</h3>
+<p>The choice of a tool for statistical analysis is not just technical: it is situated. It depends on the type of data, the objective of the analysis, the work team, and the institutional context.</p>
+<p><code>R</code> does not replace all other tools, but it occupies a specific and solid place when the goal is to perform statistics rigorously, reproducibly, and conceptually informed. Understanding its advantages and limitations allows for better use of it —or the decision not to use it— with clear and explicit criteria.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

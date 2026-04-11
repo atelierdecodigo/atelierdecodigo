@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Atelier de Código">
-<meta name="dcterms.date" content="2026-01-22">
-<meta name="description" content="What does it mean for an analysis to be reproducible and why does it matter? This post explains the idea of reproducibility in science and shows how good programming practices help support clear, verifiable, and easy-to-resume analyses.">
+<meta name="dcterms.date" content="2026-04-01">
+<meta name="description" content="Why is it beneficial to write code by hand when learning to program? This post draws on contributions from educational sciences and cognitive psychology to explain how error, effort, and active practice foster a deeper understanding of code.">
 
-<title>Reproducibility: why it matters and what it has to do with good programming – Atelier de Código</title>
+<title>Why we insist on writing code from scratch (and not copy-pasting it) – Atelier de Código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +23,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -80,12 +100,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Reproducibility: why it matters and what it has to do with good programming – Atelier de Código">
-<meta property="og:description" content="What does it mean for an analysis to be reproducible and why does it matter? This post explains the idea of reproducibility in science and shows how good programming practices help support clear, verifiable, and easy-to-resume analyses.">
-<meta property="og:image" content="https://atelierdecodigo.com/en/posts/images/spidermanmeme.jpg">
+<meta property="og:title" content="Why we insist on writing code from scratch (and not copy-pasting it) – Atelier de Código">
+<meta property="og:description" content="Why is it beneficial to write code by hand when learning to program? This post draws on contributions from educational sciences and cognitive psychology to explain how error, effort, and active practice foster a deeper understanding of code.">
 <meta property="og:site_name" content="Atelier de código">
 <meta property="og:locale" content="en_US">
-<meta property="og:image:alt" content="Meme showing two Spidermen pointing at each other.">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -148,12 +166,15 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Reproducibility: why it matters and what it has to do with good programming</h1>
-</div>
+<h1 class="title">Why we insist on writing code from scratch (and not copy-pasting it)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">article</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    What does it mean for an analysis to be reproducible and why does it matter? This post explains the idea of reproducibility in science and shows how good programming practices help support clear, verifiable, and easy-to-resume analyses.
+    Why is it beneficial to write code by hand when learning to program? This post draws on contributions from educational sciences and cognitive psychology to explain how error, effort, and active practice foster a deeper understanding of code.
   </div>
 </div>
 
@@ -170,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 22, 2026</p>
+      <p class="date">April 1, 2026</p>
     </div>
   </div>
   
@@ -182,27 +203,35 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In many research areas, results are not produced all at once. They are built from data, analytical decisions, adjustments, corrections, and backtracking. In this process, a question arises sooner or later: could another person obtain the same results by following the same steps? This possibility is often called <a href="https://royalsocietypublishing.org/rsta/article/379/2197/20200210/111826/The-fundamental-principles-of">reproducibility</a>.</p>
-<p>Reproducibility refers to the ability to repeat an analysis and arrive at the same results using the same data and the same procedures. It does not imply that the results are universal or definitive, but rather that the path that led to them is clear and verifiable. In practical terms, a reproducible analysis allows one to understand what was done, how it was done, and in what order.</p>
-<p>Lack of reproducibility is rarely due to malicious intent (though sometimes it happens). Rather, it is often associated with common but unsystematic practices: data files modified without a log, analyses partially done in the console, intermediate steps not saved, results copied and pasted into final documents. Over time, even the person who performed the analysis can lose the ability to reconstruct it.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/spidermanmeme.jpg" class="img-fluid figure-img" alt="Meme showing two Spidermen pointing at each other."></p>
-<figcaption>When we look for the culprit as to why our code no longer works just a few months after we wrote it.</figcaption>
-</figure>
+<p>When someone starts learning to program, one of the first temptations is to copy and paste code from tutorials, blogs, or internet answers. The reasoning is logical: the code works, the expected result appears, and it seems the problem is solved. However, from what we know in educational sciences and cognitive psychology, this way of learning has clear limits. Although copying and pasting saves time, it doesn’t always help to understand what’s happening or to learn in a lasting way.</p>
+<p>Writing code by hand, from scratch, is usually slower and sometimes frustrating. Errors appear, the program doesn’t run on the first try, and you have to go back several times. Precisely because of this, this way of working is often much more effective for learning. When a person writes code line by line, they are forced to make decisions: which function to use, in what order, with what arguments. This active effort is central to meaningful learning, as cognitive psychology has pointed out for decades <span class="citation" data-cites="chi2009">(<a href="#ref-chi2009" role="doc-biblioref">Chi 2009</a>)</span>.</p>
+<p>A frequent problem when copying code is the feeling that “it’s already understood.” Since the script works, a confidence is generated that isn’t always real. In education, this is known as an illusion of learning: it seems that progress has been made, but when something small needs to be modified or a similar problem solved from scratch, the knowledge is insufficient (we can think that the same thing happens when we use AI… <em>excessively</em>). Research on learning shows that passive recognition is often confused with deep understanding, when in reality they are distinct processes <span class="citation" data-cites="bjork2013">(<a href="#ref-bjork2013" role="doc-biblioref">Bjork, Dunlosky, and Kornell 2013</a>)</span>.</p>
+<p>The role of error is also important. In programming, making mistakes is inevitable: misplaced parentheses, misspelled names, functions used incorrectly. While this can be annoying, errors play a key role in learning. Each error forces you to read messages, review the code, and think about what went wrong. This process is linked to the idea of trial-and-error learning and the notion of feedback as a driver of learning <span class="citation" data-cites="hattie2007">(<a href="#ref-hattie2007" role="doc-biblioref">Hattie and Timperley 2007</a>)</span>. When you copy and paste, many of those errors have already been solved by someone else, and the opportunity to learn from them is lost.</p>
+<p>From cognitive psychology, we know that initially learning something new requires a lot of conscious attention. Writing code for the first time demands thinking about each step. With time and practice, some actions become automatic. This transition from conscious to more fluid is part of the normal learning process for complex skills <span class="citation" data-cites="anderson1982">(<a href="#ref-anderson1982" role="doc-biblioref">Anderson 1982</a>)</span>. The problem with copying code too early is that it gives the sensation of automation without having gone through that stage of comprehension. The result is usually fragile knowledge, which only works as long as the problem is very similar to the original example.</p>
+<p>A useful comparison is to think of programming like writing. Nobody learns to write texts by copying entire paragraphs from other authors over and over again. Reading models helps, of course, but learning happens when one tries to write, makes mistakes, and rewrites. In education, this idea is very present in approaches that understand learning as an active and situated practice, where doing is a condition for understanding <span class="citation" data-cites="bruner1996">(<a href="#ref-bruner1996" role="doc-biblioref">Bruner 1996</a>)</span>.</p>
+<p>All this does not mean that copying and pasting is forbidden or negative. In more advanced stages, when the basic structures are well understood, reusing code is part of the real work of programming. But when learning, writing code from scratch acts as an investment. It takes more time at first but builds a more solid foundation that later allows one to read, adapt, and reuse code judiciously.</p>
+<p>Ultimately, writing code by hand is not a matter of discipline or unnecessary effort. It is a way of learning aligned with how people construct knowledge. It allows detecting what is understood and what is not, leveraging errors as a source of learning, and developing a deeper understanding of the programming language.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-anderson1982" class="csl-entry" role="listitem">
+Anderson, John R. 1982. <span>“Acquisition of Cognitive Skill.”</span> <em>Psychological Review</em> 89 (4): 369. <a href="https://psycnet.apa.org/record/1982-27252-001">https://psycnet.apa.org/record/1982-27252-001</a>.
 </div>
-<p>At this point, programming plays a central role. Working with code allows for an explicit record of each decision. A script can show how data was loaded, what transformations were applied, what models were fitted, and how results were produced, both tables and graphs. This record does not depend on memory or subsequent explanations. It is written and can be read, either in plain text using an RMarkdown or Quarto file, or in the comments within the code itself.</p>
-<p><a href="https://medium.com/@josueparra2892/20-best-programming-practices-407df688b96e">Good programming practices</a> reinforce this logic. Writing code in <a href="https://atelierdecodigo.com/en/posts/console-script-writing-code.html">scripts</a> instead of just in the console allows the entire process to be preserved. Using clear names for objects and functions facilitates readability. Adding comments helps understand why a certain decision was made and not another. Organizing work into <a href="https://atelierdecodigo.com/en/posts/projects-rstudio.html">projects</a> keeps data, code, and results together. All these practices aim at the same thing: that the analysis can be resumed and understood.</p>
-<p>Reproducibility also benefits from the separation between raw data and processed data. Maintaining an original version of the data and performing all transformations via code prevents hard-to-detect errors. If something changes in the input data (for example, if you added subjects to your data collection), the analysis can be rerun without needing to manually redo steps.</p>
-<p>Another key aspect is automation. When results are generated from code, there’s no need to copy values from one place to another. Graphs, tables, and statistics are produced directly from the scripts. This reduces errors and ensures that the results are aligned with the data and the current analytical decisions.</p>
-<p>Tools like RStudio facilitate this approach. Working with <a href="https://atelierdecodigo.com/en/posts/projects-rstudio.html">projects</a>, using <a href="http://atelierdecodigo.com/en/posts/console-script-writing-code.html">scripts</a>, and the ability to integrate code and text into reproducible documents like <a href="https://macarenaquiroga.com/en/post/super-basic-rmarkdown-guide-beginners/">RMarkdown</a> allow for building analyses that run from beginning to end. The result is more transparent work, both for the person performing it and for the person reading it.</p>
-<p>Reproducibility is not an abstract goal or an external requirement. It has very concrete effects on daily work. It saves time when something needs to be corrected, allows analyses to be resumed after weeks or months, and facilitates exchange with other people. Even when the analysis will not be shared publicly, working reproducibly improves the quality of the process.</p>
-<p>Good programming alone does not guarantee reproducibility, but it creates the conditions for it to be possible. Writing legible, organized, and documented code transforms the analysis into an object that can be reviewed, discussed, and improved. In that sense, good programming practices are as much a part of scientific work as formulating questions or interpreting results.</p>
-<p>In the upcoming posts in this series, we will continue to delve into concrete tools that help sustain this way of working, from code organization to the use of version control.</p>
-
-
-
-</main> <!-- /main -->
+<div id="ref-bjork2013" class="csl-entry" role="listitem">
+Bjork, Robert A., John Dunlosky, and Nate Kornell. 2013. <span>“Self-Regulated Learning: Beliefs, Techniques, and Illusions.”</span> <em>Annual Review of Psychology</em> 64 (1): 417–44. <a href="https://doi.org/10.1146/annurev-psych-113011-143823">https://doi.org/10.1146/annurev-psych-113011-143823</a>.
+</div>
+<div id="ref-bruner1996" class="csl-entry" role="listitem">
+Bruner, Jerome. 1996. <em>The Culture of Education</em>. Harvard University Press. <a href="https://doi.org/10.4159/9780674251083">https://doi.org/10.4159/9780674251083</a>.
+</div>
+<div id="ref-chi2009" class="csl-entry" role="listitem">
+Chi, Michelene T. H. 2009. <span>“Active<span>-</span>Constructive<span>-</span>Interactive: A Conceptual Framework for Differentiating Learning Activities.”</span> <em>Topics in Cognitive Science</em> 1 (1): 73–105. <a href="https://doi.org/10.1111/j.1756-8765.2008.01005.x">https://doi.org/10.1111/j.1756-8765.2008.01005.x</a>.
+</div>
+<div id="ref-hattie2007" class="csl-entry" role="listitem">
+Hattie, John, and Helen Timperley. 2007. <span>“The Power of Feedback.”</span> <em>Review of Educational Research</em> 77 (1): 81–112. <a href="https://doi.org/10.3102/003465430298487">https://doi.org/10.3102/003465430298487</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

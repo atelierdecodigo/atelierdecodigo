@@ -1,0 +1,26 @@
+---
+title: "Why we insist on writing code from scratch (and not copy-pasting it)"
+author: "Atelier de Código"
+date: 2026-04-01
+categories: [article]
+page-layout: full
+toc: false
+description: "Why is it beneficial to write code by hand when learning to program? This post draws on contributions from educational sciences and cognitive psychology to explain how error, effort, and active practice foster a deeper understanding of code."
+bibliography: references.bib
+---
+
+When someone starts learning to program, one of the first temptations is to copy and paste code from tutorials, blogs, or internet answers. The reasoning is logical: the code works, the expected result appears, and it seems the problem is solved. However, from what we know in educational sciences and cognitive psychology, this way of learning has clear limits. Although copying and pasting saves time, it doesn't always help to understand what's happening or to learn in a lasting way.
+
+Writing code by hand, from scratch, is usually slower and sometimes frustrating. Errors appear, the program doesn't run on the first try, and you have to go back several times. Precisely because of this, this way of working is often much more effective for learning. When a person writes code line by line, they are forced to make decisions: which function to use, in what order, with what arguments. This active effort is central to meaningful learning, as cognitive psychology has pointed out for decades [@chi2009].
+
+A frequent problem when copying code is the feeling that "it's already understood." Since the script works, a confidence is generated that isn't always real. In education, this is known as an illusion of learning: it seems that progress has been made, but when something small needs to be modified or a similar problem solved from scratch, the knowledge is insufficient (we can think that the same thing happens when we use AI... *excessively*). Research on learning shows that passive recognition is often confused with deep understanding, when in reality they are distinct processes [@bjork2013].
+
+The role of error is also important. In programming, making mistakes is inevitable: misplaced parentheses, misspelled names, functions used incorrectly. While this can be annoying, errors play a key role in learning. Each error forces you to read messages, review the code, and think about what went wrong. This process is linked to the idea of trial-and-error learning and the notion of feedback as a driver of learning [@hattie2007]. When you copy and paste, many of those errors have already been solved by someone else, and the opportunity to learn from them is lost.
+
+From cognitive psychology, we know that initially learning something new requires a lot of conscious attention. Writing code for the first time demands thinking about each step. With time and practice, some actions become automatic. This transition from conscious to more fluid is part of the normal learning process for complex skills [@anderson1982]. The problem with copying code too early is that it gives the sensation of automation without having gone through that stage of comprehension. The result is usually fragile knowledge, which only works as long as the problem is very similar to the original example.
+
+A useful comparison is to think of programming like writing. Nobody learns to write texts by copying entire paragraphs from other authors over and over again. Reading models helps, of course, but learning happens when one tries to write, makes mistakes, and rewrites. In education, this idea is very present in approaches that understand learning as an active and situated practice, where doing is a condition for understanding [@bruner1996].
+
+All this does not mean that copying and pasting is forbidden or negative. In more advanced stages, when the basic structures are well understood, reusing code is part of the real work of programming. But when learning, writing code from scratch acts as an investment. It takes more time at first but builds a more solid foundation that later allows one to read, adapt, and reuse code judiciously.
+
+Ultimately, writing code by hand is not a matter of discipline or unnecessary effort. It is a way of learning aligned with how people construct knowledge. It allows detecting what is understood and what is not, leveraging errors as a source of learning, and developing a deeper understanding of the programming language.

@@ -1,0 +1,27 @@
+---
+title: "What is Documentation and How to Use It"
+editor: visual
+date: 2026-04-05
+categories: [article]
+author: "Code Workshop"
+page-layout: full
+toc: false
+draft: true
+description: "An introduction to documentation in R understood as a working tool: what information it offers, how to access it, and how to use it to make decisions when programming and analyzing data."
+---
+
+When we start programming, documentation often appears as a difficult-to-use resource. It's available, we know it has the information we need (in the best of cases), but often it's not clear how to read it or what it's for in practice. Over time, that perception changes. Documentation stops being a place to turn to only when something goes wrong and becomes part of daily work.
+
+Documentation is the set of texts that describe how a package or a function works. It includes information about what problem it solves, what type of data it expects, what it returns, and how it is used in different contexts. Instead of thinking of it as a closed manual, it's better to understand it as a space where decisions are made explicit. Each function is designed to operate under certain assumptions, and the documentation is the place where these assumptions become visible.
+
+In R, documentation is organized at different levels. On one hand, there's package documentation, which offers an overview. It describes the package's purpose, the type of tasks it was designed for, and how its functions are structured. This level is especially useful when it's not yet clear which tool to use. It allows you to get oriented, understand the scope of the package, and start building a map of possibilities. It can be accessed from the console with `help(package = "nombre_del_paquete")` or by directly consulting the package pages on CRAN or its repository.
+
+On the other hand, there's function documentation, which is more specific and operational. Each function has its own page detailing how it's used. This page includes a general description, the way the function is written, the list of arguments with their meaning, the type of object it returns, and a series of examples. In R, it is accessed with `?nombre_de_la_función` or `help(nombre_de_la_función)`, and in case of ambiguity, the package can be specified, for example `?dplyr::filter`.
+
+Reading documentation doesn't mean going through it linearly. It's more productive to approach it with a specific question. The initial description allows you to evaluate whether the function is relevant to the problem being addressed. The section indicating the return value is key to anticipating how that function will integrate into a broader workflow, as each analysis step depends on the type of object produced by the previous step. Arguments, on the other hand, can be read selectively, focusing on those that modify the function's behavior in relation to the current objective. Examples play a central role because they show concrete uses and allow you to quickly test how the function works in practice.
+
+As experience is gained, documentation ceases to be just a source of specific consultation and begins to play a role in decision-making. Faced with different alternatives, it allows comparing approaches, understanding what changes when an argument is modified, or anticipating effects on the result. This use is less visible when starting, but it is what sustains more consistent work over time.
+
+Working with data involves chaining operations, and each of these operations transforms the object being worked with. In this process, documentation functions as a guide that allows tracking these transformations. It's not just about resolving technical doubts, but about understanding how an analysis is built step by step.
+
+Over time, reading documentation becomes part of the code writing process itself. Instead of interrupting the work, it accompanies it. It allows adjusting decisions, exploring alternatives, and maintaining greater clarity about what is being done. This clarity doesn't appear immediately, but it is built in practice, as documentation ceases to be an external resource and integrates into the analysis process itself.

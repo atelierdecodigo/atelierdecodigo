@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Atelier de Código">
-<meta name="dcterms.date" content="2026-01-29">
-<meta name="description" content="What does it mean for a language to be object-oriented? This post introduces the concept of object-oriented programming and explains how R implements this logic through classes, objects, and methods in daily data work.">
+<meta name="dcterms.date" content="2026-01-22">
+<meta name="description" content="How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.">
 
-<title>What is object-oriented programming and why is R considered an object-oriented language? – Atelier de Código</title>
+<title>Getting Started with R: Installation and First Steps – Atelier de Código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -80,10 +115,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="What is object-oriented programming and why is R considered an object-oriented language? – Atelier de Código">
-<meta property="og:description" content="What does it mean for a language to be object-oriented? This post introduces the concept of object-oriented programming and explains how R implements this logic through classes, objects, and methods in daily data work.">
+<meta property="og:title" content="Getting Started with R: Installation and First Steps – Atelier de Código">
+<meta property="og:description" content="How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.">
+<meta property="og:image" content="https://atelierdecodigo.com/en/posts/images/installR.jpg">
 <meta property="og:site_name" content="Atelier de código">
 <meta property="og:locale" content="en_US">
+<meta property="og:image:alt" content="Fragment of CRAN website with links to download R">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -146,12 +183,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">What is object-oriented programming and why is R considered an object-oriented language?</h1>
+<h1 class="title">Getting Started with R: Installation and First Steps</h1>
 </div>
 
 <div>
   <div class="description">
-    What does it mean for a language to be object-oriented? This post introduces the concept of object-oriented programming and explains how R implements this logic through classes, objects, and methods in daily data work.
+    How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.
   </div>
 </div>
 
@@ -168,7 +205,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 29, 2026</p>
+      <p class="date">January 22, 2026</p>
     </div>
   </div>
   
@@ -180,37 +217,71 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>When you start programming, many operations seem like simple instructions executed in sequence: load data, apply a function, get a result. As projects grow, another need emerges: organizing code and data in a way that is easier to understand, reuse, and extend. <strong>Object-oriented programming (OOP)</strong> arises as a response to this organizational problem.</p>
-<p>Thinking in terms of object orientation involves slightly shifting the focus. Instead of concentrating solely on actions, attention is placed on the entities being acted upon and the relationships between data and operations. This way of structuring code is not exclusive to one language but rather a method for modeling problems.</p>
-<section id="the-core-idea-of-object-orientation" class="level3">
-<h3 class="anchored" data-anchor-id="the-core-idea-of-object-orientation">The Core Idea of Object Orientation</h3>
-<p>Generally speaking, object-oriented programming is based on the concept of an <strong>object</strong>. An object combines two things: data and the operations that make sense for that data. For instance, a dataset can have associated operations for summarization, plotting, or transformation.</p>
-<p>Objects usually belong to a class, which defines what kind of data they contain and what operations can be applied. Concrete objects are created from a class. This separation allows working with abstractions: there’s no need to know all the internal details to use an object consistently.</p>
-<p>Another important concept is that of a method, which is a function associated with a specific class. Instead of thinking of a function as existing in isolation, it is understood as an operation applied to a particular type of object.</p>
-</section>
-<section id="why-this-logic-is-useful" class="level3">
-<h3 class="anchored" data-anchor-id="why-this-logic-is-useful">Why This Logic Is Useful</h3>
-<p>Object orientation helps manage <strong>complexity</strong>. It allows writing code that adapts to different data types without being completely rewritten, facilitates the extension of functionalities, and promotes a certain internal coherence. For those reading the code, it also offers clues about which operations are expected for each type of object.</p>
-<p>This way of organizing work is especially valuable in languages used for data analysis, where tables, statistical models, plots, and intermediate results coexist. Each of these elements can be thought of as an object with its own behaviors.</p>
-</section>
-<section id="r-as-an-object-oriented-language" class="level3">
-<h3 class="anchored" data-anchor-id="r-as-an-object-oriented-language">R as an Object-Oriented Language</h3>
-<p>R is an object-oriented language, although it’s not always perceived that way when you start using it. This is because R implements object orientation in a particular way, less explicit than in other languages like Java or Python.</p>
-<p>In R, almost everything is an object. A vector, a data frame, a statistical model, or a plot are objects with an associated class. That class defines how they behave with certain functions. For example, the <code>summary()</code> function produces different results depending on the type of object it receives. The same function name activates different methods depending on the class of the input object.</p>
-<p>This mechanism is known as method dispatch. Instead of calling a specific function for each data type, R internally decides which method to use. For data analysts, this reduces cognitive load: the same general functions are used, and the behavior adjusts to the object.</p>
-</section>
-<section id="object-systems-in-r" class="level3">
-<h3 class="anchored" data-anchor-id="object-systems-in-r">Object Systems in R</h3>
-<p>R has several object systems. The most well-known are S3 and S4, and more recently R6. S3 is a flexible and informal system, widely used in packages and in everyday use. S4 is stricter and explicitly defines the structure of classes. R6 is more similar to classic object orientation, with mutable objects.</p>
-<p>To start, it’s not necessary to master these systems in detail. The important thing is to recognize that when working with data frames, models, or plots, you are interacting with objects that respond to specific rules according to their class.</p>
-</section>
-<section id="reading-code-from-this-perspective" class="level3">
-<h3 class="anchored" data-anchor-id="reading-code-from-this-perspective">Reading Code from This Perspective</h3>
-<p>Understanding that R is an object-oriented language helps to better read code. It allows you to ask what type of object you are working with, what operations are consistent with that object, and why a function behaves in a certain way. This perspective makes analysis more predictable and facilitates learning new packages.</p>
-<p>Object orientation in R does not require writing classes from day one. It often functions as a silent infrastructure that organizes the language. Recognizing its presence helps to move from executing code to interpreting it as part of a broader system.</p>
+<p>Starting with R often raises very specific questions. What to install, in what order, what each thing is for. Before writing a single line of code, it’s worth clarifying this point, because R works with several pieces that combine with each other. The good news is that the installation process is simple and only needs to be done once.</p>
+<p>The first step is to install R. R is the programming language itself. To do this, go to the official project site <a href="https://cran.r-project.org">CRAN</a>, and choose the installer file that corresponds to your operating system (Windows, macOS, or Linux). By clicking, you will access the specific instructions for each case.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/installR.jpg" class="img-fluid figure-img" alt="Fragment of CRAN website with links to download R"></p>
+<figcaption>Install R</figcaption>
+</figure>
+</div>
+<p>Technically, we could use R directly from the software we just installed, on Windows and macOS. However, it is not a very user-friendly graphical interface, so most people use other <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">environments</a> like RStudio, VSCode, or Positron. If we are just starting, it is preferable to use RStudio, because most tutorials will show images of that environment.</p>
+<p>As we mentioned <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">in a previous post</a>, RStudio is an independent program that is installed separately. It is a graphical interface (technically, an integrated development environment) that facilitates the interaction between the user and the R programming language. To install it, you have to go to the <a href="https://posit.co/download/rstudio-desktop">RStudio</a> site and download the free version. As seen in the image, we can also install R from here, but if we have already installed it from CRAN, there is no need to install it again.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/installRStudio.jpg" class="img-fluid figure-img" alt="Fragments from RStudio website with links to install RStudio"></p>
+<figcaption>Install RStudio.</figcaption>
+</figure>
+</div>
+<p>When opening RStudio for the first time, it automatically detects the R installation and is ready to use. From that moment on, RStudio becomes the main workspace.</p>
+<p>With R and RStudio installed, it is now possible to write and execute code. The next usual step is to install packages, which are add-ons that extend R’s capabilities. One of the most used is the Tidyverse, a set of packages designed to work with data in an organized and readable way (you can read more about what packages are <a href="http://atelierdecodigo.com/en/posts/r-base-tidyverse.html">here</a>).</p>
+<p>Installing a package in R is done by typing an instruction in the console. In the case of the Tidyverse, the command is:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Once we write the code, we must execute it (control+Enter or the “Run” icon). This step requires an internet connection and may take a few minutes, because the Tidyverse includes several packages. Many colored messages will appear in the console: this is normal (unless something says “Warning” or “Error”). The installation is done only once. Once installed, to use it in a work session, you have to load it with:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tibble' was built under R version 4.4.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.4.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'stringr' was built under R version 4.4.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.6.0
+✔ ggplot2   3.5.1     ✔ tibble    3.3.0
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.2.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<p>This difference between installing and loading often causes confusion at first. Installing downloads the package to the computer. Loading makes it available in the current R session. Every time a new session is started and you want to use the Tidyverse, you have to run <code>library(tidyverse)</code> again.</p>
+<p>After loading it, R shows some messages in the console indicating which packages were activated. From that moment on, functions like <code>ggplot</code>, <code>mutate</code>, or <code>filter</code> become available. There’s no need to understand them all immediately. The important thing is to know that they are part of the same ecosystem and share a common logic.</p>
+<p>A practical tip for beginners is to verify that everything is working. For example, write a simple line like:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="instalar-r-rstudio_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If a plot appears, the installation was successful. It doesn’t matter if the code is not yet understood. That will be worked on later.</p>
+<p>Installing R, RStudio, and the Tidyverse marks the beginning of the work. From there, learning R involves familiarizing oneself with <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">the environment</a>, with writing <a href="http://atelierdecodigo.com/posts/console-script-writing-code.html">scripts</a>, and with reading code. Having these tools well installed and working avoids many unnecessary problems and allows you to focus on what’s most important: understanding what the code does and how to use it to analyze data.</p>
+<p>In the next posts of this series, we will break down these pieces in more detail, so that the initial step transforms into a solid working foundation.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

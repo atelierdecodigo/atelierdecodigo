@@ -1,0 +1,53 @@
+---
+title: "What is Machine Learning?"
+date: 2026-04-11
+categories: [article]
+page-layout: full
+toc: false
+author: "Atelier de Código"
+description: "Machine learning is not a black box that produces automatic answers, but a modeling process where each decision reflects assumptions worth understanding. This post explains what happens when a system learns from data, how a model is built, and why interpretation remains central, even when the algorithm does the heavy lifting."
+---
+
+**What is Machine Learning?**
+
+The term *machine learning* frequently appears in news, courses, and conversations about technology and [data science](https://atelierdecodigo.com/en/posts/what-is-data-science.html). It is often associated with complex systems, automation, or artificial intelligence, which can give the impression that it is something distant or exclusively technical. However, the core idea of machine learning is much more concrete: using data to build models that identify patterns and allow for predictions or classifications on new cases.
+
+What distinguishes this approach from other forms of programming is that the system does not follow rules explicitly written by a programmer for every possible situation. Instead, it is presented with a set of examples and asked to find regularities within them. Based on these regularities, the model can operate on data it did not see during its construction. This ability to generalize from examples is what is often called "learning," although it is worth remembering that this is a metaphor: what occurs is a mathematical adjustment of parameters, not a deep understanding in any profound sense.
+
+**Where it comes from**
+
+Machine learning has roots in several converging fields. [Statistics](https://atelierdecodigo.com/en/posts/herramientas-analisis-estadistico.html) has been developing models for decades to describe relationships between variables and make inferences about populations. Computer science contributes the methods to implement these models efficiently and execute them on large volumes of data. Artificial intelligence, for its part, contributed the explicit interest in building systems that adapt to available information instead of following fixed procedures.
+
+The sustained growth of machine learning in recent years is closely linked to two material conditions: the massive accumulation of digital data —records of interactions, texts, images, transactions— and the considerable increase in available computing power. When both conditions are combined, training complex models on real and updated information becomes technically viable, and this has opened the field to an enormous variety of applications.
+
+**How a Model is Built**
+
+A machine learning model is built from three elements worth distinguishing. The first is a dataset that serves as training material: the examples from which the system will learn. The second is an algorithm[^1] that defines how to search for patterns in that data, i.e., what type of mathematical structure will be adjusted. The third is an objective that indicates what result is expected from the model: predicting a numerical value, classifying cases into categories, detecting clusters, among others.
+
+[^1]: For those of us from other fields, the word *algorithm* might seem distant, mysterious, almost mystical. But in essence, an algorithm is a series of steps to accomplish something, which can be applied in different situations. For example, the series of steps to "tie a knot" can be applied to shoelaces, a scarf, a boat's ropes, etc. In these cases, we talk about mathematical algorithms, which involve taking a value and performing a series of mathematical operations on that value.
+
+A concrete example can help clarify this structure. Suppose we have data on individuals and sociodemographic information —age, education level, region of residence— and we want to build a model that predicts whether someone is employed. The algorithm analyzes the examples where the outcome is already known and adjusts its internal parameters to approximate that outcome. When it subsequently receives a new case —someone about whom it does not have the answer—, it produces a prediction based on what it learned from previous examples.
+
+What happens in this adjustment process is, in essence, a search for the parameter configuration that minimizes the model's error on the training data. The different machine learning algorithms represent different ways of approaching this search and different ways of representing the patterns found.
+
+**Types of Learning**
+
+One of the most common distinctions in the field is between supervised learning and unsupervised learning. In the former, the data includes a known target variable —a label or outcome— and the model learns to relate input variables to that outcome. The employment example belongs to this category: there is a known outcome for each training case. In unsupervised learning, however, there is no prior label. The goal is to explore the data's structure, identify groups or recurring patterns without anyone having defined the correct categories beforehand.
+
+There are also more specific approaches, such as reinforcement learning, where a system learns from the feedback it receives from its own actions in an environment. For a first approach to the field, the most relevant thing is to understand that the choice between these types of approaches is not arbitrary: it depends on the nature of the problem, the type of data available, and what question you want to answer.
+
+**What a Model Does and Doesn't Do**
+
+A fundamental aspect of machine learning is that the results a model produces depend directly on the data with which it was trained. This implies that the assumptions, biases, and limitations of that data are transferred to the model. If the training data is incomplete, unrepresentative, or reflects structural inequalities, the model will learn those same regularities and project them onto new cases.
+
+For this reason, machine learning does not replace interpretation or judgment. It helps identify patterns and automate certain analyses that would be impossible to do by hand, but it is still necessary to evaluate whether those patterns make sense in the context of the problem, whether they generalize reasonably to other contexts, and what concrete implications the predictions have. Decisions about what data to use, how to prepare it, and how to interpret the results remain human decisions, and these largely determine the quality and responsibility of an analysis.
+
+Nevertheless, we know that the world is changing at an overwhelming speed and that these principles are not always maintained (or not shared by everyone). However, we would like to recall at this point the famous [1979 IBM training manual](https://simonwillison.net/2025/Feb/3/a-computer-can-never-be-held-accountable/): "a computer can never be held accountable, therefore a computer must never make a management decision." By action or omission, it is possible that in various spheres—political, business, governmental—machine learning algorithms are used to make decisions that can be decisive in people's lives: this—we believe—must be handled with extreme care[^2].
+
+[^2]: This is a topic that requires *rivers of ink*, but we cannot help but wonder: to what extent in some cases is this technology being leveraged to make decisions that, if made by people, would be widely questioned? Are they perhaps taking advantage of the algorithm's supposed objectivity (which is not real) to detach themselves from the moral burden of decisions? Is it really possible to [teach ethics to a language model](https://www.wsj.com/tech/ai/anthropic-amanda-askell-philosopher-ai-3c031883) or is it just a loophole for criticism?
+
+**A Way to Look at the Problem**
+
+Machine learning is used in very diverse contexts: classifying texts, detecting fraud, analyzing medical images, studying career paths, modeling social dynamics. In each of these cases, the value of the technique does not come from the algorithm itself but from how it is integrated into a framework of clear questions and rigorous work practices. Machine learning is a data processing technique like many others: it should not be the end, but rather one of the means.
+
+Learning machine learning, in that sense, involves understanding what kind of problems can be formulated as learning problems, how to evaluate whether a model generalizes well or simply memorized the training data, and how to honestly communicate the results regarding their scope and limitations. Perhaps the most important shift in perspective is this: moving from thinking of machine learning as a black box that produces answers to thinking of it as a modeling process where every decision —about the data, about the algorithm, about the objective— reflects assumptions worth making explicit.
