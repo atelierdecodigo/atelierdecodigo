@@ -167,13 +167,19 @@ body.quarto-post .content p {
 
 
 
-/* Espacio debajo del header del post */
-body.quarto-post .quarto-title-block {
+/* ===============================
+   Header real del post
+================================ */
+
+/* Contenedor del header */
+body.quarto-post #title-block-header {
   margin-bottom: 3.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
 }
 
 /* Summary / bajada */
-body.quarto-post .quarto-title-block .quarto-title p {
+body.quarto-post #title-block-header .subtitle {
   font-size: 0.95rem;
   font-style: italic;
   line-height: 1.6;
@@ -183,9 +189,9 @@ body.quarto-post .quarto-title-block .quarto-title p {
 }
 
 /* Fecha / autor */
-body.quarto-post .quarto-title-meta {
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
+body.quarto-post #title-block-header .quarto-title-meta {
+  display: block;              /* IMPORTANTE: lo volvemos a mostrar */
   font-size: 0.8rem;
   color: #777;
+  margin-top: 0.5rem;
 }
