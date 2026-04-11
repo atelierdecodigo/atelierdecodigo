@@ -1,17 +1,18 @@
 /* ===============================
-   Base tipográfica y estructura
+   Variables base (pisa Bootstrap)
 ================================ */
-
-body {
-  line-height: 1.7;
-  font-size: 1rem;
+:root {
+  --bs-body-font-size: 1rem;
+  --bs-body-line-height: 1.7;
 }
 
-h1, h2, h3 {
+/* ===============================
+   Base tipográfica y estructura
+================================ */
+body h1, body h2, body h3 {
   margin-top: 2.5rem;
   letter-spacing: -0.02em;
 }
-
 .page-full {
   max-width: 1000px;
   margin: 0 auto;
@@ -20,28 +21,23 @@ h1, h2, h3 {
 /* ===============================
    HERO
 ================================ */
-
 .hero {
   text-align: center;
   padding: 6rem 1rem 5rem 1rem;
   max-width: 800px;
   margin: 0 auto;
 }
-
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 1.5rem;
 }
-
 .hero p {
   font-size: 1.2rem;
   color: #444;
 }
-
 .hero-buttons {
   margin-top: 2rem;
 }
-
 .hero-buttons .btn {
   margin: 0.5rem;
   padding: 0.75rem 1.5rem;
@@ -50,7 +46,6 @@ h1, h2, h3 {
 /* ===============================
    MANIFIESTO
 ================================ */
-
 .manifiesto {
   background-color: #f8f9fa;
   padding: 3rem 2rem;
@@ -64,33 +59,27 @@ h1, h2, h3 {
 /* ===============================
    LISTING (últimos artículos)
 ================================ */
-
 .quarto-listing-container {
   max-width: 850px;
   margin: 0 auto;
 }
-
 .quarto-listing {
   grid-template-columns: 1fr;
   gap: 2.5rem;
 }
-
 .quarto-listing .listing-item {
   padding-bottom: 2rem;
   border-bottom: 1px solid #e5e5e5;
 }
-
 .quarto-listing .listing-title {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
 }
-
 .quarto-listing .listing-description {
   font-size: 0.95rem;
   color: #555;
   margin-top: 0.5rem;
 }
-
 .quarto-listing .listing-date {
   font-size: 0.8rem;
   color: #888;
@@ -99,7 +88,6 @@ h1, h2, h3 {
 /* ===============================
    NEWSLETTER
 ================================ */
-
 .newsletter {
   background-color: #f8f9fa;
   padding: 1rem 1rem;
@@ -107,11 +95,9 @@ h1, h2, h3 {
   max-width: 750px;
   text-align: center;
 }
-
 .newsletter h2 {
   margin-top: 0;
 }
-
 .newsletter p {
   margin-bottom: 1rem;
 }
@@ -119,8 +105,8 @@ h1, h2, h3 {
 /* ===============================
    Secciones generales
 ================================ */
-
-section, .section {
+body section,
+body .section {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
@@ -131,31 +117,58 @@ body.page-full .sidebar {
 }
 
 /* ===============================
-   Posts individuales
+   POSTS INDIVIDUALES
 ================================ */
-
+/* ancho de lectura */
 body.quarto-post .content {
   max-width: 850px;
   margin: 0 auto;
 }
 
-body.quarto-post .content p {
-  font-size: 1rem;
+/* ===============================
+   HEADER DEL POST
+================================ */
+/* Título: pisa Bootstrap con selector más específico */
+body.quarto-post .quarto-title h1.title,
+body.quarto-post #title-block-header h1.title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0;
 }
 
-.quarto-title-meta {
-  display: none;
+/* Separador visual debajo del bloque de título */
+body.quarto-post #title-block-header,
+body.quarto-post .quarto-title-block {
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+/* Descripción/subtítulo del post */
+body.quarto-post .quarto-title .description,
+body.quarto-post .quarto-title .subtitle {
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: #666;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Metadata (fecha, autor) */
+body.quarto-post .quarto-title-meta {
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 1.5rem;
 }
 
 /* ===============================
    Google Ads
 ================================ */
-
 .google-ads {
   margin-top: 5rem;
   text-align: center;
 }
-
 .page-post .google-ads {
   display: block;
   position: sticky;
@@ -163,35 +176,4 @@ body.quarto-post .content p {
   max-width: 250px;
   float: right;
   margin-right: -300px;
-}
-
-
-
-/* ===============================
-   Header real del post
-================================ */
-
-/* Contenedor del header */
-body.quarto-post #title-block-header {
-  margin-bottom: 3.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid #eee;
-}
-
-/* Summary / bajada */
-body.quarto-post #title-block-header .subtitle {
-  font-size: 0.95rem;
-  font-style: italic;
-  line-height: 1.6;
-  color: #666;
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Fecha / autor */
-body.quarto-post #title-block-header .quarto-title-meta {
-  display: block;              /* IMPORTANTE: lo volvemos a mostrar */
-  font-size: 0.8rem;
-  color: #777;
-  margin-top: 0.5rem;
 }
