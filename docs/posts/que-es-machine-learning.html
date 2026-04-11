@@ -1,2 +1,625 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"></html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Atelier de Código">
+<meta name="dcterms.date" content="2026-01-29">
+<meta name="description" content="El machine learning no es una caja negra que produce respuestas automáticas, sino un proceso de modelado donde cada decisión refleja supuestos que vale la pena entender. Este post explica qué ocurre cuando un sistema aprende a partir de datos, cómo se construye un modelo y por qué la interpretación sigue siendo central, incluso cuando el algoritmo hace el trabajo pesado.">
+
+<title>¿Qué es el Machine Learning? – Atelier de código</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5204545081685155" crossorigin="anonymous"></script>
+     
+<!-- Tags hreflang para SEO multiidioma -->
+<link rel="alternate" hreflang="es" href="https://atelierdecodigo.com/">
+<link rel="alternate" hreflang="en" href="https://atelierdecodigo.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://atelierdecodigo.com/">
+<link rel="alternate" hreflang="es" href="https://tusitio.com/">
+<link rel="alternate" hreflang="en" href="https://tusitio.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://tusitio.com/">
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="¿Qué es el Machine Learning? – Atelier de código">
+<meta property="og:description" content="El machine learning no es una caja negra que produce respuestas automáticas, sino un proceso de modelado donde cada decisión refleja supuestos que vale la pena entender. Este post explica qué ocurre cuando un sistema aprende a partir de datos, cómo se construye un modelo y por qué la interpretación sigue siendo central, incluso cuando el algoritmo hace el trabajo pesado.">
+<meta property="og:site_name" content="Atelier de código">
+<meta property="og:locale" content="es_AR">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Atelier de código</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Inicio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">Acerca de</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contacto</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../posts/index.html"> 
+<span class="menu-text">Artículos</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://atelierdecodigo.com/index.html"> 
+<span class="menu-text">SPA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://atelierdecodigo.com/en/index.html"> 
+<span class="menu-text">ENG</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">¿Qué es el Machine Learning?</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">articulo</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    El machine learning no es una caja negra que produce respuestas automáticas, sino un proceso de modelado donde cada decisión refleja supuestos que vale la pena entender. Este post explica qué ocurre cuando un sistema aprende a partir de datos, cómo se construye un modelo y por qué la interpretación sigue siendo central, incluso cuando el algoritmo hace el trabajo pesado.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Atelier de Código </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 29, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>¿Qué es el Machine Learning?</strong></p>
+<p>El término <em>machine learning</em> aparece con frecuencia en noticias, cursos y conversaciones sobre tecnología y <a href="https://atelierdecodigo.com/posts/que-es-ciencia-de-datos.html">ciencia de datos</a>. A menudo se lo asocia con sistemas complejos, automatización o inteligencia artificial, lo que puede generar la impresión de que se trata de algo distante o exclusivamente técnico. Sin embargo, la idea central del machine learning es bastante más concreta: usar datos para construir modelos que identifiquen patrones y permitan hacer predicciones o clasificaciones sobre casos nuevos.</p>
+<p>Lo que distingue a este enfoque de otras formas de programar es que el sistema no sigue reglas escritas explícitamente por un programador para cada situación posible. En cambio, se le presenta un conjunto de ejemplos y se le pide que encuentre regularidades en ellos. A partir de esas regularidades, el modelo puede operar sobre datos que no vio durante su construcción. Esa capacidad de generalizar a partir de ejemplos es lo que suele llamarse “aprendizaje”, aunque conviene tener presente que se trata de una metáfora: lo que ocurre es un ajuste matemático de parámetros, no una comprensión en ningún sentido profundo.</p>
+<p><strong>De dónde surge</strong></p>
+<p>El machine learning tiene raíces en varios campos que convergen. La <a href="https://atelierdecodigo.com/posts/herramientas-analisis-estadistico.html">estadística</a> lleva décadas desarrollando modelos para describir relaciones entre variables y hacer inferencias sobre poblaciones. La informática aporta los métodos para implementar esos modelos de manera eficiente y ejecutarlos sobre grandes volúmenes de datos. La inteligencia artificial, por su parte, contribuyó el interés explícito por construir sistemas que se adapten a la información disponible en lugar de seguir procedimientos fijos.</p>
+<p>El crecimiento sostenido del machine learning en los últimos años está estrechamente ligado a dos condiciones materiales: la acumulación masiva de datos digitales —registros de interacciones, textos, imágenes, transacciones— y el aumento considerable de la capacidad de cómputo disponible. Cuando ambas condiciones se combinan, entrenar modelos complejos sobre información real y actualizada se vuelve algo técnicamente viable, y esto abrió el campo a una enorme variedad de aplicaciones.</p>
+<p><strong>Cómo se construye un modelo</strong></p>
+<p>Un modelo de machine learning se construye a partir de tres elementos que vale la pena distinguir. El primero es un conjunto de datos que funciona como material de entrenamiento: los ejemplos a partir de los cuales el sistema va a aprender. El segundo es un algoritmo<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> que define cómo buscar patrones en esos datos, es decir, qué tipo de estructura matemática se va a ajustar. El tercero es un objetivo que indica qué resultado se espera del modelo: predecir un valor numérico, clasificar casos en categorías, detectar agrupamientos, entre otros.</p>
+<p>Un ejemplo concreto puede ayudar a clarificar esta estructura. Supongamos que contamos con datos sobre personas e información sociodemográfica —edad, nivel educativo, región de residencia— y queremos construir un modelo que prediga si alguien está empleado. El algoritmo analiza los ejemplos donde el resultado ya es conocido y ajusta sus parámetros internos para aproximarse a ese resultado. Cuando posteriormente recibe un caso nuevo —alguien sobre quien no tiene la respuesta—, produce una predicción basada en lo que aprendió de los ejemplos anteriores.</p>
+<p>Lo que ocurre en ese proceso de ajuste es, en esencia, una búsqueda de la configuración de parámetros que minimiza el error del modelo sobre los datos de entrenamiento. Los distintos algoritmos de machine learning representan distintas maneras de plantear esa búsqueda y distintas formas de representar los patrones encontrados.</p>
+<p><strong>Tipos de aprendizaje</strong></p>
+<p>Una de las distinciones más habituales en el campo es entre aprendizaje supervisado y aprendizaje no supervisado. En el primero, los datos incluyen una variable objetivo conocida —una etiqueta o resultado— y el modelo aprende a relacionar las variables de entrada con ese resultado. El ejemplo del empleo pertenece a esta categoría: hay un resultado conocido para cada caso de entrenamiento. En el aprendizaje no supervisado, en cambio, no hay una etiqueta previa. El objetivo es explorar la estructura de los datos, identificar grupos o patrones recurrentes sin que nadie haya definido de antemano cuáles son las categorías correctas.</p>
+<p>Existen también enfoques más específicos, como el aprendizaje por refuerzo, donde un sistema aprende a partir de la retroalimentación que recibe de sus propias acciones en un entorno. Para una primera aproximación al campo, lo más relevante es entender que la elección entre estos tipos de enfoque no es arbitraria: depende de la naturaleza del problema, del tipo de datos disponibles y de qué pregunta se quiere responder.</p>
+<p><strong>Qué hace y qué no hace un modelo</strong></p>
+<p>Un aspecto fundamental del machine learning es que los resultados que produce un modelo dependen directamente de los datos con los que fue entrenado. Esto implica que los supuestos, sesgos y limitaciones de esos datos se transfieren al modelo. Si los datos de entrenamiento son incompletos, no representativos o reflejan desigualdades estructurales, el modelo aprenderá esas mismas regularidades y las proyectará sobre casos nuevos.</p>
+<p>Por este motivo, el machine learning no reemplaza la interpretación ni el juicio. Ayuda a identificar patrones y a automatizar ciertos análisis que sería imposible hacer a mano, pero sigue siendo necesario evaluar si esos patrones tienen sentido en el contexto del problema, si generalizan razonablemente a otros contextos y qué implicancias concretas tienen las predicciones. Las decisiones sobre qué datos usar, cómo prepararlos y cómo interpretar los resultados siguen siendo decisiones humanas, y son las que determinan en gran medida la calidad y la responsabilidad de un análisis.</p>
+<p>No obstante, sabemos que el mundo está cambiando a una velocidad abrumadora y que no siempre estos principios se mantienen (o no son compartidos con todas las personas). Sin embargo, querríamos recordar en este punto al famoso <a href="https://simonwillison.net/2025/Feb/3/a-computer-can-never-be-held-accountable/">manual de entrenamiento de IBM de 1979</a>: “nunca se puede responsabilizar a una computadora, por lo que una computadora nunca debe tomar una decisión de gestión” [<em>a computer can never be held accountable, therefore a computer must never make a management decision].</em> Por acción o por omisión, es posible que en distintos ámbitos, políticos, empresariales, gubernamentales, se usen algoritmos de machine learning para tomar decisiones que puedan ser determinantes en las vidas de las personas: esto -creemos- debe ser tomado con extremo cuidado<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p><strong>Una forma de ver el problema</strong></p>
+<p>El machine learning se usa en contextos muy diversos: clasificar textos, detectar fraudes, analizar imágenes médicas, estudiar trayectorias laborales, modelar dinámicas sociales. En cada uno de estos casos, el valor de la técnica no proviene del algoritmo en sí mismo sino de cómo se lo integra en un marco de preguntas claras y de prácticas de trabajo rigurosas. El machine learning es una técnica de procesamiento de datos como pueden ser tantas otras: no debería ser el fin, sino uno de los medios más.</p>
+<p>Aprender machine learning, en ese sentido, implica entender qué tipo de problemas se pueden formular como problemas de aprendizaje, cómo evaluar si un modelo generaliza bien o simplemente memorizó los datos de entrenamiento, y cómo comunicar los resultados de manera honesta sobre sus alcances y sus límites. El cambio de perspectiva más importante quizás sea este: pasar de pensar en el machine learning como una caja negra que produce respuestas a pensarlo como un proceso de modelado donde cada decisión —sobre los datos, sobre el algoritmo, sobre el objetivo— refleja supuestos que vale la pena hacer explícitos.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Para quienes venimos de otras áreas, la palabra <em>algoritmo</em> puede parecer lejana, misteriosa, casi mística. Pero en esencia un algoritmo es una serie de pasos para realizar algo, que se puede aplicar en distintas situaciones. Por ejemplo, la serie de pasos para “hacer un nudo” se puede aplicar a los cordones de una zapatilla, a un pañuelo, a las sogas de un barco, etc. En estos casos, se habla de algoritmos matemáticos, que implica tomar un valor y realizar una serie de operaciones matemáticas sobre ese valor.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Este es un tema que requiere <em>ríos de tinta</em>, pero no podemos dejar de preguntarnos: ¿hasta qué punto en algunos casos se está aprovechando esta tecnología para tomar decisiones que, si fueran tomadas por personas, serían ampliamente cuestionadas? ¿Acaso están aprovechando de la supuesta objetividad del algoritmo (que no es tal) para desligarse de la carga moral de las decisiones? ¿Acaso es real que se puede <a href="https://inteligenciaargentina.ar/inteligencia-artificial/amanda-askell-la-filosofa-que-trabaja-ensenando-etica-a-claude-la-inteligencia-artificial-de-anthropic">enseñar ética a un modelo de lenguaje</a> o es solamente un salvoconducto para las críticas?<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/atelierdecodigo\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,27 @@
+---
+title: "Qué es la documentación y cómo usarla"
+editor: visual
+date: 2026-04-05
+categories: [articulo]
+author: "Atelier de Código"
+page-layout: full
+toc: false
+draft: true
+description: "Una introducción a la documentación en R entendida como una herramienta de trabajo: qué información ofrece, cómo acceder a ella y de qué manera usarla para tomar decisiones al programar y analizar datos."
+---
+
+Cuando empezamos a programar, la documentación suele aparecer como un recurso difícil de usar. Está disponible, sabemos que tiene la información que necesitamos (en el mejor de los casos), pero muchas veces no resulta evidente cómo leerla ni para qué sirve en la práctica. Con el tiempo, esa percepción cambia. La documentación deja de ser un lugar al que se recurre solo cuando algo falla y pasa a formar parte del trabajo cotidiano.
+
+La documentación es el conjunto de textos que describen cómo funciona un paquete o una función. Incluye información sobre qué problema resuelve, qué tipo de datos espera, qué devuelve y cómo se utiliza en distintos contextos. En lugar de pensarla como un manual cerrado, conviene entenderla como un espacio donde se explicitan decisiones. Cada función está diseñada para operar bajo ciertos supuestos y la documentación es el lugar donde esos supuestos se vuelven visibles.
+
+En R, la documentación se organiza en distintos niveles. Por un lado, está la documentación de paquete, que ofrece una vista general. Ahí se describe el propósito del paquete, el tipo de tareas para las que fue pensado y la forma en que se estructuran sus funciones. Este nivel resulta especialmente útil cuando todavía no está claro qué herramienta conviene usar. Permite orientarse, entender el alcance del paquete y empezar a construir un mapa de posibilidades. Se puede acceder desde la consola con `help(package = "nombre_del_paquete")` o consultando directamente las páginas del paquete en CRAN o en su repositorio.
+
+Por otro lado, está la documentación de función, que es más específica y operativa. Cada función tiene su propia página donde se detalla cómo se usa. Esa página incluye una descripción general, la forma en que se escribe la función, la lista de argumentos con su significado, el tipo de objeto que devuelve y una serie de ejemplos. En R, se accede con `?nombre_de_la_función` o `help(nombre_de_la_función)`, y en caso de ambigüedad se puede especificar el paquete, por ejemplo `?dplyr::filter`.
+
+Leer documentación no implica recorrerla de manera lineal. Es más productivo acercarse con una pregunta concreta. La descripción inicial permite evaluar si la función es pertinente para el problema que se está abordando. La sección que indica el valor de retorno resulta clave para anticipar cómo se va a integrar esa función en un flujo de trabajo más amplio, ya que cada paso del análisis depende del tipo de objeto que produce el paso anterior. Los argumentos, por su parte, se pueden leer de forma selectiva, concentrándose en aquellos que modifican el comportamiento de la función en relación con el objetivo que se tiene en ese momento. Los ejemplos cumplen un rol central porque muestran usos concretos y permiten probar rápidamente cómo funciona la función en la práctica.
+
+A medida que se gana experiencia, la documentación deja de ser solo una fuente de consulta puntual y pasa a intervenir en la toma de decisiones. Frente a distintas alternativas, permite comparar enfoques, entender qué cambia cuando se modifica un argumento o anticipar efectos sobre el resultado. Este uso es menos visible cuando se está empezando, pero es el que sostiene un trabajo más consistente en el tiempo.
+
+Trabajar con datos implica encadenar operaciones, y cada una de esas operaciones transforma el objeto con el que se está trabajando. En ese proceso, la documentación funciona como una guía que permite seguir el rastro de esas transformaciones. No se trata únicamente de resolver dudas técnicas, sino de entender cómo se construye un análisis paso a paso.
+
+Con el tiempo, leer documentación se vuelve parte del mismo proceso de escribir código. En lugar de interrumpir el trabajo, lo acompaña. Permite ajustar decisiones, explorar alternativas y sostener una mayor claridad sobre lo que se está haciendo. Esa claridad no aparece de manera inmediata, pero se construye en la práctica, a medida que la documentación deja de ser un recurso externo y se integra al propio proceso de análisis.
