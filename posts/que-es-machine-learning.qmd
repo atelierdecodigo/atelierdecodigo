@@ -1,6 +1,6 @@
 ---
 title: "¿Qué es el Machine Learning?"
-date: 2026-01-29
+date: 2026-04-11
 categories: [articulo]
 page-layout: full
 toc: false

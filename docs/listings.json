@@ -2,10 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/que-es-machine-learning.html",
       "/posts/escribir-codigo-a-mano.html",
       "/posts/herramientas-analisis-estadistico.html",
       "/posts/lenguaje-orientado-objetos.html",
-      "/posts/que-es-machine-learning.html",
       "/posts/que-es-ciencia-de-datos.html",
       "/posts/libros-aprender-ciencia-datos.html",
       "/posts/gramatica-graficos-ggplot.html",
@@ -23,10 +23,10 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/que-es-machine-learning.html",
       "/posts/escribir-codigo-a-mano.html",
       "/posts/herramientas-analisis-estadistico.html",
       "/posts/lenguaje-orientado-objetos.html",
-      "/posts/que-es-machine-learning.html",
       "/posts/que-es-ciencia-de-datos.html",
       "/posts/libros-aprender-ciencia-datos.html",
       "/posts/gramatica-graficos-ggplot.html",
