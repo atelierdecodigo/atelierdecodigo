@@ -36,3 +36,4 @@ format:
     include-in-header:
       - _includes/google-ads-head.html
       - _includes/hreflang.html
+      - _includes/googletag.html
