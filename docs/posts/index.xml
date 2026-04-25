@@ -10,7 +10,43 @@
 <atom:link href="https://atelierdecodigo.com/posts/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Sat, 11 Apr 2026 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 24 Apr 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Qué es la documentación y cómo usarla</title>
+  <dc:creator>Atelier de Código</dc:creator>
+  <link>https://atelierdecodigo.com/posts/documentacion.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><strong>Qué es la documentación y cómo usarla</strong></p>
+<p><em>TL;DR: La documentación es el manual que escribieron quienes desarrollaron la función o el paquete que estás usando. Está disponible directamente desde R con <code>?nombre_de_la_función</code> y es la fuente más confiable para entender qué hace una función, qué datos espera y qué devuelve. Aprender a leerla con una pregunta concreta en mente cambia la forma en que se trabaja con código.</em></p>
+<hr>
+<p>La escena es bastante común. Empezaste a programar hace poco, tenés unos scripts que te pasó un colega, algunas anotaciones de un curso en línea y varios videos en el historial. Pudiste reproducir todo eso con tus propios datos, pero cuando quisiste ir un poco más allá, algo empezó a fallar. Con cierta desesperación, le preguntaste a la IA o buscaste en internet, y terminaste copiando código que no entendés del todo, lleno de funciones que nunca habías visto. Cuando le mostrás el script a tu colega para que te ayude, tampoco conoce esa función en particular y te dice: ¿te fijaste en la documentación? En la… ¿qué?</p>
+<p>La documentación es el conjunto de textos que describen cómo funciona un paquete o una función. La escriben las personas que los desarrollan y, en el caso de R, sigue un formato estandarizado que permite encontrar siempre la misma información en el mismo lugar. Incluye una descripción del problema que resuelve la función, qué tipo de datos espera recibir, qué devuelve y cómo se comporta según los argumentos que se le pasen. No es un recurso externo al que se recurre solo cuando algo falla, aunque esa suele ser la primera impresión. Con el tiempo, pasa a ser parte del trabajo cotidiano.</p>
+<p><strong>Cómo acceder a ella</strong></p>
+<p>En R, la documentación se organiza en dos niveles que responden a preguntas distintas. La documentación de paquete sirve para orientarse cuando todavía no está claro qué herramienta conviene usar. Describe el propósito general del paquete y el tipo de tareas para las que fue pensado, lo que permite construir un mapa de posibilidades antes de comprometerse con una función específica. Se puede consultar desde la consola con <code>help(package = "nombre_del_paquete")</code> o directamente en la página del paquete en CRAN.</p>
+<p>La documentación de función es más específica y es la que se usa con mayor frecuencia. Cada función tiene su propia página, accesible con <code>?nombre_de_la_función</code> o <code>help(nombre_de_la_función)</code>. Si hay ambigüedad entre paquetes, se puede especificar el origen con <code>?dplyr::filter</code>, por ejemplo. Esta es la documentación que conviene aprender a leer bien, porque es la que más información útil concentra por centímetro cuadrado.</p>
+<p><strong>Cómo leerla</strong></p>
+<p>Una página de documentación en R tiene siempre las mismas secciones y cada una responde a una pregunta diferente, así que no hace falta recorrerla de manera lineal. Lo más productivo es acercarse con una pregunta concreta y saber dónde buscar la respuesta.</p>
+<p>La sección <em>Description</em> ofrece un resumen de qué hace la función. Es el primer lugar donde evaluar si la función es pertinente para el problema que se está resolviendo. No siempre es suficiente para tomar esa decisión, pero sí permite descartar rápido cuando no es lo que se necesita.</p>
+<p>La sección <em>Usage</em> muestra la forma canónica de escribir la función, con todos sus argumentos y sus valores por defecto. Es útil para ver de un vistazo cuántos argumentos tiene y cuáles son opcionales. Un argumento con un valor por defecto —escrito como <code>na.rm = FALSE</code>, por ejemplo— indica que la función va a funcionar aunque no se lo especifique, usando ese valor salvo que se indique otra cosa.</p>
+<p>La sección <em>Arguments</em> describe cada argumento en detalle: qué tipo de objeto espera, qué efecto tiene sobre el comportamiento de la función y qué restricciones aplican. No es necesario leerla completa cada vez. Conviene concentrarse en los argumentos que modifican el comportamiento relevante para el objetivo que se tiene en ese momento y dejar los demás para cuando sean necesarios.</p>
+<p>La sección <em>Value</em> describe qué devuelve la función, es decir, qué tipo de objeto produce como resultado. Esta sección es especialmente importante cuando se encadenan operaciones, porque el output de una función es el input de la siguiente. Si no está claro qué tipo de objeto devuelve una función, es difícil anticipar cómo va a comportarse el paso siguiente del análisis.</p>
+<p>Finalmente, la sección <em>Examples</em> muestra usos concretos de la función con datos de ejemplo. Es el lugar más rápido para ver la función en acción y para probar variantes directamente en la consola. En RStudio, los ejemplos de la documentación se pueden ejecutar con un solo clic desde el panel de ayuda.</p>
+<p><strong>Por qué conviene incorporarla al flujo de trabajo</strong></p>
+<p>Trabajar con datos implica encadenar operaciones, y cada una de esas operaciones transforma el objeto con el que se está trabajando. En ese proceso, la documentación funciona como una guía para seguir el rastro de esas transformaciones y entender por qué el análisis se comporta de una manera determinada. No se trata solo de resolver dudas técnicas puntuales, sino de sostener claridad sobre lo que se está haciendo en cada paso.</p>
+<p>A medida que se gana experiencia, la documentación empieza a intervenir también en la toma de decisiones: permite comparar alternativas antes de elegir una función, entender qué cambia al modificar un argumento o anticipar efectos sobre el resultado final. Ese uso es menos visible al principio, pero es el que distingue a alguien que ejecuta código del que entiende lo que está haciendo.</p>
+<p>Quizás la forma más honesta de describir este cambio es esta: cuando la documentación deja de ser un recurso de emergencia y pasa a ser parte del proceso de escribir código, lo que cambia no es solo la velocidad con la que se resuelven problemas. Cambia la relación con el código mismo. En lugar de copiar y pegar fragmentos que funcionan sin saber bien por qué, se construye una comprensión más sólida de cada decisión que se toma al analizar datos.</p>
+
+
+
+ ]]></description>
+  <category>articulo</category>
+  <guid>https://atelierdecodigo.com/posts/documentacion.html</guid>
+  <pubDate>Fri, 24 Apr 2026 03:00:00 GMT</pubDate>
+</item>
 <item>
   <title>¿Qué es el Machine Learning?</title>
   <dc:creator>Atelier de Código</dc:creator>

@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/documentacion.html",
       "/posts/que-es-machine-learning.html",
       "/posts/escribir-codigo-a-mano.html",
       "/posts/herramientas-analisis-estadistico.html",
@@ -23,6 +24,7 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/documentacion.html",
       "/posts/que-es-machine-learning.html",
       "/posts/escribir-codigo-a-mano.html",
       "/posts/herramientas-analisis-estadistico.html",
