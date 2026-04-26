@@ -1,6 +1,6 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/posts/index.html",
     "items": [
       "/posts/documentacion.html",
       "/posts/que-es-machine-learning.html",
@@ -22,7 +22,7 @@
     ]
   },
   {
-    "listing": "/posts/index.html",
+    "listing": "/index.html",
     "items": [
       "/posts/documentacion.html",
       "/posts/que-es-machine-learning.html",

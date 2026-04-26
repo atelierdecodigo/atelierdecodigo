@@ -1,0 +1,54 @@
+---
+title: "Qué es Shiny y para qué sirve"
+date: 2026-04-24
+categories: [articulo]
+page-layout: full
+toc: false
+author: "Atelier de Código"
+draft: true
+description: "Shiny permite construir aplicaciones web interactivas directamente desde R, sin necesidad de conocer otros lenguajes de desarrollo. Este post explica qué es, cómo funciona su modelo de reactividad y qué recursos existen para empezar a usarlo."
+---
+
+*TL;DR: Shiny es un paquete de R que permite construir aplicaciones web interactivas sin escribir HTML, CSS ni JavaScript. Su concepto central es la reactividad: cuando el usuario modifica un control, los resultados se actualizan solos. Aprender Shiny implica entender esa lógica antes que memorizar funciones.*
+
+------------------------------------------------------------------------
+
+Quien trabaja con datos en el marco de una investigación o de un proyecto profesional sabe que llega un punto en que el análisis no termina de cerrar como documento estático, como por ejemplo un [RMarkdown](https://macarenaquiroga.com/post/guia-hiper-basica-a-rmarkdown/). Los datos tienen múltiples ángulos posibles, las preguntas cambian según el contexto y muchas veces la persona que necesita explorar esos datos no es quien los analizó. Compartir un gráfico fijo o un informe en PDF resuelve parte del problema, pero no permite que otra persona explore, filtre o ajuste la mirada según lo que le interesa. En esos casos, lo que hace falta es una herramienta que permita interactuar con los datos sin tener que volver a pedirle al analista que regenere el reporte. [Shiny](https://shiny.posit.co/) es una respuesta posible a ese problema, y su particularidad es que está construida para quienes ya trabajan en R, sin exigir que aprendan otro lenguaje para hacerla funcionar.
+
+Shiny es un paquete desarrollado por Posit (antes RStudio) que permite construir aplicaciones web interactivas escribiendo únicamente código en R o Python. Una aplicación Shiny típica tiene controles que el usuario puede manipular ---menús desplegables, sliders (controles deslizantes que permiten seleccionar un valor dentro de un rango), casillas de verificación--- y salidas que reaccionan a esas manipulaciones: gráficos, tablas, textos o cualquier otro resultado que R pueda producir. Todo eso ocurre en el navegador, como cualquier otra aplicación web, pero sin que quien la desarrolla haya escrito una sola línea de HTML (el lenguaje que estructura el contenido de una página web) o JavaScript (el lenguaje que maneja las interacciones en el navegador).
+
+#### Cómo funciona
+
+Una aplicación Shiny (o *ShinyApp*) se organiza en dos partes que trabajan juntas. La primera es la interfaz de usuario, que define qué ve y qué puede manipular quien usa la aplicación. La segunda es el servidor, que contiene la lógica: qué cálculos se hacen, qué gráficos se generan y cómo cambian en respuesta a las acciones del usuario. En la práctica, estas dos partes pueden vivir en un mismo archivo o en archivos separados, pero la distinción conceptual entre "qué se muestra" y "qué se calcula" siempre está presente.
+
+El concepto que organiza el funcionamiento de Shiny es la [reactividad](https://en.wikipedia.org/wiki/Reactive_programming). Cuando un usuario mueve un slider o selecciona una opción de un menú, la aplicación no recalcula todo desde cero ni ejecuta el código de manera lineal, sino que actualiza únicamente las partes que dependen del valor que cambió. Esto se llama ejecución reactiva y es lo que hace que las aplicaciones Shiny respondan de manera eficiente a las interacciones. Entender este modelo es probablemente lo más importante cuando se empieza a trabajar con Shiny, porque la lógica reactiva difiere de la forma en que se escribe código R habitualmente, donde las instrucciones se ejecutan de arriba hacia abajo en orden fijo.
+
+En términos prácticos, la reactividad implica que ciertas expresiones del servidor quedan "suspendidas" hasta que un input del que dependen cambia. Cuando eso ocurre, se actualizan automáticamente y propagan ese cambio a los outputs correspondientes. Seguir ese flujo de dependencias es la habilidad central que se desarrolla al aprender Shiny.
+
+#### Por qué es útil para quienes no vienen del desarrollo web
+
+Construir una aplicación web desde cero requiere conocimientos de [HTML](https://es.wikipedia.org/wiki/HTML) para estructurar el contenido, [CSS](https://es.wikipedia.org/wiki/CSS) (el lenguaje que controla el aspecto visual: colores, tipografías, disposición de los elementos) para definir el estilo, y [JavaScript](https://es.wikipedia.org/wiki/JavaScript) para manejar las interacciones. Son tres lenguajes distintos, con lógicas propias, que se aprenden por separado y se combinan de maneras que no siempre resultan evidentes. Para alguien cuyo foco está en la investigación o en el análisis de datos, aprender todo eso representa una inversión de tiempo que puede no estar justificada si el objetivo es simplemente comunicar resultados de manera interactiva.
+
+Shiny resuelve ese problema al generar la capa web a partir del código R. Quien desarrolla la aplicación describe qué quiere mostrar y bajo qué condiciones, y Shiny se encarga de traducir eso a HTML, CSS y JavaScript en el momento en que la aplicación se ejecuta. Esto no significa que sea imposible personalizar el aspecto visual o agregar comportamientos más complejos si se quiere, pero esa posibilidad es opcional. Para la mayoría de los casos de uso analíticos, el código R es suficiente.
+
+#### Shiny y otras herramientas similares
+
+Shiny no es la única herramienta que permite construir aplicaciones interactivas a partir de datos. Power BI y Tableau, por ejemplo, son plataformas ampliamente usadas en entornos corporativos que permiten construir dashboards (tableros de visualización interactivos) sin escribir código, a través de interfaces visuales. Para ciertos perfiles y contextos, esas herramientas pueden ser la opción más directa.
+
+La diferencia principal con Shiny es de naturaleza y de control. Power BI y Tableau están diseñados para facilitar la exploración visual de datos mediante plantillas y menús predefinidos, lo que los hace accesibles pero también los limita a lo que sus interfaces permiten hacer. Shiny, en cambio, es código: esto significa que cualquier cosa que R pueda calcular, modelar o visualizar puede convertirse en parte de una aplicación. Esa flexibilidad tiene un costo en términos de curva de aprendizaje, pero ofrece un nivel de control y personalización que las herramientas de tipo *drag-and-drop* (arrastrar y soltar, sin escribir código) difícilmente pueden igualar. Para quienes ya trabajan en R y quieren extender sus análisis hacia formatos interactivos, Shiny es la continuación natural de lo que ya saben hacer.
+
+#### Qué se puede construir con Shiny
+
+Las aplicaciones Shiny van desde [dashboards](https://es.wikipedia.org/wiki/Cuadro_de_mando) simples con un par de filtros y un gráfico hasta herramientas más elaboradas con múltiples pestañas, carga de archivos, conexión a bases de datos y lógica condicional compleja. Algunos usos habituales incluyen tableros de monitoreo para equipos que necesitan seguir indicadores en tiempo real, herramientas de exploración de datos que permiten filtrar y visualizar sin escribir código, aplicaciones para comunicar resultados de modelos a audiencias no técnicas, y calculadoras o simuladores que dependen de parámetros ajustables (como una [app para generar rutinas de gimnasio](https://macarenaquiroga.com/post/vibecodeando-una-app-para-hacer-ejercicio/)).
+
+La escala y la complejidad de lo que se puede construir crece con la experiencia, pero incluso una aplicación sencilla puede representar un salto importante en la forma de comunicar un análisis.
+
+#### Recursos para aprender
+
+El punto de partida más directo es la documentación oficial de Shiny, disponible en [shiny.posit.co](https://shiny.posit.co). Incluye una guía introductoria estructurada, artículos sobre conceptos específicos y una galería de ejemplos con código que se puede explorar y modificar. La galería es especialmente útil al principio porque permite ver aplicaciones reales y entender cómo está construida cada una.
+
+[Mastering Shiny](https://mastering-shiny.org), escrito por Hadley Wickham, es el recurso más completo disponible sobre el tema. Está organizado para ir de los conceptos básicos hacia aspectos más avanzados como la reactividad en profundidad, la organización de aplicaciones grandes y la optimización del rendimiento. No es necesario leerlo completo para empezar, pero es una referencia a la que conviene volver a medida que aparecen preguntas más específicas.
+
+Para quienes prefieren aprender con un formato más guiado, Posit ofrece tutoriales interactivos dentro del propio entorno de R a través del paquete `learnr`, y tiene también materiales en su plataforma de cursos. La comunidad de Shiny es activa en foros como Posit Community, donde es habitual encontrar respuestas a problemas concretos junto con explicaciones que ayudan a entender por qué una solución funciona.
+
+¡Cuéntennos si les interesa ver más sobre Shiny!
