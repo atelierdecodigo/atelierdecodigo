@@ -1,0 +1,40 @@
+---
+title: "Por qué tenés que acostumbrarte a comentar tu código"
+date: 2026-06-11
+categories: [articulo]
+page-layout: full
+toc: false
+author: "Atelier de Código"
+description: "Si alguna vez abriste un script viejo y no entendiste por qué habías tomado ciertas decisiones, este post es para vos. En este artículo vemos cómo los comentarios mejoran la reproducibilidad, facilitan el trabajo en equipo y, sobre todo, ayudan a que nuestro yo del futuro pueda entender lo que nuestro yo del pasado estaba intentando hacer."
+---
+
+# Comentar código: una inversión que siempre termina rindiendo
+
+Hay una escena bastante común cuando programamos. Abrimos un script que escribimos hace seis meses (o incluso menos...), encontramos *un choclazo* de código y pensamos: "¿qué quise hacer acá?".
+
+El problema no suele ser recordar la sintaxis. Lo difícil es reconstruir las decisiones que tomamos durante el análisis: ¿por qué hicimos esto? ¿hacia dónde queríamos llegar? ¿por qué filtramos ciertos casos, por qué elegimos una variable y no otra, o qué criterio usamos para excluir observaciones?
+
+Los [comentarios](https://es.wikipedia.org/wiki/Comentario_(inform%C3%A1tica)) ayudan justamente con eso. En R, un comentario es cualquier texto que aparece después del símbolo `#`. La computadora lo ignora, pero las personas no.
+
+```{r, eval=FALSE}
+# Excluimos participantes que no completaron la segunda sesión
+datos <- datos |>
+  filter(sesion2_completa == TRUE)
+```
+
+La clave está en que los comentarios no deberían repetir lo que el código ya dice. Su función es explicar el contexto o la razón detrás de una decisión.
+
+```{r, eval=FALSE}
+# Crear variable edad
+edad <- datos$edad
+```
+
+Este comentario aporta poco porque simplemente describe la línea siguiente. En cambio, explicar por qué hacemos algo suele ser mucho más útil que explicar qué estamos haciendo. Sin embargo, cuando estamos empezando a programar quizás nos puede servir incluir ese tipo de comentarios, por más que parezcan obvios, para ayudarnos a familiarizarnos con las funciones y la sintaxis.
+
+Comentar el código es especialmente importante para la [reproducibilidad](https://atelierdecodigo.com/posts/reproducibilidad.html). Un script permite repetir un análisis, pero los comentarios ayudan a entenderlo. Cuando otra persona necesita revisar nuestro trabajo, o cuando nosotros mismos volvemos al proyecto meses después, contar con ese contexto puede ahorrar mucho tiempo.
+
+También son una herramienta fundamental para el trabajo en equipo, por ejemplo en [un repositorio en Github](https://atelierdecodigo.com/posts/proyectos-control-versiones-github.html). Leer código ajeno ya requiere un esfuerzo considerable. Unos pocos comentarios bien ubicados pueden evitar interpretaciones erróneas y facilitar que otras personas continúen el trabajo.
+
+Hay algo paradójico en todo esto. Muchas veces escribimos comentarios pensando en colegas o colaboradores. Sin embargo, quien más suele beneficiarse es nuestro yo del futuro. Esa persona que abrirá el script dentro de unos meses y agradecerá que alguien se haya tomado el trabajo de dejar algunas pistas.
+
+Y ese alguien, probablemente, eras vos.

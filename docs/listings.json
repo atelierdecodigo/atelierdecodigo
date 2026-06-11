@@ -2,6 +2,8 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/comentar-codigo.html",
+      "/posts/shiny.html",
       "/posts/documentacion.html",
       "/posts/que-es-machine-learning.html",
       "/posts/escribir-codigo-a-mano.html",
@@ -24,6 +26,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/comentar-codigo.html",
+      "/posts/shiny.html",
       "/posts/documentacion.html",
       "/posts/que-es-machine-learning.html",
       "/posts/escribir-codigo-a-mano.html",
