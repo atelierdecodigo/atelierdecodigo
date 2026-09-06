@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Atelier de Código">
-<meta name="dcterms.date" content="2026-01-20">
-<meta name="description" content="What is R base, and what changes when we use packages? This post explains R’s modular structure, introduces the role of packages, and dedicates a section to the Tidyverse as a set of tools with its own philosophy for working with data.">
+<meta name="dcterms.date" content="2026-01-30">
+<meta name="description" content="What tools exist for statistical analysis? When is it best to use each of them? This post offers a general overview of the main tools used for statistical analysis, discussing their advantages and disadvantages, and concludes with a specific discussion on when it is (and is not) advisable to use R.">
 
-<title>R base, packages, and Tidyverse: what we talk about when we use R – Atelier de Código</title>
+<title>Tools for Statistical Analysis: A Possible Map – Atelier de Código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -79,9 +79,8 @@ ul.task-list li input[type="checkbox"] {
 <link rel="alternate" hreflang="x-default" href="https://atelierdecodigo.com/">
 
 
-<meta property="og:title" content="R base, packages, and Tidyverse: what we talk about when we use R – Atelier de Código">
-<meta property="og:description" content="What is R base, and what changes when we use packages? This post explains R’s modular structure, introduces the role of packages, and dedicates a section to the Tidyverse as a set of tools with its own philosophy for working with data.">
-<meta property="og:image" content="https://atelierdecodigo.com/en/posts/images/CleanShot 2026-01-20 at 17.09.46.png">
+<meta property="og:title" content="Tools for Statistical Analysis: A Possible Map – Atelier de Código">
+<meta property="og:description" content="What tools exist for statistical analysis? When is it best to use each of them? This post offers a general overview of the main tools used for statistical analysis, discussing their advantages and disadvantages, and concludes with a specific discussion on when it is (and is not) advisable to use R.">
 <meta property="og:site_name" content="Atelier de código">
 <meta property="og:locale" content="en_US">
 </head>
@@ -146,12 +145,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R base, packages, and Tidyverse: what we talk about when we use R</h1>
+<h1 class="title">Tools for Statistical Analysis: A Possible Map</h1>
 </div>
 
 <div>
   <div class="description">
-    What is R base, and what changes when we use packages? This post explains R’s modular structure, introduces the role of packages, and dedicates a section to the Tidyverse as a set of tools with its own philosophy for working with data.
+    What tools exist for statistical analysis? When is it best to use each of them? This post offers a general overview of the main tools used for statistical analysis, discussing their advantages and disadvantages, and concludes with a specific discussion on when it is (and is not) advisable to use R.
   </div>
 </div>
 
@@ -168,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 20, 2026</p>
+      <p class="date">January 30, 2026</p>
     </div>
   </div>
   
@@ -180,37 +179,94 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>When we start working with R, one of the first expressions that appears is “R base.” No, just kidding: when we start working with R, we have no idea what we’re doing. We copy code from the courses we’re taking or from the books or tutorials we’re following. It’s possible that these materials contain information about the source of those functions, but as learners, our <a href="https://en.wikipedia.org/wiki/Working_memory">working memory</a> is a bit saturated, and we’ve probably not paid attention to it.</p>
-<p>As we incorporate concepts and automate our workflow, we can start paying attention to the theory. And we see these concepts emerge: R base, packages, libraries, Tidyverse. These words circulate naturally in tutorials, classes, and forums, although their meaning and how they relate to each other are not always explicitly stated. However, understanding this architecture is key to being able to read code with greater autonomy and to make informed decisions about how to work with data.</p>
-<p><strong>R base</strong> refers to the set of functionalities included when R is installed. It includes the language itself, a wide range of fundamental functions, and some basic packages that are loaded automatically. Arithmetic operations, object creation, basic handling of vectors and data frames, functions like <code>mean()</code>, <code>sum()</code>, <code>plot()</code>, or <code>summary()</code> are part of this core. R base defines the minimal grammar of the language and establishes the rules that allow everything else to function.</p>
-<p>Working solely with R base is possible, and in fact, for many years, it was the standard way to use R. However, that core is designed to be extended. R was designed from the beginning as a language<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, capable of incorporating new functionalities without modifying its central structure. This extensibility is materialized through packages.</p>
-<p>A package is an organized collection of functions, data, and documentation that can be downloaded and incorporated into an R session. Each package addresses a specific need: particular statistical analysis, visualization, text manipulation, survey work, advanced models, or specific data formats. Technically, installing a package means downloading it to your computer; using it means loading it into the active session. Conceptually, using a package implies adopting a particular way of solving analytical problems. There are packages of all types and colors: some focus on functions, others on data. Given that many different packages perform the same actions, there has recently been much emphasis on <a href="https://ropensci.org/blog/2021/11/16/how-to-cite-r-and-r-packages/">the importance of citing packages used in data analysis</a>, which has led to the emergence, not without some irony, of <a href="https://pakillo.github.io/grateful/">packages that facilitate package citation</a>.</p>
-<p>Packages can be thought of as crystallizations of research practices. Whoever develops a package makes decisions about which operations to facilitate, how to name them, which data structures to prioritize, and which assumptions to take for granted. When we use a function from a package, we are not only reusing code but also incorporating a certain way of thinking about analysis. While it is difficult to know a package thoroughly from which we are taking a function, it is always good practice to read <a href="https://www.r-project.org/other-docs.html">its documentation</a>.</p>
-<p>At this point, another source of confusion often appears: the term “library.” In R, “library” is used to refer to the location where packages are installed on the system, and also, by extension, to the act of loading them using the <code>library()</code> function. In everyday practice, speaking of packages and libraries is often interchangeable, although from a technical standpoint, they are not exactly the same. The important thing is to understand that R base is extended through packages that are loaded according to the needs of the analysis.</p>
-<p>Within this universe of packages, there is one that occupies a particular place: the <a href="https://tidyverse.org/">Tidyverse</a>. The Tidyverse is not a single package, but a collection of packages designed to work coherently with each other. It includes widely used tools for data manipulation, visualization, and file import, such as <code>dplyr</code>, <code>ggplot2</code>, <code>tidyr</code>, <code>readr</code>, and <code>stringr</code>, among others. All share a common philosophy and a relatively consistent syntax, found in the book <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> by Hadley Wickham and Garrett Grolemund.</p>
-<p>The central proposal of the Tidyverse is to organize data work based on clear principles. One of the best known is the concept of “tidy data,” where each variable occupies a column, each observation a row, and each type of analytical unit a table.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/CleanShot 2026-01-20 at 17.09.46.png" class="img-fluid figure-img"></p>
-<figcaption>Image taken from the book “R for Data Science” by Hadley Wickham and Garrett Grolemund.</figcaption>
-</figure>
-</div>
-<p>This principle, which may seem purely technical, has important analytical implications because it forces one to explicitly state what is considered a variable, what counts as an observation, and how data is structured. This can change not only between datasets but also between analyses and even between functions. For example, a function that performs a statistical analysis comparing groups might take the grouping variable from a single column or might require each group to have its own column.</p>
-<p>Another distinctive feature of the Tidyverse is its emphasis on code readability. Functions often have verbal names, arguments prioritize clarity, and the use of the <code>%&gt;%</code> operator suggests a sequential reading of operations. For those coming from traditions where text interpretation and procedure explication are central, this orientation is particularly appealing. The code is presented as a sequence of transformations that can be read almost like a narrative of the analysis (<a href="https://www.reddit.com/r/rstats/comments/vbd6jq/piping_in_r_is_like_baking/#lightbox">or like a cooking recipe!</a>)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
-<p>This does not mean that the Tidyverse replaces R base. In fact, it constantly relies on it. Many Tidyverse functions wrap or reorganize existing functionalities in R base, offering a different interface. Choosing to work with R base, with specific packages, or with the Tidyverse is not a matter of correctness, but of approach. Each option implies adopting certain conventions and foregoing others. It also has to do with knowing the audience for our code: certain packages tend to be more <em>famous</em> in specific fields, and that can prioritize our decision to use them over less known alternatives. Ultimately, it’s about using the <em>language</em> in a way that will facilitate its understanding.</p>
-<p>Understanding these differences allows us to move beyond a purely instrumental logic. Using R is not just about knowing which command to execute, but about understanding what conceptual framework we are employing when doing so. R base, packages, and the Tidyverse form layers of the same language, which combine in various ways depending on the research problem, the type of data, and the questions one wants to ask.</p>
-<p>In the next texts in this series, we will revisit these tools with concrete examples. The idea will not be to learn lists of functions, but to develop criteria for reading code, recognizing styles, and consciously choosing how to work with R in situated research contexts.</p>
+<p>Performing statistical analyses today is not just a matter of knowing statistics. It also involves choosing which tools to work with. That choice dictates what type of analysis is viable, how reproducible the process will be, how easy it will be to collaborate with others, and how results will be communicated. There is no single “correct” tool: each responds to different traditions, needs, and user profiles.</p>
+<p>This post offers a general overview of the main tools used for statistical analysis, discussing their advantages and disadvantages, and concludes with a specific discussion on when it is (and is not) advisable to use R.</p>
+<section id="spreadsheets-excel-google-sheets-and-similar" class="level3">
+<h3 class="anchored" data-anchor-id="spreadsheets-excel-google-sheets-and-similar">Spreadsheets: Excel, Google Sheets, and similar</h3>
+<p>Spreadsheets are often the first contact with data analysis. They allow loading data, performing basic calculations, creating tables and charts without the need for programming.</p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Highly accessible and well-known.</li>
+<li>Low learning curve.</li>
+<li>Useful for quick explorations and small datasets.</li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>Limited scalability.</li>
+<li>High risk of errors that are difficult to trace.</li>
+<li>Less suitable for complex or reproducible analyses.</li>
+<li>They separate data, analysis, and results into non-transparent steps.</li>
+</ul>
+<p>In general, they work well as an initial or complementary tool, but become fragile as the analysis grows.</p>
+</section>
+<section id="statistical-software-with-a-graphical-interface-spss-stata-jamovi-jasp" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-software-with-a-graphical-interface-spss-stata-jamovi-jasp">Statistical software with a graphical interface: SPSS, Stata, Jamovi, JASP</h3>
+<p>These programs are specifically designed for statistical analysis and offer menus, buttons, and dialog boxes that guide the user.</p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Designed for classical statistical analyses.</li>
+<li>Reduce the entry barrier for people without programming experience.</li>
+<li>Relatively standardized results.</li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>Less flexibility for unforeseen analyses.</li>
+<li>Difficulty in automating complex processes.</li>
+<li>Limited reproducibility if not working explicitly with scripts.</li>
+<li>In many cases, costly licenses (Jamovi and JASP are open access).</li>
+</ul>
+<p>They are widely used in academic and professional settings where similar analyses are repeated and operational speed is prioritized.</p>
+</section>
+<section id="general-purpose-programming-languages-python" class="level3">
+<h3 class="anchored" data-anchor-id="general-purpose-programming-languages-python">General-purpose programming languages: Python</h3>
+<p>Python was not born as a statistical language, but it has consolidated itself as a central tool in data science thanks to its libraries.</p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Large ecosystem for analysis, machine learning, and production.</li>
+<li>Easy integration with systems, databases, and applications.</li>
+<li>Very large and active community.</li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li>Classical statistics less conceptually integrated than in other environments.</li>
+<li>Requires more technical decisions from the user.</li>
+<li>Statistical results less “ready for reporting” in academic contexts.</li>
+</ul>
+<p>Python is often chosen when statistical analysis is part of a broader workflow that includes software, automation, or deployment.</p>
+</section>
+<section id="specialized-languages-for-statistics-r" class="level3">
+<h3 class="anchored" data-anchor-id="specialized-languages-for-statistics-r">Specialized languages for statistics: R</h3>
+<p><code>R</code> was designed from its origin as an environment for statistics and data analysis. This is reflected in both its syntax and its package ecosystem.</p>
+<p>Before evaluating <code>R</code> in particular, it is worth noting that it is not just a language, but a way of thinking about analysis: based on objects, functions, and scripts that document each analytical decision.</p>
+<p><strong>Why it is advisable to use R</strong></p>
+<p><code>R</code> is especially strong when statistical analysis is the core of the work.</p>
+<ul>
+<li>It has virtually all classical and modern statistical techniques implemented.</li>
+<li>Statistics is not an “add-on” but the heart of the language.</li>
+<li>Facilitates reproducible analyses using scripts, RMarkdown, and Quarto.</li>
+<li>Allows integrating data, analysis, visualization, and text into a single workflow.</li>
+<li>It is free and open-source, which promotes transparency and collaboration.</li>
+<li>It has a very active academic community that develops packages aligned with recent methodological advancements.</li>
+</ul>
+<p>For research, teaching, and complex exploratory analyses, <code>R</code> offers a rare balance of power, expressiveness, and statistical rigor.</p>
+<p><strong>Why it is not always advisable to use R</strong></p>
+<ul>
+<li>It has a more demanding learning curve for those who have never programmed.</li>
+<li>It may be less suitable for production environments or large-scale applications.</li>
+<li>Dependency and version management can become complex.</li>
+<li>It is not always the best option if statistical analysis is minimal compared to other tasks (e.g., software engineering).</li>
+</ul>
+<p>Additionally, in teams where no one uses <code>R</code>, introducing it can generate training and maintenance costs.</p>
+</section>
+<section id="choosing-tools-that-work-for-you" class="level3">
+<h3 class="anchored" data-anchor-id="choosing-tools-that-work-for-you">Choosing Tools That Work for You</h3>
+<p>The choice of a tool for statistical analysis is not just technical: it is situated. It depends on the type of data, the objective of the analysis, the work team, and the institutional context.</p>
+<p><code>R</code> does not replace all other tools, but it occupies a specific and solid place when the goal is to perform statistics rigorously, reproducibly, and conceptually informed. Understanding its advantages and limitations allows for better use of it —or the decision not to use it— with clear and explicit criteria.</p>
 
 
+</section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Again, metaphors appear that bring programming language closer to other disciplines. In this case, I’m thinking of Jerry Fodor’s <a href="https://books.google.com.ar/books?id=ISgIzxoFgikC&amp;printsec=copyright#v=onepage&amp;q&amp;f=false">the modular conception of the mind</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>A clarification is needed here. The famous <code>%&gt;%</code> operator (<em>pipe</em>) was for a long time synonymous with the Tidyverse, although it comes from the specific <code>magrittr</code> package. However, R version 4.1.0, released in May 2021, incorporated a similar operator, <code>|&gt;</code>, meaning that function chaining, like that seen in that charming GIF, is no longer exclusive to the Tidyverse. Strictly speaking, both operators have different functionalities, so massively replacing the <code>%&gt;%</code> operator with <code>|&gt;</code> in our code can lead to errors. The differences might be too technical for someone just starting, but if you’re interested, you can read more <a href="https://tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/">here</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

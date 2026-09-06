@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Atelier de Código">
-<meta name="dcterms.date" content="2026-01-20">
-<meta name="description" content="What is R base, and what changes when we use packages? This post explains R’s modular structure, introduces the role of packages, and dedicates a section to the Tidyverse as a set of tools with its own philosophy for working with data.">
+<meta name="dcterms.date" content="2026-04-01">
+<meta name="description" content="Why is it beneficial to write code by hand when learning to program? This post draws on contributions from educational sciences and cognitive psychology to explain how error, effort, and active practice foster a deeper understanding of code.">
 
-<title>R base, packages, and Tidyverse: what we talk about when we use R – Atelier de Código</title>
+<title>Why we insist on writing code from scratch (and not copy-pasting it) – Atelier de Código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +23,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -79,9 +99,8 @@ ul.task-list li input[type="checkbox"] {
 <link rel="alternate" hreflang="x-default" href="https://atelierdecodigo.com/">
 
 
-<meta property="og:title" content="R base, packages, and Tidyverse: what we talk about when we use R – Atelier de Código">
-<meta property="og:description" content="What is R base, and what changes when we use packages? This post explains R’s modular structure, introduces the role of packages, and dedicates a section to the Tidyverse as a set of tools with its own philosophy for working with data.">
-<meta property="og:image" content="https://atelierdecodigo.com/en/posts/images/CleanShot 2026-01-20 at 17.09.46.png">
+<meta property="og:title" content="Why we insist on writing code from scratch (and not copy-pasting it) – Atelier de Código">
+<meta property="og:description" content="Why is it beneficial to write code by hand when learning to program? This post draws on contributions from educational sciences and cognitive psychology to explain how error, effort, and active practice foster a deeper understanding of code.">
 <meta property="og:site_name" content="Atelier de código">
 <meta property="og:locale" content="en_US">
 </head>
@@ -146,12 +165,15 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R base, packages, and Tidyverse: what we talk about when we use R</h1>
-</div>
+<h1 class="title">Why we insist on writing code from scratch (and not copy-pasting it)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">article</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    What is R base, and what changes when we use packages? This post explains R’s modular structure, introduces the role of packages, and dedicates a section to the Tidyverse as a set of tools with its own philosophy for working with data.
+    Why is it beneficial to write code by hand when learning to program? This post draws on contributions from educational sciences and cognitive psychology to explain how error, effort, and active practice foster a deeper understanding of code.
   </div>
 </div>
 
@@ -168,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 20, 2026</p>
+      <p class="date">April 1, 2026</p>
     </div>
   </div>
   
@@ -180,37 +202,35 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>When we start working with R, one of the first expressions that appears is “R base.” No, just kidding: when we start working with R, we have no idea what we’re doing. We copy code from the courses we’re taking or from the books or tutorials we’re following. It’s possible that these materials contain information about the source of those functions, but as learners, our <a href="https://en.wikipedia.org/wiki/Working_memory">working memory</a> is a bit saturated, and we’ve probably not paid attention to it.</p>
-<p>As we incorporate concepts and automate our workflow, we can start paying attention to the theory. And we see these concepts emerge: R base, packages, libraries, Tidyverse. These words circulate naturally in tutorials, classes, and forums, although their meaning and how they relate to each other are not always explicitly stated. However, understanding this architecture is key to being able to read code with greater autonomy and to make informed decisions about how to work with data.</p>
-<p><strong>R base</strong> refers to the set of functionalities included when R is installed. It includes the language itself, a wide range of fundamental functions, and some basic packages that are loaded automatically. Arithmetic operations, object creation, basic handling of vectors and data frames, functions like <code>mean()</code>, <code>sum()</code>, <code>plot()</code>, or <code>summary()</code> are part of this core. R base defines the minimal grammar of the language and establishes the rules that allow everything else to function.</p>
-<p>Working solely with R base is possible, and in fact, for many years, it was the standard way to use R. However, that core is designed to be extended. R was designed from the beginning as a language<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, capable of incorporating new functionalities without modifying its central structure. This extensibility is materialized through packages.</p>
-<p>A package is an organized collection of functions, data, and documentation that can be downloaded and incorporated into an R session. Each package addresses a specific need: particular statistical analysis, visualization, text manipulation, survey work, advanced models, or specific data formats. Technically, installing a package means downloading it to your computer; using it means loading it into the active session. Conceptually, using a package implies adopting a particular way of solving analytical problems. There are packages of all types and colors: some focus on functions, others on data. Given that many different packages perform the same actions, there has recently been much emphasis on <a href="https://ropensci.org/blog/2021/11/16/how-to-cite-r-and-r-packages/">the importance of citing packages used in data analysis</a>, which has led to the emergence, not without some irony, of <a href="https://pakillo.github.io/grateful/">packages that facilitate package citation</a>.</p>
-<p>Packages can be thought of as crystallizations of research practices. Whoever develops a package makes decisions about which operations to facilitate, how to name them, which data structures to prioritize, and which assumptions to take for granted. When we use a function from a package, we are not only reusing code but also incorporating a certain way of thinking about analysis. While it is difficult to know a package thoroughly from which we are taking a function, it is always good practice to read <a href="https://www.r-project.org/other-docs.html">its documentation</a>.</p>
-<p>At this point, another source of confusion often appears: the term “library.” In R, “library” is used to refer to the location where packages are installed on the system, and also, by extension, to the act of loading them using the <code>library()</code> function. In everyday practice, speaking of packages and libraries is often interchangeable, although from a technical standpoint, they are not exactly the same. The important thing is to understand that R base is extended through packages that are loaded according to the needs of the analysis.</p>
-<p>Within this universe of packages, there is one that occupies a particular place: the <a href="https://tidyverse.org/">Tidyverse</a>. The Tidyverse is not a single package, but a collection of packages designed to work coherently with each other. It includes widely used tools for data manipulation, visualization, and file import, such as <code>dplyr</code>, <code>ggplot2</code>, <code>tidyr</code>, <code>readr</code>, and <code>stringr</code>, among others. All share a common philosophy and a relatively consistent syntax, found in the book <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> by Hadley Wickham and Garrett Grolemund.</p>
-<p>The central proposal of the Tidyverse is to organize data work based on clear principles. One of the best known is the concept of “tidy data,” where each variable occupies a column, each observation a row, and each type of analytical unit a table.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/CleanShot 2026-01-20 at 17.09.46.png" class="img-fluid figure-img"></p>
-<figcaption>Image taken from the book “R for Data Science” by Hadley Wickham and Garrett Grolemund.</figcaption>
-</figure>
+<p>When someone starts learning to program, one of the first temptations is to copy and paste code from tutorials, blogs, or internet answers. The reasoning is logical: the code works, the expected result appears, and it seems the problem is solved. However, from what we know in educational sciences and cognitive psychology, this way of learning has clear limits. Although copying and pasting saves time, it doesn’t always help to understand what’s happening or to learn in a lasting way.</p>
+<p>Writing code by hand, from scratch, is usually slower and sometimes frustrating. Errors appear, the program doesn’t run on the first try, and you have to go back several times. Precisely because of this, this way of working is often much more effective for learning. When a person writes code line by line, they are forced to make decisions: which function to use, in what order, with what arguments. This active effort is central to meaningful learning, as cognitive psychology has pointed out for decades <span class="citation" data-cites="chi2009">(<a href="#ref-chi2009" role="doc-biblioref">Chi 2009</a>)</span>.</p>
+<p>A frequent problem when copying code is the feeling that “it’s already understood.” Since the script works, a confidence is generated that isn’t always real. In education, this is known as an illusion of learning: it seems that progress has been made, but when something small needs to be modified or a similar problem solved from scratch, the knowledge is insufficient (we can think that the same thing happens when we use AI… <em>excessively</em>). Research on learning shows that passive recognition is often confused with deep understanding, when in reality they are distinct processes <span class="citation" data-cites="bjork2013">(<a href="#ref-bjork2013" role="doc-biblioref">Bjork, Dunlosky, and Kornell 2013</a>)</span>.</p>
+<p>The role of error is also important. In programming, making mistakes is inevitable: misplaced parentheses, misspelled names, functions used incorrectly. While this can be annoying, errors play a key role in learning. Each error forces you to read messages, review the code, and think about what went wrong. This process is linked to the idea of trial-and-error learning and the notion of feedback as a driver of learning <span class="citation" data-cites="hattie2007">(<a href="#ref-hattie2007" role="doc-biblioref">Hattie and Timperley 2007</a>)</span>. When you copy and paste, many of those errors have already been solved by someone else, and the opportunity to learn from them is lost.</p>
+<p>From cognitive psychology, we know that initially learning something new requires a lot of conscious attention. Writing code for the first time demands thinking about each step. With time and practice, some actions become automatic. This transition from conscious to more fluid is part of the normal learning process for complex skills <span class="citation" data-cites="anderson1982">(<a href="#ref-anderson1982" role="doc-biblioref">Anderson 1982</a>)</span>. The problem with copying code too early is that it gives the sensation of automation without having gone through that stage of comprehension. The result is usually fragile knowledge, which only works as long as the problem is very similar to the original example.</p>
+<p>A useful comparison is to think of programming like writing. Nobody learns to write texts by copying entire paragraphs from other authors over and over again. Reading models helps, of course, but learning happens when one tries to write, makes mistakes, and rewrites. In education, this idea is very present in approaches that understand learning as an active and situated practice, where doing is a condition for understanding <span class="citation" data-cites="bruner1996">(<a href="#ref-bruner1996" role="doc-biblioref">Bruner 1996</a>)</span>.</p>
+<p>All this does not mean that copying and pasting is forbidden or negative. In more advanced stages, when the basic structures are well understood, reusing code is part of the real work of programming. But when learning, writing code from scratch acts as an investment. It takes more time at first but builds a more solid foundation that later allows one to read, adapt, and reuse code judiciously.</p>
+<p>Ultimately, writing code by hand is not a matter of discipline or unnecessary effort. It is a way of learning aligned with how people construct knowledge. It allows detecting what is understood and what is not, leveraging errors as a source of learning, and developing a deeper understanding of the programming language.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-anderson1982" class="csl-entry" role="listitem">
+Anderson, John R. 1982. <span>“Acquisition of Cognitive Skill.”</span> <em>Psychological Review</em> 89 (4): 369. <a href="https://psycnet.apa.org/record/1982-27252-001">https://psycnet.apa.org/record/1982-27252-001</a>.
 </div>
-<p>This principle, which may seem purely technical, has important analytical implications because it forces one to explicitly state what is considered a variable, what counts as an observation, and how data is structured. This can change not only between datasets but also between analyses and even between functions. For example, a function that performs a statistical analysis comparing groups might take the grouping variable from a single column or might require each group to have its own column.</p>
-<p>Another distinctive feature of the Tidyverse is its emphasis on code readability. Functions often have verbal names, arguments prioritize clarity, and the use of the <code>%&gt;%</code> operator suggests a sequential reading of operations. For those coming from traditions where text interpretation and procedure explication are central, this orientation is particularly appealing. The code is presented as a sequence of transformations that can be read almost like a narrative of the analysis (<a href="https://www.reddit.com/r/rstats/comments/vbd6jq/piping_in_r_is_like_baking/#lightbox">or like a cooking recipe!</a>)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
-<p>This does not mean that the Tidyverse replaces R base. In fact, it constantly relies on it. Many Tidyverse functions wrap or reorganize existing functionalities in R base, offering a different interface. Choosing to work with R base, with specific packages, or with the Tidyverse is not a matter of correctness, but of approach. Each option implies adopting certain conventions and foregoing others. It also has to do with knowing the audience for our code: certain packages tend to be more <em>famous</em> in specific fields, and that can prioritize our decision to use them over less known alternatives. Ultimately, it’s about using the <em>language</em> in a way that will facilitate its understanding.</p>
-<p>Understanding these differences allows us to move beyond a purely instrumental logic. Using R is not just about knowing which command to execute, but about understanding what conceptual framework we are employing when doing so. R base, packages, and the Tidyverse form layers of the same language, which combine in various ways depending on the research problem, the type of data, and the questions one wants to ask.</p>
-<p>In the next texts in this series, we will revisit these tools with concrete examples. The idea will not be to learn lists of functions, but to develop criteria for reading code, recognizing styles, and consciously choosing how to work with R in situated research contexts.</p>
-
-
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Again, metaphors appear that bring programming language closer to other disciplines. In this case, I’m thinking of Jerry Fodor’s <a href="https://books.google.com.ar/books?id=ISgIzxoFgikC&amp;printsec=copyright#v=onepage&amp;q&amp;f=false">the modular conception of the mind</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>A clarification is needed here. The famous <code>%&gt;%</code> operator (<em>pipe</em>) was for a long time synonymous with the Tidyverse, although it comes from the specific <code>magrittr</code> package. However, R version 4.1.0, released in May 2021, incorporated a similar operator, <code>|&gt;</code>, meaning that function chaining, like that seen in that charming GIF, is no longer exclusive to the Tidyverse. Strictly speaking, both operators have different functionalities, so massively replacing the <code>%&gt;%</code> operator with <code>|&gt;</code> in our code can lead to errors. The differences might be too technical for someone just starting, but if you’re interested, you can read more <a href="https://tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/">here</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+<div id="ref-bjork2013" class="csl-entry" role="listitem">
+Bjork, Robert A., John Dunlosky, and Nate Kornell. 2013. <span>“Self-Regulated Learning: Beliefs, Techniques, and Illusions.”</span> <em>Annual Review of Psychology</em> 64 (1): 417–44. <a href="https://doi.org/10.1146/annurev-psych-113011-143823">https://doi.org/10.1146/annurev-psych-113011-143823</a>.
+</div>
+<div id="ref-bruner1996" class="csl-entry" role="listitem">
+Bruner, Jerome. 1996. <em>The Culture of Education</em>. Harvard University Press. <a href="https://doi.org/10.4159/9780674251083">https://doi.org/10.4159/9780674251083</a>.
+</div>
+<div id="ref-chi2009" class="csl-entry" role="listitem">
+Chi, Michelene T. H. 2009. <span>“Active<span>-</span>Constructive<span>-</span>Interactive: A Conceptual Framework for Differentiating Learning Activities.”</span> <em>Topics in Cognitive Science</em> 1 (1): 73–105. <a href="https://doi.org/10.1111/j.1756-8765.2008.01005.x">https://doi.org/10.1111/j.1756-8765.2008.01005.x</a>.
+</div>
+<div id="ref-hattie2007" class="csl-entry" role="listitem">
+Hattie, John, and Helen Timperley. 2007. <span>“The Power of Feedback.”</span> <em>Review of Educational Research</em> 77 (1): 81–112. <a href="https://doi.org/10.3102/003465430298487">https://doi.org/10.3102/003465430298487</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

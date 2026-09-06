@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Atelier de Código">
-<meta name="dcterms.date" content="2026-01-20">
-<meta name="description" content="What is R base, and what changes when we use packages? This post explains R’s modular structure, introduces the role of packages, and dedicates a section to the Tidyverse as a set of tools with its own philosophy for working with data.">
+<meta name="dcterms.date" content="2026-01-22">
+<meta name="description" content="How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.">
 
-<title>R base, packages, and Tidyverse: what we talk about when we use R – Atelier de Código</title>
+<title>Getting Started with R: Installation and First Steps – Atelier de Código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -79,11 +114,12 @@ ul.task-list li input[type="checkbox"] {
 <link rel="alternate" hreflang="x-default" href="https://atelierdecodigo.com/">
 
 
-<meta property="og:title" content="R base, packages, and Tidyverse: what we talk about when we use R – Atelier de Código">
-<meta property="og:description" content="What is R base, and what changes when we use packages? This post explains R’s modular structure, introduces the role of packages, and dedicates a section to the Tidyverse as a set of tools with its own philosophy for working with data.">
-<meta property="og:image" content="https://atelierdecodigo.com/en/posts/images/CleanShot 2026-01-20 at 17.09.46.png">
+<meta property="og:title" content="Getting Started with R: Installation and First Steps – Atelier de Código">
+<meta property="og:description" content="How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.">
+<meta property="og:image" content="https://atelierdecodigo.com/en/posts/images/installR.jpg">
 <meta property="og:site_name" content="Atelier de código">
 <meta property="og:locale" content="en_US">
+<meta property="og:image:alt" content="Fragment of CRAN website with links to download R">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -146,12 +182,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">R base, packages, and Tidyverse: what we talk about when we use R</h1>
+<h1 class="title">Getting Started with R: Installation and First Steps</h1>
 </div>
 
 <div>
   <div class="description">
-    What is R base, and what changes when we use packages? This post explains R’s modular structure, introduces the role of packages, and dedicates a section to the Tidyverse as a set of tools with its own philosophy for working with data.
+    How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.
   </div>
 </div>
 
@@ -168,7 +204,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 20, 2026</p>
+      <p class="date">January 22, 2026</p>
     </div>
   </div>
   
@@ -180,37 +216,85 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>When we start working with R, one of the first expressions that appears is “R base.” No, just kidding: when we start working with R, we have no idea what we’re doing. We copy code from the courses we’re taking or from the books or tutorials we’re following. It’s possible that these materials contain information about the source of those functions, but as learners, our <a href="https://en.wikipedia.org/wiki/Working_memory">working memory</a> is a bit saturated, and we’ve probably not paid attention to it.</p>
-<p>As we incorporate concepts and automate our workflow, we can start paying attention to the theory. And we see these concepts emerge: R base, packages, libraries, Tidyverse. These words circulate naturally in tutorials, classes, and forums, although their meaning and how they relate to each other are not always explicitly stated. However, understanding this architecture is key to being able to read code with greater autonomy and to make informed decisions about how to work with data.</p>
-<p><strong>R base</strong> refers to the set of functionalities included when R is installed. It includes the language itself, a wide range of fundamental functions, and some basic packages that are loaded automatically. Arithmetic operations, object creation, basic handling of vectors and data frames, functions like <code>mean()</code>, <code>sum()</code>, <code>plot()</code>, or <code>summary()</code> are part of this core. R base defines the minimal grammar of the language and establishes the rules that allow everything else to function.</p>
-<p>Working solely with R base is possible, and in fact, for many years, it was the standard way to use R. However, that core is designed to be extended. R was designed from the beginning as a language<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, capable of incorporating new functionalities without modifying its central structure. This extensibility is materialized through packages.</p>
-<p>A package is an organized collection of functions, data, and documentation that can be downloaded and incorporated into an R session. Each package addresses a specific need: particular statistical analysis, visualization, text manipulation, survey work, advanced models, or specific data formats. Technically, installing a package means downloading it to your computer; using it means loading it into the active session. Conceptually, using a package implies adopting a particular way of solving analytical problems. There are packages of all types and colors: some focus on functions, others on data. Given that many different packages perform the same actions, there has recently been much emphasis on <a href="https://ropensci.org/blog/2021/11/16/how-to-cite-r-and-r-packages/">the importance of citing packages used in data analysis</a>, which has led to the emergence, not without some irony, of <a href="https://pakillo.github.io/grateful/">packages that facilitate package citation</a>.</p>
-<p>Packages can be thought of as crystallizations of research practices. Whoever develops a package makes decisions about which operations to facilitate, how to name them, which data structures to prioritize, and which assumptions to take for granted. When we use a function from a package, we are not only reusing code but also incorporating a certain way of thinking about analysis. While it is difficult to know a package thoroughly from which we are taking a function, it is always good practice to read <a href="https://www.r-project.org/other-docs.html">its documentation</a>.</p>
-<p>At this point, another source of confusion often appears: the term “library.” In R, “library” is used to refer to the location where packages are installed on the system, and also, by extension, to the act of loading them using the <code>library()</code> function. In everyday practice, speaking of packages and libraries is often interchangeable, although from a technical standpoint, they are not exactly the same. The important thing is to understand that R base is extended through packages that are loaded according to the needs of the analysis.</p>
-<p>Within this universe of packages, there is one that occupies a particular place: the <a href="https://tidyverse.org/">Tidyverse</a>. The Tidyverse is not a single package, but a collection of packages designed to work coherently with each other. It includes widely used tools for data manipulation, visualization, and file import, such as <code>dplyr</code>, <code>ggplot2</code>, <code>tidyr</code>, <code>readr</code>, and <code>stringr</code>, among others. All share a common philosophy and a relatively consistent syntax, found in the book <a href="https://r4ds.hadley.nz/"><em>R for Data Science</em></a> by Hadley Wickham and Garrett Grolemund.</p>
-<p>The central proposal of the Tidyverse is to organize data work based on clear principles. One of the best known is the concept of “tidy data,” where each variable occupies a column, each observation a row, and each type of analytical unit a table.</p>
+<p>Starting with R often raises very specific questions. What to install, in what order, what each thing is for. Before writing a single line of code, it’s worth clarifying this point, because R works with several pieces that combine with each other. The good news is that the installation process is simple and only needs to be done once.</p>
+<p>The first step is to install R. R is the programming language itself. To do this, go to the official project site <a href="https://cran.r-project.org">CRAN</a>, and choose the installer file that corresponds to your operating system (Windows, macOS, or Linux). By clicking, you will access the specific instructions for each case.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/CleanShot 2026-01-20 at 17.09.46.png" class="img-fluid figure-img"></p>
-<figcaption>Image taken from the book “R for Data Science” by Hadley Wickham and Garrett Grolemund.</figcaption>
+<p><img src="images/installR.jpg" class="img-fluid figure-img" alt="Fragment of CRAN website with links to download R"></p>
+<figcaption>Install R</figcaption>
 </figure>
 </div>
-<p>This principle, which may seem purely technical, has important analytical implications because it forces one to explicitly state what is considered a variable, what counts as an observation, and how data is structured. This can change not only between datasets but also between analyses and even between functions. For example, a function that performs a statistical analysis comparing groups might take the grouping variable from a single column or might require each group to have its own column.</p>
-<p>Another distinctive feature of the Tidyverse is its emphasis on code readability. Functions often have verbal names, arguments prioritize clarity, and the use of the <code>%&gt;%</code> operator suggests a sequential reading of operations. For those coming from traditions where text interpretation and procedure explication are central, this orientation is particularly appealing. The code is presented as a sequence of transformations that can be read almost like a narrative of the analysis (<a href="https://www.reddit.com/r/rstats/comments/vbd6jq/piping_in_r_is_like_baking/#lightbox">or like a cooking recipe!</a>)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
-<p>This does not mean that the Tidyverse replaces R base. In fact, it constantly relies on it. Many Tidyverse functions wrap or reorganize existing functionalities in R base, offering a different interface. Choosing to work with R base, with specific packages, or with the Tidyverse is not a matter of correctness, but of approach. Each option implies adopting certain conventions and foregoing others. It also has to do with knowing the audience for our code: certain packages tend to be more <em>famous</em> in specific fields, and that can prioritize our decision to use them over less known alternatives. Ultimately, it’s about using the <em>language</em> in a way that will facilitate its understanding.</p>
-<p>Understanding these differences allows us to move beyond a purely instrumental logic. Using R is not just about knowing which command to execute, but about understanding what conceptual framework we are employing when doing so. R base, packages, and the Tidyverse form layers of the same language, which combine in various ways depending on the research problem, the type of data, and the questions one wants to ask.</p>
-<p>In the next texts in this series, we will revisit these tools with concrete examples. The idea will not be to learn lists of functions, but to develop criteria for reading code, recognizing styles, and consciously choosing how to work with R in situated research contexts.</p>
+<p>Technically, we could use R directly from the software we just installed, on Windows and macOS. However, it is not a very user-friendly graphical interface, so most people use other <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">environments</a> like RStudio, VSCode, or Positron. If we are just starting, it is preferable to use RStudio, because most tutorials will show images of that environment.</p>
+<p>As we mentioned <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">in a previous post</a>, RStudio is an independent program that is installed separately. It is a graphical interface (technically, an integrated development environment) that facilitates the interaction between the user and the R programming language. To install it, you have to go to the <a href="https://posit.co/download/rstudio-desktop">RStudio</a> site and download the free version. As seen in the image, we can also install R from here, but if we have already installed it from CRAN, there is no need to install it again.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/installRStudio.jpg" class="img-fluid figure-img" alt="Fragments from RStudio website with links to install RStudio"></p>
+<figcaption>Install RStudio.</figcaption>
+</figure>
+</div>
+<p>When opening RStudio for the first time, it automatically detects the R installation and is ready to use. From that moment on, RStudio becomes the main workspace.</p>
+<p>With R and RStudio installed, it is now possible to write and execute code. The next usual step is to install packages, which are add-ons that extend R’s capabilities. One of the most used is the Tidyverse, a set of packages designed to work with data in an organized and readable way (you can read more about what packages are <a href="http://atelierdecodigo.com/en/posts/r-base-tidyverse.html">here</a>).</p>
+<p>Installing a package in R is done by typing an instruction in the console. In the case of the Tidyverse, the command is:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Once we write the code, we must execute it (control+Enter or the “Run” icon). This step requires an internet connection and may take a few minutes, because the Tidyverse includes several packages. Many colored messages will appear in the console: this is normal (unless something says “Warning” or “Error”). The installation is done only once. Once installed, to use it in a work session, you have to load it with:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tibble' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyr' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readr' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'stringr' was built under R version 4.4.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.2.0
+✔ forcats   1.0.0     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<p>This difference between installing and loading often causes confusion at first. Installing downloads the package to the computer. Loading makes it available in the current R session. Every time a new session is started and you want to use the Tidyverse, you have to run <code>library(tidyverse)</code> again.</p>
+<p>After loading it, R shows some messages in the console indicating which packages were activated. From that moment on, functions like <code>ggplot</code>, <code>mutate</code>, or <code>filter</code> become available. There’s no need to understand them all immediately. The important thing is to know that they are part of the same ecosystem and share a common logic.</p>
+<p>A practical tip for beginners is to verify that everything is working. For example, write a simple line like:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="instalar-r-rstudio_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If a plot appears, the installation was successful. It doesn’t matter if the code is not yet understood. That will be worked on later.</p>
+<p>Installing R, RStudio, and the Tidyverse marks the beginning of the work. From there, learning R involves familiarizing oneself with <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">the environment</a>, with writing <a href="http://atelierdecodigo.com/posts/console-script-writing-code.html">scripts</a>, and with reading code. Having these tools well installed and working avoids many unnecessary problems and allows you to focus on what’s most important: understanding what the code does and how to use it to analyze data.</p>
+<p>In the next posts of this series, we will break down these pieces in more detail, so that the initial step transforms into a solid working foundation.</p>
 
 
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Again, metaphors appear that bring programming language closer to other disciplines. In this case, I’m thinking of Jerry Fodor’s <a href="https://books.google.com.ar/books?id=ISgIzxoFgikC&amp;printsec=copyright#v=onepage&amp;q&amp;f=false">the modular conception of the mind</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>A clarification is needed here. The famous <code>%&gt;%</code> operator (<em>pipe</em>) was for a long time synonymous with the Tidyverse, although it comes from the specific <code>magrittr</code> package. However, R version 4.1.0, released in May 2021, incorporated a similar operator, <code>|&gt;</code>, meaning that function chaining, like that seen in that charming GIF, is no longer exclusive to the Tidyverse. Strictly speaking, both operators have different functionalities, so massively replacing the <code>%&gt;%</code> operator with <code>|&gt;</code> in our code can lead to errors. The differences might be too technical for someone just starting, but if you’re interested, you can read more <a href="https://tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/">here</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
