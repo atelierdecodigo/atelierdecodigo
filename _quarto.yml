@@ -37,3 +37,6 @@ format:
       - _includes/google-ads-head.html
       - _includes/hreflang.html
       - _includes/googletag.html
+      
+resources:
+  - ads.txt
