@@ -10,7 +10,63 @@
 <atom:link href="https://atelierdecodigo.com/en/posts/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.8.27</generator>
-<lastBuildDate>Sat, 11 Apr 2026 03:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 11 Jun 2026 03:00:00 GMT</lastBuildDate>
+<item>
+  <title>Why You Should Get Used to Commenting Your Code</title>
+  <dc:creator>Atelier de Código</dc:creator>
+  <link>https://atelierdecodigo.com/en/posts/comentar-codigo.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="commenting-code-an-investment-that-always-pays-off" class="level1">
+<h1>Commenting Code: An Investment That Always Pays Off</h1>
+<p>There’s a pretty common scene when we program. We open a script we wrote six months ago (or even less…), find <em>a huge chunk</em> of code and think: “What was I trying to do here?”.</p>
+<p>The problem is usually not remembering the syntax. The difficult part is reconstructing the decisions we made during the analysis: why did we do this? where were we trying to go? why did we filter certain cases, why did we choose one variable over another, or what criterion did we use to exclude observations?</p>
+<p><a href="https://es.wikipedia.org/wiki/Comentario_(inform%C3%A1tica)">Comments</a> help precisely with that. In R, a comment is any text that appears after the <code>#</code> symbol. The computer ignores it, but people don’t.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Excluimos participantes que no completaron la segunda sesión</span></span>
+<span id="cb1-2">datos <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> datos <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb1-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(sesion2_completa <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span></code></pre></div></div>
+</div>
+<p>The key is that comments shouldn’t repeat what the code already says. Their function is to explain the context or the reason behind a decision.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Crear variable edad</span></span>
+<span id="cb2-2">edad <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> datos<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>edad</span></code></pre></div></div>
+</div>
+<p>This comment adds little because it simply describes the following line. Instead, explaining <em>why</em> we do something is often much more useful than explaining <em>what</em> we are doing. However, when we are starting to program, it might be useful to include such comments, even if they seem obvious, to help us familiarize ourselves with functions and syntax.</p>
+<p>Commenting code is especially important for <a href="https://atelierdecodigo.com/posts/reproducibilidad.html">reproducibility</a>. A script allows an analysis to be repeated, but comments help to understand it. When another person needs to review our work, or when we ourselves return to the project months later, having that context can save a lot of time.</p>
+<p>They are also a fundamental tool for teamwork, for example in <a href="https://atelierdecodigo.com/posts/proyectos-control-versiones-github.html">a Github repository</a>. Reading someone else’s code already requires considerable effort. A few well-placed comments can prevent misinterpretations and make it easier for others to continue the work.</p>
+<p>There’s something paradoxical about all this. Many times we write comments thinking of colleagues or collaborators. However, the one who usually benefits the most is our future self. That person who will open the script in a few months and will be grateful that someone took the trouble to leave some clues.</p>
+<p>And that someone, probably, was you.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>article</category>
+  <guid>https://atelierdecodigo.com/en/posts/comentar-codigo.html</guid>
+  <pubDate>Thu, 11 Jun 2026 03:00:00 GMT</pubDate>
+</item>
 <item>
   <title>What is Machine Learning?</title>
   <dc:creator>Atelier de Código</dc:creator>
@@ -561,21 +617,33 @@ font-style: inherit;">"tidyverse"</span>)</span></code></pre></div></div>
 background-color: null;
 font-style: inherit;">library</span>(tidyverse)</span></code></pre></div></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tibble' was built under R version 4.4.1</code></pre>
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.4.1</code></pre>
+<pre><code>Warning: package 'tibble' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyr' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readr' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.4.3</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'stringr' was built under R version 4.4.1</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ dplyr     1.2.0     ✔ readr     2.2.0
 ✔ forcats   1.0.0     ✔ stringr   1.6.0
-✔ ggplot2   3.5.1     ✔ tibble    3.3.0
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.2.0     
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
@@ -586,7 +654,7 @@ font-style: inherit;">library</span>(tidyverse)</span></code></pre></div></div>
 <p>After loading it, R shows some messages in the console indicating which packages were activated. From that moment on, functions like <code>ggplot</code>, <code>mutate</code>, or <code>filter</code> become available. There’s no need to understand them all immediately. The important thing is to know that they are part of the same ecosystem and share a common logic.</p>
 <p>A practical tip for beginners is to verify that everything is working. For example, write a simple line like:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(mtcars, <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -762,6 +830,106 @@ font-style: inherit;">geom_point</span>()</span></code></pre></div></div>
  ]]></description>
   <guid>https://atelierdecodigo.com/en/posts/r-lenguaje-programacion.html</guid>
   <pubDate>Sat, 17 Jan 2026 03:00:00 GMT</pubDate>
+</item>
+<item>
+  <title></title>
+  <link>https://atelierdecodigo.com/en/posts/rstudio-posit.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<pre><code>---
+title: "From RStudio to Posit: when an R tool stopped wanting to be called R"
+date: 2026-09-10
+categories: [article]
+page-layout: full
+toc: false
+author: "Atelier de Código"
+description: "For years, RStudio was synonymous with working with R. In 2022, the company changed its name to Posit. What really changed? A bit of history to understand how a tool born around R ended up building an ecosystem that includes Python, Quarto, and other technologies, and why removing the R from the name was a way to communicate that transformation."
+---
+
+# From RStudio to Posit: when an R tool stopped wanting to be called R
+
+If you started using R some years ago, you probably remember RStudio. The program with the console, the editor, the plots, the files, the packages. The place where almost everything we did with R happened. Then, one day, RStudio became Posit. And it wasn't just a logo change.
+
+Behind that name change is a rather interesting story about how a tool born around R ended up becoming something much broader.
+
+## In the beginning, there was R
+
+In 2009, J.J. Allaire founded RStudio with a very specific idea: to create open-source tools that would make working with R more accessible. In 2011, RStudio IDE appeared, the environment that many of us simply started calling "RStudio." The choice of name made a lot of sense. RStudio was, literally, a studio for R.
+
+Over time, however, the company started doing many more things. Shiny, R Markdown, RStudio Connect, Package Manager, machine learning tools, database integration, and a host of projects appeared, broadening what it meant to work with data from the R ecosystem. In 2017, [tidyverse](https://atelierdecodigo.com/posts/r-base-tidyverse.html) appeared as part of this story, and by 2019, RStudio already explicitly incorporated support for Python and Jupyter.
+
+And that's when a small contradiction began to appear. The company was called RStudio, but it made less and less sense to think that its work consisted only of building tools for R.
+
+## The Problem of Being Called RStudio
+
+There's something interesting about software tool names: they don't just describe what they do. They also condition what we expect them to do. If a company is called RStudio and works on a project for Python, for example, something needs to be explained before the project itself can be explained:
+
+&gt; "Yes, we are RStudio, but this also works with Python."
+
+It's not a technical problem. It's a representation problem. And this was precisely part of the argument made by J.J. Allaire and Hadley Wickham when they announced the name change in 2022. RStudio had started with a name linked to its IDE and the R ecosystem, but as the company grew, that name had become too narrow. In fact, by that time, Python support was not a future idea. RStudio had already been developing tools that connected R and Python for several years, and its professional products offered support for Python, Jupyter, and other technologies.
+
+That's why the change was presented in a way that I find important: **they were not abandoning R to switch to Python**. They were changing the name to make it visible that they were already doing something broader.
+
+## Then Posit Appeared
+
+In July 2022, they announced that RStudio would be renamed **Posit**. The change became effective in November of that year. The name was not chosen randomly either. In English, *to posit* means to propose or put forward an idea. And the choice has a direct relationship with scientific activity: we posit a hypothesis, an assertion, or an explanation, and then we test it with data.
+
+It's a word that, moreover, is not tied to a programming language. And this last point was important. The new identity aimed to represent a company that works with data, science, and technical communication regardless of whether the code is written in R, Python, or another language.
+
+Even the logo tries to represent something of that idea: the signs resemble comparison operators, HTML angles, and, according to the company's own explanation, the combination of different tools, languages, and environments.
+
+## Does That Mean Posit Ceased to Be an R Company?
+
+No. And this is probably the part that is most easily lost when we tell the story as "RStudio became Posit because it now uses Python." Posit itself was quite explicit about it: the name change **did not imply abandoning R**. Its intention was to expand the community it could serve, also incorporating those who work primarily with Python and other technologies.
+
+In fact, some of the most important things we associate with RStudio are still deeply linked to R. `ggplot2`, `dplyr`, `tidyr`, `shiny`, `rmarkdown`, `tidymodels`: Posit's story cannot be understood without the history of the R ecosystem. What changed was the place R occupies within that story. Before, R was in the company's name. Now it is one of the languages the company considers part of a broader ecosystem.
+
+## And Python Began to Occupy Another Place
+
+The expansion into Python didn't happen overnight in 2022 either. An important piece was **reticulate**, which allows interaction with Python from R. Support for Jupyter also appeared and, progressively, for tools and frameworks specific to the Python ecosystem. Posit Connect, for example, began to allow working with applications and content built with technologies such as Streamlit, Dash, Bokeh, and FastAPI.
+
+And then projects appeared that directly don't make sense if we think of Posit as "the R company." One of the clearest examples is **Quarto**, the scientific and technical publishing system that allows combining code, text, and results working with different languages, including R and Python. Quarto was announced precisely in 2022, around the time of the identity change. More recently, the expansion continued with tools like **Positron**, a data science-oriented development environment that works with both R and Python, and with other explicitly multilingual projects.
+
+Viewed from that perspective, the name change begins to look less like a marketing decision and more like a way to catch up with what the company was already building.
+
+## But There's Something More Interesting Behind It
+
+I'm interested in thinking of this change as a small lesson on how technological tools evolve. When RStudio appeared, it made sense to organize the problem around a language. If we wanted to do statistical analysis with R, we needed a good environment to write, execute, and organize R code. But working with data grew and became less dependent on a single language.
+
+Today we can have a project where one part of the analysis is in R, another in Python, the data comes from an SQL database, the final document is written with Quarto, and the result is published on the web.
+
+In that scenario, asking "what language do you use?" is still important, but it no longer describes everything that's happening. And that's where a deeper issue arises: **tools also construct our idea of what programming means**. If we think that programming is writing code in a specific language, R and Python seem like separate worlds. If we think that programming is building procedures to transform data, model phenomena, produce visualizations, and communicate results, then many more things start to appear in common.
+
+Perhaps that's what Posit was trying to name.
+
+## And What Happened to RStudio?
+
+Here a small paradox appears. RStudio, the company name, disappeared. But **RStudio, the program, did not**. After the change, the name RStudio was reserved for the IDE we use to work with R and other languages. The company's products were renamed: RStudio Cloud became Posit Cloud; RStudio Connect, Posit Connect; RStudio Workbench, Posit Workbench; and RStudio Package Manager, Posit Package Manager.
+
+This allows distinguishing two things that were mixed up for years. **RStudio** is a tool. **Posit** is the company and, increasingly, an ecosystem of tools for data science, research, and technical communication. And that distinction explains a good part of the confusion we still have when someone says "RStudio" and we don't know if they are talking about the program or the company.
+
+## From R to Languages
+
+There is one last point that I find particularly interesting. The change from RStudio to Posit can be read as a business strategy: if a significant part of the data science community works with Python, it makes sense to develop tools for Python. But it can also be read as a decision about **what it means to make tools for data science**.
+
+Posit maintains that its mission is to develop open-source software for data science, scientific research, and technical communication. In its own history, R was the starting point, but the horizon expanded towards tools that cross languages and environments.
+
+And there's an important difference between saying "we also support Python" and building tools that are deliberately language-agnostic. The former adds functionality. The latter changes the question.
+
+It's no longer about how to make Python work within a tool designed for R. It's about building tools that allow working with data without the language necessarily being the center of the experience. Perhaps that's why the name change was necessary.
+
+**RStudio had been a great name for a company that wanted to improve the experience of working with R. Posit is a more suitable name for a company that wants to intervene in a much bigger question: how do we build knowledge with data, code, and computational tools.**
+
+And, looking at the trajectory of recent years, it seems that the decision to remove the R from the name had less to do with moving away from R than with recognizing that the world in which RStudio had grown was already much bigger than R.</code></pre>
+
+
+
+ ]]></description>
+  <guid>https://atelierdecodigo.com/en/posts/rstudio-posit.html</guid>
+  <pubDate>Sun, 06 Sep 2026 21:44:52 GMT</pubDate>
 </item>
 </channel>
 </rss>

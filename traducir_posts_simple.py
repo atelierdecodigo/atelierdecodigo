@@ -61,7 +61,7 @@ def traducir_archivo(api_key: str, contenido: str, nombre: str) -> str:
     
     headers = {"Content-Type": "application/json"}
     
-    response = requests.post(url, json=payload, headers=headers, timeout=60)
+    response = requests.post(url, json=payload, headers=headers, timeout=180)
     response.raise_for_status()
     
     data = response.json()

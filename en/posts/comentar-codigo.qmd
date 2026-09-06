@@ -1,0 +1,40 @@
+---
+title: "Why You Should Get Used to Commenting Your Code"
+date: 2026-06-11
+categories: [article]
+page-layout: full
+toc: false
+author: "Atelier de Código"
+description: "If you've ever opened an old script and didn't understand why you made certain decisions, this post is for you. In this article, we'll see how comments improve reproducibility, facilitate teamwork, and, most importantly, help our future self understand what our past self was trying to do."
+---
+
+# Commenting Code: An Investment That Always Pays Off
+
+There's a pretty common scene when we program. We open a script we wrote six months ago (or even less...), find *a huge chunk* of code and think: "What was I trying to do here?".
+
+The problem is usually not remembering the syntax. The difficult part is reconstructing the decisions we made during the analysis: why did we do this? where were we trying to go? why did we filter certain cases, why did we choose one variable over another, or what criterion did we use to exclude observations?
+
+[Comments](https://es.wikipedia.org/wiki/Comentario_(inform%C3%A1tica)) help precisely with that. In R, a comment is any text that appears after the `#` symbol. The computer ignores it, but people don't.
+
+```{r, eval=FALSE}
+# Excluimos participantes que no completaron la segunda sesión
+datos <- datos |>
+  filter(sesion2_completa == TRUE)
+```
+
+The key is that comments shouldn't repeat what the code already says. Their function is to explain the context or the reason behind a decision.
+
+```{r, eval=FALSE}
+# Crear variable edad
+edad <- datos$edad
+```
+
+This comment adds little because it simply describes the following line. Instead, explaining *why* we do something is often much more useful than explaining *what* we are doing. However, when we are starting to program, it might be useful to include such comments, even if they seem obvious, to help us familiarize ourselves with functions and syntax.
+
+Commenting code is especially important for [reproducibility](https://atelierdecodigo.com/posts/reproducibilidad.html). A script allows an analysis to be repeated, but comments help to understand it. When another person needs to review our work, or when we ourselves return to the project months later, having that context can save a lot of time.
+
+They are also a fundamental tool for teamwork, for example in [a Github repository](https://atelierdecodigo.com/posts/proyectos-control-versiones-github.html). Reading someone else's code already requires considerable effort. A few well-placed comments can prevent misinterpretations and make it easier for others to continue the work.
+
+There's something paradoxical about all this. Many times we write comments thinking of colleagues or collaborators. However, the one who usually benefits the most is our future self. That person who will open the script in a few months and will be grateful that someone took the trouble to leave some clues.
+
+And that someone, probably, was you.

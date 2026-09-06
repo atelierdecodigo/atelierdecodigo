@@ -2,6 +2,8 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/rstudio-posit.html",
+      "/posts/comentar-codigo.html",
       "/posts/que-es-machine-learning.html",
       "/posts/escribir-codigo-a-mano.html",
       "/posts/herramientas-analisis-estadistico.html",
@@ -23,6 +25,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/rstudio-posit.html",
+      "/posts/comentar-codigo.html",
       "/posts/que-es-machine-learning.html",
       "/posts/escribir-codigo-a-mano.html",
       "/posts/herramientas-analisis-estadistico.html",

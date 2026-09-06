@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Atelier de Código">
-<meta name="dcterms.date" content="2026-01-22">
-<meta name="description" content="How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.">
 
-<title>Getting Started with R: Installation and First Steps – Atelier de Código</title>
+<title>rstudio-posit – Atelier de Código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -115,15 +77,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Getting Started with R: Installation and First Steps – Atelier de Código">
-<meta property="og:description" content="How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.">
-<meta property="og:image" content="https://atelierdecodigo.com/en/posts/images/installR.jpg">
+<meta property="og:title" content="Atelier de Código">
 <meta property="og:site_name" content="Atelier de código">
 <meta property="og:locale" content="en_US">
-<meta property="og:image:alt" content="Fragment of CRAN website with links to download R">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -174,124 +133,101 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Getting Started with R: Installation and First Steps</h1>
-</div>
-
-<div>
-  <div class="description">
-    How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.
-  </div>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-<div class="quarto-title-meta column-page">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Atelier de Código </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 22, 2026</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
 
 
-</header>
+<pre><code>---
+title: "From RStudio to Posit: when an R tool stopped wanting to be called R"
+date: 2026-09-10
+categories: [article]
+page-layout: full
+toc: false
+author: "Atelier de Código"
+description: "For years, RStudio was synonymous with working with R. In 2022, the company changed its name to Posit. What really changed? A bit of history to understand how a tool born around R ended up building an ecosystem that includes Python, Quarto, and other technologies, and why removing the R from the name was a way to communicate that transformation."
+---
 
+# From RStudio to Posit: when an R tool stopped wanting to be called R
 
-<p>Starting with R often raises very specific questions. What to install, in what order, what each thing is for. Before writing a single line of code, it’s worth clarifying this point, because R works with several pieces that combine with each other. The good news is that the installation process is simple and only needs to be done once.</p>
-<p>The first step is to install R. R is the programming language itself. To do this, go to the official project site <a href="https://cran.r-project.org">CRAN</a>, and choose the installer file that corresponds to your operating system (Windows, macOS, or Linux). By clicking, you will access the specific instructions for each case.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/installR.jpg" class="img-fluid figure-img" alt="Fragment of CRAN website with links to download R"></p>
-<figcaption>Install R</figcaption>
-</figure>
-</div>
-<p>Technically, we could use R directly from the software we just installed, on Windows and macOS. However, it is not a very user-friendly graphical interface, so most people use other <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">environments</a> like RStudio, VSCode, or Positron. If we are just starting, it is preferable to use RStudio, because most tutorials will show images of that environment.</p>
-<p>As we mentioned <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">in a previous post</a>, RStudio is an independent program that is installed separately. It is a graphical interface (technically, an integrated development environment) that facilitates the interaction between the user and the R programming language. To install it, you have to go to the <a href="https://posit.co/download/rstudio-desktop">RStudio</a> site and download the free version. As seen in the image, we can also install R from here, but if we have already installed it from CRAN, there is no need to install it again.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/installRStudio.jpg" class="img-fluid figure-img" alt="Fragments from RStudio website with links to install RStudio"></p>
-<figcaption>Install RStudio.</figcaption>
-</figure>
-</div>
-<p>When opening RStudio for the first time, it automatically detects the R installation and is ready to use. From that moment on, RStudio becomes the main workspace.</p>
-<p>With R and RStudio installed, it is now possible to write and execute code. The next usual step is to install packages, which are add-ons that extend R’s capabilities. One of the most used is the Tidyverse, a set of packages designed to work with data in an organized and readable way (you can read more about what packages are <a href="http://atelierdecodigo.com/en/posts/r-base-tidyverse.html">here</a>).</p>
-<p>Installing a package in R is done by typing an instruction in the console. In the case of the Tidyverse, the command is:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Once we write the code, we must execute it (control+Enter or the “Run” icon). This step requires an internet connection and may take a few minutes, because the Tidyverse includes several packages. Many colored messages will appear in the console: this is normal (unless something says “Warning” or “Error”). The installation is done only once. Once installed, to use it in a work session, you have to load it with:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tibble' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyr' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'readr' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'dplyr' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'stringr' was built under R version 4.4.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.2.0     ✔ readr     2.2.0
-✔ forcats   1.0.0     ✔ stringr   1.6.0
-✔ ggplot2   4.0.2     ✔ tibble    3.3.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.2
-✔ purrr     1.2.1     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-</div>
-<p>This difference between installing and loading often causes confusion at first. Installing downloads the package to the computer. Loading makes it available in the current R session. Every time a new session is started and you want to use the Tidyverse, you have to run <code>library(tidyverse)</code> again.</p>
-<p>After loading it, R shows some messages in the console indicating which packages were activated. From that moment on, functions like <code>ggplot</code>, <code>mutate</code>, or <code>filter</code> become available. There’s no need to understand them all immediately. The important thing is to know that they are part of the same ecosystem and share a common logic.</p>
-<p>A practical tip for beginners is to verify that everything is working. For example, write a simple line like:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="instalar-r-rstudio_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>If a plot appears, the installation was successful. It doesn’t matter if the code is not yet understood. That will be worked on later.</p>
-<p>Installing R, RStudio, and the Tidyverse marks the beginning of the work. From there, learning R involves familiarizing oneself with <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">the environment</a>, with writing <a href="http://atelierdecodigo.com/posts/console-script-writing-code.html">scripts</a>, and with reading code. Having these tools well installed and working avoids many unnecessary problems and allows you to focus on what’s most important: understanding what the code does and how to use it to analyze data.</p>
-<p>In the next posts of this series, we will break down these pieces in more detail, so that the initial step transforms into a solid working foundation.</p>
+If you started using R some years ago, you probably remember RStudio. The program with the console, the editor, the plots, the files, the packages. The place where almost everything we did with R happened. Then, one day, RStudio became Posit. And it wasn't just a logo change.
+
+Behind that name change is a rather interesting story about how a tool born around R ended up becoming something much broader.
+
+## In the beginning, there was R
+
+In 2009, J.J. Allaire founded RStudio with a very specific idea: to create open-source tools that would make working with R more accessible. In 2011, RStudio IDE appeared, the environment that many of us simply started calling "RStudio." The choice of name made a lot of sense. RStudio was, literally, a studio for R.
+
+Over time, however, the company started doing many more things. Shiny, R Markdown, RStudio Connect, Package Manager, machine learning tools, database integration, and a host of projects appeared, broadening what it meant to work with data from the R ecosystem. In 2017, [tidyverse](https://atelierdecodigo.com/posts/r-base-tidyverse.html) appeared as part of this story, and by 2019, RStudio already explicitly incorporated support for Python and Jupyter.
+
+And that's when a small contradiction began to appear. The company was called RStudio, but it made less and less sense to think that its work consisted only of building tools for R.
+
+## The Problem of Being Called RStudio
+
+There's something interesting about software tool names: they don't just describe what they do. They also condition what we expect them to do. If a company is called RStudio and works on a project for Python, for example, something needs to be explained before the project itself can be explained:
+
+&gt; "Yes, we are RStudio, but this also works with Python."
+
+It's not a technical problem. It's a representation problem. And this was precisely part of the argument made by J.J. Allaire and Hadley Wickham when they announced the name change in 2022. RStudio had started with a name linked to its IDE and the R ecosystem, but as the company grew, that name had become too narrow. In fact, by that time, Python support was not a future idea. RStudio had already been developing tools that connected R and Python for several years, and its professional products offered support for Python, Jupyter, and other technologies.
+
+That's why the change was presented in a way that I find important: **they were not abandoning R to switch to Python**. They were changing the name to make it visible that they were already doing something broader.
+
+## Then Posit Appeared
+
+In July 2022, they announced that RStudio would be renamed **Posit**. The change became effective in November of that year. The name was not chosen randomly either. In English, *to posit* means to propose or put forward an idea. And the choice has a direct relationship with scientific activity: we posit a hypothesis, an assertion, or an explanation, and then we test it with data.
+
+It's a word that, moreover, is not tied to a programming language. And this last point was important. The new identity aimed to represent a company that works with data, science, and technical communication regardless of whether the code is written in R, Python, or another language.
+
+Even the logo tries to represent something of that idea: the signs resemble comparison operators, HTML angles, and, according to the company's own explanation, the combination of different tools, languages, and environments.
+
+## Does That Mean Posit Ceased to Be an R Company?
+
+No. And this is probably the part that is most easily lost when we tell the story as "RStudio became Posit because it now uses Python." Posit itself was quite explicit about it: the name change **did not imply abandoning R**. Its intention was to expand the community it could serve, also incorporating those who work primarily with Python and other technologies.
+
+In fact, some of the most important things we associate with RStudio are still deeply linked to R. `ggplot2`, `dplyr`, `tidyr`, `shiny`, `rmarkdown`, `tidymodels`: Posit's story cannot be understood without the history of the R ecosystem. What changed was the place R occupies within that story. Before, R was in the company's name. Now it is one of the languages the company considers part of a broader ecosystem.
+
+## And Python Began to Occupy Another Place
+
+The expansion into Python didn't happen overnight in 2022 either. An important piece was **reticulate**, which allows interaction with Python from R. Support for Jupyter also appeared and, progressively, for tools and frameworks specific to the Python ecosystem. Posit Connect, for example, began to allow working with applications and content built with technologies such as Streamlit, Dash, Bokeh, and FastAPI.
+
+And then projects appeared that directly don't make sense if we think of Posit as "the R company." One of the clearest examples is **Quarto**, the scientific and technical publishing system that allows combining code, text, and results working with different languages, including R and Python. Quarto was announced precisely in 2022, around the time of the identity change. More recently, the expansion continued with tools like **Positron**, a data science-oriented development environment that works with both R and Python, and with other explicitly multilingual projects.
+
+Viewed from that perspective, the name change begins to look less like a marketing decision and more like a way to catch up with what the company was already building.
+
+## But There's Something More Interesting Behind It
+
+I'm interested in thinking of this change as a small lesson on how technological tools evolve. When RStudio appeared, it made sense to organize the problem around a language. If we wanted to do statistical analysis with R, we needed a good environment to write, execute, and organize R code. But working with data grew and became less dependent on a single language.
+
+Today we can have a project where one part of the analysis is in R, another in Python, the data comes from an SQL database, the final document is written with Quarto, and the result is published on the web.
+
+In that scenario, asking "what language do you use?" is still important, but it no longer describes everything that's happening. And that's where a deeper issue arises: **tools also construct our idea of what programming means**. If we think that programming is writing code in a specific language, R and Python seem like separate worlds. If we think that programming is building procedures to transform data, model phenomena, produce visualizations, and communicate results, then many more things start to appear in common.
+
+Perhaps that's what Posit was trying to name.
+
+## And What Happened to RStudio?
+
+Here a small paradox appears. RStudio, the company name, disappeared. But **RStudio, the program, did not**. After the change, the name RStudio was reserved for the IDE we use to work with R and other languages. The company's products were renamed: RStudio Cloud became Posit Cloud; RStudio Connect, Posit Connect; RStudio Workbench, Posit Workbench; and RStudio Package Manager, Posit Package Manager.
+
+This allows distinguishing two things that were mixed up for years. **RStudio** is a tool. **Posit** is the company and, increasingly, an ecosystem of tools for data science, research, and technical communication. And that distinction explains a good part of the confusion we still have when someone says "RStudio" and we don't know if they are talking about the program or the company.
+
+## From R to Languages
+
+There is one last point that I find particularly interesting. The change from RStudio to Posit can be read as a business strategy: if a significant part of the data science community works with Python, it makes sense to develop tools for Python. But it can also be read as a decision about **what it means to make tools for data science**.
+
+Posit maintains that its mission is to develop open-source software for data science, scientific research, and technical communication. In its own history, R was the starting point, but the horizon expanded towards tools that cross languages and environments.
+
+And there's an important difference between saying "we also support Python" and building tools that are deliberately language-agnostic. The former adds functionality. The latter changes the question.
+
+It's no longer about how to make Python work within a tool designed for R. It's about building tools that allow working with data without the language necessarily being the center of the experience. Perhaps that's why the name change was necessary.
+
+**RStudio had been a great name for a company that wanted to improve the experience of working with R. Posit is a more suitable name for a company that wants to intervene in a much bigger question: how do we build knowledge with data, code, and computational tools.**
+
+And, looking at the trajectory of recent years, it seems that the decision to remove the R from the name had less to do with moving away from R than with recognizing that the world in which RStudio had grown was already much bigger than R.</code></pre>
 
 
 

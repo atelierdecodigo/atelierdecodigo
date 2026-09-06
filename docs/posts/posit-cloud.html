@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Atelier de Código">
-<meta name="dcterms.date" content="2026-01-22">
-<meta name="description" content="How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.">
+<meta name="dcterms.date" content="2026-09-06">
+<meta name="description" content="¿Y si pudieras trabajar con R desde cualquier computadora, sin instalar nada? Posit Cloud lleva tu entorno de análisis a la nube y puede simplificar tanto el aprendizaje como la enseñanza. Vemos cómo funciona, qué permite hacer y cuándo realmente vale la pena usarlo.">
 
-<title>Getting Started with R: Installation and First Steps – Atelier de Código</title>
+<title>¿Qué es Posit Cloud y para qué podría querer usarlo? – Atelier de código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,41 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -112,15 +77,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="alternate" hreflang="es" href="https://atelierdecodigo.com/">
 <link rel="alternate" hreflang="en" href="https://atelierdecodigo.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://atelierdecodigo.com/">
+<link rel="alternate" hreflang="es" href="https://tusitio.com/">
+<link rel="alternate" hreflang="en" href="https://tusitio.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://tusitio.com/">
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TDY574S9W1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TDY574S9W1');
+</script>
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Getting Started with R: Installation and First Steps – Atelier de Código">
-<meta property="og:description" content="How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.">
-<meta property="og:image" content="https://atelierdecodigo.com/en/posts/images/installR.jpg">
+<meta property="og:title" content="¿Qué es Posit Cloud y para qué podría querer usarlo? – Atelier de código">
+<meta property="og:description" content="¿Y si pudieras trabajar con R desde cualquier computadora, sin instalar nada? Posit Cloud lleva tu entorno de análisis a la nube y puede simplificar tanto el aprendizaje como la enseñanza. Vemos cómo funciona, qué permite hacer y cuándo realmente vale la pena usarlo.">
 <meta property="og:site_name" content="Atelier de código">
-<meta property="og:locale" content="en_US">
-<meta property="og:image:alt" content="Fragment of CRAN website with links to download R">
+<meta property="og:locale" content="es_AR">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -131,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Atelier de Código</span>
+    <span class="navbar-title">Atelier de código</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -142,19 +117,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../about.html"> 
-<span class="menu-text">About</span></a>
+<span class="menu-text">Acerca de</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../contact.html"> 
-<span class="menu-text">Contact</span></a>
+<span class="menu-text">Contacto</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../posts/index.html"> 
-<span class="menu-text">Blog</span></a>
+<span class="menu-text">Artículos</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -183,12 +158,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Getting Started with R: Installation and First Steps</h1>
-</div>
+<h1 class="title">¿Qué es Posit Cloud y para qué podría querer usarlo?</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">articulo</div>
+  </div>
+  </div>
 
 <div>
   <div class="description">
-    How to start with R from scratch? This post explains step-by-step how to install R and RStudio, how to install and load the Tidyverse, and what to check to ensure everything is working correctly.
+    ¿Y si pudieras trabajar con R desde cualquier computadora, sin instalar nada? Posit Cloud lleva tu entorno de análisis a la nube y puede simplificar tanto el aprendizaje como la enseñanza. Vemos cómo funciona, qué permite hacer y cuándo realmente vale la pena usarlo.
   </div>
 </div>
 
@@ -205,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 22, 2026</p>
+      <p class="date">September 6, 2026</p>
     </div>
   </div>
   
@@ -217,83 +195,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Starting with R often raises very specific questions. What to install, in what order, what each thing is for. Before writing a single line of code, it’s worth clarifying this point, because R works with several pieces that combine with each other. The good news is that the installation process is simple and only needs to be done once.</p>
-<p>The first step is to install R. R is the programming language itself. To do this, go to the official project site <a href="https://cran.r-project.org">CRAN</a>, and choose the installer file that corresponds to your operating system (Windows, macOS, or Linux). By clicking, you will access the specific instructions for each case.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/installR.jpg" class="img-fluid figure-img" alt="Fragment of CRAN website with links to download R"></p>
-<figcaption>Install R</figcaption>
-</figure>
-</div>
-<p>Technically, we could use R directly from the software we just installed, on Windows and macOS. However, it is not a very user-friendly graphical interface, so most people use other <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">environments</a> like RStudio, VSCode, or Positron. If we are just starting, it is preferable to use RStudio, because most tutorials will show images of that environment.</p>
-<p>As we mentioned <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">in a previous post</a>, RStudio is an independent program that is installed separately. It is a graphical interface (technically, an integrated development environment) that facilitates the interaction between the user and the R programming language. To install it, you have to go to the <a href="https://posit.co/download/rstudio-desktop">RStudio</a> site and download the free version. As seen in the image, we can also install R from here, but if we have already installed it from CRAN, there is no need to install it again.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/installRStudio.jpg" class="img-fluid figure-img" alt="Fragments from RStudio website with links to install RStudio"></p>
-<figcaption>Install RStudio.</figcaption>
-</figure>
-</div>
-<p>When opening RStudio for the first time, it automatically detects the R installation and is ready to use. From that moment on, RStudio becomes the main workspace.</p>
-<p>With R and RStudio installed, it is now possible to write and execute code. The next usual step is to install packages, which are add-ons that extend R’s capabilities. One of the most used is the Tidyverse, a set of packages designed to work with data in an organized and readable way (you can read more about what packages are <a href="http://atelierdecodigo.com/en/posts/r-base-tidyverse.html">here</a>).</p>
-<p>Installing a package in R is done by typing an instruction in the console. In the case of the Tidyverse, the command is:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Once we write the code, we must execute it (control+Enter or the “Run” icon). This step requires an internet connection and may take a few minutes, because the Tidyverse includes several packages. Many colored messages will appear in the console: this is normal (unless something says “Warning” or “Error”). The installation is done only once. Once installed, to use it in a work session, you have to load it with:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tibble' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyr' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'readr' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'dplyr' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'stringr' was built under R version 4.4.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.2.0     ✔ readr     2.2.0
-✔ forcats   1.0.0     ✔ stringr   1.6.0
-✔ ggplot2   4.0.2     ✔ tibble    3.3.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.2
-✔ purrr     1.2.1     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-</div>
-<p>This difference between installing and loading often causes confusion at first. Installing downloads the package to the computer. Loading makes it available in the current R session. Every time a new session is started and you want to use the Tidyverse, you have to run <code>library(tidyverse)</code> again.</p>
-<p>After loading it, R shows some messages in the console indicating which packages were activated. From that moment on, functions like <code>ggplot</code>, <code>mutate</code>, or <code>filter</code> become available. There’s no need to understand them all immediately. The important thing is to know that they are part of the same ecosystem and share a common logic.</p>
-<p>A practical tip for beginners is to verify that everything is working. For example, write a simple line like:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="instalar-r-rstudio_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>If a plot appears, the installation was successful. It doesn’t matter if the code is not yet understood. That will be worked on later.</p>
-<p>Installing R, RStudio, and the Tidyverse marks the beginning of the work. From there, learning R involves familiarizing oneself with <a href="http://atelierdecodigo.com/en/posts/integrated-development-environment-ide.html">the environment</a>, with writing <a href="http://atelierdecodigo.com/posts/console-script-writing-code.html">scripts</a>, and with reading code. Having these tools well installed and working avoids many unnecessary problems and allows you to focus on what’s most important: understanding what the code does and how to use it to analyze data.</p>
-<p>In the next posts of this series, we will break down these pieces in more detail, so that the initial step transforms into a solid working foundation.</p>
+<section id="qué-es-posit-cloud-y-para-qué-podría-querer-usarlo" class="level1">
+<h1>¿Qué es Posit Cloud y para qué podría querer usarlo?</h1>
+<p>Hay una escena bastante conocida cuando alguien empieza a trabajar con R.</p>
+<p>Instalás R. Después instalás RStudio. Después aparece un paquete que necesita otra cosa. Después algo no funciona porque tenés una versión vieja de R. Después descubrís que en la computadora de tu colega hay otra versión. Y cuando finalmente lográs que todo funcione, llega el momento de compartir el proyecto y aparece la pregunta: "¿Pero por qué a mí me da error si hice exactamente lo mismo?".</p>
+<p>Una parte importante de aprender a programar tiene que ver justamente con entender que estas cosas existen. Las versiones, los paquetes, las dependencias y el sistema operativo forman parte del entorno en el que corre nuestro código.</p>
+<p>Pero también hay momentos en los que simplemente necesitamos que todo eso funcione y no tenemos ganas de convertir la instalación de R en una unidad didáctica.</p>
+<p>Ahí aparece <strong>Posit Cloud</strong>.</p>
+<section id="r-pero-en-el-navegador" class="level2">
+<h2 class="anchored" data-anchor-id="r-pero-en-el-navegador">R, pero en el navegador</h2>
+<p>Posit Cloud es un servicio que permite utilizar RStudio/Posit directamente desde el navegador. No instalamos R ni RStudio en nuestra computadora: abrimos un proyecto en Posit Cloud y el código se ejecuta en la infraestructura de Posit, en la nube. Cada proyecto tiene su propio entorno, con sus archivos, paquetes, memoria y capacidad de procesamiento.</p>
+<p>Esto es importante porque Posit Cloud no es simplemente una versión web de RStudio. Cuando trabajamos localmente, nuestra computadora es parte del entorno de análisis. Tiene una determinada versión de R, determinados paquetes instalados, cierta cantidad de memoria y determinadas características del sistema operativo. En Posit Cloud, buena parte de esa infraestructura queda del otro lado del navegador.</p>
+<p>Por eso una de las principales ventajas es bastante poco glamorosa, pero enormemente práctica: <strong>podemos abrir nuestro proyecto desde cualquier computadora con un navegador y continuar trabajando</strong>. La computadora de casa, la de la universidad, una notebook prestada o una máquina del aula. No necesitamos volver a instalar todo desde cero cada vez. Y esto empieza a ser todavía más interesante cuando pensamos en enseñar.</p>
+</section>
+<section id="y-si-estoy-aprendiendo" class="level2">
+<h2 class="anchored" data-anchor-id="y-si-estoy-aprendiendo">¿Y si estoy aprendiendo?</h2>
+<p>Supongamos que estás haciendo un curso de análisis de datos y la primera clase consiste en instalar R y RStudio.</p>
+<p>Puede salir todo bien. También puede pasar que una persona tenga Windows, otra macOS, otra Linux; que una tenga permisos de administrador y otra no; que una tenga una versión diferente de R; que un paquete no pueda instalarse; que aparezca un error que nadie sabe muy bien de dónde salió. Y todavía no empezamos a hablar de datos.</p>
+<p>Posit Cloud permite correr ese primer obstáculo hacia atrás. Quien está aprendiendo puede abrir un proyecto desde el navegador y empezar a trabajar con el mismo tipo de entorno que el resto.</p>
+<p>Esto no significa que aprender a instalar software sea inútil. De hecho, en algún momento puede ser importante entender qué estamos instalando y qué significa que R funcione localmente. Pero no siempre necesitamos que esa sea la primera barrera de entrada.</p>
+<p>Para alguien que está aprendiendo análisis de datos, entonces, Posit Cloud puede ser especialmente útil cuando queremos que el esfuerzo inicial esté puesto en <strong>entender qué estamos haciendo con los datos y con el código</strong>, y no en conseguir que todas las computadoras tengan exactamente la misma configuración.</p>
+</section>
+<section id="y-si-estoy-enseñando" class="level2">
+<h2 class="anchored" data-anchor-id="y-si-estoy-enseñando">¿Y si estoy enseñando?</h2>
+<p>Acá, para mí, aparece una de las posibilidades más interesantes. Posit Cloud permite crear <strong>espacios compartidos</strong> para cursos y talleres. Una persona que enseña puede preparar un proyecto con los archivos, datos y paquetes necesarios y utilizarlo como plantilla para una actividad. Cada estudiante puede recibir su propia copia del proyecto y trabajar sobre ella, manteniendo un entorno relativamente homogéneo para toda la clase.</p>
+<p>Esto cambia bastante la lógica de una clase. En lugar de decir:</p>
+<blockquote class="blockquote">
+<p>"Descarguen este archivo, instalen estos paquetes, creen una carpeta, copien estos datos y después abran RStudio..."</p>
+</blockquote>
+<p>podemos decir:</p>
+<blockquote class="blockquote">
+<p>"Entren al proyecto y miren qué tenemos acá."</p>
+</blockquote>
+<p>Y eso tiene una consecuencia pedagógica interesante: <strong>la configuración deja de ocupar el centro de la actividad</strong>.</p>
+<p>Además, quien enseña puede organizar distintos proyectos para distintas clases o actividades, compartirlos con sus estudiantes y reutilizar plantillas. También puede consultar información de uso de los proyectos dentro de un espacio de curso.</p>
+<p>Para una clase de R, por ejemplo, podemos tener un proyecto inicial con un dataset, un script parcialmente construido y los paquetes que vamos a utilizar. Para la siguiente clase podemos partir de otra plantilla. Y cada estudiante puede trabajar sobre su propia copia. El docente no necesita adivinar qué versión de R tiene cada estudiante ni preguntarse si alguien se olvidó de instalar <code>tidyverse</code>. Eso, en determinados contextos, es una ventaja enorme.</p>
+</section>
+<section id="qué-más-podemos-hacer" class="level2">
+<h2 class="anchored" data-anchor-id="qué-más-podemos-hacer">¿Qué más podemos hacer?</h2>
+<p>La idea de "R en el navegador" se queda un poco corta para describir todo lo que ofrece Posit Cloud. El elemento central es el <strong>proyecto</strong>. Un proyecto reúne código, datos y paquetes en un entorno aislado. Podemos crear proyectos de RStudio y también proyectos con Jupyter Notebooks. Los proyectos pueden compartirse y utilizarse como plantillas.</p>
+<p>También podemos:</p>
+<ul>
+<li><p>trabajar con R y Python;</p></li>
+<li><p>instalar paquetes;</p></li>
+<li><p>cargar nuestros propios archivos y datasets;</p></li>
+<li><p>compartir proyectos con otras personas;</p></li>
+<li><p>crear espacios para cursos o equipos;</p></li>
+<li><p>utilizar plantillas para iniciar nuevos proyectos;</p></li>
+<li><p>trabajar con diferentes versiones de R;</p></li>
+<li><p>ejecutar análisis que requieren más recursos que los disponibles en nuestra computadora, dependiendo del plan.</p></li>
+</ul>
+<p>Y hay una distinción importante: <strong>Posit Cloud no es lo mismo que Posit Connect Cloud</strong>.</p>
+<p>Si alguna vez encuentran información sobre "publicar" una aplicación o un informe desde Posit Cloud, conviene mirar la fecha. La función de publicación directa desde Posit Cloud fue discontinuada; actualmente Posit orienta la publicación y alojamiento de productos de datos hacia otros servicios, como Posit Connect Cloud. Los proyectos de RStudio y Jupyter en Posit Cloud siguen funcionando normalmente.</p>
+</section>
+<section id="las-limitaciones-también-importan" class="level2">
+<h2 class="anchored" data-anchor-id="las-limitaciones-también-importan">Las limitaciones también importan</h2>
+<p>Como casi siempre, la pregunta interesante no es solamente qué puede hacer una herramienta, sino <strong>en qué condiciones deja de ser la herramienta adecuada</strong>.</p>
+<p>La primera limitación es bastante concreta: Posit Cloud no hace desaparecer los recursos computacionales. Los proyectos se ejecutan en máquinas virtuales con una cantidad determinada de CPU y memoria, y los planes tienen distintos límites de uso. En el plan gratuito, por ejemplo, tenemos actualmente 25 horas de cómputo mensuales, 1 GB de RAM y 1 CPU.</p>
+<p>Para aprender, hacer ejercicios, trabajar con datasets pequeños y medianos o desarrollar análisis que no sean demasiado exigentes, esto puede alcanzar perfectamente. Para análisis muy pesados, datasets enormes o procesos que necesitan mucha memoria, probablemente no.</p>
+<p>Hay otra limitación conceptual que me parece más interesante: <strong>que algo esté en la nube no significa que deje de ser necesario entender cómo funciona</strong>. Posit Cloud puede resolver el problema de instalar R, pero no el problema de saber qué significa instalar un paquete. Puede hacer que un proyecto sea accesible desde otra computadora, pero no nos explica qué archivos necesita ese proyecto. Puede darnos más memoria, pero no decide por nosotros si un análisis necesita realmente esa memoria. Es decir, la nube puede resolver problemas de infraestructura. No reemplaza la comprensión del análisis. Y quizá justamente por eso resulta interesante como herramienta educativa.</p>
+</section>
+<section id="qué-plan-necesito" class="level2">
+<h2 class="anchored" data-anchor-id="qué-plan-necesito">¿Qué plan necesito?</h2>
+<p>Actualmente Posit ofrece cinco opciones principales: <strong>Free, Basic, Standard, Instructor y Student</strong>. Las diferencias no están solamente en el precio: cambian la cantidad de horas de cómputo, memoria, CPU, proyectos y posibilidades de trabajo compartido.</p>
+<p>El <strong>plan Free</strong> cuesta $0 y está pensado para usos individuales y ocasionales. Incluye 25 horas de cómputo por mes, hasta 25 proyectos, 1 GB de RAM y 1 CPU. Para alguien que está aprendiendo R o quiere probar Posit Cloud, puede ser más que suficiente.</p>
+<p>El <strong>plan Student</strong> está pensado para estudiantes de instituciones que cumplen los requisitos académicos. Tiene las mismas restricciones generales de recursos que el plan gratuito, pero eleva el límite a 75 horas de cómputo mensuales. Actualmente cuesta US$5 por mes y permite pagar horas adicionales si se necesitan.</p>
+<p>Los planes <strong>Basic</strong> y <strong>Standard</strong> están orientados a quienes necesitan más capacidad. Basic ofrece 150 horas de cómputo, hasta 8 GB de RAM y 2 CPU; Standard sube a 500 horas, 32 GB de RAM y 8 CPU. Los precios actuales son US$25 y US$75 mensuales, respectivamente.</p>
+<p>Y después está el <strong>plan Instructor</strong>, que merece una categoría aparte. Está pensado específicamente para enseñar y permite crear espacios compartidos y trabajar con un número ilimitado de proyectos y estudiantes. Incluye 300 horas de cómputo mensuales por instructor y permite elegir entre distintos esquemas para cubrir los costos de los estudiantes.</p>
+<p>Por ejemplo, el docente puede pagar US$15 mensuales por su cuenta y que cada estudiante pague US$5 por su acceso. También existe una modalidad en la que la institución paga US$15 por instructor y US$5 por estudiante, mientras los estudiantes utilizan sus cuentas gratuitas para trabajar dentro del espacio del curso. Y existe una modalidad de facturación por uso, en la que los estudiantes utilizan el espacio del curso y el docente o la institución paga por el consumo de cómputo que exceda el incluido.</p>
+<p>La estructura puede parecer un poco complicada al principio, pero tiene una lógica: <strong>el costo no depende solamente de cuántas personas tienen una cuenta, sino también de cuánto cómputo necesita el trabajo que hacen</strong>.</p>
+</section>
+<section id="entonces-cuándo-usaría-posit-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="entonces-cuándo-usaría-posit-cloud">Entonces, ¿cuándo usaría Posit Cloud?</h2>
+<p>Creo que hay dos situaciones especialmente claras.</p>
+<p>La primera es cuando <strong>estamos aprendiendo</strong> y queremos poder trabajar con R desde distintas computadoras sin tener que reconstruir nuestro entorno cada vez. Es una forma sencilla de reducir la cantidad de infraestructura que tenemos que resolver antes de empezar a analizar datos.</p>
+<p>La segunda es cuando <strong>estamos enseñando</strong> y queremos que un grupo de estudiantes trabaje sobre un entorno común. Ahí la posibilidad de crear proyectos, plantillas, assignments y espacios compartidos puede ahorrar una cantidad considerable de tiempo y, sobre todo, reducir problemas que no tienen nada que ver con el contenido que queremos enseñar.</p>
+<p>Pero hay una tercera situación que me parece menos obvia.</p>
+<p>Podemos usar Posit Cloud para <strong>hacer explícito que un análisis no ocurre simplemente "en R"</strong>. Ocurre en un entorno determinado, con una versión determinada del lenguaje, determinados paquetes, determinados recursos y determinados archivos. Cuando todo eso queda encapsulado dentro de un proyecto, el entorno computacional se vuelve algo que podemos mirar, compartir y reproducir. Y ahí la nube deja de ser solamente una comodidad. Se convierte en una forma de pensar nuestro trabajo.</p>
+<p>Porque una parte importante de aprender a programar no consiste en memorizar qué comando tenemos que escribir. Consiste en empezar a reconocer todas las decisiones que hacen posible que ese comando produzca un resultado.</p>
+<p>Posit Cloud puede sacarnos de encima algunas de esas decisiones cuando no son relevantes para lo que estamos haciendo. Pero también puede ayudarnos a verlas cuando sí lo son.</p>
+<p>Y esa diferencia, entre <strong>no tener que ocuparnos de algo</strong> y <strong>no tener que entenderlo</strong>, me parece bastante importante.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -369,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/atelierdecodigo\.com\/en");
+        var filterRegex = new RegExp("https:\/\/atelierdecodigo\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -696,6 +681,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
+<script src="https://utteranc.es/client.js" repo="atelierdecodigo/atelier-comentarios" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 </div> <!-- /content -->
 
 

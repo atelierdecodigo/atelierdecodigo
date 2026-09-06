@@ -1,0 +1,129 @@
+---
+title: "¿Qué es Posit Cloud y para qué podría querer usarlo?"
+date: 2026-09-06
+categories: [articulo]
+page-layout: full
+toc: false
+author: "Atelier de Código"
+description: "¿Y si pudieras trabajar con R desde cualquier computadora, sin instalar nada? Posit Cloud lleva tu entorno de análisis a la nube y puede simplificar tanto el aprendizaje como la enseñanza. Vemos cómo funciona, qué permite hacer y cuándo realmente vale la pena usarlo."
+---
+
+# ¿Qué es Posit Cloud y para qué podría querer usarlo?
+
+Hay una escena bastante conocida cuando alguien empieza a trabajar con R.
+
+Instalás R. Después instalás RStudio. Después aparece un paquete que necesita otra cosa. Después algo no funciona porque tenés una versión vieja de R. Después descubrís que en la computadora de tu colega hay otra versión. Y cuando finalmente lográs que todo funcione, llega el momento de compartir el proyecto y aparece la pregunta: \"¿Pero por qué a mí me da error si hice exactamente lo mismo?\".
+
+Una parte importante de aprender a programar tiene que ver justamente con entender que estas cosas existen. Las versiones, los paquetes, las dependencias y el sistema operativo forman parte del entorno en el que corre nuestro código.
+
+Pero también hay momentos en los que simplemente necesitamos que todo eso funcione y no tenemos ganas de convertir la instalación de R en una unidad didáctica.
+
+Ahí aparece **Posit Cloud**.
+
+## R, pero en el navegador
+
+Posit Cloud es un servicio que permite utilizar RStudio/Posit directamente desde el navegador. No instalamos R ni RStudio en nuestra computadora: abrimos un proyecto en Posit Cloud y el código se ejecuta en la infraestructura de Posit, en la nube. Cada proyecto tiene su propio entorno, con sus archivos, paquetes, memoria y capacidad de procesamiento.
+
+Esto es importante porque Posit Cloud no es simplemente una versión web de RStudio. Cuando trabajamos localmente, nuestra computadora es parte del entorno de análisis. Tiene una determinada versión de R, determinados paquetes instalados, cierta cantidad de memoria y determinadas características del sistema operativo. En Posit Cloud, buena parte de esa infraestructura queda del otro lado del navegador.
+
+Por eso una de las principales ventajas es bastante poco glamorosa, pero enormemente práctica: **podemos abrir nuestro proyecto desde cualquier computadora con un navegador y continuar trabajando**. La computadora de casa, la de la universidad, una notebook prestada o una máquina del aula. No necesitamos volver a instalar todo desde cero cada vez. Y esto empieza a ser todavía más interesante cuando pensamos en enseñar.
+
+## ¿Y si estoy aprendiendo?
+
+Supongamos que estás haciendo un curso de análisis de datos y la primera clase consiste en instalar R y RStudio.
+
+Puede salir todo bien. También puede pasar que una persona tenga Windows, otra macOS, otra Linux; que una tenga permisos de administrador y otra no; que una tenga una versión diferente de R; que un paquete no pueda instalarse; que aparezca un error que nadie sabe muy bien de dónde salió. Y todavía no empezamos a hablar de datos.
+
+Posit Cloud permite correr ese primer obstáculo hacia atrás. Quien está aprendiendo puede abrir un proyecto desde el navegador y empezar a trabajar con el mismo tipo de entorno que el resto.
+
+Esto no significa que aprender a instalar software sea inútil. De hecho, en algún momento puede ser importante entender qué estamos instalando y qué significa que R funcione localmente. Pero no siempre necesitamos que esa sea la primera barrera de entrada.
+
+Para alguien que está aprendiendo análisis de datos, entonces, Posit Cloud puede ser especialmente útil cuando queremos que el esfuerzo inicial esté puesto en **entender qué estamos haciendo con los datos y con el código**, y no en conseguir que todas las computadoras tengan exactamente la misma configuración.
+
+## ¿Y si estoy enseñando?
+
+Acá, para mí, aparece una de las posibilidades más interesantes. Posit Cloud permite crear **espacios compartidos** para cursos y talleres. Una persona que enseña puede preparar un proyecto con los archivos, datos y paquetes necesarios y utilizarlo como plantilla para una actividad. Cada estudiante puede recibir su propia copia del proyecto y trabajar sobre ella, manteniendo un entorno relativamente homogéneo para toda la clase.
+
+Esto cambia bastante la lógica de una clase. En lugar de decir:
+
+> \"Descarguen este archivo, instalen estos paquetes, creen una carpeta, copien estos datos y después abran RStudio\...\"
+
+podemos decir:
+
+> \"Entren al proyecto y miren qué tenemos acá.\"
+
+Y eso tiene una consecuencia pedagógica interesante: **la configuración deja de ocupar el centro de la actividad**.
+
+Además, quien enseña puede organizar distintos proyectos para distintas clases o actividades, compartirlos con sus estudiantes y reutilizar plantillas. También puede consultar información de uso de los proyectos dentro de un espacio de curso.
+
+Para una clase de R, por ejemplo, podemos tener un proyecto inicial con un dataset, un script parcialmente construido y los paquetes que vamos a utilizar. Para la siguiente clase podemos partir de otra plantilla. Y cada estudiante puede trabajar sobre su propia copia. El docente no necesita adivinar qué versión de R tiene cada estudiante ni preguntarse si alguien se olvidó de instalar `tidyverse`. Eso, en determinados contextos, es una ventaja enorme.
+
+## ¿Qué más podemos hacer?
+
+La idea de \"R en el navegador\" se queda un poco corta para describir todo lo que ofrece Posit Cloud. El elemento central es el **proyecto**. Un proyecto reúne código, datos y paquetes en un entorno aislado. Podemos crear proyectos de RStudio y también proyectos con Jupyter Notebooks. Los proyectos pueden compartirse y utilizarse como plantillas.
+
+También podemos:
+
+-   trabajar con R y Python;
+
+-   instalar paquetes;
+
+-   cargar nuestros propios archivos y datasets;
+
+-   compartir proyectos con otras personas;
+
+-   crear espacios para cursos o equipos;
+
+-   utilizar plantillas para iniciar nuevos proyectos;
+
+-   trabajar con diferentes versiones de R;
+
+-   ejecutar análisis que requieren más recursos que los disponibles en nuestra computadora, dependiendo del plan.
+
+Y hay una distinción importante: **Posit Cloud no es lo mismo que Posit Connect Cloud**.
+
+Si alguna vez encuentran información sobre \"publicar\" una aplicación o un informe desde Posit Cloud, conviene mirar la fecha. La función de publicación directa desde Posit Cloud fue discontinuada; actualmente Posit orienta la publicación y alojamiento de productos de datos hacia otros servicios, como Posit Connect Cloud. Los proyectos de RStudio y Jupyter en Posit Cloud siguen funcionando normalmente.
+
+## Las limitaciones también importan
+
+Como casi siempre, la pregunta interesante no es solamente qué puede hacer una herramienta, sino **en qué condiciones deja de ser la herramienta adecuada**.
+
+La primera limitación es bastante concreta: Posit Cloud no hace desaparecer los recursos computacionales. Los proyectos se ejecutan en máquinas virtuales con una cantidad determinada de CPU y memoria, y los planes tienen distintos límites de uso. En el plan gratuito, por ejemplo, tenemos actualmente 25 horas de cómputo mensuales, 1 GB de RAM y 1 CPU.
+
+Para aprender, hacer ejercicios, trabajar con datasets pequeños y medianos o desarrollar análisis que no sean demasiado exigentes, esto puede alcanzar perfectamente. Para análisis muy pesados, datasets enormes o procesos que necesitan mucha memoria, probablemente no.
+
+Hay otra limitación conceptual que me parece más interesante: **que algo esté en la nube no significa que deje de ser necesario entender cómo funciona**. Posit Cloud puede resolver el problema de instalar R, pero no el problema de saber qué significa instalar un paquete. Puede hacer que un proyecto sea accesible desde otra computadora, pero no nos explica qué archivos necesita ese proyecto. Puede darnos más memoria, pero no decide por nosotros si un análisis necesita realmente esa memoria. Es decir, la nube puede resolver problemas de infraestructura. No reemplaza la comprensión del análisis. Y quizá justamente por eso resulta interesante como herramienta educativa.
+
+## ¿Qué plan necesito?
+
+Actualmente Posit ofrece cinco opciones principales: **Free, Basic, Standard, Instructor y Student**. Las diferencias no están solamente en el precio: cambian la cantidad de horas de cómputo, memoria, CPU, proyectos y posibilidades de trabajo compartido.
+
+El **plan Free** cuesta \$0 y está pensado para usos individuales y ocasionales. Incluye 25 horas de cómputo por mes, hasta 25 proyectos, 1 GB de RAM y 1 CPU. Para alguien que está aprendiendo R o quiere probar Posit Cloud, puede ser más que suficiente.
+
+El **plan Student** está pensado para estudiantes de instituciones que cumplen los requisitos académicos. Tiene las mismas restricciones generales de recursos que el plan gratuito, pero eleva el límite a 75 horas de cómputo mensuales. Actualmente cuesta US\$5 por mes y permite pagar horas adicionales si se necesitan.
+
+Los planes **Basic** y **Standard** están orientados a quienes necesitan más capacidad. Basic ofrece 150 horas de cómputo, hasta 8 GB de RAM y 2 CPU; Standard sube a 500 horas, 32 GB de RAM y 8 CPU. Los precios actuales son US\$25 y US\$75 mensuales, respectivamente.
+
+Y después está el **plan Instructor**, que merece una categoría aparte. Está pensado específicamente para enseñar y permite crear espacios compartidos y trabajar con un número ilimitado de proyectos y estudiantes. Incluye 300 horas de cómputo mensuales por instructor y permite elegir entre distintos esquemas para cubrir los costos de los estudiantes.
+
+Por ejemplo, el docente puede pagar US\$15 mensuales por su cuenta y que cada estudiante pague US\$5 por su acceso. También existe una modalidad en la que la institución paga US\$15 por instructor y US\$5 por estudiante, mientras los estudiantes utilizan sus cuentas gratuitas para trabajar dentro del espacio del curso. Y existe una modalidad de facturación por uso, en la que los estudiantes utilizan el espacio del curso y el docente o la institución paga por el consumo de cómputo que exceda el incluido.
+
+La estructura puede parecer un poco complicada al principio, pero tiene una lógica: **el costo no depende solamente de cuántas personas tienen una cuenta, sino también de cuánto cómputo necesita el trabajo que hacen**.
+
+## Entonces, ¿cuándo usaría Posit Cloud?
+
+Creo que hay dos situaciones especialmente claras.
+
+La primera es cuando **estamos aprendiendo** y queremos poder trabajar con R desde distintas computadoras sin tener que reconstruir nuestro entorno cada vez. Es una forma sencilla de reducir la cantidad de infraestructura que tenemos que resolver antes de empezar a analizar datos.
+
+La segunda es cuando **estamos enseñando** y queremos que un grupo de estudiantes trabaje sobre un entorno común. Ahí la posibilidad de crear proyectos, plantillas, assignments y espacios compartidos puede ahorrar una cantidad considerable de tiempo y, sobre todo, reducir problemas que no tienen nada que ver con el contenido que queremos enseñar.
+
+Pero hay una tercera situación que me parece menos obvia.
+
+Podemos usar Posit Cloud para **hacer explícito que un análisis no ocurre simplemente \"en R\"**. Ocurre en un entorno determinado, con una versión determinada del lenguaje, determinados paquetes, determinados recursos y determinados archivos. Cuando todo eso queda encapsulado dentro de un proyecto, el entorno computacional se vuelve algo que podemos mirar, compartir y reproducir. Y ahí la nube deja de ser solamente una comodidad. Se convierte en una forma de pensar nuestro trabajo.
+
+Porque una parte importante de aprender a programar no consiste en memorizar qué comando tenemos que escribir. Consiste en empezar a reconocer todas las decisiones que hacen posible que ese comando produzca un resultado.
+
+Posit Cloud puede sacarnos de encima algunas de esas decisiones cuando no son relevantes para lo que estamos haciendo. Pero también puede ayudarnos a verlas cuando sí lo son.
+
+Y esa diferencia, entre **no tener que ocuparnos de algo** y **no tener que entenderlo**, me parece bastante importante.

@@ -2,6 +2,8 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/rstudio-posit.html",
+      "/posts/posit-cloud.html",
       "/posts/comentar-codigo.html",
       "/posts/shiny.html",
       "/posts/documentacion.html",
@@ -26,6 +28,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/rstudio-posit.html",
+      "/posts/posit-cloud.html",
       "/posts/comentar-codigo.html",
       "/posts/shiny.html",
       "/posts/documentacion.html",
