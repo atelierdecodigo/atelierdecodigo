@@ -10,6 +10,9 @@ website:
     site-name: "Atelier de código"
     locale: en_US
   navbar:
+    background: "#1E2A38"
+    foreground: "#FAF8F4"
+    type: dark
     left:
       - href: index.qmd
         text: "Home"
@@ -27,7 +30,6 @@ website:
 
 format:
   html:
-    theme: litera
-    css: styles.css
+    theme: [litera, custom.scss]
     include-in-header: 
       - ../_includes/google-ads-head.html

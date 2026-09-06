@@ -768,17 +768,27 @@ Sin ruido. Sin listas vacías.\
 
 ## Qué podés aprender acá
 
+::: {.features-grid}
+
+::: {.feature-card}
 **Programación en R aplicada a datos reales**
 
 Guías claras para cargar, transformar y visualizar datos con tidyverse, ggplot2 y flujos de trabajo reproducibles.
+:::
 
+::: {.feature-card}
 **Análisis cuantitativo con criterio metodológico**
 
 Explicaciones accesibles sobre modelos, decisiones analíticas y herramientas estadísticas, pensadas para investigación social y educativa.
+:::
 
+::: {.feature-card}
 **Fundamentos de ciencia de datos**
 
 Textos introductorios y de profundización sobre machine learning, reproducibilidad y diseño de proyectos de análisis.
+:::
+
+:::
 
 ------------------------------------------------------------------------
 
